@@ -41,7 +41,7 @@ p.abstract{
     font-size: 1.2em;
     line-height: 1.1em;
     color: #8E97A9;
-    text-indent: 50px;
+    margin-left: 50px;
 }
 footer {
     border-top: 1px solid #d5d5d5;
