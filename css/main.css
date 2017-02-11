@@ -2,7 +2,7 @@ body {
     margin: 60px auto;
     width: 70%;
 }
-
+hr { width:100%; height:1px; background: #fff }
 
 h1 {
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
