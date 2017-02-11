@@ -13,6 +13,12 @@ h1 {
 	font-weight: 500;
 	line-height: 26.4px;
 }
+h1:after
+{
+    content:' ';
+    display:block;
+    border:1px solid #8E97A9;
+}
 h2 {
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
 	font-size: 18px;
