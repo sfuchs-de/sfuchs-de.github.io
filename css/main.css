@@ -9,9 +9,10 @@ h1 {
 	font-size: 28px;
 	font-style: normal;
 	font-variant: normal;
+	padding-top: 20px;
 	text-align: center;
 	font-weight: 500;
-	line-height: 26.4px;
+	line-height: 28.4px;
 }
 h1:after
 {
