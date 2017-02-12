@@ -101,7 +101,7 @@ footer {
     border-top: 1px solid #d5d5d5;
     font-size: .8em;
 }
-head:after
+ul:after
 {
     content:' ';
     display:block;
