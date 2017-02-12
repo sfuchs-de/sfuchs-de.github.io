@@ -105,6 +105,7 @@ footer {
 nav {
     border-bottom: 1px solid #d5d5d5;
     font-size: .8em;
+    text-align: right;
 }
 
 ul.posts { 
