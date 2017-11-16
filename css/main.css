@@ -34,7 +34,7 @@ h2:after
     content:' ';
     display:block;
     border:.5px solid grey;
-    width: 15%;
+    width: 10%;
 }
 h3 {
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
