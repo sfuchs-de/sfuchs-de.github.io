@@ -28,13 +28,7 @@ h2 {
 	padding-top: 20px;
 	font-weight: 500;
 	line-height: 20.4px;
-}
-h2:after
-{
-    content:' ';
-    display:block;
-    border:.5px solid grey;
-    width: 5%;
+	text-decoration: underline;
 }
 h3 {
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
