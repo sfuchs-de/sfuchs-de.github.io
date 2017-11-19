@@ -88,6 +88,12 @@ nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
+nav:after
+{
+    content:' ';
+    display:block;
+    border:1px solid #8E97A9;
+}
 a {
     text-decoration: none;
     color: #6495ED;
