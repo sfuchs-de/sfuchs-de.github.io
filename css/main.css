@@ -87,7 +87,9 @@ nav:after
     content:' ';
     display:block;
     border:1px solid #8E97A9;
+    width: 25%;
 }
+
 a {
     text-decoration: none;
     color: #6495ED;
