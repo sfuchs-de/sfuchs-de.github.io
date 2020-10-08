@@ -11,8 +11,8 @@ h1 {
 	font-variant: normal;
 	padding-top: 20px;
 	text-align: center;
-	font-weight: 500;
-	line-height: 28.4px;
+	font-weight: 800;
+	line-height: 23px;
 }
 h1:after
 {
@@ -27,15 +27,15 @@ h2 {
 	font-variant: normal;
 	padding-top: 20px;
 	font-weight: 800;
-	line-height: 20.4px;
+	line-height: 23px;
 }
 h3 {
 	font-family: Raleway;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 500;
-	line-height: 15.4px;
+	font-weight: 700;
+	line-height: 23px;
 }
 h4 {
 	font-family: Raleway;
@@ -43,7 +43,7 @@ h4 {
 	font-style: italic;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 15.4px;
+	line-height: 23px;
 }
 p {
 	font-family: Raleway;
@@ -52,11 +52,11 @@ p {
 	font-variant: normal;
 	font-weight: 400;
 	padding-top: 10px;
-	line-height: 20px;
+	line-height: 23px;
 }
 blockquote {
 	font-family: Raleway;
-	font-size: 21px;
+	font-size: 17px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 400;
