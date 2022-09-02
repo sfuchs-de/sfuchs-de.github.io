@@ -23,11 +23,12 @@ h1:after
 
 h5 {
 	font-family: nunito, sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	font-style: normal;
 	font-variant: normal;
 	padding-top: 20px;
-	font-weight: 800;
+	padding-bottom: 20px;
+	font-weight: 300;
 	line-height: 23px;
 }
 h5:after
@@ -35,7 +36,7 @@ h5:after
     content:' ';
     display:block;
     border:1px solid #8E97A9;
-    width: 62%;
+    width: 50%;
 }
 
 h2 {
