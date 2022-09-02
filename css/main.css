@@ -28,15 +28,8 @@ h5 {
 	font-variant: normal;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	font-weight: 300;
+	font-weight: 500;
 	line-height: 23px;
-}
-h5:after
-{
-    content:' ';
-    display:block;
-    border:1px solid #8E97A9;
-    width: 50%;
 }
 
 h2 {
