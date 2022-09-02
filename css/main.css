@@ -20,6 +20,24 @@ h1:after
     display:block;
     border:1px solid #8E97A9;
 }
+
+h5 {
+	font-family: nunito, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	padding-top: 20px;
+	font-weight: 800;
+	line-height: 23px;
+}
+h5:after
+{
+    content:' ';
+    display:block;
+    border:1px solid #8E97A9;
+    width: 62%;
+}
+
 h2 {
 	font-family: nunito, sans-serif;
 	font-size: 16px;
