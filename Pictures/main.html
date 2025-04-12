@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Econ Empire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* Apply the pixelated font globally */
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #d0d0d0;
+            color: #333;
+            overscroll-behavior: none;
+            font-size: 0.8rem;
+            line-height: 1.2rem;
+        }
+
+        /* Kairosoft-style container */
+        .kairo-container {
+            border: 4px solid #333;
+            background-color: #f0f8ff;
+            box-shadow: 4px 4px 0px #555;
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+
+        /* --- Intro Welcome Screen Styling --- */
+        #intro-welcome-screen {
+            min-height: 450px; display: flex; flex-direction: column;
+            justify-content: flex-end; align-items: center; text-align: center;
+            position: relative; overflow: hidden;
+            background-image: url('http://sfuchs-de.github.io/Pictures/title_background.png');
+            background-size: cover; background-position: center;
+        }
+        /* UPDATED: Company Logo Styling */
+        #company-logo {
+            position: absolute;
+            top: 15px;
+            /* --- Moved to left --- */
+            left: 15px;
+            /* --- Increased size --- */
+            width: 120px;
+            height: auto;
+            z-index: 3;
+            opacity: 0.8;
+        }
+        #title-image {
+            position: absolute; top: -300px; left: 50%; transform: translateX(-50%);
+            max-width: 60%; height: auto; z-index: 5;
+            transition: top 2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        #title-image.animate-in { top: 45%; transform: translate(-50%, -50%); }
+        #welcome-continue-button {
+            opacity: 0; transition: opacity 0.8s ease-in 0.5s, background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out, transform 0.1s ease-in-out;
+            margin-bottom: 40px; z-index: 6; background-color: rgba(106, 183, 161, 0.7);
+            border-color: rgba(51, 51, 51, 0.7); box-shadow: 2px 2px 0px rgba(51, 51, 51, 0.7); color: white;
+        }
+        #welcome-continue-button:hover { background-color: rgba(90, 155, 217, 0.75); box-shadow: 1px 1px 0px rgba(51, 51, 51, 0.7); transform: translate(1px, 1px); }
+        #welcome-continue-button:active { background-color: rgba(74, 138, 199, 0.8); box-shadow: none; transform: translate(2px, 2px); }
+        #welcome-continue-button.visible { opacity: 1; }
+
+
+        /* --- Setup Screen Styling (Unchanged) --- */
+        #intro-setup-screen { min-height: 450px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; padding: 20px; background-image: url('http://sfuchs-de.github.io/Pictures/title_background.png'); background-size: cover; background-position: center; }
+        .setup-overlay { background-color: rgba(240, 248, 255, 0.9); padding: 25px; border-radius: 8px; border: 4px solid #555; box-shadow: 4px 4px 0px #555; width: 90%; max-width: 500px; }
+        .setup-overlay h2 { font-size: 1.1rem; margin-bottom: 15px; color: #333; }
+        .setup-overlay h4 { font-size: 0.8rem; margin-top: 15px; margin-bottom: 8px; color: #444; border-bottom: 2px solid #ccc; padding-bottom: 4px; display: inline-block; }
+        .intro-screen input[type="text"] { border: 2px solid #333; padding: 8px; margin: 5px 0 15px 0; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; background-color: white; box-shadow: 2px 2px 0px #888; width: 100%; border-radius: 3px; }
+        .school-choice-button { margin: 8px 0; display: block; width: 100%; white-space: normal !important; line-height: 1.1rem !important; padding-top: 10px !important; padding-bottom: 10px !important; text-align: left; padding-left: 15px !important; padding-right: 15px !important; }
+        .school-choice-button .bonus-text { font-size: 0.6rem; opacity: 0.9; display: block; margin-top: 3px; }
+        .school-choice-button.selected { border-width: 4px; border-color: #4CAF50; box-shadow: 1px 1px 0px #333; transform: translate(1px, 1px); background-color: #5a9bd9; }
+
+
+        /* --- Animation Screen Styling (Unchanged) --- */
+        #intro-animation-screen { position: relative; height: 450px; width: 100%; background-color: #eee; background-size: cover; background-position: center; overflow: hidden; border: 4px solid #333; box-shadow: 4px 4px 0px #555; }
+        #intro-animation-screen.school-ivyleague { background-image: url('https://sfuchs-de.github.io/Pictures/option_1a.png'); }
+        #intro-animation-screen.school-tech { background-image: url('https://sfuchs-de.github.io/Pictures/option_2.png'); }
+        #intro-animation-screen.school-business { background-image: url('https://sfuchs-de.github.io/Pictures/option_3.png'); }
+        .walking-sprite { position: absolute; left: 50%; bottom: -110px; transform: translateX(-50%); width: 60px; height: 100px; background-color: transparent; background-size: contain; background-repeat: no-repeat; background-position: bottom center; transition: bottom 8s linear; z-index: 10; }
+        .walking-sprite.step-left { background-image: url('https://sfuchs-de.github.io/Pictures/left_step_2.png'); }
+        .walking-sprite.step-right { background-image: url('https://sfuchs-de.github.io/Pictures/right_step_2.png'); }
+        .walking-sprite.is-walking { bottom: 14%; }
+
+
+        /* --- Main Game Styles (Unchanged) --- */
+        .top-bar { background-color: #4a90e2; color: white; padding: 8px 12px; border: 4px solid #333; box-shadow: 2px 2px 0px #333 inset; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 0.7rem; }
+        .top-bar > div { display: flex; align-items: center; }
+        .game-area-container { border: 4px solid #333; background-color: #fff; min-height: 300px; box-shadow: 4px 4px 0px #888; margin-bottom: 10px; overflow: hidden; display: flex; flex-direction: column; md:flex-direction: row; }
+        .game-area-left { width: 100%; md:width: 50%; padding: 10px; background-color: rgba(240, 240, 240, 0.9); border-right: 0; md:border-right: 2px solid #bbb; display: flex; flex-direction: column; min-height: 150px; }
+        .game-area-right { width: 100%; md:width: 50%; padding: 20px; text-align: center; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 200px; background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #cccccc; }
+        .game-area-right.stage-phd { background-image: url('https://sfuchs-de.github.io/Pictures/phd_student.png'); }
+        .game-area-right.stage-jobmarket { background-image: url('https://placehold.co/600x300/78909c/ffffff?text=Job+Market+View'); background-color: #e0f7fa; }
+        #stage-display { position: absolute; top: 15px; left: 50%; transform: translateX(-50%); color: #fff; background-color: rgba(0, 0, 0, 0.6); padding: 4px 8px; border-radius: 3px; display: inline-block; text-shadow: 1px 1px 2px #000; z-index: 2; font-size: 0.9rem; }
+        #current-activity-display { color: #fff; background-color: rgba(0, 0, 0, 0.6); padding: 3px 6px; border-radius: 3px; display: inline-block; margin-top: 5px; text-shadow: 1px 1px 2px #000; z-index: 2; }
+        #skill-display { position: absolute; top: 10px; right: 10px; background-color: rgba(0, 0, 0, 0.7); color: #fff; padding: 8px 12px; border-radius: 5px; border: 2px solid #aaa; font-size: 0.65rem; line-height: 1rem; text-align: left; z-index: 3; min-width: 120px; }
+        #skill-display h4 { font-size: 0.7rem; margin-bottom: 4px; text-align: center; border-bottom: 1px solid #aaa; padding-bottom: 2px; }
+        #skill-display p { margin: 3px 0; }
+        .bottom-bar { background-color: #e0e0e0; padding: 10px; border: 4px solid #333; box-shadow: 0px -2px 0px #333 inset; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .bottom-bar-stats { display: flex; justify-content: space-around; align-items: center; width: 100%; background-color: rgba(0, 0, 0, 0.05); padding: 6px; border-radius: 4px; border: 1px solid #bbb; font-size: 0.65rem; flex-wrap: wrap; gap: 10px; }
+        .bottom-bar-stats > div { flex-shrink: 0; text-align: center; }
+        .action-button-area { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; width: 100%; }
+        .message-log-container { flex-grow: 1; display: flex; flex-direction: column; min-height: 0; }
+        .message-log { border: 2px solid #bbb; background-color: #fff; height: 3.5rem; flex-grow: 0; overflow-y: scroll; padding: 6px; font-size: 0.6rem; line-height: 0.9rem; width: 100%; }
+        .message-log p { margin-bottom: 4px; color: #333; }
+        .status-bar-container { height: 12px; width: 60px; background-color: #aaa; border: 1px solid #333; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 5px; }
+        .status-bar-fill { height: 100%; background-color: #4caf50; transition: width 0.2s ease-out; }
+        .status-bar-fill.motivation { background-color: #ff9800; }
+        .game-button { /* Base button style */ background-color: #6ab7a1; color: white; padding: 8px 12px; border: 2px solid #333; box-shadow: 2px 2px 0px #333; cursor: pointer; text-align: center; margin: 2px; font-size: 0.65rem; line-height: 0.9rem; transition: all 0.1s ease-in-out; border-radius: 3px; }
+        .game-button:not(#welcome-continue-button):not(.school-choice-button):hover { background-color: #5a9bd9; box-shadow: 1px 1px 0px #333; transform: translate(1px, 1px); }
+        .game-button:not(#welcome-continue-button):not(.school-choice-button):active { background-color: #4a8ac7; box-shadow: none; transform: translate(2px, 2px); }
+        .game-button.disabled { background-color: #aaa !important; color: #eee !important; cursor: not-allowed !important; box-shadow: 2px 2px 0px #777 !important; transform: none !important; }
+        [data-tooltip] { position: relative; cursor: help; }
+        [data-tooltip]::after { content: attr(data-tooltip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(-5px); background-color: rgba(0, 0, 0, 0.85); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.7rem; white-space: nowrap; opacity: 0; visibility: hidden; transition: opacity 0.2s, visibility 0.2s; z-index: 10; font-family: sans-serif; }
+        [data-tooltip]:hover::after { opacity: 1; visibility: visible; }
+        .week-progress-container { width: 50px; height: 8px; background-color: #ccc; border: 1px solid #333; display: inline-block; vertical-align: middle; margin-left: 5px; }
+        .week-progress-fill { width: 0%; height: 100%; background-color: #777; transition: width 0.1s linear; }
+        .hidden { display: none !important; }
+        .overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 50; padding: 20px; }
+        .overlay-content { background-color: #f0f8ff; border: 4px solid #333; box-shadow: 6px 6px 0px #555; padding: 20px; border-radius: 5px; max-width: 90%; width: 500px; text-align: center; max-height: 80vh; /* Limit height */ display: flex; flex-direction: column; }
+        .overlay-content h3 { font-size: 1rem; margin-bottom: 15px; flex-shrink: 0; }
+        .overlay-content ul { list-style: none; padding: 0; margin: 0 0 15px 0; overflow-y: auto; /* Scroll if list too long */ flex-grow: 1; text-align: left; /* Align list items left */ }
+        .overlay-content li { margin-bottom: 8px; }
+        .overlay-content .button-container { margin-top: 15px; flex-shrink: 0; } /* Container for close button */
+        .overlay-content .game-button { display: inline-block; margin: 5px; } /* Allow multiple buttons side-by-side */
+        #exam-results-list li { padding: 5px; border-bottom: 1px dashed #ccc; text-align: left; }
+        #exam-results-list li:last-child { border-bottom: none; }
+        #exam-results-list .grade-A { color: #2a9d8f; font-weight: bold; }
+        #exam-results-list .grade-B { color: #3a86ff; }
+        #exam-results-list .grade-C { color: #e9c46a; }
+        #exam-results-list .grade-F { color: #e76f51; font-weight: bold; }
+        /* Course Selection Overlay Styles */
+        #course-selection-list label { display: block; padding: 8px; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 5px; cursor: pointer; background-color: #fff; transition: background-color 0.2s; }
+        #course-selection-list label:hover { background-color: #e0e0e0; }
+        #course-selection-list input[type="checkbox"] { margin-right: 10px; vertical-align: middle; accent-color: #4a90e2; /* Style checkbox */ }
+        #course-selection-list span { vertical-align: middle; font-size: 0.7rem; }
+        #course-selection-list label.selected { background-color: #a8d5ba; border-color: #559a6a; }
+        #course-count { font-size: 0.7rem; margin-bottom: 10px; font-weight: bold; }
+
+    </style>
+</head>
+<body class="p-2 md:p-4 max-w-4xl mx-auto">
+
+    <div id="intro-welcome-screen" class="kairo-container intro-screen"> <img id="company-logo" src="https://sfuchs-de.github.io/Pictures/company_logo.png" alt="Company Logo"> <img id="title-image" src="https://sfuchs-de.github.io/Pictures/title.png" alt="Econ Empire Title"> <button id="welcome-continue-button" class="game-button">Begin Journey</button> </div>
+    <div id="intro-setup-screen" class="kairo-container intro-screen hidden"> <div class="setup-overlay"> <h2 class="text-xl mb-4">🎓 Character Setup 🎓</h2> <h4>Enter Your Name:</h4> <input type="text" id="player-name" name="player-name" maxlength="20" placeholder="e.g., Prof. Pixel"> <h4 class="mt-4">Choose Your Starting Path:</h4> <button class="game-button school-choice-button" data-school="Ivy League" data-bonus="theory"> Ivy League <br> <span class="bonus-text">🧠 (Harder Start - Theory Boost)</span> </button> <button class="game-button school-choice-button" data-school="Tech Institute" data-bonus="metrics"> Tech Institute <br> <span class="bonus-text">📊 (Balanced - Metrics Boost)</span> </button> <button class="game-button school-choice-button" data-school="Business School" data-bonus="funding"> Business School <br> <span class="bonus-text">💰 (Easier Start - More Funding)</span> </button> <button id="setup-start-button" class="game-button text-lg px-6 py-3 mt-6 disabled" disabled>Start PhD</button> </div> </div>
+    <div id="intro-animation-screen" class="hidden" data-school=""> <p id="animation-text" class="absolute top-5 left-5 text-white text-shadow-lg bg-black bg-opacity-50 p-2 rounded">Starting your journey...</p> </div>
+
+
+    <div id="main-game-interface" class="hidden">
+        <div class="top-bar mb-2"> <div id="time-display" data-tooltip="Current game time"> 📅 Y:1 F W:1 <div class="week-progress-container"><div id="week-progress-fill" class="week-progress-fill"></div></div> </div> <div data-tooltip="Money available">💰 $<span id="funding-display">500</span></div> <div data-tooltip="Energy for actions">⚡ <span id="energy-value">100</span>/<span id="energy-max">100</span> <div class="status-bar-container"><div id="energy-bar" class="status-bar-fill" style="width: 100%;"></div></div> </div> <div data-tooltip="Willpower">💡 <span id="motivation-value">100</span>/<span id="motivation-max">100</span> <div class="status-bar-container"><div id="motivation-bar" class="status-bar-fill motivation" style="width: 100%;"></div></div> </div> </div>
+        <div id="game-area-container" class="game-area-container"> <div id="game-area-main-content" class="game-area-main-content"> <div id="skill-display"> <h4>Skills</h4> <p>Micro: <span id="skill-micro">0</span></p> <p>Macro: <span id="skill-macro">0</span></p> <p>Metrics: <span id="skill-metrics">0</span></p> </div> <h2 class="text-lg mb-2" id="stage-display">Stage: PhD Student</h2> <p id="current-activity-display" class="text-xs h-4"></p> </div> </div>
+        <div class="bottom-bar"> <div class="bottom-bar-stats"> <div data-tooltip="Primary Goal" id="goal-display">Goal: Pass Term 1 Courses</div> </div> <div id="course-display" class="course-display"> <h4>Term <span id="current-term-display">1</span> Courses</h4> <ul id="course-list"> <li>Loading...</li> </ul> </div> <div id="action-buttons" class="action-button-area"> </div> </div>
+        <div class="message-log-container"> <div id="message-log" class="message-log"> </div> </div>
+    </div>
+
+    <div id="term-start-overlay" class="overlay hidden"> <div class="overlay-content kairo-container"> <h3 id="term-start-title">Term Starting!</h3> <p id="term-start-message" class="mb-4 text-sm"></p> <ul id="term-start-courses" class="mb-4 text-sm"></ul> <div class="button-container"><button id="term-start-continue" class="game-button">Continue</button></div> </div> </div>
+    <div id="study-submenu" class="overlay hidden"> <div class="overlay-content kairo-container"> <h3>Study Options</h3> <ul id="study-submenu-list" class="mb-4"> </ul> <div class="button-container"><button id="study-submenu-close" class="game-button">Close</button></div> </div> </div>
+    <div id="buy-window" class="overlay hidden"> <div class="overlay-content kairo-container"> <h3>Buy Items (Placeholder)</h3> <p class="mb-4">Item shop coming soon!</p> <ul> <li>Coffee Machine - $50</li> <li>Textbook - $80</li> <li>Comfy Chair - $150</li> </ul> <div class="button-container"><button id="buy-window-close" class="game-button">Close</button></div> </div> </div>
+    <div id="exam-phase-overlay" class="overlay hidden"> <div class="overlay-content kairo-container"> <h3 id="exam-phase-title">End of Term Exams</h3> <p class="mb-4 text-sm">Revealing your results...</p> <ul id="exam-results-list" class="mb-4 text-sm"> </ul> <p id="exam-phase-summary" class="mb-4 font-bold"></p> <div class="button-container"> <button id="exam-phase-continue" class="game-button hidden">Next Term</button> <button id="exam-phase-restart" class="game-button hidden">Restart Game</button> </div> </div> </div>
+    <div id="course-selection-overlay" class="overlay hidden"> <div class="overlay-content kairo-container"> <h3 id="course-selection-title">Term 3 Field Course Selection</h3> <p class="mb-4 text-sm">Choose exactly 3 field courses for this term.</p> <p id="course-count" class="mb-2">Selected: 0 / 3</p> <ul id="course-selection-list" class="mb-4 text-sm"> </ul> <div class="button-container"> <button id="course-confirm-button" class="game-button disabled" disabled>Confirm Courses</button> </div> </div> </div>
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center hidden z-50 p-4"> <div class="bg-white p-5 rounded-lg shadow-xl text-center max-w-xs mx-auto kairo-container"> <h2 id="modal-title" class="text-lg mb-3">Game Over</h2> <p id="modal-message" class="mb-4 text-sm">You ran out of motivation!</p> <button id="modal-button" class="game-button">Restart</button> </div> </div>
+
+    <script>
+        // --- Game Constants & State (Unchanged) ---
+        const TICKS_PER_WEEK = 5;
+        const WEEKS_PER_SEASON = 15; // Term length
+        const SEASONS = ['Fall', 'Spring'];
+        const SUMMER_WEEKS = 8;
+        const BASE_GAME_SPEED = 1000;
+        const ANIMATION_DURATION = 8000;
+        const TITLE_ANIMATION_DURATION_MS = 2000;
+        const BUTTON_FADE_IN_DELAY_MS = 500;
+        const STEP_INTERVAL_MS = 350;
+        const COURSEWORK_TERMS = 4;
+        const EXAM_PASS_THRESHOLD = 80;
+        const GRADE_THRESHOLDS = { A: 95, B: 85, C: 70 };
+        const GRADE_MOTIVATION = { A: 15, B: 5, C: -10, F: -30 };
+
+        const courseCatalog = {
+            1: [ { name: "Micro Theory I", skill: "microTheory", difficulty: 1.0 }, { name: "Macro Theory I", skill: "macroTheory", difficulty: 1.0 }, { name: "Econometrics I", skill: "econometrics", difficulty: 1.1 }, ],
+            2: [ { name: "Micro Theory II", skill: "microTheory", prerequisite: "Micro Theory I", difficulty: 1.1 }, { name: "Macro Theory II", skill: "macroTheory", prerequisite: "Macro Theory I", difficulty: 1.1 }, { name: "Econometrics II", skill: "econometrics", prerequisite: "Econometrics I", difficulty: 1.2 }, ],
+            3: [ { name: "Advanced Micro", skill: "microTheory", prerequisite: "Micro Theory II", difficulty: 1.2, specialization: "Economic Theory & Behavioral" } ],
+            4: [ { name: "Advanced Macro", skill: "macroTheory", prerequisite: "Macro Theory II", difficulty: 1.2, specialization: "Macroeconomics & International" } ],
+        };
+         const fieldCourses = {
+            term3: [
+                { name: "Labor Economics I", skill: "laborEcon", difficulty: 1.1, specialization: "Applied Microeconomics" },
+                { name: "Public Finance I", skill: "publicFinance", difficulty: 1.1, specialization: "Applied Microeconomics" },
+                { name: "Industrial Org I", skill: "ioEcon", difficulty: 1.2, specialization: "Applied Microeconomics" },
+                { name: "Int'l Trade I", skill: "tradeEcon", difficulty: 1.2, specialization: "Macroeconomics & International" },
+                { name: "Financial Econ I", skill: "financeEcon", difficulty: 1.3, specialization: "Finance" },
+                { name: "Behavioral Econ I", skill: "behavioralEcon", difficulty: 1.1, specialization: "Economic Theory & Behavioral" },
+            ],
+            term4: [
+                 { name: "Labor Economics II", skill: "laborEcon", difficulty: 1.2, prerequisite: "Labor Economics I", specialization: "Applied Microeconomics" },
+                 { name: "Public Finance II", skill: "publicFinance", difficulty: 1.2, prerequisite: "Public Finance I", specialization: "Applied Microeconomics" },
+                 { name: "Industrial Org II", skill: "ioEcon", difficulty: 1.3, prerequisite: "Industrial Org I", specialization: "Applied Microeconomics" },
+                 { name: "Int'l Trade II", skill: "tradeEcon", difficulty: 1.3, prerequisite: "Int'l Trade I", specialization: "Macroeconomics & International" },
+                 { name: "Financial Econ II", skill: "financeEcon", difficulty: 1.4, prerequisite: "Financial Econ I", specialization: "Finance" },
+                 { name: "Behavioral Econ II", skill: "behavioralEcon", difficulty: 1.2, prerequisite: "Behavioral Econ I", specialization: "Economic Theory & Behavioral" },
+            ]
+        };
+
+        const gameState = {
+            playerName: "Player", chosenSchool: null, gamePhase: 'intro-welcome', // Start at welcome
+            time: { year: 1, season: 'Fall', term: 1, week: 1, tick: 0 },
+            currentCourses: [], completedCourses: {},
+            resources: { funding: 500, energy: 100, maxEnergy: 100, motivation: 100, maxMotivation: 100 },
+            stats: { microTheory: 5, macroTheory: 5, econometrics: 5, laborEcon: 0, publicFinance: 0, ioEcon: 0, tradeEcon: 0, financeEcon: 0, behavioralEcon: 0, advisorRelationship: 50, dissertationChapters: 0, requiredChapters: 5, jmpQuality: 0, publications: 0, citations: 0, reputation: 0 },
+            specialization: null,
+            currentStage: 'PhD (Coursework)', currentActivity: null,
+            advisor: { name: "Prof. Smith", field: "Micro Theory", personality: "Grumpy" },
+            gameOver: false, gameSpeed: BASE_GAME_SPEED, logMessages: [], maxLogMessages: 10, gameLoopTimeoutId: null,
+            steppingIntervalId: null, isOverlayVisible: false,
+            examCoursesToGrade: [], examOverallResult: null,
+        };
+
+        // --- UI Elements (Unchanged) ---
+        // [ Selectors remain the same ]
+        const introWelcomeScreen = document.getElementById('intro-welcome-screen');
+        const introSetupScreen = document.getElementById('intro-setup-screen');
+        const introAnimationScreen = document.getElementById('intro-animation-screen');
+        const welcomeContinueButton = document.getElementById('welcome-continue-button');
+        const playerNameInput = document.getElementById('player-name');
+        const schoolChoiceButtons = document.querySelectorAll('.school-choice-button');
+        const setupStartButton = document.getElementById('setup-start-button');
+        const animationText = document.getElementById('animation-text');
+        const titleImage = document.getElementById('title-image');
+        const mainGameInterface = document.getElementById('main-game-interface');
+        const timeDisplay = document.getElementById('time-display');
+        const weekProgressFill = document.getElementById('week-progress-fill');
+        const fundingDisplay = document.getElementById('funding-display');
+        const energyValue = document.getElementById('energy-value');
+        const energyMax = document.getElementById('energy-max');
+        const energyBar = document.getElementById('energy-bar');
+        const motivationValue = document.getElementById('motivation-value');
+        const motivationMax = document.getElementById('motivation-max');
+        const motivationBar = document.getElementById('motivation-bar');
+        const stageDisplay = document.getElementById('stage-display');
+        const goalDisplay = document.getElementById('goal-display');
+        const characterStatus = document.getElementById('character-status'); // Selector still exists, just not used in update
+        const currentActivityDisplay = document.getElementById('current-activity-display');
+        const actionButtonsContainer = document.getElementById('action-buttons');
+        const statsMicro = document.getElementById('skill-micro');
+        const statsMacro = document.getElementById('skill-macro');
+        const statsMetrics = document.getElementById('skill-metrics');
+        const skillLabor = document.getElementById('skill-labor');
+        const skillPublic = document.getElementById('skill-public');
+        const skillIO = document.getElementById('skill-io'); // Add others if displayed
+        const messageLog = document.getElementById('message-log');
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const modalButton = document.getElementById('modal-button');
+        const gameAreaMainContent = document.getElementById('game-area-main-content');
+        const courseDisplayContainer = document.getElementById('course-display');
+        const currentTermDisplay = document.getElementById('current-term-display');
+        const courseList = document.getElementById('course-list');
+        const skillDisplay = document.getElementById('skill-display');
+        const termStartOverlay = document.getElementById('term-start-overlay');
+        const termStartTitle = document.getElementById('term-start-title');
+        const termStartMessage = document.getElementById('term-start-message');
+        const termStartCourses = document.getElementById('term-start-courses');
+        const termStartContinue = document.getElementById('term-start-continue');
+        const studySubmenu = document.getElementById('study-submenu');
+        const studySubmenuList = document.getElementById('study-submenu-list');
+        const studySubmenuClose = document.getElementById('study-submenu-close');
+        const buyWindow = document.getElementById('buy-window');
+        const buyWindowClose = document.getElementById('buy-window-close');
+        const examPhaseOverlay = document.getElementById('exam-phase-overlay');
+        const examPhaseTitle = document.getElementById('exam-phase-title');
+        const examResultsList = document.getElementById('exam-results-list');
+        const examPhaseSummary = document.getElementById('exam-phase-summary');
+        const examPhaseContinue = document.getElementById('exam-phase-continue');
+        const examPhaseRestart = document.getElementById('exam-phase-restart');
+        const courseSelectionOverlay = document.getElementById('course-selection-overlay');
+        const courseSelectionTitle = document.getElementById('course-selection-title');
+        const courseSelectionList = document.getElementById('course-selection-list');
+        const courseConfirmButton = document.getElementById('course-confirm-button');
+        const courseCountDisplay = document.getElementById('course-count');
+
+
+        // --- Utility Functions (Define BEFORE use) ---
+        // [ Includes logMessage, updateLogUI, updateStatsUI, etc. ]
+        function logMessage(message) { console.log(message); const timePrefix = `[Y${gameState.time.year} T${gameState.time.term} W${gameState.time.week}]`; gameState.logMessages.push(`${timePrefix} ${message}`); if (gameState.logMessages.length > gameState.maxLogMessages) { gameState.logMessages.shift(); } updateLogUI(); }
+        function updateLogUI() { if (!messageLog) return; messageLog.innerHTML = ''; gameState.logMessages.forEach(msg => { const p = document.createElement('p'); p.textContent = msg; messageLog.appendChild(p); }); messageLog.scrollTop = messageLog.scrollHeight; }
+        function updateStatsUI() { if(skillDisplay) { if(statsMicro) statsMicro.textContent = gameState.stats.microTheory.toFixed(0); if(statsMacro) statsMacro.textContent = gameState.stats.macroTheory.toFixed(0); if(statsMetrics) statsMetrics.textContent = gameState.stats.econometrics.toFixed(0); if(skillLabor) skillLabor.textContent = (gameState.stats.laborEcon || 0).toFixed(0); if(skillPublic) skillPublic.textContent = (gameState.stats.publicFinance || 0).toFixed(0); if(skillIO) skillIO.textContent = (gameState.stats.ioEcon || 0).toFixed(0); /* Add others */ } }
+        function updateResourcesUI() { if(!fundingDisplay || !energyValue || !energyMax || !energyBar || !motivationValue || !motivationMax || !motivationBar) return; fundingDisplay.textContent = gameState.resources.funding; energyValue.textContent = gameState.resources.energy; energyMax.textContent = gameState.resources.maxEnergy; energyBar.style.width = `${(gameState.resources.energy / gameState.resources.maxEnergy) * 100}%`; motivationValue.textContent = gameState.resources.motivation; motivationMax.textContent = gameState.resources.maxMotivation; motivationBar.style.width = `${(gameState.resources.motivation / gameState.resources.maxMotivation) * 100}%`; }
+        function updateTimeUI() { if(!timeDisplay || !weekProgressFill) return; timeDisplay.childNodes[0].nodeValue = `📅 Y:${gameState.time.year} Term:${gameState.time.term} W:${gameState.time.week} `; const progressPercent = ((gameState.time.tick + 1) / TICKS_PER_WEEK) * 100; weekProgressFill.style.width = `${progressPercent}%`; }
+        function updateGoalUI() { if(!goalDisplay) return; if (gameState.currentStage === 'PhD (Coursework)') { goalDisplay.textContent = `Goal: Pass Term ${gameState.time.term} Courses`; } else if (gameState.currentStage === 'PhD (Exams)') { goalDisplay.textContent = `Goal: Awaiting Exam Results...`; } else if (gameState.currentStage === 'PhD (Research)') { goalDisplay.textContent = `Goal: Chapters ${gameState.stats.dissertationChapters}/${gameState.stats.requiredChapters}`; } else if (gameState.currentStage === 'JobMarket') { goalDisplay.textContent = `Goal: Get Job (JMP: ${gameState.stats.jmpQuality})`; } else { goalDisplay.textContent = "Goal: Survive"; } }
+        function updateCharacterStatusUI() { if (!currentActivityDisplay) return; if (gameState.currentActivity) { currentActivityDisplay.textContent = `${gameState.currentActivity.name} (${gameState.currentActivity.remaining}t)`; currentActivityDisplay.classList.remove('hidden'); } else { currentActivityDisplay.textContent = ""; currentActivityDisplay.classList.add('hidden'); } }
+        function updateCourseUI() { if (!courseDisplayContainer || !courseList || !currentTermDisplay) return; if (gameState.currentStage.startsWith('PhD (Research)')) { courseDisplayContainer.classList.add('hidden'); return; } courseDisplayContainer.classList.remove('hidden'); currentTermDisplay.textContent = gameState.time.term; courseList.innerHTML = ''; console.log('Updating Course UI. Current Courses:', JSON.stringify(gameState.currentCourses)); if (gameState.currentCourses.length === 0) { courseList.innerHTML = '<li>No courses this term.</li>'; } else { gameState.currentCourses.forEach(course => { const li = document.createElement('li'); li.innerHTML = `${course.name} <span class="course-progress">[${course.understanding.toFixed(0)}/100]</span>`; courseList.appendChild(li); }); } }
+        function updateGameAreaBackground() { if (!gameAreaMainContent) return; gameAreaMainContent.classList.remove('stage-phd', 'stage-jobmarket', 'stage-assistantprof', 'stage-posttenure'); let stageClass = 'stage-phd'; if (gameState.currentStage === 'JobMarket') stageClass = 'stage-jobmarket'; gameAreaMainContent.classList.add(stageClass); }
+        function getStageName(stageKey) { return stageKey; }
+        function canAfford(cost) { return gameState.resources.energy >= (cost.energy > 0 ? cost.energy : 0) && gameState.resources.motivation >= (cost.motivation > 0 ? cost.motivation : 0) && gameState.resources.funding >= (cost.funding > 0 ? cost.funding : 0); }
+        function showOverlay(overlayElement) { if (!overlayElement) return; gameState.isOverlayVisible = true; overlayElement.classList.remove('hidden'); console.log("Overlay shown:", overlayElement.id); }
+        function hideOverlay(overlayElement) { if (!overlayElement) return; gameState.isOverlayVisible = false; overlayElement.classList.add('hidden'); console.log("Overlay hidden:", overlayElement.id); }
+        function showModal(title, message, isGameOver = false) { if (!modal || !modalTitle || !modalMessage || !modalButton) return; modalTitle.textContent = title; modalMessage.textContent = message; if (isGameOver) { modalButton.textContent = "Restart"; modalButton.onclick = () => window.location.reload(); } else { modalButton.textContent = "Continue"; modalButton.onclick = hideModal; } showOverlay(modal); }
+        function hideModal() { hideOverlay(modal); }
+        function showTermStartOverlay(term, courses) { if (!termStartOverlay || !termStartTitle || !termStartMessage || !termStartCourses) { console.error("Term start overlay elements not found!"); return; } termStartTitle.textContent = `Term ${term} Starting!`; termStartCourses.innerHTML = ''; if (term === 1) { termStartMessage.textContent = `Welcome, ${gameState.playerName}, to your first term at ${gameState.chosenSchool}! Your journey to becoming a leading economist starts now. The first year focuses on the core sequence (Micro, Macro, Metrics). These courses are compulsory. Good luck!`; } else if (term === 2) { termStartMessage.textContent = `Year ${gameState.time.year}, Term ${term}. The core sequence continues. These courses are compulsory. Keep up the hard work!`; } else if (gameState.currentStage === 'PhD (Research)') { termStartMessage.textContent = `Year ${gameState.time.year}, Term ${term}. Time to focus on your research! Plan your term activities.`; } else { termStartMessage.textContent = `Year ${gameState.time.year}, Term ${term}. Time to choose field courses!`; } if (courses && courses.length > 0) { courses.forEach(c => { const li = document.createElement('li'); li.textContent = c.name; termStartCourses.appendChild(li); }); } else if (gameState.currentStage !== 'PhD (Research)') { termStartCourses.innerHTML = '<li>No courses assigned for this term yet.</li>'; } else { termStartCourses.innerHTML = ''; /* No course list needed for research planning */ } showOverlay(termStartOverlay); }
+        function updateUI() { if (gameState.gameOver || gameState.gamePhase !== 'main-game') return; console.log("updateUI called"); try { updateTimeUI(); updateResourcesUI(); updateStatsUI(); updateGoalUI(); updateCharacterStatusUI(); if(stageDisplay) stageDisplay.textContent = `Stage: ${getStageName(gameState.currentStage)}`; updateGameAreaBackground(); updateCourseUI(); renderActionButtons(); console.log("updateUI finished successfully"); } catch(e) { console.error("Error during UI Update:", e); } }
+
+        // --- Coursework & Actions Logic ---
+        function enrollInCourses(term) {
+            gameState.currentCourses = []; // Clear previous courses
+            const compulsoryCourses = courseCatalog[term] || [];
+            let coursesForOverlay = [];
+            console.log(`Attempting enrollment for Term ${term}.`);
+
+            // Check if entering Research Phase
+            if (term >= RESEARCH_TERMS_START && term <= MAX_TERMS) {
+                 gameState.currentStage = 'PhD (Research)';
+                 showResearchPlanningOverlay(); // Show research planning instead of term start
+                 updateCourseUI(); updateGoalUI(); updateStatsUI(); // Update relevant UI
+                 return; // Stop further enrollment logic for this term
+            } else if (term > MAX_TERMS) {
+                 checkCompletion(); // Check if dissertation done
+                 return;
+            }
+
+            // --- Coursework Enrollment (Terms 1-4) ---
+            gameState.currentStage = 'PhD (Coursework)'; // Ensure stage is correct
+            compulsoryCourses.forEach(courseDef => {
+                if (courseDef.name.includes("Elective")) return;
+                let canEnroll = !courseDef.prerequisite || ['A', 'B', 'C'].includes(gameState.completedCourses[courseDef.prerequisite]);
+                if (canEnroll) {
+                    gameState.currentCourses.push({ name: courseDef.name, skill: courseDef.skill, understanding: 0, difficulty: courseDef.difficulty || 1.0 });
+                    coursesForOverlay.push({ name: courseDef.name });
+                } else {
+                    logMessage(`Cannot enroll in compulsory ${courseDef.name} - prerequisite ${courseDef.prerequisite} not passed.`);
+                    gameState.gameOver = true;
+                    setTimeout(() => showModal("Prerequisite Failed!", `Cannot continue without passing ${courseDef.prerequisite}. Your PhD journey ends here.`, true), 100);
+                    return;
+                }
+            });
+
+            if (gameState.gameOver) return;
+
+            // Handle Elective Selection (Terms 3 & 4)
+            if (term >= 3 && term <= COURSEWORK_TERMS) {
+                 console.log("Showing course selection for Term", term);
+                 showCourseSelectionOverlay(term); // Show selection overlay, enrollment happens on confirm
+            } else {
+                 // For Terms 1 & 2, show Term Start overlay immediately
+                 logMessage(`Enrolled in Term ${term} courses.`);
+                 console.log('Current Courses after enrollment:', JSON.stringify(gameState.currentCourses));
+                 if (gameState.gamePhase === 'main-game') {
+                      showTermStartOverlay(term, coursesForOverlay);
+                 }
+                 updateCourseUI(); updateGoalUI();
+            }
+        }
+        function showCourseSelectionOverlay(term) { if (!courseSelectionOverlay || !courseSelectionList || !courseConfirmButton || !courseCountDisplay) { console.error("Course selection overlay elements missing!"); return; } courseSelectionTitle.textContent = `Term ${term} Field Course Selection`; courseSelectionList.innerHTML = ''; courseConfirmButton.classList.add('disabled'); courseConfirmButton.disabled = true; courseCountDisplay.textContent = `Selected: 0 / 3`; const termKey = `term${term}`; const availableFields = fieldCourses[termKey] || []; availableFields.forEach((courseDef, index) => { let canEnroll = !courseDef.prerequisite || ['A', 'B', 'C'].includes(gameState.completedCourses[courseDef.prerequisite]); const li = document.createElement('li'); const label = document.createElement('label'); label.htmlFor = `field_course_${index}`; label.className = canEnroll ? "cursor-pointer" : "cursor-not-allowed opacity-50"; const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.id = `field_course_${index}`; checkbox.value = index; checkbox.className = "mr-2"; checkbox.disabled = !canEnroll; if (canEnroll) { checkbox.addEventListener('change', handleCourseSelectionChange); } label.appendChild(checkbox); label.appendChild(document.createTextNode(`${courseDef.name} (+${courseDef.skill})`)); if (!canEnroll) { label.appendChild(document.createTextNode(` (Requires: ${courseDef.prerequisite})`)); } li.appendChild(label); courseSelectionList.appendChild(li); }); showOverlay(courseSelectionOverlay); }
+        function handleCourseSelectionChange() { const selectedCheckboxes = courseSelectionList.querySelectorAll('input[type="checkbox"]:checked'); const count = selectedCheckboxes.length; courseCountDisplay.textContent = `Selected: ${count} / 3`; if (count === 3) { courseConfirmButton.classList.remove('disabled'); courseConfirmButton.disabled = false; } else { courseConfirmButton.classList.add('disabled'); courseConfirmButton.disabled = true; } courseSelectionList.querySelectorAll('label').forEach(label => { const checkbox = label.querySelector('input[type="checkbox"]'); if (checkbox.checked) { label.classList.add('selected'); } else { label.classList.remove('selected'); } }); }
+        function handleConfirmCourses() {
+             const selectedCheckboxes = courseSelectionList.querySelectorAll('input[type="checkbox"]:checked'); if (selectedCheckboxes.length !== 3) { return; }
+             const termKey = `term${gameState.time.term}`; // Use time.term
+             const availableFields = fieldCourses[termKey] || [];
+             let coursesForOverlay = [...gameState.currentCourses]; // Start with compulsory
+             let specializationsChosen = {};
+             selectedCheckboxes.forEach(checkbox => { const index = parseInt(checkbox.value); const courseDef = availableFields[index]; if (courseDef) { if (typeof gameState.stats[courseDef.skill] === 'undefined') { gameState.stats[courseDef.skill] = 0; console.warn(`Skill ${courseDef.skill} not pre-defined!`); } gameState.currentCourses.push({ name: courseDef.name, skill: courseDef.skill, understanding: 0, difficulty: courseDef.difficulty || 1.0 }); coursesForOverlay.push({ name: courseDef.name }); const spec = courseDef.specialization; specializationsChosen[spec] = (specializationsChosen[spec] || 0) + 1; } });
+             let maxCount = 0; let primarySpecialization = null; for (const spec in specializationsChosen) { if (specializationsChosen[spec] > maxCount) { maxCount = specializationsChosen[spec]; primarySpecialization = spec; } } if (primarySpecialization && maxCount >= 2) { gameState.specialization = primarySpecialization; logMessage(`Specialization leaning towards: ${primarySpecialization}`); }
+             logMessage(`Selected and enrolled in Term ${gameState.time.term} courses.`); console.log('Current Courses after selection:', JSON.stringify(gameState.currentCourses));
+             hideOverlay(courseSelectionOverlay); showTermStartOverlay(gameState.time.term, coursesForOverlay);
+             updateCourseUI(); updateGoalUI(); updateStatsUI();
+        }
+        function calculateGrade(understanding, skillValue = 5) { const skillBonus = Math.floor(skillValue / 15); /* UPDATED: Skill bonus divisor */ const randomFactor = (Math.random() * 10) - 5; const finalScore = Math.max(0, Math.min(100, understanding + skillBonus + randomFactor)); console.log(`Calculating grade: Und=${understanding.toFixed(1)}, Skill=${skillValue.toFixed(0)}, Bonus=${skillBonus}, Rand=${randomFactor.toFixed(1)}, Final=${finalScore.toFixed(1)}`); if (finalScore >= GRADE_THRESHOLDS.A) return 'A'; if (finalScore >= GRADE_THRESHOLDS.B) return 'B'; if (finalScore >= GRADE_THRESHOLDS.C) return 'C'; return 'F'; }
+        function runExamPhase() { const coursesToGrade = gameState.currentCourses; if (coursesToGrade.length === 0) { proceedToNextTerm(); return; } console.log("Running Exam Phase for Term", gameState.time.term); gameState.currentStage = 'PhD (Exams)'; updateUI(); gameState.examCoursesToGrade = [...coursesToGrade]; gameState.examOverallResult = 'PASS'; examResultsList.innerHTML = ''; examPhaseSummary.textContent = 'Calculating results...'; examPhaseContinue.classList.add('hidden'); examPhaseRestart.classList.add('hidden'); showOverlay(examPhaseOverlay); revealNextGrade(); }
+        function revealNextGrade() { if (gameState.examCoursesToGrade.length === 0) { finishExamPhase(); return; } const course = gameState.examCoursesToGrade.shift(); const relevantSkillValue = gameState.stats[course.skill] || 0; const grade = calculateGrade(course.understanding, relevantSkillValue); gameState.completedCourses[course.name] = grade; const motivationChange = GRADE_MOTIVATION[grade] || 0; gameState.resources.motivation = Math.max(0, Math.min(gameState.resources.maxMotivation, gameState.resources.motivation + motivationChange)); const li = document.createElement('li'); li.innerHTML = `${course.name}: <span class="grade-${grade}">${grade}</span> (Und: ${course.understanding.toFixed(0)}, Skill: ${relevantSkillValue.toFixed(0)})`; examResultsList.appendChild(li); logMessage(`Exam result for ${course.name}: ${grade}`); if (grade === 'F') { gameState.examOverallResult = 'FAIL'; } setTimeout(revealNextGrade, 750); }
+        function finishExamPhase() { console.log("Finishing Exam Phase. Overall Result:", gameState.examOverallResult); updateResourcesUI(); if (gameState.examOverallResult === 'FAIL') { examPhaseSummary.textContent = "You failed one or more courses! Your PhD journey ends here."; examPhaseRestart.classList.remove('hidden'); gameState.gameOver = true; } else { examPhaseSummary.textContent = "You passed all exams for the term!"; examPhaseContinue.classList.remove('hidden'); } }
+        function proceedToNextTerm() {
+             hideOverlay(examPhaseOverlay); if (gameState.gameOver) return;
+             gameState.time.term++; // Increment term number
+             // Determine next season/year
+             const currentSeasonIndex = SEASONS.indexOf(gameState.time.season);
+             const nextSeasonIndex = (currentSeasonIndex + 1) % SEASONS.length;
+             gameState.time.season = SEASONS[nextSeasonIndex];
+             if (gameState.time.season === 'Fall') { gameState.time.year++; logMessage(`A new academic year begins: Year ${gameState.time.year}`); if (gameState.currentStage.startsWith('PhD')) { const fee = 50 + (gameState.time.year * 10); gameState.resources.funding -= fee; logMessage(`Paid yearly student fees (-$${fee})`); } }
+             // Enroll in courses for the *new* term
+             enrollInCourses(gameState.time.term);
+        }
+        const mainActionsCoursework = [ { id: 'study', name: 'Study 📚', tooltip: "Choose a course to study" }, { id: 'attend_lecture', name: 'Attend 🧑‍🏫', tooltip: "Attend course lectures" }, { id: 'sleep', name: 'Sleep 😴', tooltip: "Recover Energy & Motivation" }, { id: 'buy', name: 'Buy 🛒', tooltip: "Purchase items (Coming Soon!)" } ]; // Added Attend
+        const mainActionsResearch = [ { id: 'work_chapter', name: 'Work Chapter 📝', tooltip: "Make progress on dissertation" }, { id: 'read_lit', name: 'Read Lit 📖', tooltip: "Improve idea clarity" }, { id: 'meet_advisor', name: 'Meet Advisor 🧑‍🏫', tooltip: "Get feedback" }, { id: 'present_seminar', name: 'Present 🎤', tooltip: "Share work (if opted in)" }, { id: 'sleep', name: 'Rest 😴', tooltip: "Recover Energy/Motivation" }, { id: 'buy', name: 'Buy 🛒', tooltip: "Purchase items" } ];
+        // --- UPDATED: renderActionButtons switches action set ---
+        function renderActionButtons() {
+            actionButtonsContainer.innerHTML = ''; if (gameState.gamePhase !== 'main-game') return;
+            console.log("Rendering action buttons for stage:", gameState.currentStage);
+
+            let currentActions = [];
+            if (gameState.currentStage === 'PhD (Coursework)') {
+                 currentActions = mainActionsCoursework;
+                 if(courseDisplayContainer) courseDisplayContainer.classList.remove('hidden');
+                 if(chapterProgressDisplay) chapterProgressDisplay.classList.add('hidden');
+            } else if (gameState.currentStage === 'PhD (Research)') {
+                 currentActions = mainActionsResearch;
+                 if(courseDisplayContainer) courseDisplayContainer.classList.add('hidden');
+                 if(chapterProgressDisplay) chapterProgressDisplay.classList.remove('hidden');
+            } else { // Default/Other stages (like Exams)
+                 currentActions = [ { id: 'sleep', name: 'Sleep 😴', tooltip: "Recover Energy & Motivation" } ];
+                 if(courseDisplayContainer) courseDisplayContainer.classList.add('hidden');
+                 if(chapterProgressDisplay) chapterProgressDisplay.classList.add('hidden');
+            }
+
+            currentActions.forEach(action => {
+                const button = document.createElement('button'); button.id = `action-${action.id}`; button.textContent = action.name; button.classList.add('game-button'); button.dataset.tooltip = action.tooltip;
+                let disabled = false; let disabledReason = "";
+                if (gameState.currentActivity || gameState.isOverlayVisible) { disabled = true; disabledReason = "(Busy/Menu)"; }
+                if (action.id === 'study' && gameState.currentCourses.length === 0) { disabled = true; disabledReason = "(No Courses)"; }
+                if (action.id === 'attend_lecture' && gameState.currentCourses.length === 0) { disabled = true; disabledReason = "(No Courses)"; }
+                if (action.id === 'present_seminar' && !gameState.seminar_opt_in) { disabled = true; disabledReason = "(Not Opted In)"; }
+                if (action.id === 'buy') { disabled = true; disabledReason = "(Coming Soon!)"; }
+                if (disabled) { button.classList.add('disabled'); button.disabled = true; button.dataset.tooltip += ` ${disabledReason}`; }
+                else { // Assign handlers based on action ID
+                    if (action.id === 'study') button.onclick = openStudySubmenu;
+                    else if (action.id === 'attend_lecture') button.onclick = openAttendSubmenu; // NEW Handler
+                    else if (action.id === 'sleep') button.onclick = performSleepAction;
+                    else if (action.id === 'buy') button.onclick = openBuyWindow;
+                    else if (action.id === 'work_chapter') button.onclick = openChapterSelect;
+                    else if (action.id === 'read_lit') button.onclick = performReadLiterature;
+                    else if (action.id === 'meet_advisor') button.onclick = performMeetAdvisor;
+                    else if (action.id === 'present_seminar') button.onclick = performPresentSeminar;
+                }
+                actionButtonsContainer.appendChild(button);
+            });
+        }
+        // --- NEW: Submenu and Action for Attend Lecture ---
+        function openAttendSubmenu() {
+             if (gameState.currentActivity || gameState.isOverlayVisible) return;
+             // Re-use study submenu overlay for now, change title
+             studySubmenu.querySelector('h3').textContent = "Attend Lecture";
+             studySubmenuList.innerHTML = '';
+             if(gameState.currentCourses.length === 0) {
+                 studySubmenuList.innerHTML = '<li>No lectures to attend!</li>';
+             } else {
+                 gameState.currentCourses.forEach((course, index) => {
+                     const li = document.createElement('li');
+                     const button = document.createElement('button');
+                     button.id = `attend_${index}`;
+                     button.textContent = `Attend ${course.name}`;
+                     button.classList.add('game-button');
+                     const attendCost = { energy: 10 }; // Example cost
+                     button.dataset.tooltip = `Attend ${course.name} lecture (Cost: ${attendCost.energy}⚡)`;
+                     if (!canAfford(attendCost)) {
+                         button.classList.add('disabled'); button.disabled = true;
+                         button.dataset.tooltip += " (Need Energy)";
+                     } else {
+                         button.onclick = () => performAttendLecture(index, attendCost);
+                     }
+                     li.appendChild(button);
+                     studySubmenuList.appendChild(li);
+                 });
+             }
+             showOverlay(studySubmenu);
+        }
+        function performAttendLecture(courseIndex, cost) {
+             if (gameState.currentActivity || gameState.isOverlayVisible) return;
+             hideOverlay(studySubmenu); // Close submenu
+             studySubmenu.querySelector('h3').textContent = "Study Options"; // Reset title
+
+             const course = gameState.currentCourses[courseIndex];
+             if (!course) { logMessage("Error: Course not found for lecture."); return; }
+
+             const actionDuration = 1; // Attending is quick
+             if (canAfford(cost)) {
+                 gameState.resources.energy -= (cost.energy || 0);
+                 gameState.currentActivity = {
+                     id: `attend_${courseIndex}`, name: `Attending ${course.name}`, duration: actionDuration, remaining: actionDuration, cost: cost,
+                     effect: () => {
+                         // Small chance to increase relevant skill
+                         const skill = course.skill;
+                         if (Math.random() < 0.15) { // 15% chance
+                             gameState.stats[skill] = (gameState.stats[skill] || 0) + (0.5 + Math.random()*0.5); // Gain 0.5-1.0 skill point
+                             logMessage(`Gained insight in ${course.name}! +${gameState.stats[skill].toFixed(1)} ${skill}`);
+                         } else {
+                             logMessage(`Attended ${course.name}. Notes taken.`);
+                         }
+                         // Increase understanding slightly
+                         course.understanding = Math.min(100, course.understanding + (2 / (course.difficulty || 1.0)));
+                         updateCourseUI();
+                         updateStatsUI();
+                     }
+                 };
+                 logMessage(`Started attending ${course.name}.`);
+                 updateUI();
+             } else {
+                 logMessage(`Cannot attend ${course.name}: Insufficient energy.`);
+             }
+        }
+        // --- Other Action Functions (openBuyWindow, performSleepAction, performStudyAction, etc. unchanged) ---
+        function openBuyWindow() { if (gameState.currentActivity || gameState.isOverlayVisible) return; showOverlay(buyWindow); }
+        function performSleepAction() { if (gameState.currentActivity || gameState.isOverlayVisible) return; const actionCost = { energy: -30, motivation: -15 }; const actionDuration = 4; gameState.currentActivity = { id: 'sleep_action', name: 'Sleeping', duration: actionDuration, remaining: actionDuration, cost: actionCost, effect: () => { const energyGain = Math.abs(actionCost.energy || 0); const motivationGain = Math.abs(actionCost.motivation || 0); gameState.resources.energy = Math.min(gameState.resources.maxEnergy, gameState.resources.energy + energyGain); gameState.resources.motivation = Math.min(gameState.resources.maxMotivation, gameState.resources.motivation + motivationGain); logMessage(`Slept well. (+${energyGain}⚡, +${motivationGain}💡)`); } }; logMessage("Going to sleep..."); updateUI(); }
+        function performStudyAction(courseIndex, cost) { console.log(`Attempting performStudyAction for index ${courseIndex}`); hideOverlay(studySubmenu); console.log(`Overlay hidden, isOverlayVisible: ${gameState.isOverlayVisible}`); if (gameState.currentActivity) { console.log("performStudyAction blocked: Activity already running."); logMessage("Cannot start studying: Already busy!"); return; } const course = gameState.currentCourses[courseIndex]; if (!course) { logMessage("Error: Course not found."); console.error("Course not found at index", courseIndex); return; } console.log(`Found course: ${course.name}`); const actionDuration = 3; const affordable = canAfford(cost); console.log(`Checking affordability: ${affordable}`); if (affordable) { gameState.resources.energy -= (cost.energy || 0); gameState.resources.motivation -= (cost.motivation || 0); console.log(`Resources deducted. Energy: ${gameState.resources.energy}, Motiv: ${gameState.resources.motivation}`); const newActivity = { id: `study_${courseIndex}`, name: `Studying ${course.name}`, duration: actionDuration, remaining: actionDuration, cost: cost, effect: () => { const effectCourse = gameState.currentCourses.find(c => c.name === course.name); if (!effectCourse || typeof gameState.stats[effectCourse.skill] === 'undefined') { console.error("Error in study effect: course or skill missing", effectCourse); return; } const understandingGain = (35 + Math.random() * 10) / (effectCourse.difficulty || 1.0); effectCourse.understanding = Math.min(100, effectCourse.understanding + understandingGain); const baseSkillGain = 0.5 / (effectCourse.difficulty || 1.0); const randomSkillBonus = Math.random() * 1.0; const totalSkillGain = baseSkillGain + randomSkillBonus; gameState.stats[effectCourse.skill] = (gameState.stats[effectCourse.skill] || 0) + totalSkillGain; logMessage(`Studied ${effectCourse.name}. +${understandingGain.toFixed(1)} Und. +${totalSkillGain.toFixed(1)} ${effectCourse.skill}`); updateCourseUI(); updateStatsUI(); } }; console.log("Setting currentActivity:", newActivity); gameState.currentActivity = newActivity; console.log("gameState.currentActivity after set:", gameState.currentActivity); logMessage(`Started studying ${course.name}.`); updateUI(); } else { logMessage(`Cannot study ${course.name}: Insufficient resources.`); if (gameState.resources.energy < (cost.energy || 0)) console.log("(Need more ⚡ Energy)"); if (gameState.resources.motivation < (cost.motivation || 0)) console.log("(Need more 💡 Motivation)"); } }
+        function openChapterSelect() { if (gameState.currentActivity || gameState.isOverlayVisible) return; console.log("Opening chapter select overlay"); chapterSelectList.innerHTML = ''; let hasWorkableChapter = false; for (let i = 1; i <= 3; i++) { if (gameState.chapters[i].status !== 'accepted') { hasWorkableChapter = true; const li = document.createElement('li'); const button = document.createElement('button'); button.textContent = `Chapter ${i} (Progress: ${gameState.chapters[i].progress.toFixed(0)}%)`; button.classList.add('game-button'); button.dataset.chapter = i; const workCost = { energy: 25 }; if (!canAfford(workCost)) { button.classList.add('disabled'); button.disabled = true; button.dataset.tooltip = "Need more Energy!"; } else { button.onclick = () => handleChapterWorkConfirm(i, workCost); } li.appendChild(button); chapterSelectList.appendChild(li); } } if (!hasWorkableChapter) { chapterSelectList.innerHTML = '<li>All chapters accepted!</li>'; } showOverlay(chapterSelectOverlay); }
+        function handleChapterWorkConfirm(chapterId, cost) { hideOverlay(chapterSelectOverlay); performWorkOnChapter(chapterId, cost); }
+        function performWorkOnChapter(chapterId, cost) { if (gameState.currentActivity || gameState.isOverlayVisible) return; const chapter = gameState.chapters[chapterId]; if (!chapter || chapter.status === 'accepted') { logMessage("Cannot work on this chapter."); return; } const actionDuration = 4; if (canAfford(cost)) { gameState.resources.energy -= (cost.energy || 0); gameState.currentActivity = { id: `work_chapter_${chapterId}`, name: `Working on Chapter ${chapterId}`, duration: actionDuration, remaining: actionDuration, cost: cost, effect: () => { const base_rate = 5 + Math.random() * 5; const clarity_multiplier = 1 + (gameState.idea_clarity / 200); const advisor_bonus = gameState.advisor_bonus_turns > 0 ? 1.1 : 1.0; const writing_gain = base_rate * clarity_multiplier * advisor_bonus; chapter.progress = Math.min(100, chapter.progress + writing_gain); if (gameState.advisor_bonus_turns > 0) { gameState.advisor_bonus_turns--; } logMessage(`Worked on Chapter ${chapterId}. +${writing_gain.toFixed(1)} Progress (${chapter.progress.toFixed(0)}%)`); if (chapter.progress >= 100 && !chapter.draft_complete) { chapter.draft_complete = true; chapter.status = 'draft_complete'; logMessage(`Chapter ${chapterId} draft complete! Consider submitting at end of term.`); } updateStatsUI(); } }; logMessage(`Started working on Chapter ${chapterId}.`); updateUI(); } else { logMessage(`Cannot work on Chapter ${chapterId}: Insufficient resources.`); } }
+        function performReadLiterature() { if (gameState.currentActivity || gameState.isOverlayVisible) return; const cost = { energy: 15, motivation: 2 }; const actionDuration = 2; if (canAfford(cost)) { gameState.resources.energy -= cost.energy; gameState.resources.motivation -= cost.motivation; gameState.currentActivity = { id: 'read_lit', name: 'Reading Literature', duration: actionDuration, remaining: actionDuration, cost: cost, effect: () => { const clarityGain = 3 + Math.random() * 7; gameState.idea_clarity = Math.min(100, gameState.idea_clarity + clarityGain); logMessage(`Read literature. +${clarityGain.toFixed(1)} Idea Clarity (${gameState.idea_clarity.toFixed(0)}).`); updateStatsUI(); } }; logMessage("Started reading literature..."); updateUI(); } else { logMessage("Cannot read literature: Insufficient resources."); } }
+        function performMeetAdvisor() { if (gameState.currentActivity || gameState.isOverlayVisible) return; logMessage("Met with advisor. (Detailed feedback coming soon!)"); gameState.advisor_satisfaction = Math.min(100, gameState.advisor_satisfaction + 5); gameState.idea_clarity = Math.min(100, gameState.idea_clarity + 3); gameState.advisor_bonus_turns = 3; updateStatsUI(); }
+        function performPresentSeminar() { if (gameState.currentActivity || gameState.isOverlayVisible) return; if (!gameState.seminar_opt_in) { logMessage("Did not sign up for seminar this term."); return; } logMessage("Presented at internal seminar. (Outcome logic coming soon!)"); gameState.stats.reputation = (gameState.stats.reputation || 0) + 1; gameState.seminar_opt_in = false; updateStatsUI(); }
+        function checkChapterSubmissions() { console.log("Checking chapter submissions (placeholder)..."); Object.keys(gameState.chapters).forEach(id => { const chapter = gameState.chapters[id]; if (chapter.draft_complete && chapter.status !== 'accepted' && chapter.status !== 'submitted') { console.log(`Would prompt to submit Chapter ${id}`); } }); }
+        function checkCompletion() { logMessage("End of Term 10 reached! Checking dissertation status..."); let allAccepted = Object.values(gameState.chapters).every(ch => ch.status === 'accepted'); if (allAccepted) { logMessage("Congratulations! Dissertation accepted! Proceeding to Job Market."); changeStage('JobMarket'); } else { logMessage("Dissertation incomplete or not fully accepted. Need extension?"); } }
+
+        // --- Main Game Loop Logic ---
+        function advanceTime() { gameState.time.tick++; if (gameState.time.tick >= TICKS_PER_WEEK) { gameState.time.tick = 0; gameState.time.week++; gameState.resources.energy = Math.min(gameState.resources.maxEnergy, gameState.resources.energy + 10); gameState.resources.motivation = Math.min(gameState.resources.maxMotivation, gameState.resources.motivation + 5); if (gameState.currentStage.startsWith('PhD')) { gameState.resources.funding += 20; } if (gameState.time.week > WEEKS_PER_TERM) { gameState.time.week = 1; logMessage(`End of Term ${gameState.time.term}, Year ${gameState.time.year}.`); if (gameState.currentStage === 'PhD (Coursework)') { runExamPhase(); } else if (gameState.currentStage === 'PhD (Research)') { checkChapterSubmissions(); proceedToNextTerm(); } else { proceedToNextTerm(); } } } }
+        function processActivity() { if (!gameState.currentActivity) return; gameState.currentActivity.remaining--; if (gameState.currentActivity.remaining <= 0) { logMessage(`Finished: ${gameState.currentActivity.name}.`); try { if (typeof gameState.currentActivity.effect === 'function') { gameState.currentActivity.effect(); } else { console.error("Activity effect is not a function:", gameState.currentActivity); } } catch (error) { console.error("Error executing activity effect:", error); logMessage(`Error completing ${gameState.currentActivity.name}!`); } gameState.currentActivity = null; } }
+        function checkGameOver() { if (gameState.gameOver) return; let reason = null; if (gameState.resources.energy <= 0) { reason = "You collapsed from exhaustion. Take better care of yourself!"; logMessage("Game Over: Ran out of energy."); } else if (gameState.resources.motivation <= 0) { reason = "You lost all motivation and dropped out. Academia is tough!"; logMessage("Game Over: Ran out of motivation."); } else if (gameState.resources.funding < -200) { reason = "You accumulated too much debt! Game Over."; logMessage("Game Over: Excessive debt."); } if (reason) { gameState.gameOver = true; clearTimeout(gameState.gameLoopTimeoutId); showModal("Game Over!", reason, true); } }
+        function checkStageCompletion() { /* Now handled primarily by term progression and exam results */ }
+        function changeStage(newStage) { gameState.currentStage = newStage; logMessage(`Entering stage: ${getStageName(newStage)}`); updateUI(); }
+        function gameLoop() { if (gameState.isOverlayVisible) { console.log("Game loop paused (overlay visible)"); clearTimeout(gameState.gameLoopTimeoutId); gameState.gameLoopTimeoutId = setTimeout(gameLoop, gameState.gameSpeed); return; } if (gameState.gameOver || gameState.gamePhase !== 'main-game') { console.log(`Game loop stopping. gameOver: ${gameState.gameOver}, gamePhase: ${gameState.gamePhase}`); return; } console.log(`Game loop running: Y${gameState.time.year} T${gameState.time.term} W${gameState.time.week} T${gameState.time.tick}`); try { processActivity(); advanceTime(); if (Math.random() < 0.005) { triggerRandomEvent(); } updateUI(); checkGameOver(); } catch(e) { console.error("Error in game loop:", e); gameState.gameOver = true; } if (!gameState.gameOver) { clearTimeout(gameState.gameLoopTimeoutId); gameState.gameLoopTimeoutId = setTimeout(gameLoop, gameState.gameSpeed); } }
+        function startGameLoop() { if (gameState.gamePhase !== 'main-game') { console.warn("Attempted to start game loop outside main-game phase."); return; } console.log("Attempting to start main game loop..."); clearTimeout(gameState.gameLoopTimeoutId); gameLoop(); }
+
+        // --- Intro Sequence Logic ---
+        function startIntroAnimation() { console.log("Starting animation for school:", gameState.chosenSchool); introAnimationScreen.classList.remove('school-business', 'school-tech', 'school-ivyleague'); let schoolClass = 'school-business'; if (gameState.chosenSchool === 'Ivy League') { schoolClass = 'school-ivyleague'; } else if (gameState.chosenSchool === 'Tech Institute') { schoolClass = 'school-tech'; } introAnimationScreen.classList.add(schoolClass); introAnimationScreen.dataset.school = gameState.chosenSchool; const sprite = document.createElement('div'); sprite.className = 'walking-sprite'; introAnimationScreen.appendChild(sprite); animationText.textContent = `Walking towards ${gameState.chosenSchool}...`; let currentStep = 'left'; sprite.classList.add('step-left'); if (gameState.steppingIntervalId) { clearInterval(gameState.steppingIntervalId); } gameState.steppingIntervalId = setInterval(() => { if (!sprite || !sprite.parentNode) { clearInterval(gameState.steppingIntervalId); gameState.steppingIntervalId = null; return; } if (currentStep === 'left') { sprite.classList.remove('step-left'); sprite.classList.add('step-right'); currentStep = 'right'; } else { sprite.classList.remove('step-right'); sprite.classList.add('step-left'); currentStep = 'left'; } }, STEP_INTERVAL_MS); requestAnimationFrame(() => { setTimeout(() => { sprite.classList.add('is-walking'); }, 50); }); setTimeout(() => { console.log("Animation timeout finished. Clearing interval and switching phase."); if (gameState.steppingIntervalId) { clearInterval(gameState.steppingIntervalId); gameState.steppingIntervalId = null; } if (sprite && sprite.parentNode) { sprite.remove(); } switchGamePhase('main-game'); }, ANIMATION_DURATION); }
+        function switchGamePhase(newPhase) { gameState.gamePhase = newPhase; console.log("Switching phase to:", newPhase); introWelcomeScreen.classList.add('hidden'); introSetupScreen.classList.add('hidden'); introAnimationScreen.classList.add('hidden'); mainGameInterface.classList.add('hidden'); switch (newPhase) { case 'intro-welcome': introWelcomeScreen.classList.remove('hidden'); titleImage.classList.remove('animate-in'); welcomeContinueButton.classList.remove('visible'); requestAnimationFrame(() => { setTimeout(() => { titleImage.classList.add('animate-in'); setTimeout(() => { welcomeContinueButton.classList.add('visible'); }, TITLE_ANIMATION_DURATION_MS + BUTTON_FADE_IN_DELAY_MS); }, 100); }); break; case 'intro-setup': introSetupScreen.classList.remove('hidden'); playerNameInput.value = gameState.playerName === "Player" ? "" : gameState.playerName; schoolChoiceButtons.forEach(btn => btn.classList.remove('selected')); setupStartButton.classList.add('disabled'); setupStartButton.disabled = true; gameState.chosenSchool = null; break; case 'intro-animation': introAnimationScreen.classList.remove('hidden'); startIntroAnimation(); break; case 'main-game': console.log("Switching to main-game phase..."); mainGameInterface.classList.remove('hidden'); enrollInCourses(1); updateUI(); startGameLoop(); break; } }
+
+        // --- Event Handlers ---
+        function handleWelcomeContinue() { switchGamePhase('intro-setup'); }
+        function handleSchoolChoice(event) { gameState.chosenSchool = event.currentTarget.dataset.school; const bonusType = event.currentTarget.dataset.bonus; console.log("Chose school:", gameState.chosenSchool, "Bonus type:", bonusType); schoolChoiceButtons.forEach(btn => btn.classList.remove('selected')); event.currentTarget.classList.add('selected'); updateStartButtonState(); }
+        function handleNameInput() { updateStartButtonState(); }
+        function updateStartButtonState() { const nameEntered = playerNameInput.value.trim() !== ""; const schoolChosen = gameState.chosenSchool !== null; if (nameEntered && schoolChosen) { setupStartButton.classList.remove('disabled'); setupStartButton.disabled = false; } else { setupStartButton.classList.add('disabled'); setupStartButton.disabled = true; } }
+        function handleSetupStart() { gameState.playerName = playerNameInput.value.trim() || "Player"; const selectedButton = document.querySelector('.school-choice-button.selected'); if (selectedButton) { gameState.chosenSchool = selectedButton.dataset.school; const bonusType = selectedButton.dataset.bonus; if (bonusType === 'metrics') { gameState.stats.econometrics += 5; } else if (bonusType === 'theory') { gameState.stats.microTheory += 3; gameState.stats.macroTheory += 3; } else if (bonusType === 'funding') { gameState.resources.funding += 300; } } else { gameState.chosenSchool = "State U"; } console.log("Starting PhD for:", gameState.playerName, "at", gameState.chosenSchool); /* Enroll moved */ switchGamePhase('intro-animation'); }
+        // handleConfirmCourses defined above
+        function handleConfirmPlanning() { const focus = chapterFocusSelect.value; const freq = document.querySelector('input[name="advisor-freq"]:checked').value; const seminar = document.querySelector('input[name="seminar-opt"]:checked').value === 'yes'; gameState.current_chapter_focus = focus === 'previous' ? gameState.current_chapter_focus : parseInt(focus); gameState.advisor_meeting_freq = freq; gameState.seminar_opt_in = seminar; logMessage(`Term ${gameState.time.term} planning complete. Focus: Ch ${gameState.current_chapter_focus}, Advisor: ${freq}, Seminar: ${seminar ? 'Yes' : 'No'}`); hideOverlay(researchPlanningOverlay); }
+
+        // --- Initialization ---
+        function initGame() {
+            console.log("Initializing Econ Empire...");
+            switchGamePhase('intro-welcome'); // Start at welcome screen
+             // Add event listeners for intro screens
+             welcomeContinueButton.addEventListener('click', handleWelcomeContinue);
+             schoolChoiceButtons.forEach(button => { button.addEventListener('click', handleSchoolChoice); });
+             playerNameInput.addEventListener('input', updateStartButtonState);
+             setupStartButton.addEventListener('click', handleSetupStart);
+             // Add listeners for overlay close/continue buttons
+             termStartContinue.addEventListener('click', () => hideOverlay(termStartOverlay));
+             studySubmenuClose.addEventListener('click', () => hideOverlay(studySubmenu));
+             buyWindowClose.addEventListener('click', () => hideOverlay(buyWindow));
+             examPhaseContinue.addEventListener('click', proceedToNextTerm);
+             examPhaseRestart.addEventListener('click', () => window.location.reload());
+             courseConfirmButton.addEventListener('click', handleConfirmCourses);
+             if(chapterSelectCancel) chapterSelectCancel.addEventListener('click', () => hideOverlay(chapterSelectOverlay));
+             if(researchPlanConfirmButton) researchPlanConfirmButton.addEventListener('click', handleConfirmPlanning);
+        }
+
+        // --- Start Game ---
+         window.onload = function () { initGame(); }
+
+    </script>
+
+</body>
+</html>
