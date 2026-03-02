@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Club Suggestions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  </style>
+</head>
+
+<body data-page="submit" class="min-h-screen bg-slate-950 text-slate-50">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-indigo-900/30 via-slate-950 to-slate-950"></div>
+
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <h1 id="clubName" class="text-3xl font-extrabold tracking-tight">Book Club</h1>
+          <p id="tagline" class="mt-1 text-slate-300"></p>
+        </div>
+        <a href="./results.html" class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold ring-1 ring-white/10 hover:bg-white/15">
+          Results →
+        </a>
+      </div>
+
+      <div class="mt-5 flex flex-wrap items-center gap-3">
+        <span id="statusBadge" class="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold bg-white/10 ring-1 ring-white/10">
+          Loading…
+        </span>
+        <div class="text-sm text-slate-300">
+          Deadline: <span id="deadlinePretty" class="font-semibold text-slate-100"></span>
+        </div>
+        <div class="text-sm text-slate-300">
+          Time left: <span id="countdown" class="font-semibold text-slate-100">—</span>
+        </div>
+      </div>
+
+      <p id="closedMsg" class="mt-3 hidden text-sm text-rose-200">
+        Submissions are closed. See results.
+      </p>
+    </header>
+
+    <section class="rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+      <div id="fatal" class="hidden rounded-xl bg-rose-500/15 p-4 text-rose-100 ring-1 ring-rose-400/30">
+        <div class="font-semibold">Setup issue</div>
+        <div class="mt-1 text-sm">Update <code class="font-mono">config.js</code> with your Apps Script URL.</div>
+        <div id="fatalDetail" class="mt-2 text-xs text-rose-200"></div>
+      </div>
+
+      <form id="suggestForm" class="mt-4 space-y-4">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block">
+            <span class="text-sm font-semibold text-slate-200">Your name (optional)</span>
+            <input id="name" class="mt-1 w-full rounded-xl bg-slate-900/60 px-4 py-3 ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="A. Smith" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm font-semibold text-slate-200">Book title</span>
+            <input id="title" required class="mt-1 w-full rounded-xl bg-slate-900/60 px-4 py-3 ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="The Undercover Economist" />
+          </label>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block">
+            <span class="text-sm font-semibold text-slate-200">Author</span>
+            <input id="author" required class="mt-1 w-full rounded-xl bg-slate-900/60 px-4 py-3 ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="Tim Harford" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm font-semibold text-slate-200">Link (optional)</span>
+            <input id="link" class="mt-1 w-full rounded-xl bg-slate-900/60 px-4 py-3 ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="https://…" />
+          </label>
+        </div>
+
+        <label class="block">
+          <span class="text-sm font-semibold text-slate-200">Notes (optional)</span>
+          <textarea id="notes" rows="3" class="mt-1 w-full rounded-xl bg-slate-900/60 px-4 py-3 ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            placeholder="Why it’s good for lunch discussion…"></textarea>
+        </label>
+
+        <!-- Optional submit code: only needed if you set SUBMIT_CODE in Apps Script -->
+        <label class="block hidden" id="codeWrap">
+          <span class="text-sm font-semibold text-slate-200">Club code</span>
+          <input id="code" class="mt-1 w-full rounded-xl bg-slate-900/60 px-4 py-3 ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            placeholder="(optional)" />
+        </label>
+
+        <!-- Honeypot (bots fill it, humans won’t see it) -->
+        <input id="website" class="hidden" autocomplete="off" tabindex="-1" />
+
+        <div class="flex flex-wrap items-center gap-3">
+          <button type="submit" class="rounded-xl bg-indigo-500 px-5 py-3 font-semibold text-white hover:bg-indigo-400">
+            Submit suggestion
+          </button>
+          <div id="submitMsg" class="text-sm text-slate-300"></div>
+          <div class="ml-auto text-sm text-slate-300">
+            Submissions so far: <span id="count" class="font-semibold text-slate-100">—</span>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-400">
+          Please don’t submit anything sensitive. This is just for our book club.
+        </p>
+      </form>
+    </section>
+
+    <section class="mt-8">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-lg font-bold">Suggestions</h2>
+        <p id="listNote" class="text-sm text-slate-400"></p>
+      </div>
+      <ul id="list" class="mt-4 grid gap-3"></ul>
+    </section>
+  </main>
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
