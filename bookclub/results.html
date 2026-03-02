@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  </style>
+</head>
+
+<body data-page="results" class="min-h-screen bg-slate-950 text-slate-50">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-fuchsia-900/25 via-slate-950 to-slate-950"></div>
+
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <header class="mb-8">
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <h1 id="clubName" class="text-3xl font-extrabold tracking-tight">Results</h1>
+          <p id="tagline" class="mt-1 text-slate-300"></p>
+        </div>
+        <a href="./index.html" class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold ring-1 ring-white/10 hover:bg-white/15">
+          ← Submit page
+        </a>
+      </div>
+
+      <div class="mt-5 flex flex-wrap items-center gap-3">
+        <span id="statusBadge" class="inline-flex items-center rounded-full px-3 py-1 text-sm font-semibold bg-white/10 ring-1 ring-white/10">
+          Loading…
+        </span>
+        <div class="text-sm text-slate-300">
+          Deadline: <span id="deadlinePretty" class="font-semibold text-slate-100"></span>
+        </div>
+        <div class="text-sm text-slate-300">
+          Time left: <span id="countdown" class="font-semibold text-slate-100">—</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="winnerBox" class="hidden rounded-2xl bg-white/5 p-6 ring-1 ring-white/10">
+      <div class="text-sm font-semibold text-slate-300">Selected book</div>
+      <div id="winnerTitle" class="mt-2 text-2xl font-extrabold tracking-tight">—</div>
+      <div id="winnerMeta" class="mt-1 text-slate-300">—</div>
+    </section>
+
+    <section class="mt-8">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-lg font-bold">All suggestions</h2>
+        <p id="listNote" class="text-sm text-slate-400"></p>
+      </div>
+      <ul id="list" class="mt-4 grid gap-3"></ul>
+    </section>
+
+    <p class="mt-10 text-xs text-slate-500">
+      Organizer? Use <code class="font-mono">admin.html</code> to pick/reset (requires passphrase).
+    </p>
+  </main>
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
