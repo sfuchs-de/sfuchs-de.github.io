@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  </style>
+</head>
+
+<body data-page="admin" class="min-h-screen bg-slate-950 text-slate-50">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-amber-900/20 via-slate-950 to-slate-950"></div>
+
+  <main class="mx-auto max-w-xl px-4 py-10">
+    <h1 class="text-3xl font-extrabold tracking-tight">Admin</h1>
+    <p class="mt-2 text-slate-300">Pick and lock the winner after the deadline.</p>
+
+    <section class="mt-6 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 space-y-4">
+      <label class="block">
+        <span class="text-sm font-semibold text-slate-200">Admin passphrase</span>
+        <input id="adminPass" type="password"
+          class="mt-1 w-full rounded-xl bg-slate-900/60 px-4 py-3 ring-1 ring-white/10 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400"
+          placeholder="(set in Apps Script setup())" />
+      </label>
+
+      <div class="flex gap-3">
+        <button id="pickBtn" class="rounded-xl bg-amber-500 px-5 py-3 font-semibold text-slate-900 hover:bg-amber-400">
+          Pick winner
+        </button>
+        <button id="resetBtn" class="rounded-xl bg-white/10 px-5 py-3 font-semibold text-slate-100 ring-1 ring-white/10 hover:bg-white/15">
+          Reset winner
+        </button>
+      </div>
+
+      <div id="adminOut" class="text-sm text-slate-300"></div>
+
+      <a class="text-sm text-slate-300 underline" href="./results.html">Go to results</a>
+    </section>
+  </main>
+
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
