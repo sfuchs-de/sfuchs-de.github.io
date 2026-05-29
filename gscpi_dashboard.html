@@ -119,6 +119,35 @@ tr.drg-header td:first-child{border-left:3px solid var(--grp-color,#6b7280)}
 .js-plotly-plot .ytick text,.js-plotly-plot .xtick text{transition:.1s}
 .js-plotly-plot .ytick text.clickable,.js-plotly-plot .xtick text.clickable{cursor:pointer}
 .click-hint{font-size:9px;color:#c0c9d4;float:right;margin-top:2px}
+
+/* ── Episodes tab ── */
+.ep-header{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px 24px;background:#f4f6f9;border-bottom:1px solid #e5e9ef}
+.ep-hcard{background:#fff;border-radius:8px;padding:12px 16px;box-shadow:0 1px 3px rgba(0,0,0,.05);border-bottom:3px solid var(--ep-c,#6b7280)}
+.ep-hcard-label{font-size:12px;font-weight:700;color:#111827}
+.ep-hcard-sub{font-size:10px;color:#6b7280;margin-top:1px}
+.ep-hcard-gscpi{font-size:22px;font-weight:700;margin-top:6px;color:var(--ep-c,#111827)}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;padding:10px 24px 4px}
+.ep-card{background:#fff;border:1px solid #e5e9ef;border-radius:8px;padding:12px 14px;cursor:pointer;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.ep-card:hover{border-color:#93c5fd;box-shadow:0 2px 8px rgba(37,99,235,.1)}
+.ep-card.ep-active{border-color:#2563eb;box-shadow:0 0 0 2px #dbeafe}
+.ep-card-title{font-size:12px;font-weight:600;color:#111827;margin-bottom:2px}
+.ep-card-group{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.ep-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px}
+.ep-chip{border-radius:4px;padding:5px 2px;text-align:center;font-size:11px;font-weight:700;line-height:1.2}
+.ep-chip-label{font-size:8px;font-weight:500;opacity:.7;display:block;margin-bottom:1px}
+.ep-detail-wrap{display:none;padding:0 24px 8px}
+.ep-detail-wrap.open{display:block}
+.ep-detail{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.09);border-top:3px solid #2563eb;overflow:hidden}
+.ep-detail-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 10px;border-bottom:1px solid #f1f5f9}
+.ep-detail-title{font-size:14px;font-weight:700;color:#111827}
+.ep-detail-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.ep-detail-left{padding:14px 18px;border-right:1px solid #f1f5f9}
+.ep-detail-right{padding:14px 18px}
+.ep-comp-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:6px}
+.ep-comp-table th{text-align:left;padding:4px 6px;color:#9ca3af;font-size:10px;font-weight:600;text-transform:uppercase;border-bottom:1px solid #e5e9ef}
+.ep-comp-table td{padding:5px 6px;border-bottom:1px solid #f3f4f6}
+.ep-comp-table td.ep-z{text-align:center;border-radius:4px;font-weight:700}
+.ep-comp-table tr:last-child td{border-bottom:none}
 </style>
 </head>
 <body>
@@ -137,6 +166,7 @@ tr.drg-header td:first-child{border-left:3px solid var(--grp-color,#6b7280)}
   <div class="tab active" onclick="showTab('overview',this)">Overview</div>
   <div class="tab" onclick="showTab('blocks',this)">Block Explorer</div>
   <div class="tab" onclick="showTab('portwatch',this)">PortWatch</div>
+  <div class="tab" onclick="showTab('episodes',this)">Episodes</div>
   <div class="tab" onclick="showTab('models',this)">Models</div>
   <div class="tab" onclick="showTab('about',this)">About & Data</div>
 </div>
@@ -332,6 +362,53 @@ tr.drg-header td:first-child{border-left:3px solid var(--grp-color,#6b7280)}
       </tbody>
     </table>
   </div></div>
+
+</div>
+
+<!-- ════════════════════════════════════════════════════════ EPISODES TAB -->
+<div id="tab-episodes" class="tab-panel">
+
+  <!-- Episode header row -->
+  <div class="ep-header" id="epHeader"></div>
+
+  <div class="section" style="padding-top:10px">BLOCK COMPARISON — ALL EPISODES <span style="font-size:9px;color:#9ca3af;text-transform:none;font-weight:400;margin-left:8px">click any card to drill into sub-components and time series</span></div>
+
+  <!-- Group filter bar -->
+  <div class="filter-bar" id="epFilterBar">
+    <button class="btn active" onclick="filterEpBlocks('all',this)">All</button>
+    <button class="btn" onclick="filterEpBlocks('transport',this)">Transport &amp; Cost</button>
+    <button class="btn" onclick="filterEpBlocks('surveys',this)">Surveys &amp; Orders</button>
+    <button class="btn" onclick="filterEpBlocks('physical',this)">Physical Flow</button>
+    <button class="btn" onclick="filterEpBlocks('portwatch',this)">PortWatch</button>
+  </div>
+
+  <!-- Block card grid -->
+  <div class="ep-grid" id="epGrid"></div>
+
+  <!-- Drill-down panel -->
+  <div class="ep-detail-wrap" id="epDetailWrap">
+    <div class="ep-detail">
+      <div class="ep-detail-header">
+        <div>
+          <div class="ep-detail-title" id="epDetailTitle"></div>
+          <div style="font-size:11px;color:#6b7280;margin-top:2px" id="epDetailSub"></div>
+        </div>
+        <button class="btn" onclick="closeEpDetail()">✕ Close</button>
+      </div>
+      <div class="ep-detail-body">
+        <div class="ep-detail-left">
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#6b7280;margin-bottom:6px">Time series with episode markers</div>
+          <div id="epDetailChart" style="height:260px"></div>
+        </div>
+        <div class="ep-detail-right">
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#6b7280;margin-bottom:8px">Episode comparison — z-score by crisis</div>
+          <div id="epDetailBarChart" style="height:130px"></div>
+          <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#6b7280;margin-top:14px;margin-bottom:4px">Sub-component breakdown <span style="font-size:9px;font-weight:400;text-transform:none;color:#9ca3af">z-scores vs full sample history</span></div>
+          <div id="epDetailComps"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 
@@ -735,6 +812,7 @@ const CONTRIB_SPREAD  = [{"term": "ism_prices_paid_z", "mean": -0.418, "min": -0
 const PER_MODEL       = [{"model": "post2010_ex_covid", "label": "2010\u20132025 (ex-COVID)", "color": "#60a5fa", "terms": ["airfreight_cost", "ppi_transport_services", "domestic_logistics", "inventories_orders_backlogs", "energy_fuel_cost", "portwatch_gulf_disruption_factor", "portwatch_suez_pressure_z", "regional_delivery_pressure", "bts_tsi_freight_z", "rwi_isl_container_z", "unfilled_orders_pressure", "inventory_drawdown_pressure", "bls_ppi_freight_z", "mfg_orders_inv_pressure", "empire_prices_paid_z", "philly_prices_paid_z", "lalb_port_pressure_z", "eia_fuel_composite_z", "census_m3_backlog_pressure", "btos_composite_z", "ism_supplier_deliveries_z", "ism_prices_paid_z"], "labels": ["Airfreight Cost", "PPI Transport Services", "Domestic Logistics (v4)", "Inventories/Orders/Backlogs", "Energy/Fuel Cost (v4)", "PortWatch Gulf Composite", "Suez Canal Pressure", "Regional Delivery Pressure", "BTS TSI Freight Index", "RWI/ISL Container Index", "Unfilled Orders Pressure", "Inventory Drawdown", "BLS PPI Freight Composite", "Mfg Orders/Inventories", "Empire State Prices Paid", "Philly Fed Prices Paid", "LA/Long Beach Port Pressure", "EIA Fuel Composite", "Census M3 Backlog Ratio", "Census BTOS Survey", "ISM Supplier Deliveries", "ISM Prices Paid"], "contributions": [0.04, 0.144, 0.02, 0.015, 0.027, 0.118, -0.042, 0.032, -0.082, 0.147, 0.016, -0.013, 0.08, 0.0, -0.255, 0.124, 0.076, -0.013, -0.0, 0.39, 0.222, -0.378]}, {"model": "post2018_ex_covid", "label": "2018\u20132025 (ex-COVID)", "color": "#f97316", "terms": ["airfreight_cost", "ppi_transport_services", "domestic_logistics", "inventories_orders_backlogs", "energy_fuel_cost", "portwatch_gulf_disruption_factor", "portwatch_suez_pressure_z", "regional_delivery_pressure", "bts_tsi_freight_z", "rwi_isl_container_z", "unfilled_orders_pressure", "inventory_drawdown_pressure", "bls_ppi_freight_z", "mfg_orders_inv_pressure", "empire_prices_paid_z", "philly_prices_paid_z", "lalb_port_pressure_z", "eia_fuel_composite_z", "census_m3_backlog_pressure", "btos_composite_z", "ism_supplier_deliveries_z", "ism_prices_paid_z"], "labels": ["Airfreight Cost", "PPI Transport Services", "Domestic Logistics (v4)", "Inventories/Orders/Backlogs", "Energy/Fuel Cost (v4)", "PortWatch Gulf Composite", "Suez Canal Pressure", "Regional Delivery Pressure", "BTS TSI Freight Index", "RWI/ISL Container Index", "Unfilled Orders Pressure", "Inventory Drawdown", "BLS PPI Freight Composite", "Mfg Orders/Inventories", "Empire State Prices Paid", "Philly Fed Prices Paid", "LA/Long Beach Port Pressure", "EIA Fuel Composite", "Census M3 Backlog Ratio", "Census BTOS Survey", "ISM Supplier Deliveries", "ISM Prices Paid"], "contributions": [0.065, 0.054, -0.058, 0.068, -0.038, 0.25, -0.087, 0.06, 0.002, 0.061, -0.004, 0.002, -0.009, -0.0, -0.123, -0.149, 0.105, 0.005, 0.026, 0.427, 0.57, -0.741]}, {"model": "post2023_full", "label": "2023\u20132025 full", "color": "#a3e635", "terms": ["airfreight_cost", "ppi_transport_services", "domestic_logistics", "inventories_orders_backlogs", "energy_fuel_cost", "portwatch_gulf_disruption_factor", "portwatch_suez_pressure_z", "regional_delivery_pressure", "bts_tsi_freight_z", "rwi_isl_container_z", "unfilled_orders_pressure", "inventory_drawdown_pressure", "bls_ppi_freight_z", "mfg_orders_inv_pressure", "empire_prices_paid_z", "philly_prices_paid_z", "lalb_port_pressure_z", "eia_fuel_composite_z", "census_m3_backlog_pressure", "btos_composite_z", "ism_supplier_deliveries_z", "ism_prices_paid_z"], "labels": ["Airfreight Cost", "PPI Transport Services", "Domestic Logistics (v4)", "Inventories/Orders/Backlogs", "Energy/Fuel Cost (v4)", "PortWatch Gulf Composite", "Suez Canal Pressure", "Regional Delivery Pressure", "BTS TSI Freight Index", "RWI/ISL Container Index", "Unfilled Orders Pressure", "Inventory Drawdown", "BLS PPI Freight Composite", "Mfg Orders/Inventories", "Empire State Prices Paid", "Philly Fed Prices Paid", "LA/Long Beach Port Pressure", "EIA Fuel Composite", "Census M3 Backlog Ratio", "Census BTOS Survey", "ISM Supplier Deliveries", "ISM Prices Paid"], "contributions": [0.088, 0.131, 0.034, 0.058, -0.058, 0.009, -0.011, 0.052, -0.083, 0.19, -0.011, -0.006, 0.332, 0.004, -0.257, -0.09, 0.063, -0.022, 0.002, 0.458, 0.173, -0.277]}, {"model": "post2023_ex_covid", "label": "2023\u20132025 (ex-COVID)", "color": "#e879f9", "terms": ["airfreight_cost", "ppi_transport_services", "domestic_logistics", "inventories_orders_backlogs", "energy_fuel_cost", "portwatch_gulf_disruption_factor", "portwatch_suez_pressure_z", "regional_delivery_pressure", "bts_tsi_freight_z", "rwi_isl_container_z", "unfilled_orders_pressure", "inventory_drawdown_pressure", "bls_ppi_freight_z", "mfg_orders_inv_pressure", "empire_prices_paid_z", "philly_prices_paid_z", "lalb_port_pressure_z", "eia_fuel_composite_z", "census_m3_backlog_pressure", "btos_composite_z", "ism_supplier_deliveries_z", "ism_prices_paid_z"], "labels": ["Airfreight Cost", "PPI Transport Services", "Domestic Logistics (v4)", "Inventories/Orders/Backlogs", "Energy/Fuel Cost (v4)", "PortWatch Gulf Composite", "Suez Canal Pressure", "Regional Delivery Pressure", "BTS TSI Freight Index", "RWI/ISL Container Index", "Unfilled Orders Pressure", "Inventory Drawdown", "BLS PPI Freight Composite", "Mfg Orders/Inventories", "Empire State Prices Paid", "Philly Fed Prices Paid", "LA/Long Beach Port Pressure", "EIA Fuel Composite", "Census M3 Backlog Ratio", "Census BTOS Survey", "ISM Supplier Deliveries", "ISM Prices Paid"], "contributions": [0.088, 0.131, 0.034, 0.058, -0.058, 0.009, -0.011, 0.052, -0.083, 0.19, -0.011, -0.006, 0.332, 0.004, -0.257, -0.09, 0.063, -0.022, 0.002, 0.458, 0.173, -0.277]}];
 const MAY2026         = [{"key": "airfreight_cost", "label": "Airfreight Cost", "group": "transport", "color": "#60a5fa", "may": 1.42, "apr": 1.42}, {"key": "ppi_transport_services", "label": "PPI Transport Services", "group": "transport", "color": "#60a5fa", "may": 2.77, "apr": 2.77}, {"key": "empire_prices_paid_z", "label": "Empire State Prices Paid", "group": "surveys", "color": "#fb923c", "may": 1.51, "apr": 0.95}, {"key": "philly_prices_paid_z", "label": "Philly Fed Prices Paid", "group": "surveys", "color": "#fb923c", "may": 1.17, "apr": 1.74}, {"key": "regional_delivery_pressure", "label": "Regional Delivery Pressure", "group": "surveys", "color": "#34d399", "may": 0.51, "apr": 0.34}, {"key": "unfilled_orders_pressure", "label": "Unfilled Orders Pressure", "group": "surveys", "color": "#a78bfa", "may": 0.53, "apr": 0.41}, {"key": "inventory_drawdown_pressure", "label": "Inventory Drawdown", "group": "surveys", "color": "#a78bfa", "may": -1.17, "apr": -0.51}, {"key": "inventories_orders_backlogs", "label": "Inventories/Orders/Backlogs", "group": "surveys", "color": "#a78bfa", "may": 0.14, "apr": 0.14}, {"key": "btos_composite_z", "label": "Census BTOS Survey", "group": "surveys", "color": "#f0abfc", "may": 2.09, "apr": 2.27}, {"key": "portwatch_gulf_disruption_factor", "label": "PortWatch Gulf Composite", "group": "portwatch", "color": "#f97316", "may": 2.25, "apr": 2.1}, {"key": "portwatch_suez_pressure_z", "label": "Suez Canal Pressure", "group": "portwatch", "color": "#fbbf24", "may": 1.36, "apr": 1.09}, {"key": "portwatch_bosporus_pressure_z", "label": "Bosporus Strait Pressure", "group": "portwatch", "color": "#fb923c", "may": 1.36, "apr": 0.92}, {"key": "portwatch_cape_diversion_z", "label": "Cape of Good Hope Diversion", "group": "portwatch", "color": "#4ade80", "may": 1.7, "apr": 1.51}, {"key": "eia_fuel_composite_z", "label": "EIA Fuel Composite", "group": "transport", "color": "#fb7185", "may": 2.23, "apr": 2.25}, {"key": "energy_fuel_cost", "label": "Energy/Fuel Cost (v4)", "group": "transport", "color": "#fb7185", "may": 0.75, "apr": 0.75}, {"key": "domestic_logistics", "label": "Domestic Logistics (v4)", "group": "physical", "color": "#94a3b8", "may": 0.98, "apr": 0.98}];
 const XCORR           = [{"name": "Inbound Air Freight", "r0": 0.908, "best_lag": 0, "r_best": 0.908}, {"name": "Import Air Freight", "r0": 0.874, "best_lag": 0, "r_best": 0.874}, {"name": "Inbound Air Freight - Asia", "r0": 0.859, "best_lag": 0, "r_best": 0.859}, {"name": "Inbound Air Freight - Europe", "r0": 0.789, "best_lag": 0, "r_best": 0.789}, {"name": "Import Air Freight - Europe", "r0": 0.755, "best_lag": 0, "r_best": 0.755}, {"name": "Import Air Freight - Asia", "r0": 0.749, "best_lag": -2, "r_best": 0.778}, {"name": "Export Air Freight - Europe", "r0": 0.695, "best_lag": 0, "r_best": 0.695}, {"name": "Outbound Air Freight", "r0": 0.683, "best_lag": 0, "r_best": 0.683}, {"name": "Export Air Freight", "r0": 0.661, "best_lag": 0, "r_best": 0.661}, {"name": "Outbound Air Freight - Asia", "r0": 0.624, "best_lag": 0, "r_best": 0.624}, {"name": "Outbound Air Freight - Europe", "r0": 0.595, "best_lag": 0, "r_best": 0.595}, {"name": "Export Air Freight - Asia", "r0": 0.545, "best_lag": 0, "r_best": 0.545}];
+const EPISODES_DATA   = {"keys": ["covid", "ukraine", "houthi", "apr26"], "labels": ["Dec 2021", "Mar 2022", "Nov 2023", "Apr 2026"], "subtitles": ["COVID Peak", "Ukraine / Energy", "Houthi / Red Sea", "Tariff + Iran"], "colors": ["#8b5cf6", "#ef4444", "#f97316", "#dc2626"], "gscpi": [4.47, 2.88, 0.16, 1.82], "blocks": [{"key": "airfreight_cost", "label": "Airfreight Cost", "group": "transport", "color": "#60a5fa", "in_model": true, "z": [0.43, 0.57, 0.55, 1.42], "components": []}, {"key": "ppi_transport_services", "label": "PPI Transport Services", "group": "transport", "color": "#60a5fa", "in_model": true, "z": [0.92, 0.92, -0.47, 2.77], "components": [{"label": "Deep-sea Shipping PPI", "z": [0.84, 0.72, 1.27, 1.74]}, {"label": "Truck Transportation PPI", "z": [1.39, 2.05, 1.66, 2.57]}, {"label": "Water Transportation PPI", "z": [0.77, 1.26, 1.34, 2.51]}]}, {"key": "bls_ppi_freight_z", "label": "BLS PPI Freight Composite", "group": "transport", "color": "#818cf8", "in_model": true, "z": [1.0, 1.34, 1.42, 2.28], "components": []}, {"key": "empire_prices_paid_z", "label": "Empire State Prices Paid", "group": "surveys", "color": "#fb923c", "in_model": true, "z": [2.48, 1.92, -0.4, 0.95], "components": [{"label": "Empire State Prices Paid", "z": [2.48, 1.92, -0.4, 0.95]}]}, {"key": "philly_prices_paid_z", "label": "Philly Fed Prices Paid", "group": "surveys", "color": "#fb923c", "in_model": true, "z": [2.52, 2.44, -0.44, 1.74], "components": [{"label": "Philly Prices Paid", "z": [2.52, 2.44, -0.44, 1.74]}]}, {"key": "ism_prices_paid_z", "label": "ISM Prices Paid", "group": "surveys", "color": "#f59e0b", "in_model": true, "z": [1.39, 3.6, -0.74, 3.3], "components": [{"label": "ISM Prices Paid", "z": [1.39, 3.6, -0.74, 3.3]}]}, {"key": "ism_supplier_deliveries_z", "label": "ISM Supplier Deliveries", "group": "surveys", "color": "#f59e0b", "in_model": true, "z": [1.11, 1.16, -0.77, 0.68], "components": [{"label": "ISM Supplier Deliveries", "z": [1.11, 1.16, -0.77, 0.68]}]}, {"key": "regional_delivery_pressure", "label": "Regional Delivery Pressure", "group": "surveys", "color": "#34d399", "in_model": true, "z": [2.86, 3.17, -0.86, 0.34], "components": [{"label": "Philly Delivery Time", "z": [3.17, 3.67, -0.52, 0.38]}, {"label": "Empire Delivery Time", "z": [2.49, 3.52, -0.66, 1.3]}, {"label": "Dallas Delivery Time", "z": [2.71, 2.43, -0.95, -0.88]}]}, {"key": "unfilled_orders_pressure", "label": "Unfilled Orders Pressure", "group": "surveys", "color": "#a78bfa", "in_model": true, "z": [1.89, 1.84, -1.19, 0.41], "components": [{"label": "Empire Unfilled Orders", "z": [2.39, 1.79, -1.9, 1.39]}, {"label": "Philly Unfilled Orders", "z": [1.38, 1.89, -0.47, -0.57]}]}, {"key": "inventory_drawdown_pressure", "label": "Inventory Drawdown", "group": "surveys", "color": "#a78bfa", "in_model": true, "z": [-1.49, -1.63, -0.59, -0.51], "components": [{"label": "Empire Inventories", "z": [-1.18, -2.42, -1.18, -0.78]}, {"label": "Philly Inventories", "z": [-1.8, -0.84, 0.01, -0.24]}]}, {"key": "inventories_orders_backlogs", "label": "Inventories/Orders/Backlogs", "group": "surveys", "color": "#a78bfa", "in_model": true, "z": [0.54, 0.79, 0.14, 0.14], "components": []}, {"key": "census_m3_backlog_pressure", "label": "Census M3 Backlog Ratio", "group": "surveys", "color": "#e879f9", "in_model": true, "z": [0.66, 0.67, 0.88, null], "components": [{"label": "Unfilled Orders (M3)", "z": [1.46, 1.63, 1.74, 2.08]}, {"label": "Shipments (M3)", "z": [null, null, null, null]}]}, {"key": "mfg_orders_inv_pressure", "label": "Mfg Orders/Inventories", "group": "surveys", "color": "#e879f9", "in_model": true, "z": [-0.39, -1.11, 0.53, -0.05], "components": [{"label": "New Orders (M3)", "z": [1.46, 1.63, 1.74, 2.08]}, {"label": "Inventories (M3)", "z": [1.49, 1.71, 2.08, 2.23]}]}, {"key": "btos_composite_z", "label": "Census BTOS Survey", "group": "surveys", "color": "#f0abfc", "in_model": true, "z": [null, null, 0.02, 2.27], "components": []}, {"key": "physical_flow_pressure", "label": "Physical Flow Pressure", "group": "physical", "color": "#22d3ee", "in_model": false, "z": [-0.31, -0.01, -0.41, 0.86], "components": []}, {"key": "portwatch_gulf_disruption_factor", "label": "PortWatch Gulf Composite", "group": "portwatch", "color": "#f97316", "in_model": true, "z": [-0.36, -0.55, -1.16, 2.1], "components": []}, {"key": "portwatch_suez_pressure_z", "label": "Suez Canal Pressure", "group": "portwatch", "color": "#fbbf24", "in_model": true, "z": [-0.4, -0.53, -1.8, 1.09], "components": []}, {"key": "portwatch_bosporus_pressure_z", "label": "Bosporus Strait Pressure", "group": "portwatch", "color": "#fb923c", "in_model": false, "z": [-0.54, 2.46, 1.07, 0.92], "components": []}, {"key": "portwatch_cape_diversion_z", "label": "Cape of Good Hope Diversion", "group": "portwatch", "color": "#4ade80", "in_model": false, "z": [-0.91, -1.01, -0.58, 1.51], "components": []}, {"key": "bts_tsi_freight_z", "label": "BTS TSI Freight Index", "group": "physical", "color": "#22d3ee", "in_model": true, "z": [1.25, 1.48, 1.35, null], "components": []}, {"key": "rwi_isl_container_z", "label": "RWI/ISL Container Index", "group": "physical", "color": "#22d3ee", "in_model": true, "z": [-1.01, -1.05, -1.1, null], "components": []}, {"key": "lalb_port_pressure_z", "label": "LA/Long Beach Port Pressure", "group": "physical", "color": "#22d3ee", "in_model": true, "z": [-1.13, -1.67, -1.04, -1.46], "components": []}, {"key": "eia_fuel_composite_z", "label": "EIA Fuel Composite", "group": "transport", "color": "#fb7185", "in_model": true, "z": [0.74, 2.07, 1.21, 2.25], "components": []}, {"key": "energy_fuel_cost", "label": "Energy/Fuel Cost (v4)", "group": "transport", "color": "#fb7185", "in_model": true, "z": [-0.94, 1.97, -0.89, 0.75], "components": []}, {"key": "domestic_logistics", "label": "Domestic Logistics (v4)", "group": "physical", "color": "#94a3b8", "in_model": true, "z": [0.66, 0.77, -0.04, 0.98], "components": []}]};
 
 // ── Plotly defaults ────────────────────────────────────────────────────────
 const LAYOUT_BASE = {
@@ -862,13 +940,15 @@ window.addEventListener('resize', () => {
 // ── Tab switching ─────────────────────────────────────────────────────────
 let activeTab = 'overview';
 const tabRendered = {};
+let epInitialized = false;
 
 function showTab(id, el) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
-  el.classList.add('active');
+  if (el) el.classList.add('active');
   activeTab = id;
+  if (id === 'episodes' && !epInitialized) { initEpisodesTab(); epInitialized = true; }
   if (!tabRendered[id]) {
     tabRendered[id] = true;
     renderTab(id);
@@ -1614,6 +1694,189 @@ function renderEpisodeHeatmap() {
     yaxis:{automargin:true,tickfont:{size:10}},
   }), PCONF);
   attachChartHandlers('episodeHeatmap');
+}
+
+// ── Episodes tab ────────────────────────────────────────────────────────────
+
+function epZStyle(z) {
+  if (z === null || z === undefined) return {bg:'#f3f4f6', text:'#9ca3af'};
+  const v = parseFloat(z);
+  if (v >  2.5) return {bg:'#fef2f2', text:'#991b1b'};
+  if (v >  1.5) return {bg:'#fee2e2', text:'#dc2626'};
+  if (v >  0.5) return {bg:'#fef3c7', text:'#b45309'};
+  if (v > -0.5) return {bg:'#f9fafb', text:'#6b7280'};
+  if (v > -1.5) return {bg:'#eff6ff', text:'#2563eb'};
+  return {bg:'#dbeafe', text:'#1e40af'};
+}
+
+function renderEpHeader() {
+  const D = EPISODES_DATA;
+  const el = document.getElementById('epHeader');
+  if (!el) return;
+  el.innerHTML = D.labels.map((lbl, i) => {
+    const g = D.gscpi[i];
+    const gStr = g != null ? (g > 0 ? '+' : '') + g.toFixed(2) : '—';
+    return `<div class="ep-hcard" style="--ep-c:${D.colors[i]}">
+      <div class="ep-hcard-label">${lbl}</div>
+      <div class="ep-hcard-sub">${D.subtitles[i]}</div>
+      <div class="ep-hcard-gscpi">${gStr}</div>
+      <div style="font-size:9px;color:#9ca3af;margin-top:2px">GSCPI level</div>
+    </div>`;
+  }).join('');
+}
+
+let epActiveKey = null;
+let epGroupFilter = 'all';
+
+function renderEpGrid(group) {
+  const grid = document.getElementById('epGrid');
+  if (!grid) return;
+  const D = EPISODES_DATA;
+  const blocks = D.blocks.filter(b => group === 'all' || b.group === group);
+  const GROUP_COLOR = {transport:'#60a5fa', surveys:'#fb923c', physical:'#22d3ee', portwatch:'#f97316'};
+  const GROUP_LABEL = {transport:'Transport & Cost', surveys:'Surveys & Orders', physical:'Physical Flow', portwatch:'PortWatch'};
+  grid.innerHTML = '';
+  blocks.forEach(b => {
+    const groupColor = GROUP_COLOR[b.group] || '#9ca3af';
+    const groupLabel = GROUP_LABEL[b.group] || b.group;
+    const modelTag = b.in_model
+      ? '<span class="bc-tag bc-model-tag">model</span>'
+      : '<span class="bc-tag bc-ref-tag">reference</span>';
+    const chips = D.labels.map((lbl, i) => {
+      const z = b.z[i];
+      const s = epZStyle(z);
+      const zStr = z != null ? (z > 0 ? '+' : '') + z.toFixed(2) : '—';
+      return `<div class="ep-chip" style="background:${s.bg};color:${s.text}">
+        <span class="ep-chip-label">${lbl.replace(' ','<br>')}</span>
+        ${zStr}
+      </div>`;
+    }).join('');
+    const card = document.createElement('div');
+    card.className = 'ep-card' + (b.key === epActiveKey ? ' ep-active' : '');
+    card.dataset.key = b.key;
+    card.innerHTML = `
+      <div class="ep-card-title">${b.label}</div>
+      <div class="ep-card-group" style="color:${groupColor}">${groupLabel} ${modelTag}</div>
+      <div class="ep-chips">${chips}</div>
+    `;
+    card.onclick = () => openEpDetail(b.key);
+    grid.appendChild(card);
+  });
+}
+
+function filterEpBlocks(group, btn) {
+  epGroupFilter = group;
+  document.querySelectorAll('#epFilterBar .btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderEpGrid(group);
+  if (epActiveKey) {
+    const b = EPISODES_DATA.blocks.find(x => x.key === epActiveKey);
+    if (b && group !== 'all' && b.group !== group) closeEpDetail();
+    else if (epActiveKey) scrollToEpDetail();
+  }
+}
+
+function openEpDetail(key) {
+  const D = EPISODES_DATA;
+  const b = D.blocks.find(x => x.key === key);
+  if (!b) return;
+  epActiveKey = key;
+  renderEpGrid(epGroupFilter);
+
+  // Header
+  document.getElementById('epDetailTitle').textContent = b.label;
+  const GROUP_LABEL = {transport:'Transport & Cost', surveys:'Surveys & Orders', physical:'Physical Flow', portwatch:'PortWatch'};
+  document.getElementById('epDetailSub').textContent = (GROUP_LABEL[b.group] || b.group) + (b.in_model ? ' · model block' : ' · reference only');
+
+  // Open panel
+  const wrap = document.getElementById('epDetailWrap');
+  wrap.classList.add('open');
+
+  // Episode bar chart
+  const epColors = b.z.map(z => epZStyle(z).text);
+  Plotly.newPlot('epDetailBarChart', [{
+    type: 'bar',
+    x: D.labels,
+    y: b.z,
+    marker: { color: epColors },
+    text: b.z.map(z => z != null ? (z > 0 ? '+' : '') + z.toFixed(2) : '—'),
+    textposition: 'outside',
+    hovertemplate: '%{x}: %{y:.2f}<extra></extra>',
+  }], layout({
+    height: 130, margin: {t:8,r:10,b:30,l:10},
+    xaxis: { tickfont: {size:10} },
+    yaxis: { visible: false },
+    showlegend: false,
+    shapes: [{type:'line',xref:'paper',x0:0,x1:1,yref:'y',y0:0,y1:0,line:{color:'#d1d9e2',width:1}}],
+  }), PCONF);
+
+  // Sub-component table
+  const compsEl = document.getElementById('epDetailComps');
+  if (b.components && b.components.length > 0) {
+    const headers = D.labels.map(l => `<th style="text-align:center;min-width:60px">${l}</th>`).join('');
+    const rows = b.components.map(c => {
+      const cells = c.z.map((z, i) => {
+        const s = epZStyle(z);
+        const zStr = z != null ? (z > 0 ? '+' : '') + z.toFixed(2) : '—';
+        return `<td class="ep-z" style="background:${s.bg};color:${s.text}">${zStr}</td>`;
+      }).join('');
+      return `<tr><td style="color:#374151;white-space:nowrap">${c.label}</td>${cells}</tr>`;
+    }).join('');
+    compsEl.innerHTML = `<table class="ep-comp-table">
+      <thead><tr><th>Component</th>${headers}</tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  } else {
+    compsEl.innerHTML = '<div style="font-size:11px;color:#9ca3af;margin-top:4px">No sub-component breakdown available for this block.</div>';
+  }
+
+  // Time series with episode markers
+  const EP_DATE_MAP = {covid:'2021-12-31', ukraine:'2022-03-31', houthi:'2023-11-30', apr26:'2026-04-30'};
+  const ts = (BLOCK_TS[key] || []);
+  if (ts.length > 0) {
+    const dates = ts.map(r => r.date);
+    const vals  = ts.map(r => r.value);
+    const shapes = D.keys.map((k, i) => ({
+      type:'line', xref:'x', x0:EP_DATE_MAP[k], x1:EP_DATE_MAP[k],
+      yref:'paper', y0:0, y1:1,
+      line: {color: D.colors[i], width: 1.5, dash:'dot'},
+    }));
+    const annotations = D.labels.map((lbl, i) => ({
+      x: EP_DATE_MAP[D.keys[i]],
+      yref:'paper', y:0.98, text:lbl, showarrow:false,
+      font:{size:9, color:D.colors[i]}, textangle:-90, xanchor:'right',
+    }));
+    Plotly.newPlot('epDetailChart', [{
+      x: dates, y: vals, type:'scatter', mode:'lines',
+      line: {color: b.color, width: 1.8},
+      hovertemplate:'%{x|%b %Y}: %{y:.2f}<extra></extra>',
+    }], layout({
+      height:260, margin:{t:10,r:10,b:30,l:40},
+      shapes, annotations,
+      yaxis: {title:'z-score', zeroline:true},
+      hovermode:'x',
+    }), PCONF);
+  } else {
+    document.getElementById('epDetailChart').innerHTML = '<div style="font-size:11px;color:#9ca3af;padding:20px">No time series available</div>';
+  }
+
+  scrollToEpDetail();
+}
+
+function closeEpDetail() {
+  epActiveKey = null;
+  document.getElementById('epDetailWrap').classList.remove('open');
+  renderEpGrid(epGroupFilter);
+}
+
+function scrollToEpDetail() {
+  const el = document.getElementById('epDetailWrap');
+  if (el) el.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function initEpisodesTab() {
+  renderEpHeader();
+  renderEpGrid('all');
 }
 
 // ── About tab ─────────────────────────────────────────────────────────────
