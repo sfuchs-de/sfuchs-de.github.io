@@ -126,15 +126,35 @@ tr.drg-header td:first-child{border-left:3px solid var(--grp-color,#6b7280)}
 .ep-hcard-label{font-size:12px;font-weight:700;color:#111827}
 .ep-hcard-sub{font-size:10px;color:#6b7280;margin-top:1px}
 .ep-hcard-gscpi{font-size:22px;font-weight:700;margin-top:6px;color:var(--ep-c,#111827)}
-.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;padding:10px 24px 4px}
-.ep-card{background:#fff;border:1px solid #e5e9ef;border-radius:8px;padding:12px 14px;cursor:pointer;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.ep-card:hover{border-color:#93c5fd;box-shadow:0 2px 8px rgba(37,99,235,.1)}
-.ep-card.ep-active{border-color:#2563eb;box-shadow:0 0 0 2px #dbeafe}
-.ep-card-title{font-size:12px;font-weight:600;color:#111827;margin-bottom:2px}
-.ep-card-group{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
-.ep-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px}
-.ep-chip{border-radius:4px;padding:5px 2px;text-align:center;font-size:11px;font-weight:700;line-height:1.2}
-.ep-chip-label{font-size:8px;font-weight:500;opacity:.7;display:block;margin-bottom:1px}
+
+/* Treemap section */
+.ep-tm-wrap{padding:6px 24px 10px}
+.ep-ep-sel{display:flex;gap:6px;margin-bottom:8px;align-items:center;flex-wrap:wrap}
+.ep-ep-sel-label{font-size:10px;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-right:4px}
+
+/* Nested heatmap */
+.nhm-wrap{padding:0 24px 4px;overflow-x:auto}
+.nhm-tbl{width:100%;border-collapse:collapse;font-size:11px}
+.nhm-hdr th{padding:8px 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#6b7280;border-bottom:2px solid var(--ec,#e5e9ef);text-align:center;background:#f8fafc;white-space:nowrap}
+.nhm-hdr th.nhm-lbl-th{text-align:left;min-width:210px}
+.nhm-hdr th.nhm-ep-th{min-width:82px}
+.nhm-group-row{background:#f0f4f9;cursor:pointer;transition:.1s}
+.nhm-group-row:hover{background:#e5ecf6}
+.nhm-group-row td{padding:8px 10px 8px 14px;font-weight:700;font-size:11px;color:#1e3a5f;border-bottom:1px solid #d6e0ee}
+.nhm-block-row{cursor:pointer;transition:.1s}
+.nhm-block-row:hover td{background:#f6f8fb}
+.nhm-block-row td{padding:5px 10px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+.nhm-block-row.nhm-act td:first-child span.nhm-bname{color:#2563eb;font-weight:600}
+.nhm-comp-row td{padding:4px 10px;background:#fafbff;font-size:10px;color:#6b7280;border-bottom:1px solid #f4f6fa;vertical-align:middle}
+.nhm-comp-row td:first-child{padding-left:46px;font-style:italic}
+.nhm-z{text-align:center;font-weight:700;font-size:11px;border-radius:3px;padding:3px 6px;display:inline-block;min-width:44px}
+.nhm-arr{font-size:9px;margin-right:4px;display:inline-block;transition:transform .2s;color:#9ca3af;cursor:pointer}
+.nhm-arr.o{transform:rotate(90deg)}
+.nhm-lbl-cell{display:flex;align-items:center}
+.nhm-mod-tag{font-size:8px;font-weight:700;padding:1px 4px;border-radius:2px;background:#ede9fe;color:#6d28d9;text-transform:uppercase;margin-left:5px;flex-shrink:0;letter-spacing:.3px}
+.nhm-ref-tag{background:#f0fdf4;color:#15803d}
+
+/* Drill-down panel */
 .ep-detail-wrap{display:none;padding:0 24px 8px}
 .ep-detail-wrap.open{display:block}
 .ep-detail{background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.09);border-top:3px solid #2563eb;overflow:hidden}
@@ -371,21 +391,24 @@ tr.drg-header td:first-child{border-left:3px solid var(--grp-color,#6b7280)}
   <!-- Episode header row -->
   <div class="ep-header" id="epHeader"></div>
 
-  <div class="section" style="padding-top:10px">BLOCK COMPARISON — ALL EPISODES <span style="font-size:9px;color:#9ca3af;text-transform:none;font-weight:400;margin-left:8px">click any card to drill into sub-components and time series</span></div>
-
-  <!-- Group filter bar -->
-  <div class="filter-bar" id="epFilterBar">
-    <button class="btn active" onclick="filterEpBlocks('all',this)">All</button>
-    <button class="btn" onclick="filterEpBlocks('transport',this)">Transport &amp; Cost</button>
-    <button class="btn" onclick="filterEpBlocks('surveys',this)">Surveys &amp; Orders</button>
-    <button class="btn" onclick="filterEpBlocks('physical',this)">Physical Flow</button>
-    <button class="btn" onclick="filterEpBlocks('portwatch',this)">PortWatch</button>
+  <!-- ── Pressure Treemap ── -->
+  <div class="section" style="padding-top:10px">PRESSURE TREEMAP
+    <span style="font-size:9px;color:#9ca3af;text-transform:none;font-weight:400;margin-left:8px">blocks sized by |z-score| · colored by direction · click group to zoom in · click block to inspect</span>
+  </div>
+  <div class="ep-tm-wrap">
+    <div class="ep-ep-sel" id="epEpSel"></div>
+    <div id="epTreemap" style="height:320px"></div>
   </div>
 
-  <!-- Block card grid -->
-  <div class="ep-grid" id="epGrid"></div>
+  <!-- ── Nested Heatmap ── -->
+  <div class="section" style="margin-top:2px">BLOCK × EPISODE HEATMAP
+    <span style="font-size:9px;color:#9ca3af;text-transform:none;font-weight:400;margin-left:8px">▶ click group row to expand/collapse · click block row to see sub-components + time series</span>
+  </div>
+  <div class="nhm-wrap">
+    <table class="nhm-tbl" id="nhmTable"></table>
+  </div>
 
-  <!-- Drill-down panel -->
+  <!-- ── Drill-down panel ── -->
   <div class="ep-detail-wrap" id="epDetailWrap">
     <div class="ep-detail">
       <div class="ep-detail-header">
@@ -1698,6 +1721,14 @@ function renderEpisodeHeatmap() {
 
 // ── Episodes tab ────────────────────────────────────────────────────────────
 
+const EP_GROUP_DISPLAY = {
+  transport: 'Transport & Cost',
+  surveys:   'Surveys & Orders',
+  physical:  'Physical Flow',
+  portwatch: 'PortWatch',
+};
+const EP_GROUP_ORDER = ['transport', 'surveys', 'physical', 'portwatch'];
+
 function epZStyle(z) {
   if (z === null || z === undefined) return {bg:'#f3f4f6', text:'#9ca3af'};
   const v = parseFloat(z);
@@ -1708,6 +1739,8 @@ function epZStyle(z) {
   if (v > -1.5) return {bg:'#eff6ff', text:'#2563eb'};
   return {bg:'#dbeafe', text:'#1e40af'};
 }
+
+// ── Episode header cards ────────────────────────────────────────────────────
 
 function renderEpHeader() {
   const D = EPISODES_DATA;
@@ -1725,80 +1758,249 @@ function renderEpHeader() {
   }).join('');
 }
 
-let epActiveKey = null;
-let epGroupFilter = 'all';
+// ── Treemap ─────────────────────────────────────────────────────────────────
 
-function renderEpGrid(group) {
-  const grid = document.getElementById('epGrid');
-  if (!grid) return;
+let epTmIdx = 3; // default to most recent episode (Apr 2026)
+
+function renderEpEpSelector() {
   const D = EPISODES_DATA;
-  const blocks = D.blocks.filter(b => group === 'all' || b.group === group);
-  const GROUP_COLOR = {transport:'#60a5fa', surveys:'#fb923c', physical:'#22d3ee', portwatch:'#f97316'};
-  const GROUP_LABEL = {transport:'Transport & Cost', surveys:'Surveys & Orders', physical:'Physical Flow', portwatch:'PortWatch'};
-  grid.innerHTML = '';
-  blocks.forEach(b => {
-    const groupColor = GROUP_COLOR[b.group] || '#9ca3af';
-    const groupLabel = GROUP_LABEL[b.group] || b.group;
-    const modelTag = b.in_model
-      ? '<span class="bc-tag bc-model-tag">model</span>'
-      : '<span class="bc-tag bc-ref-tag">reference</span>';
-    const chips = D.labels.map((lbl, i) => {
-      const z = b.z[i];
-      const s = epZStyle(z);
-      const zStr = z != null ? (z > 0 ? '+' : '') + z.toFixed(2) : '—';
-      return `<div class="ep-chip" style="background:${s.bg};color:${s.text}">
-        <span class="ep-chip-label">${lbl.replace(' ','<br>')}</span>
-        ${zStr}
-      </div>`;
+  const el = document.getElementById('epEpSel');
+  if (!el) return;
+  el.innerHTML = '<span class="ep-ep-sel-label">Episode</span>' +
+    D.labels.map((lbl, i) => {
+      const isActive = i === epTmIdx;
+      const c = D.colors[i];
+      return `<button class="btn${isActive ? ' active' : ''}"
+        style="border-color:${c};color:${isActive ? '#fff' : c};background:${isActive ? c : '#fff'}"
+        onclick="setEpTmIdx(${i})">${lbl}</button>`;
     }).join('');
-    const card = document.createElement('div');
-    card.className = 'ep-card' + (b.key === epActiveKey ? ' ep-active' : '');
-    card.dataset.key = b.key;
-    card.innerHTML = `
-      <div class="ep-card-title">${b.label}</div>
-      <div class="ep-card-group" style="color:${groupColor}">${groupLabel} ${modelTag}</div>
-      <div class="ep-chips">${chips}</div>
-    `;
-    card.onclick = () => openEpDetail(b.key);
-    grid.appendChild(card);
+}
+
+function setEpTmIdx(idx) {
+  epTmIdx = idx;
+  renderEpEpSelector();
+  renderEpTreemap(idx);
+}
+
+function renderEpTreemap(epIdx) {
+  const D = EPISODES_DATA;
+  const ids = [], labels = [], parents = [], vals = [], colors = [], textArr = [], cdata = [];
+
+  // Build block value map first so group totals are computed from same values
+  const blockVals = {};
+  for (const b of D.blocks) {
+    if (!EP_GROUP_DISPLAY[b.group]) continue;
+    blockVals[b.key] = Math.max(Math.abs(b.z[epIdx] || 0), 0.3);
+  }
+
+  // Group nodes — top level (parent=''), value = sum of block values
+  const groupSums = {}, groupZsums = {}, groupCounts = {};
+  for (const b of D.blocks) {
+    if (!EP_GROUP_DISPLAY[b.group]) continue;
+    const g = b.group;
+    groupSums[g]   = (groupSums[g]   || 0) + blockVals[b.key];
+    const z = b.z[epIdx];
+    if (z != null) {
+      groupZsums[g]  = (groupZsums[g]  || 0) + z;
+      groupCounts[g] = (groupCounts[g] || 0) + 1;
+    }
+  }
+
+  for (const g of EP_GROUP_ORDER) {
+    if (!groupSums[g]) continue;
+    const avg = groupCounts[g] ? groupZsums[g] / groupCounts[g] : 0;
+    const sign = avg > 0 ? '+' : '';
+    ids.push('__g_'+g);  labels.push(EP_GROUP_DISPLAY[g]);  parents.push('');
+    vals.push(groupSums[g]);  colors.push(avg);
+    textArr.push(sign + avg.toFixed(2));  cdata.push({t:'group', k:g});
+  }
+
+  // Block nodes — children of groups, value = |z| (sized by pressure magnitude)
+  for (const b of D.blocks) {
+    if (!EP_GROUP_DISPLAY[b.group]) continue;
+    const z = b.z[epIdx];
+    const sign = z != null && z > 0 ? '+' : '';
+    ids.push('__b_'+b.key);  labels.push(b.label);  parents.push('__g_'+b.group);
+    vals.push(blockVals[b.key]);  colors.push(z || 0);
+    textArr.push(z != null ? sign + z.toFixed(2) : '—');  cdata.push({t:'block', k:b.key});
+  }
+
+  const divCS = [
+    [0,'#1e3a8a'],[0.28,'#3b82f6'],[0.44,'#bfdbfe'],[0.5,'#f1f5f9'],
+    [0.56,'#fecaca'],[0.72,'#ef4444'],[1,'#7f1d1d']
+  ];
+
+  Plotly.react('epTreemap', [{
+    type:'treemap', ids, labels, parents, values:vals,
+    branchvalues:'total',
+    marker:{
+      colors, colorscale:divCS, cmin:-3, cmax:3,
+      showscale:true,
+      colorbar:{thickness:11,len:0.72,title:{text:'z-score',side:'right'},tickfont:{size:10}},
+    },
+    text: textArr,
+    texttemplate: '<b>%{label}</b><br>%{text}',
+    hovertemplate: '<b>%{label}</b><br>z-score = %{text}<extra></extra>',
+    pathbar:{visible:true, thickness:22, textfont:{size:11}},
+    maxdepth:2,
+    customdata: cdata,
+  }], {
+    paper_bgcolor:'transparent', plot_bgcolor:'transparent',
+    font:{family:'-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif',size:11,color:'#374151'},
+    margin:{t:5,r:65,b:5,l:5}, height:330,
+  }, PCONF);
+
+  const tmEl = document.getElementById('epTreemap');
+  tmEl.removeAllListeners && tmEl.removeAllListeners('plotly_treemapclick');
+  tmEl.on('plotly_treemapclick', function(evt) {
+    const pt = evt.points[0];
+    const cd = pt.customdata;
+    if (cd && cd.t === 'block') {
+      openEpDetail(cd.k);
+      return false; // prevent default zoom-in for leaf blocks
+    }
+    return true; // allow zoom-in for group nodes
   });
 }
 
-function filterEpBlocks(group, btn) {
-  epGroupFilter = group;
-  document.querySelectorAll('#epFilterBar .btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderEpGrid(group);
-  if (epActiveKey) {
-    const b = EPISODES_DATA.blocks.find(x => x.key === epActiveKey);
-    if (b && group !== 'all' && b.group !== group) closeEpDetail();
-    else if (epActiveKey) scrollToEpDetail();
+// ── Nested Heatmap ────────────────────────────────────────────────────────────
+
+const nhmGroupOpen = {};  // defaults to open
+const nhmBlockOpen = {};  // defaults to closed
+
+function renderNestedHeatmap() {
+  const D = EPISODES_DATA;
+  const tbl = document.getElementById('nhmTable');
+  if (!tbl) return;
+
+  // Column headers
+  const epHdrs = D.labels.map((lbl, i) => {
+    const sub = D.subtitles[i];
+    const c = D.colors[i];
+    return `<th class="nhm-ep-th" style="--ec:${c};border-bottom-color:${c}">
+      ${lbl}<br><span style="font-weight:400;text-transform:none;font-size:9px;letter-spacing:0;opacity:.75">${sub}</span>
+    </th>`;
+  }).join('');
+
+  // Group-level average z-scores
+  const groupAvg = {};
+  for (const g of EP_GROUP_ORDER) {
+    const gb = D.blocks.filter(b => b.group === g);
+    groupAvg[g] = D.labels.map((_, i) => {
+      const zv = gb.map(b => b.z[i]).filter(v => v != null);
+      return zv.length ? zv.reduce((a,b)=>a+b,0)/zv.length : null;
+    });
   }
+
+  function zCell(z, extraStyle) {
+    if (z === null || z === undefined) return `<td></td>`;
+    const s = epZStyle(z);
+    const sign = z > 0 ? '+' : '';
+    return `<td style="text-align:center"><div class="nhm-z" style="background:${s.bg};color:${s.text};${extraStyle||''}">${sign}${z.toFixed(2)}</div></td>`;
+  }
+
+  let html = `<thead><tr class="nhm-hdr"><th class="nhm-lbl-th">Block / Component</th>${epHdrs}</tr></thead><tbody>`;
+
+  for (const g of EP_GROUP_ORDER) {
+    const gb = D.blocks.filter(b => b.group === g);
+    if (!gb.length) continue;
+    const open = nhmGroupOpen[g] !== false;
+    const gLabel = EP_GROUP_DISPLAY[g];
+
+    const gCells = groupAvg[g].map(z => zCell(z, 'font-size:12px;font-weight:800')).join('');
+    html += `<tr class="nhm-group-row" onclick="toggleNhmGroup('${g}')">
+      <td><span class="nhm-arr${open?' o':''}" id="nhm-garr-${g}">▶</span>${gLabel}
+        <span style="font-size:9px;font-weight:400;color:#6b7280;margin-left:4px">${gb.length} blocks</span></td>
+      ${gCells}
+    </tr>`;
+
+    for (const b of gb) {
+      const vis = open ? '' : ' style="display:none"';
+      const hasComps = b.components && b.components.length > 0;
+      const compOpen = !!nhmBlockOpen[b.key];
+      const bCells = b.z.map(z => zCell(z)).join('');
+      const modelTag = b.in_model
+        ? `<span class="nhm-mod-tag">model</span>`
+        : `<span class="nhm-mod-tag nhm-ref-tag">ref</span>`;
+      const compArr = hasComps
+        ? `<span class="nhm-arr${compOpen?' o':''}" id="nhm-barr-${b.key}"
+             onclick="event.stopPropagation();toggleNhmBlock('${b.key}')">▶</span>`
+        : `<span class="nhm-arr" style="opacity:0">▶</span>`;
+
+      html += `<tr class="nhm-block-row" data-group="${g}" data-bkey="${b.key}"${vis}
+        onclick="openEpDetail('${b.key}');markNhmActive('${b.key}')">
+        <td><div class="nhm-lbl-cell">${compArr}<span class="nhm-bname">${b.label}</span>${modelTag}</div></td>
+        ${bCells}
+      </tr>`;
+
+      if (hasComps) {
+        for (const c of b.components) {
+          const cvis = (open && compOpen) ? '' : ' style="display:none"';
+          const ccells = c.z.map(z => zCell(z, 'font-size:10px')).join('');
+          html += `<tr class="nhm-comp-row" data-pblock="${b.key}"${cvis}>
+            <td>${c.label}</td>${ccells}
+          </tr>`;
+        }
+      }
+    }
+  }
+
+  tbl.innerHTML = html + '</tbody>';
 }
+
+function toggleNhmGroup(gkey) {
+  nhmGroupOpen[gkey] = !(nhmGroupOpen[gkey] !== false);
+  const open = nhmGroupOpen[gkey];
+  const arr = document.getElementById('nhm-garr-' + gkey);
+  if (arr) arr.classList.toggle('o', open);
+  document.querySelectorAll(`.nhm-block-row[data-group="${gkey}"]`).forEach(tr => {
+    tr.style.display = open ? '' : 'none';
+    if (!open) {
+      const bk = tr.dataset.bkey;
+      document.querySelectorAll(`.nhm-comp-row[data-pblock="${bk}"]`).forEach(cr => cr.style.display='none');
+    }
+  });
+}
+
+function toggleNhmBlock(bkey) {
+  nhmBlockOpen[bkey] = !nhmBlockOpen[bkey];
+  const open = nhmBlockOpen[bkey];
+  const arr = document.getElementById('nhm-barr-' + bkey);
+  if (arr) arr.classList.toggle('o', open);
+  document.querySelectorAll(`.nhm-comp-row[data-pblock="${bkey}"]`).forEach(tr => {
+    tr.style.display = open ? '' : 'none';
+  });
+}
+
+function markNhmActive(bkey) {
+  document.querySelectorAll('.nhm-block-row').forEach(tr => tr.classList.remove('nhm-act'));
+  const row = document.querySelector(`.nhm-block-row[data-bkey="${bkey}"]`);
+  if (row) row.classList.add('nhm-act');
+}
+
+// ── Drill-down panel ─────────────────────────────────────────────────────────
+
+let epActiveKey = null;
 
 function openEpDetail(key) {
   const D = EPISODES_DATA;
   const b = D.blocks.find(x => x.key === key);
   if (!b) return;
   epActiveKey = key;
-  renderEpGrid(epGroupFilter);
+  markNhmActive(key);
 
   // Header
   document.getElementById('epDetailTitle').textContent = b.label;
-  const GROUP_LABEL = {transport:'Transport & Cost', surveys:'Surveys & Orders', physical:'Physical Flow', portwatch:'PortWatch'};
-  document.getElementById('epDetailSub').textContent = (GROUP_LABEL[b.group] || b.group) + (b.in_model ? ' · model block' : ' · reference only');
+  document.getElementById('epDetailSub').textContent =
+    (EP_GROUP_DISPLAY[b.group] || b.group) + (b.in_model ? ' · model block' : ' · reference only');
 
   // Open panel
-  const wrap = document.getElementById('epDetailWrap');
-  wrap.classList.add('open');
+  document.getElementById('epDetailWrap').classList.add('open');
 
   // Episode bar chart
-  const epColors = b.z.map(z => epZStyle(z).text);
   Plotly.newPlot('epDetailBarChart', [{
-    type: 'bar',
-    x: D.labels,
-    y: b.z,
-    marker: { color: epColors },
+    type: 'bar', x: D.labels, y: b.z,
+    marker: { color: b.z.map(z => epZStyle(z).text) },
     text: b.z.map(z => z != null ? (z > 0 ? '+' : '') + z.toFixed(2) : '—'),
     textposition: 'outside',
     hovertemplate: '%{x}: %{y:.2f}<extra></extra>',
@@ -1815,7 +2017,7 @@ function openEpDetail(key) {
   if (b.components && b.components.length > 0) {
     const headers = D.labels.map(l => `<th style="text-align:center;min-width:60px">${l}</th>`).join('');
     const rows = b.components.map(c => {
-      const cells = c.z.map((z, i) => {
+      const cells = c.z.map(z => {
         const s = epZStyle(z);
         const zStr = z != null ? (z > 0 ? '+' : '') + z.toFixed(2) : '—';
         return `<td class="ep-z" style="background:${s.bg};color:${s.text}">${zStr}</td>`;
@@ -1834,30 +2036,28 @@ function openEpDetail(key) {
   const EP_DATE_MAP = {covid:'2021-12-31', ukraine:'2022-03-31', houthi:'2023-11-30', apr26:'2026-04-30'};
   const ts = (BLOCK_TS[key] || []);
   if (ts.length > 0) {
-    const dates = ts.map(r => r.date);
-    const vals  = ts.map(r => r.value);
     const shapes = D.keys.map((k, i) => ({
       type:'line', xref:'x', x0:EP_DATE_MAP[k], x1:EP_DATE_MAP[k],
-      yref:'paper', y0:0, y1:1,
-      line: {color: D.colors[i], width: 1.5, dash:'dot'},
+      yref:'paper', y0:0, y1:1, line:{color:D.colors[i], width:1.5, dash:'dot'},
     }));
     const annotations = D.labels.map((lbl, i) => ({
-      x: EP_DATE_MAP[D.keys[i]],
-      yref:'paper', y:0.98, text:lbl, showarrow:false,
+      x:EP_DATE_MAP[D.keys[i]], yref:'paper', y:0.98, text:lbl, showarrow:false,
       font:{size:9, color:D.colors[i]}, textangle:-90, xanchor:'right',
     }));
     Plotly.newPlot('epDetailChart', [{
-      x: dates, y: vals, type:'scatter', mode:'lines',
-      line: {color: b.color, width: 1.8},
+      x: ts.map(r => r.date), y: ts.map(r => r.value),
+      type:'scatter', mode:'lines',
+      line:{color: b.color, width:1.8},
       hovertemplate:'%{x|%b %Y}: %{y:.2f}<extra></extra>',
     }], layout({
       height:260, margin:{t:10,r:10,b:30,l:40},
       shapes, annotations,
-      yaxis: {title:'z-score', zeroline:true},
+      yaxis:{title:'z-score', zeroline:true},
       hovermode:'x',
     }), PCONF);
   } else {
-    document.getElementById('epDetailChart').innerHTML = '<div style="font-size:11px;color:#9ca3af;padding:20px">No time series available</div>';
+    document.getElementById('epDetailChart').innerHTML =
+      '<div style="font-size:11px;color:#9ca3af;padding:20px">No time series available</div>';
   }
 
   scrollToEpDetail();
@@ -1866,7 +2066,7 @@ function openEpDetail(key) {
 function closeEpDetail() {
   epActiveKey = null;
   document.getElementById('epDetailWrap').classList.remove('open');
-  renderEpGrid(epGroupFilter);
+  document.querySelectorAll('.nhm-block-row').forEach(tr => tr.classList.remove('nhm-act'));
 }
 
 function scrollToEpDetail() {
@@ -1876,7 +2076,9 @@ function scrollToEpDetail() {
 
 function initEpisodesTab() {
   renderEpHeader();
-  renderEpGrid('all');
+  renderEpEpSelector();
+  renderEpTreemap(epTmIdx);
+  renderNestedHeatmap();
 }
 
 // ── About tab ─────────────────────────────────────────────────────────────
