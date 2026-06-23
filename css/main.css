@@ -17,13 +17,13 @@ hr {
 
 .profile-photo {
     float: right;
-    width: 35%;
-    max-width: 380px;
+    width: 28%;
+    max-width: 300px;
     height: auto;
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-right: 5px;
-    margin-left: 50px;
+    margin-left: 36px;
     margin-top: 10px;
 }
 
