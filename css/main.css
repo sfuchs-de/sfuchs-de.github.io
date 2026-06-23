@@ -33,6 +33,11 @@ hr {
     clear: both;
 }
 
+.research-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 h1 {
     font-family: nunito, sans-serif;
     font-size: 40px;
@@ -160,7 +165,7 @@ a:focus-visible {
 .content-section {
     border: 1px solid #ededed;
     border-radius: 8px;
-    margin: 24px -14px 0;
+    margin: 24px 0 0;
     padding: 0 14px 5px;
 }
 
