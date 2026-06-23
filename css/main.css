@@ -202,9 +202,9 @@ ul.posts li {
     .profile-photo {
         float: none;
         display: block;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 0 20px;
+        width: 60%;
+        max-width: 220px;
+        margin: 0 auto 20px;
     }
 
     h2 {
