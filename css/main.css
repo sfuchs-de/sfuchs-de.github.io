@@ -149,7 +149,7 @@ nav:after {
 
 a {
     text-decoration: none;
-    color: #6495ED;
+    color: #3a6fd0;
 }
 
 a:hover {
@@ -157,7 +157,7 @@ a:hover {
 }
 
 a:focus-visible {
-    outline: 2px solid #6495ED;
+    outline: 2px solid #3a6fd0;
     outline-offset: 2px;
     text-decoration: underline;
 }
@@ -196,7 +196,7 @@ a:focus-visible {
 
 .paper-detail summary {
     display: inline-block;
-    color: #6495ED;
+    color: #3a6fd0;
     cursor: pointer;
     list-style: none;
     user-select: none;
