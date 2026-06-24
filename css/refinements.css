@@ -43,6 +43,13 @@ body {
     line-height: 1.5;
 }
 
+.profile-links::after {
+    content: none;
+    display: none;
+    border: 0;
+    width: 0;
+}
+
 .profile-links span {
     color: #aaa;
 }
