@@ -140,3 +140,9 @@ body {
         font-size: 10.5px;
     }
 }
+
+.visualization-detail .flourish-embed {
+    width: 100%;
+    max-width: 720px;
+    margin: 10px auto 6px;
+}

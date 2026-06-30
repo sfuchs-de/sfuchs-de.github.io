@@ -122,10 +122,17 @@
 
           <article class="paper-entry">
             <h3><a href="/research/Baslandze-Fuchs-Price-of-Delay.pdf"><b>The Price of Delays: Supply Chain Disruptions and Pricing Dynamics</b></a> <a class="paper-meta" href="https://www.sciencedirect.com/science/article/abs/pii/S0022199626000553">[published version]</a> <span class="paper-meta paper-date">[February 2026]</span><br><i>with <a href="https://sites.google.com/site/sabaslandze">Salome Baslandze</a></i>, selected for the <a href="https://cepr.org/events/international-seminar-trade-isot-inaugural-edition">International Seminar on Trade (ISoT)</a> and featured by the <a href="https://connect.brookings.edu/hutchins-roundup-inflation-natural-disasters-and-more">Hutchins Roundup</a><br>Published in the <b>Journal of International Economics</b> (2026).</h3>
-            <details class="paper-detail">
-              <summary>abstract</summary>
-              <p class="abstract-text">We study how supply chain disruptions shape consumer prices. We develop a simple model showing how disruptions that cause delivery delays affect pricing through product availability, beyond standard cost pass-through, and extend it to a setting with strategic interactions across firms. Empirically, we construct a novel micro-level dataset linking shipment-level U.S. import records from Bills of Lading to granular consumer prices from the Numerator panel. Using delivery shortfalls, port congestion, and import costs in a shift-share identification strategy, we estimate the pass-through of supply chain shocks to retail prices. We find sizable but incomplete pass-through: both imported-input cost shocks and delivery delays raise prices, with stronger responses when disruptions persist. Firms also raise prices when competitors face disruptions—including those that do not import directly—indicating strategic pricing spillovers. Combining these estimates with back-of-the-envelope calculations from the model, we show that such interactions substantially amplify the aggregate price effects of supply chain shocks, particularly those operating through product availability, during the pandemic.</p>
-            </details>
+            <div class="paper-extras">
+              <details class="paper-detail">
+                <summary>abstract</summary>
+                <p class="abstract-text">We study how supply chain disruptions shape consumer prices. We develop a simple model showing how disruptions that cause delivery delays affect pricing through product availability, beyond standard cost pass-through, and extend it to a setting with strategic interactions across firms. Empirically, we construct a novel micro-level dataset linking shipment-level U.S. import records from Bills of Lading to granular consumer prices from the Numerator panel. Using delivery shortfalls, port congestion, and import costs in a shift-share identification strategy, we estimate the pass-through of supply chain shocks to retail prices. We find sizable but incomplete pass-through: both imported-input cost shocks and delivery delays raise prices, with stronger responses when disruptions persist. Firms also raise prices when competitors face disruptions—including those that do not import directly—indicating strategic pricing spillovers. Combining these estimates with back-of-the-envelope calculations from the model, we show that such interactions substantially amplify the aggregate price effects of supply chain shocks, particularly those operating through product availability, during the pandemic.</p>
+              </details>
+              <details class="paper-detail visualization-detail" data-flourish>
+                <summary>visualization</summary>
+                <div class="flourish-embed flourish-chart" data-src="story/3708191?1940038"></div>
+                <p class="embed-fallback"><a href="https://public.flourish.studio/story/3708191/">Open interactive visualization</a></p>
+              </details>
+            </div>
           </article>
 
           <article class="paper-entry">
@@ -163,6 +170,16 @@
           if (frame && !frame.getAttribute('src')) {
             frame.setAttribute('src', frame.getAttribute('data-src'));
           }
+        });
+      });
+
+      document.querySelectorAll('details[data-flourish]').forEach(function (details) {
+        details.addEventListener('toggle', function () {
+          if (!details.open || window.__flourishEmbedLoaded) return;
+          window.__flourishEmbedLoaded = true;
+          var fl = document.createElement('script');
+          fl.src = 'https://public.flourish.studio/resources/embed.js';
+          document.body.appendChild(fl);
         });
       });
     </script>
