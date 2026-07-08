@@ -147,6 +147,18 @@
         <section class="content-section" aria-labelledby="policy">
           <h2 id="policy">Policy</h2>
           <h3><a href="https://www.atlantafed.org/research-and-data/publications/policy-hub-macroblog/2026/07/08/impact-of-tariff-refunds-on-business-activity"><b>The Impact of Tariff Refunds on Business Activity</b></a><br><i>with Veronika Penciakova and Roberto Robatto (FRB Atlanta Policy Hub: Macroblog, July 8, 2026)</i></h3>
+          <div class="paper-extras">
+            <details class="paper-detail visualization-detail" data-flourish>
+              <summary>figure 1</summary>
+              <div class="flourish-embed flourish-table" data-src="visualisation/29474643?1940038"></div>
+              <p class="embed-fallback"><a href="https://public.flourish.studio/visualisation/29474643/">Open figure 1</a></p>
+            </details>
+            <details class="paper-detail visualization-detail" data-flourish>
+              <summary>figure 2</summary>
+              <div class="flourish-embed flourish-table" data-src="visualisation/29475989?1940038"></div>
+              <p class="embed-fallback"><a href="https://public.flourish.studio/visualisation/29475989/">Open figure 2</a></p>
+            </details>
+          </div>
           <h3><a href="https://www.atlantafed.org/research-and-data/publications/policy-hub-papers/2026/06/25/04-supply-disruptions-product-availability-and-strategic-pricing-during-pandemic"><b>The Price of Delay: Supply Disruptions, Product Availability, and Strategic Pricing during the Pandemic</b></a><br><i>with <a href="https://sites.google.com/site/sabaslandze">Salome Baslandze</a> (FRB Atlanta Policy Hub, June 25, 2026)</i></h3>
           <h3><a href="https://www.atlantafed.org/research/publications/policy-hub/2025/02/28/01--tariffs-and-consumer-prices"><b>Tariffs and Consumer Prices: Insights from Newly Matched Consumption-Trade Micro Data</b></a><br><i>with <a href="https://sites.google.com/site/sabaslandze">Salome Baslandze</a>, KC Pringle, and Michael Dwight Sparks (FRB Atlanta Policy Hub, Feb 28, 2025)</i><br><small>In the news: AJC, Atlanta News First, Bloomberg, Breitbart, CBS News, MNI</small></h3>
         </section>
@@ -177,11 +189,14 @@
 
       document.querySelectorAll('details[data-flourish]').forEach(function (details) {
         details.addEventListener('toggle', function () {
-          if (!details.open || window.__flourishEmbedLoaded) return;
-          window.__flourishEmbedLoaded = true;
-          var fl = document.createElement('script');
-          fl.src = 'https://public.flourish.studio/resources/embed.js';
-          document.body.appendChild(fl);
+          if (!details.open) return;
+          if (!window.__flourishEmbedLoaded) {
+            window.__flourishEmbedLoaded = true;
+            var fl = document.createElement('script');
+            fl.src = 'https://public.flourish.studio/resources/embed.js';
+            document.body.appendChild(fl);
+          }
+          setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 400);
         });
       });
     </script>
