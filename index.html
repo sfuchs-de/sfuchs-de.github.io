@@ -127,9 +127,9 @@
                 <summary>abstract</summary>
                 <p class="abstract-text">We study how supply chain disruptions shape consumer prices. We develop a simple model showing how disruptions that cause delivery delays affect pricing through product availability, beyond standard cost pass-through, and extend it to a setting with strategic interactions across firms. Empirically, we construct a novel micro-level dataset linking shipment-level U.S. import records from Bills of Lading to granular consumer prices from the Numerator panel. Using delivery shortfalls, port congestion, and import costs in a shift-share identification strategy, we estimate the pass-through of supply chain shocks to retail prices. We find sizable but incomplete pass-through: both imported-input cost shocks and delivery delays raise prices, with stronger responses when disruptions persist. Firms also raise prices when competitors face disruptions—including those that do not import directly—indicating strategic pricing spillovers. Combining these estimates with back-of-the-envelope calculations from the model, we show that such interactions substantially amplify the aggregate price effects of supply chain shocks, particularly those operating through product availability, during the pandemic.</p>
               </details>
-              <details class="paper-detail visualization-detail" data-flourish>
+              <details class="paper-detail visualization-detail" data-lazy-embed>
                 <summary>visualization</summary>
-                <div class="flourish-embed flourish-chart" data-src="story/3708191?1940038"></div>
+                <div class="embed-wrap flourish-wrap"><iframe data-src="https://flo.uri.sh/story/3708191/embed" loading="lazy" allowfullscreen title="Flourish story: The Price of Delay"></iframe></div>
                 <p class="embed-fallback"><a href="https://public.flourish.studio/story/3708191/">Open interactive visualization</a></p>
               </details>
             </div>
@@ -148,14 +148,14 @@
           <h2 id="policy">Policy</h2>
           <h3><a href="https://www.atlantafed.org/research-and-data/publications/policy-hub-macroblog/2026/07/08/impact-of-tariff-refunds-on-business-activity"><b>The Impact of Tariff Refunds on Business Activity</b></a><br><i>with Veronika Penciakova and Roberto Robatto (FRB Atlanta Policy Hub: Macroblog, July 8, 2026)</i></h3>
           <div class="paper-extras">
-            <details class="paper-detail visualization-detail" data-flourish>
+            <details class="paper-detail visualization-detail" data-lazy-embed>
               <summary>figure 1</summary>
-              <div class="flourish-embed flourish-table" data-src="visualisation/29474643?1940038"></div>
+              <div class="embed-wrap flourish-wrap"><iframe data-src="https://flo.uri.sh/visualisation/29474643/embed" loading="lazy" allowfullscreen title="Figure 1: Importers, Employment, and Refunds by Group"></iframe></div>
               <p class="embed-fallback"><a href="https://public.flourish.studio/visualisation/29474643/">Open figure 1</a></p>
             </details>
-            <details class="paper-detail visualization-detail" data-flourish>
+            <details class="paper-detail visualization-detail" data-lazy-embed>
               <summary>figure 2</summary>
-              <div class="flourish-embed flourish-table" data-src="visualisation/29475989?1940038"></div>
+              <div class="embed-wrap flourish-wrap"><iframe data-src="https://flo.uri.sh/visualisation/29475989/embed" loading="lazy" allowfullscreen title="Figure 2"></iframe></div>
               <p class="embed-fallback"><a href="https://public.flourish.studio/visualisation/29475989/">Open figure 2</a></p>
             </details>
           </div>
@@ -187,18 +187,6 @@
         });
       });
 
-      document.querySelectorAll('details[data-flourish]').forEach(function (details) {
-        details.addEventListener('toggle', function () {
-          if (!details.open) return;
-          if (!window.__flourishEmbedLoaded) {
-            window.__flourishEmbedLoaded = true;
-            var fl = document.createElement('script');
-            fl.src = 'https://public.flourish.studio/resources/embed.js';
-            document.body.appendChild(fl);
-          }
-          setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 400);
-        });
-      });
     </script>
   </body>
 </html>
