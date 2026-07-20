@@ -1,0 +1,3123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Economic Diversity and the
+Resilience of Cities — accessible text version">
+    <title>Economic Diversity and the Resilience of
+Cities | Simon Fuchs</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/paper.css">
+    <script>
+      window.MathJax = {
+        tex: {tags: "ams"},
+        options: {enableMenu: false}
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <main class="paper-page">
+      <nav class="paper-nav" aria-label="Paper formats">
+        <a href="/">← Back to research</a>
+        <a href="/research/economic_resilience_v2.pdf">PDF</a>
+        <a href="/research/markdown/economic-diversity-resilience-cities.md">Markdown source</a>
+      </nav>
+      <h1 id="economic-diversity-and-the-resilience-of-cities">Economic
+      Diversity and the Resilience of Cities</h1>
+      <p><strong>Authors:</strong> François de Soyres, Simon Fuchs,
+      Illenin O. Kondo, and Hélène Maghin<br />
+      <strong>Version:</strong> September 2025<br />
+      <strong>JEL:</strong> J61, J62, J21<br />
+      <strong>Keywords:</strong> Sufficient statistics; labor flows;
+      concentration; economic diversity; welfare</p>
+      <p><a href="/research/economic_resilience_v2.pdf">Download the
+      paper as PDF</a></p>
+      <blockquote>
+      <p>This accessible text version was generated from the authors’
+      TeX source and checked against the PDF linked above. Figure images
+      are omitted here; their captions and notes are retained.</p>
+      </blockquote>
+      <h2 id="abstract">Abstract</h2>
+      <p>We develop a framework to assess how economic shocks affect
+      local labor markets and worker welfare, with a focus on city-level
+      economic diversity. Using detailed worker flow data across cities,
+      sectors, and occupations, we construct theory-consistent welfare
+      measures. Our approach combines a dynamic discrete choice model
+      with a dual representation that captures both direct effects and
+      the insurance value of local economic diversity. Applied to French
+      labor markets, we find that diversification dampens the effect of
+      negative shocks: both job-to-job moves and net inflows decline
+      less in diverse cities than in concentrated ones. Overall, we
+      document sizable welfare insurance gains from local economic
+      diversity.</p>
+      <p><strong>Author note:</strong> Acknowledgements and
+      institutional disclaimers are preserved in the paper notes.<a
+      href="#fn1" class="footnote-ref" id="fnref1"
+      role="doc-noteref"><sup>1</sup></a></p>
+      <h2 id="introduction">Introduction</h2>
+      <p>Are workers in more economically diverse cities better or worse
+      off when their industry or occupation faces a labor demand shock?
+      We argue that answering this question requires accounting for the
+      full range of options available to workers, including staying in
+      the same job, switching locally to another occupation-industry
+      pair, or to non-employment, or relocating to a different city. In
+      this paper, we develop an approach to capture these effects by
+      deriving sufficient statistics for a second-order approximation of
+      local welfare changes within a standard dynamic discrete choice
+      (DDC) framework. Using rich worker flows data from France, we show
+      that economic diversity across cities generates sizable welfare
+      insurance gains for workers.</p>
+      <p><a id="fig:1"></a></p>
+      <blockquote>
+      <p><strong>Local Economic Diversity and Nonspatial Labor
+      Reallocation in France</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: The left panel, Figure 1b, shows a scatter plot of the
+      sector-occupation Herfindahl-Hirschman Index (HHI) of a commuting
+      zone in France and a measure of nonspatial labor reallocation: the
+      share of local employment that switches to another occupation,
+      sector or both without moving to a new location. The right panel,
+      Figure 1a, shows a map of French commuting zones and their
+      sector-occupation HHI.</p>
+      </blockquote>
+      <p>Figure <a href="#fig:1">1</a> illustrates the central idea of
+      the paper: cities with more diverse local economies experience
+      more worker reallocation within the city. Panel Figure relates
+      sector-occupation concentration, measured using the
+      Herfindahl-Hirschman Index (HHI), to non-spatial labor flows,
+      defined as the share of local employment that switches occupation,
+      sector, or both without moving. Cities with lower HHI, that is,
+      more economically diverse cities, exhibit higher local churn,
+      meaning a larger share of workers change jobs within the same
+      city. Panel Figure maps French commuting zones by their
+      sector-occupation HHI, highlighting substantial variation in local
+      economic diversity.</p>
+      <p>Building on this, we analyze how worker flows, both within and
+      across cities, respond to local labor demand shocks, and how local
+      economic diversity shapes this response. We then use these
+      estimates as theory-consistent sufficient statistics to evaluate
+      the welfare value of diversity. Our main finding is that more
+      diverse cities are more resilient to negative local labor demand
+      shocks, providing residents with significant insurance
+      benefits.</p>
+      <p>To infer welfare, we build a revealed preference argument based
+      on a standard DDC model: welfare changes can be approximated using
+      observed baseline choice probabilities and their dynamic response
+      to shocks, following the convex-analytic approach of (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>).
+      Our main theoretical result shows that welfare changes equal a
+      weighted sum of changes in choice probabilities to first order,
+      and, to second order, they depend on the covariance of choice
+      adjustments and the cross-elasticities between alternatives.</p>
+      <p>We apply this framework to data on French workers’ employment
+      histories, constructing flows across location–industry–occupation
+      cells. Using Bartik-style demand shocks and local projections-IV
+      (<a href="#ref-Jorda2005">Jordà 2005</a>), we trace both gross and
+      net worker flows and separate spatial from non-spatial
+      adjustments.</p>
+      <p>We find that local economic diversity significantly shapes
+      labor market responses. After negative shocks, diversified cities
+      experience a smaller drop in within-city churn and less severe net
+      inflow contractions, suggesting that diversity provides a form of
+      insurance. Responses to positive shocks are more symmetric: churn
+      reacts similarly across cities, while net inflows are only
+      slightly larger in diversified cities. In short, concentrated
+      cities face deeper downturns and only modestly stronger
+      expansions.</p>
+      <p>Finally, we use our theoretical framework to translate these
+      flow responses into welfare terms and find a sizable “insurance
+      value’’ of local economic diversification, as captured by the
+      second-order term.</p>
+      <p>Overall, our approach has two main advantages. (i) It relies
+      only on observed choice probabilities and imposes less structure
+      than a fully specified model, and is therefore less dependent on
+      functional form assumptions. (ii) Its second-order approximation
+      decomposes welfare changes into a part due to average utility
+      changes and an insurance term due to comoving reallocation across
+      choices.<br />
+      This paper contributes to several research strands: First, our
+      paper contributes methodologically to the literature evaluating
+      the welfare consequences of shocks using approximations and
+      sufficient statistics.<a href="#fn2" class="footnote-ref"
+      id="fnref2" role="doc-noteref"><sup>2</sup></a> Closest to our
+      paper, (<a href="#ref-Kim2020-bw">Kim and Vogel 2020</a>) develop
+      a methodology to approximate first-order welfare differences in
+      the context of a static model using a sufficient statistic
+      approach applied to U.S. commuting zones. Our paper builds on
+      advances in the DDC literature from (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>)
+      to derive higher-order welfare change approximations that leverage
+      the dynamics and composition of worker choice probabilities across
+      more adjustment margins. Relative to models of the labor market
+      that fully specify the worker’s reallocation choice (e.g., (<a
+      href="#ref-artucc2010trade">Artuç et al. 2010</a>); (<a
+      href="#ref-Caliendo2019-gz">Caliendo et al. 2019</a>)), our
+      framework is lighter on assumptions: it recovers continuation
+      values directly from conditional choice probabilities and delivers
+      a transparent welfare decomposition into first- and second-order
+      terms. The flip side is that it does not identify underlying
+      fundamentals or allows for counterfactual analysis. We illustrate
+      the approach by combining LPIV estimates from rich worker flows
+      data in France to construct theory-consistent welfare measures and
+      to derive the insurance value of local economic diversity.</p>
+      <p>Second, the paper contributes to an extensive literature on
+      labor flows across cities and sectors in response to employment
+      shocks following the canonical study by (<a
+      href="#ref-Blanchard_Katz_92">Blanchard and Katz 1992</a>).<a
+      href="#fn3" class="footnote-ref" id="fnref3"
+      role="doc-noteref"><sup>3</sup></a> Studies such as (<a
+      href="#ref-Monte_et_al_2018">Monte et al. 2018</a>) and (<a
+      href="#ref-Marinescu_Rathelot_2018">Marinescu and Rathelot
+      2018</a>) highlight the heterogeneity in local employment
+      elasticity and worker mobility preferences. The literature on
+      adjustments to trade-induced shocks also highlights the role of
+      spatial, sectoral composition and occupational adjustments. See,
+      for example, (<a href="#ref-Autor_et_al_2014">Autor et
+      al. 2014</a>), (<a href="#ref-ebenstein2014occ">Ebenstein et
+      al. 2014</a>), (<a href="#ref-fuchs2021spoils">Fuchs 2021</a>),
+      (<a href="#ref-kondo2018trade">Kondo 2018</a>) and (<a
+      href="#ref-Traiberman2019">Traiberman 2019</a>), among others.
+      Disciplined by the DDC theory, we use rich
+      industry-occupation-location worker flow data in France to
+      document sizable asymmetries in the dynamic adjustment patterns of
+      workers across their spatial and non-spatial options and estimate
+      significant heterogeneity across labor markets with different
+      degrees of economic diversity. We combine these estimates through
+      the lens of our theory to suggest a significant insurance
+      component in the welfare value of economically diverse labor
+      markets.</p>
+      <p>The remainder of this paper is structured as follows: Section
+      <a href="#sec:Theory">2</a> introduces our approach to measure
+      welfare implications of shocks using sufficient statistics,
+      Section <a href="#sec:Empirics">3</a> introduces the data,
+      provides summary statistics on worker flows in France, and covers
+      our analysis of local projections on worker adjustments. Section
+      <a href="#sec:Welfare">4</a> introduces our welfare results, and
+      Section <a href="#sec:Conclusion">5</a> concludes.</p>
+      <p><a id="sec:Theory"></a></p>
+      <h2 id="theory">Theory</h2>
+      <p>We begin from the simple observation that workers face
+      <em>dynamic</em> and <em>discrete</em> choices—staying, switching
+      sectors within a city, or moving—where switching costs and option
+      values make decisions forward-looking. A dynamic discrete choice
+      (DDC) framework is therefore natural for tracing how local shocks
+      propagate into reallocation and welfare. DDC models are widely
+      used in labor and trade economics because they link observed
+      worker flows to welfare in a theory-consistent way. We build on
+      recent convex-analytic identification results for DDC models (<a
+      href="#ref-Fosgerau2021-zo">Fosgerau et al. 2021</a>; <a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>)
+      and measure welfare via the social surplus, the expected value of
+      the menu of choices facing an agent. Put plainly, given what a
+      worker can do today and tomorrow, how do changes in local
+      labor-market conditions shift overall welfare? We first lay out
+      the general DDC environment and then present our key surplus
+      approximation, which we use to quantify the value of economic
+      diversity across cities.</p>
+      <h3
+      id="welfare-in-dynamic-discrete-choice-models-an-approximation">Welfare
+      in Dynamic Discrete Choice Models: An Approximation</h3>
+      <p>We use a DDC model that describes how workers choose among
+      discrete options over time, taking into account costs and benefits
+      of each choice.</p>
+      <h4 id="setup.">Setup.</h4>
+      <p>Time is discrete and there are infinite periods. The state
+      variable is <span class="math inline">\(x\in \mathcal{X}\)</span>
+      and agents choose between a finite number of actions <span
+      class="math inline">\(y\in \mathcal{Y}\)</span>. The single period
+      utility flow of choosing <span class="math inline">\(y\)</span> is
+      given by <span
+      class="math inline">\(\bar{u}_{y}(x)+\varepsilon_{y}\)</span>
+      where <span class="math inline">\(\varepsilon_{y}\)</span> denotes
+      an i.i.d additive utility shock. The set of utility shocks is
+      assumed to follow a joint distribution function <span
+      class="math inline">\(Q(\cdot ; x)\)</span>. Following (<a
+      href="#ref-Rust1987-rb">Rust 1987</a>), we assume conditional
+      independence. Agents are dynamic optimizers facing the following
+      problem:</p>
+      <p><span class="math display">\[
+      y \in \arg \max _{\tilde{y} \in
+      \mathcal{Y}}\Big\{\bar{u}_{\tilde{y}}(x)+\varepsilon_{\tilde{y}}+\beta
+      \mathbb{E}_{x^{\prime},
+      \varepsilon^{\prime}}\left[\bar{V}\left(x^{\prime},
+      \varepsilon^{\prime}\right) \mid x, \tilde{y}\right]\Big\},
+      \]</span></p>
+      <p>where <span class="math inline">\(\beta\)</span> is the
+      discount factor and primes denote next period values. Note that
+      <span class="math inline">\(V (x&#39;)\)</span> is the expectation
+      of <span
+      class="math inline">\(\overline{V}(x&#39;,\varepsilon&#39;)\)</span>:
+      <span class="math inline">\(V (x&#39;) \equiv
+      \mathbb{E}_{\varepsilon&#39;} \overline{V}
+      (x&#39;,\varepsilon&#39;)\)</span>. We assume time-homogeneous
+      dynamics (i.e. constant transition kernel <span
+      class="math inline">\(\Pr(x_{t+1} \mid x_t ,y_t )\)</span> and
+      distribution <span class="math inline">\(Q\)</span>), and dropped
+      time subscripts for simplicity. We define choice-specific
+      continuation values as:</p>
+      <p><span class="math display">\[
+      w_y(x) \equiv \bar{u}_y(x)+\beta
+      \mathbb{E}_{x^{\prime}}\left[V\left(x^{\prime}\right) \mid x,
+      y\right],
+      \]</span></p>
+      <p>which captures the total expected value of selecting <span
+      class="math inline">\(y\)</span> today, including future
+      payoffs.<a href="#fn4" class="footnote-ref" id="fnref4"
+      role="doc-noteref"><sup>4</sup></a></p>
+      <h4 id="approximating-welfare.">Approximating Welfare.</h4>
+      <p>To summarize expected welfare in this environment, we use the
+      social surplus function<a href="#fn5" class="footnote-ref"
+      id="fnref5" role="doc-noteref"><sup>5</sup></a> , which is the
+      expected maximum utility across all possible choices:</p>
+      <p><a id="eq:social_surplus"></a></p>
+      <p><span class="math display">\[
+      \mathcal{G}(w;x)=\mathbb{E}\left[\max_{y\in\mathscr{Y}}\left(w_{y}\left(x\right)+\varepsilon_{y}\right)\mid
+      x\right],
+      \]</span></p>
+      <p>where the expectation is taken over the distribution of utility
+      shocks. Because we take an expectation over the shocks, this
+      object summarizes ex-ante welfare and is a smooth function of
+      <span class="math inline">\(w\)</span>. Importantly, the social
+      surplus function is well-behaved (finite, convex, differentiable),
+      which allows us to use a second-order Taylor expansion to
+      approximate how welfare changes when continuation values or choice
+      probabilities shift.<a href="#fn6" class="footnote-ref"
+      id="fnref6" role="doc-noteref"><sup>6</sup></a> The following
+      proposition gives a second-order Taylor approximation of <span
+      class="math inline">\(\mathcal{G}\)</span>, showing how welfare
+      changes relate to changes in continuation values and choice
+      probabilities. Detailed derivations are in Appendix <a
+      href="#subsec:Theory_derivations">9.1</a>.</p>
+      <p><a id="prop:approximate_welfare"></a></p>
+      <p><strong>Proposition 1</strong> (Approximate Social Surplus).
+      *We have,</p>
+      <p><span class="math display">\[
+      \mathrm{d}\ln\mathscr{G}(w;x)=\sum_{y}\omega_{y}\left(x\right)\mathrm{d}\ln
+      w_{y}+\frac{1}{2}\sum_{y}\sum_{y^{\prime}}\varrho_{y,y^{\prime}}^{p,w}\omega_{y}\left(x\right)\mathrm{d}\ln
+      w_{y}\mathrm{d}\ln w_{y^{\prime}}+o(\cdot)
+      \]</span></p>
+      <p>where <span
+      class="math inline">\(\omega_{y}\left(x\right)=\frac{p_{y}\left(x\right)w_{y}\left(x\right)}{\mathcal{G}(w;x)}\)</span>
+      is a weight that measures the relative contribution of choice
+      <span class="math inline">\(y\)</span> to the expected welfare and
+      where <span class="math inline">\(\varrho_{y,y&#39;}^{p,w}\equiv
+      \frac{\partial\ln p_{y}}{\partial\ln w_{y&#39;}}=\frac{\partial
+      p_{y}}{\partial w_{y&#39;}}\frac{w_{y&#39;}}{p_{y}}\)</span> is
+      the elasticity of the choice probability <span
+      class="math inline">\(p_y\)</span> with respect to changes in the
+      choice-specific continuation value <span
+      class="math inline">\(w_{y&#39;}\)</span>.*</p>
+      <h4 id="insights-and-limitations.">Insights and Limitations.</h4>
+      <p>Proposition <a href="#prop:approximate_welfare">1</a> implies
+      that approximating welfare changes requires three ingredients: (i)
+      changes in continuation values <span
+      class="math inline">\(\{\mathrm{d}\!\ln w_y\}\)</span>; (ii) the
+      cross–elasticity matrix <span
+      class="math inline">\(\{\varrho^{p,w}_{y,y&#39;}\}\)</span>; and
+      (iii) baseline welfare weights <span
+      class="math inline">\(\{\omega_y\}\)</span>. The second–order
+      component emphasizes that it is the <em>covariance structure</em>
+      of option–specific changes in continuation values—interacting with
+      cross–elasticities—that drives curvature. In more economically
+      diverse locations, option payoffs tend to move less in lockstep,
+      reducing that covariance and attenuating curvature (i.e., offering
+      insurance). However, to implement this approximation, two
+      challenges arise: continuation values are unobserved, and
+      cross-elasticities are high-dimensional.</p>
+      <h4 id="dual-approach-via-the-legendre-fenchel-conjugate.">Dual
+      Approach via the Legendre-Fenchel Conjugate.</h4>
+      <p>To circumvent these challenges, we use the Legendre-Fenchel
+      conjugate of <span class="math inline">\(\mathcal{G}\)</span>.
+      Intuitively, the Legendre-Fenchel conjugate offers a dual
+      perspective: instead of asking “what choice probabilities follow
+      from given utilities?”, it allows us to ask “what utilities are
+      consistent with observed choice probabilities?”. (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>)
+      show how this inversion lets us recover continuation values
+      non-parametrically from observed choice probabilities, without
+      imposing a specific functional form on flow utilities. The
+      conjugate is defined as follows:</p>
+      <p><a id="eq:conjugate_surplus"></a></p>
+      <p><span class="math display">\[
+      \mathcal{G}^{*}(p;x)=\sup_{w\in\mathbb{R}^{\mathcal{Y}}}\left\{
+      \sum_{y\in\mathcal{Y}}p_{y}\left(x\right)w_{y}\left(x\right)-\mathcal{G}(w;x)\right\}
+      \]</span></p>
+      <p>where the vector <span class="math inline">\(p\)</span> denotes
+      the choice variable of the conjugate <span
+      class="math inline">\(\mathcal{G}^*\)</span>. Therefore, <span
+      class="math inline">\(w\)</span> and <span
+      class="math inline">\(p\)</span> are connected through convex
+      duality: <span class="math inline">\(p\)</span> can be seen as the
+      shadow prices associated with <span
+      class="math inline">\(w\)</span>, and vice versa. Moreover, since
+      duality holds, we can approximate the convex conjugate for an
+      equivalent welfare approximation, which we summarize in the
+      following proposition:<a href="#fn7" class="footnote-ref"
+      id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+      <p><a id="prop:approximate_conjugate_welfare"></a></p>
+      <p><strong>Proposition 2</strong> (Approximate Conjugate Social
+      Surplus). *We have,</p>
+      <p><span class="math display">\[
+      \mathrm{d}\ln\mathcal{G}^{*}(p;x)=\sum_{y}\omega_{y}^{*}\left(x\right)\mathrm{d}\ln
+      p_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\varrho_{y,y&#39;}^{w,p}\omega_{y}^{*}\left(x\right)\mathrm{d}\ln
+      p_{y}\mathrm{d}\ln p_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>where <span
+      class="math inline">\(\omega_y^*\left(x\right)=\frac{w_{y}\left(x\right)p_{y}\left(x\right)}{\mathcal{G}^{*}(p;x)}\)</span>
+      is a weight that measures the relative contribution of choice
+      <span class="math inline">\(y\)</span> to the conjugate social
+      surplus function <span
+      class="math inline">\(\mathcal{G}^*\)</span> and where <span
+      class="math inline">\(\varrho_{y,y&#39;}^{w,p}\equiv
+      \frac{\partial\ln w_{y&#39;}}{\partial\ln p_{y}}=\frac{\partial
+      w_{y&#39;}}{\partial p_{y}}\frac{p_{y}}{w_{y&#39;}}\)</span> is
+      the <em>inverse</em> elasticity of the choice probability <span
+      class="math inline">\(p_y\)</span> with regard to changes in the
+      choice-specific continuation value <span
+      class="math inline">\(w_{y&#39;}\)</span>.*</p>
+      <p>Proposition <a href="#prop:approximate_conjugate_welfare">2</a>
+      is an equivalent, but empirically more convenient approximation of
+      the social surplus. First, it works with changes in choice
+      probabilities (<span class="math inline">\(\mathrm{d}\!\ln
+      p_y\)</span>), which are observed and estimated directly in our
+      data, instead of changes in continuation values (<span
+      class="math inline">\(\mathrm{d}\!\ln w_y\)</span>). Second,
+      following Chiong et al. (<a
+      href="#ref-chiong_galichon_shum_duality">2016</a>), the dual
+      representation provides a simple “mass–transport’’ inversion that
+      maps observed <span class="math inline">\(p\)</span> into the
+      continuation values <span class="math inline">\(w\)</span> needed
+      for the weights—no logit assumption required. Finally, because our
+      primary interest is in understanding how economic diversity
+      affects welfare, we use this framework to derive closed-form
+      expressions that link welfare gains from diversification directly
+      to the local HHI. As we show in more detail in Appendix <a
+      href="#subsec:Theory_and_HHI">9.3</a>, the following can be
+      derived:</p>
+      <p><a id="thm:coro-1-div"></a></p>
+      <p><strong>Corollary 1</strong> (Value of Insurance and
+      Diversification). *Consider a vector of shocks <span
+      class="math inline">\(s=\left\{s_m\right
+      \}_{m} \equiv \{\mathrm{d}\ln w_m\}_m\)</span> with mean <span
+      class="math inline">\(\mathbb{E}[s]=0\)</span>, and covariance
+      <span class="math inline">\(\Sigma=\mathbb{E}[ss^{\top}]\)</span>.
+      Assume the cross-elasticity of conditional choice probabilities
+      <span class="math inline">\(\left(\varrho_{k,m|\ell}^{p,w} =
+      \frac{\partial\ln p_{k|\ell}}{\partial\ln
+      w_{m|\ell}}\right)\)</span> are iso-elastic such that <span
+      class="math inline">\(\varrho_{k,m|\ell}^{p,w}  \equiv -
+      \gamma_{\ell} \,p_{m|\ell} + \gamma_{\ell}
+      \mathbb{1}_{\{m=k\}}\)</span>. The expected welfare change from
+      such shock is</p>
+      <p><span class="math display">\[
+      \mathbb{E}\!\left[\mathrm{d}\ln W_{\mathcal{C}}\right]
+      =\frac{1}{2}\sum_{\ell\in\mathcal{C}}\pi_{\ell}\gamma_{\ell}
+      \left[\sum_{m}\lambda_{m|\ell}\Sigma_{mm}-\lambda_{\ell}^{\top}\Sigma\lambda_{\ell}\right],
+      \]</span></p>
+      <p>where <span
+      class="math inline">\(\lambda_{m|\ell}\equiv\frac{w_m|\ell}{\mathcal{G}_{\ell}}p_{m|\ell}\)</span>
+      are welfare share weights and <span
+      class="math inline">\(\pi_{\ell}\)</span> are local population
+      shares.*</p>
+      <p>*Furthermore, under a constant substitution elasticity (<span
+      class="math inline">\(\gamma_{\ell} \equiv \gamma\)</span>), and
+      equicorrelated shocks such that <span
+      class="math inline">\(\Sigma_{mm}=\sigma^{2}\)</span> and <span
+      class="math inline">\(\Sigma_{mk}=\nu \sigma^{2}\)</span> for
+      <span class="math inline">\(m\neq k\)</span>, the expected welfare
+      gains are proportional to the shock variance and decreasing in
+      market concentration:</p>
+      <p><span class="math display">\[
+      \mathbb{E}\!\left[\mathrm{d}\ln W_{\mathcal{C}}\right]
+      =\frac{\gamma}{2}\sigma^{2}(1-\nu)(1-\mathrm{HHI}_{\mathcal{C}}),
+      \]</span></p>
+      <p>where <span class="math inline">\(\mathrm{HHI}_{\mathcal{C}}
+      \equiv \sum_{\ell}\pi_{\ell}
+      \underbrace{\sum_{m}\lambda_{m|\ell}^{2}}_{\mathrm{HHI}_{\ell}}\)</span>
+      is a market concentration index.*</p>
+      <p>Motivated by this corollary, we use the HHI statistic as a
+      proxy for economic concentration in the empirical section in order
+      to trace and quantify differences across locations in this
+      insurance term.<a href="#fn8" class="footnote-ref" id="fnref8"
+      role="doc-noteref"><sup>8</sup></a></p>
+      <h4 id="taking-stock.">Taking Stock.</h4>
+      <p>Proposition <a href="#prop:approximate_conjugate_welfare">2</a>
+      clarifies the methodological advantages of the mass-transport
+      sufficient-statistics approach and provides an empirically
+      convenient representation of the worker’s conjugate social
+      surplus. The first-order term now depends on welfare weights
+      (<span class="math inline">\(\omega_y^*\)</span>) and impulse
+      responses of choice probabilities (<span
+      class="math inline">\(\mathrm{d}\ln p_y\)</span>). The
+      second-order term involves own and cross-price elasticities (<span
+      class="math inline">\(\varrho_{y,y&#39;}^{w,p}\)</span>), which
+      can be calibrated once an iso-elastic labor supply system is
+      assumed, as discussed below. Our approach presents the advantage
+      that it recovers welfare weights (<span
+      class="math inline">\(\omega_y^*\)</span>) non-parametrically and
+      uses simple reduced-form estimation to obtain choice probability
+      impulse responses. The implied second-order expansion also
+      isolates direct effects from the insurance value of economic
+      diversity.<a href="#fn9" class="footnote-ref" id="fnref9"
+      role="doc-noteref"><sup>9</sup></a></p>
+      <p>Two important limitations remain. First, as with other
+      sufficient-statistics methods, the analysis recovers only
+      <em>relative</em> welfare changes across locations and does not
+      pin down absolute welfare levels. Second, while the framework
+      provides a detailed account of workers’ adjustment choices within
+      segmented labor markets, it abstracts from additional dynamic
+      decisions such as intertemporal consumption and saving. With these
+      strengths and caveats in view, the next section applies the
+      framework to assess the resilience of French local labor markets
+      to demand shocks.</p>
+      <p><a id="sec:Empirics"></a></p>
+      <h2 id="adjustment-to-labor-demand-shocks">Adjustment to Labor
+      Demand Shocks</h2>
+      <p>Our approximation provides a practical strategy to quantify how
+      labor demand shocks affect worker welfare. Guided by
+      Proposition <a href="#prop:approximate_conjugate_welfare">2</a>,
+      we estimate worker flow responses to local shocks and examine how
+      local sectoral and occupational diversity shapes these responses.
+      Using a large, representative sample of French employment spells,
+      we construct worker flows across locations, industries, and
+      occupations. We also build a standard labor demand shock and
+      estimate the impulse responses of spatial and nonspatial
+      adjustment margins using local projection IVs (LPIV). We then
+      document significant heterogeneity in worker flow responses,
+      illustrating how city-level economic diversity potentially shapes
+      welfare.</p>
+      <p><a id="subsec:data_overview"></a></p>
+      <h3 id="data-worker-flows-in-france">Data: Worker Flows in
+      France</h3>
+      <h4 id="data.">Data.</h4>
+      <p>Our data on French workers’ employment histories comes from the
+      DADS (<em>Déclarations Annuelles de Données Sociales</em>)
+      administrative panel, maintained by INSEE (the French National
+      Institute of Statistics and Economic Studies). The <em>DADS
+      Fichier Postes</em> contains mandatory Social Security filings for
+      all salaried employees in private and semi-public firms in
+      France.<a href="#fn10" class="footnote-ref" id="fnref10"
+      role="doc-noteref"><sup>10</sup></a> The <em>DADS Panel</em>
+      follows workers born in October of even years, covering about 4
+      percent of the private-sector workforce. This panel allows us to
+      track individual workers across all non-public-sector employment
+      spells from 2005 to 2019.<a href="#fn11" class="footnote-ref"
+      id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+      <p>Each record provides a worker’s establishment, including a
+      unique identifier, 4-digit industry, and municipality. This allows
+      us to observe transitions across sectors, occupations, and
+      geographic locations, which is crucial for our analysis. For each
+      spell, we define the sector using the establishment’s 2-digit
+      industry code, the occupation using the 2-digit INSEE occupation
+      code, and the location as the “<em>Zone d’Emploi</em>” (commuting
+      zone) derived from the establishment’s postal code. The final
+      dataset contains 30 occupations, 90 sectors, and 300 geographic
+      areas, which we refer to as “cities” for simplicity.</p>
+      <h4 id="constructing-worker-flows.">Constructing Worker
+      Flows.</h4>
+      <p>For each quarter <span class="math inline">\(t\)</span>, we
+      assign every active worker to a unique city-sector-occupation
+      <span class="math inline">\((i,s,o)\)</span> cell, keeping the job
+      with the longest duration.<a href="#fn12" class="footnote-ref"
+      id="fnref12" role="doc-noteref"><sup>12</sup></a> Quarters with no
+      recorded activity are classified as “non-employment,” a broad
+      category that includes standard unemployment and exits from the
+      private-sector labor force.</p>
+      <p>We define “job-to-job” transitions as cases where a worker’s
+      assigned labor market in <span class="math inline">\(t+1\)</span>
+      differs from that in <span class="math inline">\(t\)</span>.
+      Following our DDC framework, we use directed gross flows rather
+      than net flows, constructing both (i) the stock of workers in each
+      labor market and (ii) the full matrix of worker flows between
+      every pair of markets, including transitions to and from
+      non-employment.<a href="#fn13" class="footnote-ref" id="fnref13"
+      role="doc-noteref"><sup>13</sup></a></p>
+      <h4 id="anatomy-of-worker-reallocation-in-france.">Anatomy of
+      Worker Reallocation in France.</h4>
+      <p>Table <a href="#table:raw_statistics_quarterly_2">Table</a>
+      reports key moments of city-level worker flows. In the median
+      French city, 4.5% of workers switch labor-market affiliation each
+      quarter in at least one dimension: city (<span
+      class="math inline">\(i\)</span>), sector (<span
+      class="math inline">\(s\)</span>), or occupation (<span
+      class="math inline">\(o\)</span>)—equivalent to roughly 18% per
+      year.<a href="#fn14" class="footnote-ref" id="fnref14"
+      role="doc-noteref"><sup>14</sup></a> Rows 2–4 disaggregate flows
+      by dimension, showing that 65% of switches involve changing
+      occupation, 60% involve changing sector, and nearly half involve
+      changing city.</p>
+      <p>Figure <a href="#fig:Reallocation_distribution">4</a> further
+      decomposes flows by all combinations of city, sector, and
+      occupation changes. Nonspatial moves are more common than spatial
+      ones, with occupation switches dominating overall. Nonspatial
+      reallocation, particularly occupation-only switches, varies much
+      more across cities than spatial reallocation.</p>
+      <p><a id="table:raw_statistics_quarterly_2"></a></p>
+      <blockquote>
+      <p><strong>Quarterly worker reallocation across
+      markets</strong></p>
+      </blockquote>
+      <table>
+      <colgroup>
+      <col style="width: 4%" />
+      <col style="width: 50%" />
+      <col style="width: 7%" />
+      <col style="width: 5%" />
+      <col style="width: 7%" />
+      <col style="width: 7%" />
+      <col style="width: 7%" />
+      <col style="width: 7%" />
+      </colgroup>
+      <tbody>
+      <tr>
+      <td>1. 2. 3. 4. 5.</td>
+      <td><span
+      class="math inline">\(\frac{\text{Flows}_{i,s,o}}{\text{Emp}_{i}}\)</span>
+      <span class="math inline">\(\frac{\text{Flows}_{i \rightarrow
+      i&#39;}}{\text{Flows}_{i,s,o}}\)</span> <span
+      class="math inline">\(\frac{\text{Flows}_{s \rightarrow
+      s&#39;}}{\text{Flows}_{i,s,o}}\)</span> <span
+      class="math inline">\(\frac{\text{Flows}_{o \rightarrow
+      o&#39;}}{\text{Flows}_{i,s,o}}\)</span> <span
+      class="math inline">\(\frac{\text{Flows}_{ne \rightarrow
+      e}}{\text{Emp}_{i}}\)</span></td>
+      <td style="text-align: right;">Median 4.54 % 48.95 % 61.29 % 64.91
+      % 3.22 %</td>
+      <td style="text-align: right;">SD 0.98 9.79 4.34 4.74 1.70</td>
+      <td style="text-align: center;">p5 3.21 % 34.32 % 53.58 % 57.36 %
+      2.10 %</td>
+      <td style="text-align: center;">p25 3.90 % 41.48 % 58.92 % 62.19 %
+      2.70 %</td>
+      <td style="text-align: center;">p75 5.35 % 56.14 % 63.82 % 67.10 %
+      4.21 %</td>
+      <td style="text-align: center;">p95 6.10 % 65.65 % 66.64 % 70.29 %
+      7.62 %</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><a id="subsec:data_methodology"></a></p>
+      <h3 id="estimation-methodology">Estimation Methodology</h3>
+      <h4 id="lpiv.">LPIV.</h4>
+      <p>We estimate <em>average</em> dynamic responses of city-level
+      outcomes to labor demand shocks using the local projection method
+      of (<a href="#ref-Jorda2005">Jordà 2005</a>) for <span
+      class="math inline">\(h=0,\ldots,20\)</span> quarters:</p>
+      <p><a id="equation:Main_Spec_Average"></a></p>
+      <p><span class="math display">\[
+      \Delta y_{i,t+h} = \alpha^{h}+\gamma_{t}+\gamma_{i}+\beta_{h}
+      \operatorname{Shock}_{i, t}
+      +\sum_{m=1}^{8} \gamma_{m}^{h} y_{i, t-m}+\sum_{m=1}^{8}
+      \omega_{m}^{h} \operatorname{Shock}_{i, t-m} +\sum_{m=1}^{8}
+      \delta_{m}^{h} \operatorname{Z}_{i, t-m}
+      \]</span></p>
+      <p>where <span class="math inline">\(\Delta y_{i,t+h} = \log
+      \left(y_{i, t+h}\right)-\log \left(y_{i, t-1}\right)\)</span> and
+      <span class="math inline">\(y_{i,t+h}\)</span> is the cumulative
+      value at time <span class="math inline">\(t+h\)</span> since <span
+      class="math inline">\(t-1\)</span>.<a href="#fn15"
+      class="footnote-ref" id="fnref15"
+      role="doc-noteref"><sup>15</sup></a> <span
+      class="math inline">\(\text{Shock}_{i,t}\)</span> is an exogenous
+      local shock and <span class="math inline">\({Z}_{i, t}\)</span>
+      denotes controls for various local labor market variables: the
+      share of total flows to local employment, the local labor force,
+      and ratios of city-level local churn, inflows, and outflows
+      relative to all flows. <span
+      class="math inline">\(\gamma_{i}\)</span> and <span
+      class="math inline">\(\gamma_t\)</span> are city- and time-fixed
+      effects accounting for cross-sectional heterogeneity and common
+      macroeconomic shocks. Standard errors are Driscoll-Kraay, and we
+      allow for <span class="math inline">\(m=1,\ldots,8\)</span>
+      quarters of auto-correlation–a standard temporal correlation
+      window of two years.</p>
+      <h4 id="constructing-labor-demand-shocks.">Constructing Labor
+      Demand Shocks.</h4>
+      <p>We use a shift-share approach (Bartik) to generate plausibly
+      exogenous labor demand shocks at the city level. We compute
+      national employment growths for each sector-occupation pair <span
+      class="math inline">\((s,o)\)</span> and construct the labor
+      demand shock in city <span class="math inline">\(i\)</span>
+      as:</p>
+      <p><a id="eq:Bartik_def"></a></p>
+      <p><span class="math display">\[
+      \text{Bartik}_{i,t} = \sum_{s,o} { \text{share}^{s,o}_{i,2004}
+      \cdot g^{\text{national}}_{-i,s,o,t}}
+      \]</span></p>
+      <p>where <span class="math inline">\(\text{share}^{s,o}_{i,2004}=
+      E_{i,s,o,t=2004} / \sum_{s&#39;,o&#39;}
+      E_{i,s&#39;,o&#39;,t=2004}\)</span> are within-location (<span
+      class="math inline">\(i\)</span>) shares of sector-occupation
+      (<span class="math inline">\(s,o\)</span>) cells and <span
+      class="math inline">\(g_{-i,s,o,t}\)</span> are leave-one-out
+      sector-occupation employment growths in 2004. Figure <a
+      href="#fig:bartik_distrib">5</a> shows the distribution of
+      sector-occupation shocks. Cities are on average exposed to more
+      positive than negative shocks, and some of them experience large
+      changes of up to -5 or +10 %.</p>
+      <p><a id="subsec:average_response"></a></p>
+      <h3 id="beyond-net-employment-the-dynamics-of-gross-flows">Beyond
+      Net Employment: The Dynamics of Gross Flows</h3>
+      <p><a id="subsec:data_avg_response"></a></p>
+      <p>Our worker flows data allow us to unpack the net employment
+      response to labor demand shocks by revealing the underlying gross
+      flows. Examining net flows provides a clear lens into how
+      employment adjusts across cities, sectors, and occupations, beyond
+      what aggregate employment changes alone can show. City-level
+      adjustments are presented in Figure <a
+      href="#fig:Average_Resp_Bartik">2</a>.<a href="#fn16"
+      class="footnote-ref" id="fnref16"
+      role="doc-noteref"><sup>16</sup></a> The left panel shows average
+      gross spatial flows—city inflows and outflows—while the right
+      panel shows spatial and nonspatial flows. Nonspatial flows include
+      all worker transitions that do not involve a change of city,
+      whereas spatial net flows are defined as inflows minus outflows,
+      capturing employment changes before accounting for local
+      unemployment or exits from private sector employment.</p>
+      <p>Following a labor demand shock, inflows rise immediately,
+      steadily increasing and remaining elevated throughout the horizon.
+      Outflows respond with a lag of roughly two years, then rise
+      sharply and persist.<a href="#fn17" class="footnote-ref"
+      id="fnref17" role="doc-noteref"><sup>17</sup></a> Nonspatial flows
+      initially match spatial flows but exceed them after a few
+      quarters, highlighting the importance of local job
+      reallocation.</p>
+      <p><a id="fig:Average_Resp_Bartik"></a></p>
+      <blockquote>
+      <p><strong>Average Response to a Bartik shock: Spatial and
+      Nonspatial Flows</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: Figure Gross_Flows_Emp shows the gross flow of workers
+      that move out of a city (solid line) and the gross flow of workers
+      that move in a city (dashed line). Figure fSpatial_Nonspatial
+      shows the net flow of workers that move in a city minus the ones
+      that leave (solid line) and the average flow of workers that
+      reallocate within a city (dashed line).</p>
+      </blockquote>
+      <p><a id="subsec:HHI_empirics"></a></p>
+      <h3 id="the-asymmetric-role-of-city-level-economic-diversity">The
+      Asymmetric Role of City-Level Economic Diversity</h3>
+      <p>Motivated by the insights from the second-order approximation
+      in Section <a href="#sec:Theory">2</a>, we posit that city-level
+      economic diversity plays an important role in shaping how worker
+      flows respond to labor demand shocks.<a href="#fn18"
+      class="footnote-ref" id="fnref18"
+      role="doc-noteref"><sup>18</sup></a> We augment the baseline
+      dynamic LPIV with asymmetric and heterogeneous effects. We measure
+      city-level economic concentration (the opposite of diversity)
+      using the standard Herfindahl-Hirschman Index (HHI) defined over
+      sectors and occupations as</p>
+      <p><span class="math display">\[
+      \begin{aligned}
+      \text{HHI}_{i}= \sum_{s,o} \left( \text{share}^{so}_{i,t=2004}
+      \right)^2 ,
+      \end{aligned}
+      \]</span></p>
+      <p>where <span
+      class="math inline">\(\text{share}^{s,o}_{i,t=2004}\)</span> is
+      the share of locality <span class="math inline">\(i\)</span>’s
+      workers employed in a sector-occupation pair <span
+      class="math inline">\((s,o)\)</span> in 2004. Lower HHI indicates
+      a more diverse labor market, with employment spread across
+      multiple sectors and occupations, while higher HHI reflects a more
+      concentrated economy</p>
+      <p>We separate positive shocks (<span
+      class="math inline">\(\operatorname{B}_{i,t}^{+}\)</span>) and
+      negative shocks (<span
+      class="math inline">\(\operatorname{B}_{i,t}^{-}\)</span>), as
+      workers may respond differently depending on the shock’s sign.<a
+      href="#fn19" class="footnote-ref" id="fnref19"
+      role="doc-noteref"><sup>19</sup></a> Both variables only take
+      non-negative values and are interacted with local <span
+      class="math inline">\(\text{HHI}_{i}\)</span> measures:</p>
+      <p><a id="eq:asymmetric_spec"></a>
+      <a id="equation:Spec_Asymm_hhi"></a></p>
+      $$
+      <span class="math display">\[\begin{aligned}
+
+      \Delta y_{i,t+h} &amp;=
+      \alpha^{h}+\gamma_{t}+\gamma_{i}+\beta_{h}^{-}\times\operatorname{B}_{i,
+      t}^{-} + \psi_{h}^{-} \left(\operatorname{B}_{i,t}^{-}\times
+      \text{HHI}_{i} \right) +\beta_{h}^{+}\times\operatorname{B}_{i,
+      t}^{+}  + \psi_{h}^{+} \left(\operatorname{B}_{i,t}^{+}\times
+      \text{HHI}_{i} \right)   \\
+      &amp;\qquad+\sum_{m=1}^{8} \gamma_{m}^{h} {y}_{i,
+      t-m}+\sum_{m=1}^{8} \omega_{m}^{h} \text { B }_{i,
+      t-m}  +\sum_{m=1}^{8} \delta_{m}^{h} \operatorname{Z}_{i, t-m}
+      \nonumber .
+      \end{aligned}\]</span>
+      <p>$$</p>
+      <p>This specification shows how worker flows respond differently
+      to positive and negative shocks (asymmetric) and how these
+      responses vary with city-level economic diversity
+      (heterogeneous).<a href="#fn20" class="footnote-ref" id="fnref20"
+      role="doc-noteref"><sup>20</sup></a> While both the HHI and the
+      shift-share instrument use sectoral shares, Figure <a
+      href="#fig:bartik_distrib_HHI">7</a> shows that the distribution
+      of Bartik shocks is very similar across highly concentrated (high
+      HHI) and highly diversified (low HHI) cities.</p>
+      <p><a id="fig:HHI_Asym_total"></a></p>
+      <blockquote>
+      <p><strong>Asymmetric and Heterogeneous Response:
+      Positive/Negative Shocks × High/Low HHI</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: Figure HHI_Asym_Nonspatial shows the differential
+      response of nonspatial flows to a negative/positive labor demand
+      shock for low-HHI (dashed blue/green lines) and high-HHI cities
+      (solid blue/green lines). Figure HHI_Asym_Spatial shows the
+      differential response of spatial flows to a negative/positive
+      labor demand shock for low-HHI (dashed blue/green lines) and
+      high-HHI cities (solid blue/green lines).</p>
+      </blockquote>
+      <p>Figure <a href="#fig:HHI_Asym_total">3</a> shows asymmetric
+      responses for spatial and nonspatial flows, evaluated at the 90th
+      (high HHI) and 10th (low HHI) percentiles of the HHI distribution.
+      The results confirm our theoretical prediction that local economic
+      diversity shapes how labor markets transmit shocks. In more
+      diverse (low HHI) cities, negative labor demand shocks are
+      noticeably dampened. Both nonspatial churn (workers switching jobs
+      within the same city) and net spatial inflows fall less compared
+      with more concentrated cities, suggesting that diversified local
+      labor markets provide a buffer against employment disruptions.
+      This effect is substantial, highlighting that the same shock
+      produces very different labor market dynamics depending on the
+      degree of local economic diversification.</p>
+      <p>By contrast, positive shocks do not exhibit a similarly
+      asymmetric pattern: more concentrated cities do not experience a
+      proportionally stronger increase in inflows or nonspatial
+      reallocation relative to diversified cities. This asymmetry is
+      consistent with the idea that economic diversity functions
+      primarily as a form of insurance, limiting the downside of
+      negative shocks rather than amplifying the upside of positive
+      shocks.</p>
+      <p>Importantly, our approach provides a new lens on labor market
+      adjustment. Combining the HHI measure with gross worker flows
+      offers a clearer view of labor market adjustment than net
+      employment changes alone, revealing how both the direction and
+      scale of flows are systematically shaped by local diversity.</p>
+      <p><a id="sec:Welfare"></a></p>
+      <h2 id="from-estimation-to-welfare">From Estimation to
+      Welfare</h2>
+      <p>We now combine the approximation results from Section <a
+      href="#sec:Theory">2</a> with our estimated worker flow responses
+      to quantify the welfare effects of local economic diversity under
+      labor demand shocks.</p>
+      <h3 id="methodology">Methodology</h3>
+      <h4 id="setup.-1">Setup.</h4>
+      <p>We adapt the dynamic discrete choice framework from Section <a
+      href="#sec:Theory">2</a> to model flows across segmented local
+      labor markets. The choice set <span
+      class="math inline">\(\mathcal{Y}\)</span> is defined as
+      sector-occupation-location labor markets: <span
+      class="math inline">\(\mathcal{Y}\equiv \mathcal{S}\times
+      \mathcal{O}\times \mathcal{L}\)</span>, where <span
+      class="math inline">\(\mathcal{S}\)</span>, <span
+      class="math inline">\(\mathcal{O}\)</span>, and <span
+      class="math inline">\(\mathcal{L}\)</span> are the sets of
+      sectors, occupations, and locations, respectively. Social surplus
+      and its convex conjugate remain as in Equations <a
+      href="#eq:social_surplus">Equation</a> and <a
+      href="#eq:conjugate_surplus">Equation</a>.</p>
+      <p>To construct welfare measures from the LPIV-estimated changes
+      in choice probabilities (<span class="math inline">\(d\ln
+      p_y\)</span>), we collapse the full set of
+      sector-occupation-location transitions (<span
+      class="math inline">\(\mathcal{Y} \times \mathcal{Y}\)</span>)
+      into coarser adjustment margins: a “stay” margin for workers who
+      do not change their sector-occupation-location, a “local” margin
+      for workers who change sector or occupation within the same city,
+      and a “spatial” margin for workers who change city.<a href="#fn21"
+      class="footnote-ref" id="fnref21"
+      role="doc-noteref"><sup>21</sup></a></p>
+      <h4 id="approximating-welfare-changes.">Approximating Welfare
+      Changes.</h4>
+      <p>To implement Proposition <a
+      href="#prop:approximate_conjugate_welfare">2</a>, three
+      ingredients are required: (i) We use our LPIV estimates to obtain
+      changes in conditional choice probabilities <span
+      class="math inline">\(\{\mathrm{d}\ln p_y\}_{y\in Y}\)</span>
+      along all margins. (ii) We construct theory-consistent welfare
+      weights <span
+      class="math inline">\(\omega_y^*(x)=\frac{w_y(x)\,p_y(x)}{\mathscr{G}^*(p;x)}\)</span>
+      via the Mass-Transport Approach (MTA) of Chiong et al. (<a
+      href="#ref-chiong_galichon_shum_duality">2016</a>).<a href="#fn22"
+      class="footnote-ref" id="fnref22"
+      role="doc-noteref"><sup>22</sup></a> (iii) To parsimoniously
+      organize cross-elasticity terms in the second-order expansion, we
+      adopt a common elasticity <span
+      class="math inline">\(\gamma\)</span> that <em>does not</em> enter
+      step (ii): the first-order piece depends only on <span
+      class="math inline">\((p,w)\)</span>, while <span
+      class="math inline">\(\gamma\)</span> scales the quadratic terms.
+      We then obtain:</p>
+      <p><span class="math display">\[
+      \begin{aligned}
+      \frac{\mathrm{d}\ln\mathscr{G}^{*}(p;x)}{\mathrm{d}\ln\bar{z}}\approx
+      &amp; \underbrace{\sum_{\substack{\text{ y=stay (x), }\\
+      \text{ local (x), spatial (x) }
+      }
+      }\left[\omega_{y}^{*}\left(x\right)\frac{\mathrm{d}\ln
+      p_{y}(x)}{\mathrm{d}\ln\bar{z}}\right] }_{\text{first order
+      approximation term}}\\
+      +&amp;\underbrace{\frac{1}{\gamma}\sum_{\substack{\text{ y=stay
+      (x), }\\
+      \text{ local (x), spatial (x) }
+      }
+      }\left[\frac{\omega_{y}^{*}\left(x\right)}{1-p_{y}\left(x\right)}\left(\frac{\mathrm{d}\ln
+      p_{y}(x)}{\mathrm{d}\ln\bar{z}}\right)^{2}\right] \quad
+      -\frac{1}{2\gamma}\sum_{\substack{\text{ y,y&#39;=stay (x), }\\
+      \text{ local (x), spatial (x) }
+      }
+      }\sum_{\substack{y&#39;\neq y}
+      }\left[\frac{\omega_{y}^{*}\left(x\right)}{p_{y&#39;}\left(x\right)}\frac{\mathrm{d}\ln
+      p_{y}(x)}{\mathrm{d}\ln\bar{z}}\frac{\mathrm{d}\ln
+      p_{y&#39;}(x)}{\mathrm{d}\ln\bar{z}}\right]}_{\text{second order
+      approximation term}} \nonumber
+      \end{aligned}
+      \]</span></p>
+      <p>as derived in Appendix <a
+      href="#subsec:Theory_derivations_sec_4">9.2</a>. Intuitively, this
+      expression shows that the welfare impact of a labor demand shock
+      can be captured using only three key ingredients. First, the labor
+      supply elasticity <span class="math inline">\(\gamma\)</span>
+      governs how strongly workers adjust their choices in response to
+      local changes. Second, the baseline choice probabilities <span
+      class="math inline">\(\left\{
+      p_{\text{stay}}\left(x\right),p_{\text{spatial}}\left(x\right),p_{\text{local}}\left(x\right)\right\}\)</span>
+      reflect the relative importance of different adjustment
+      margins—staying in the same job, switching sectors or occupations
+      locally, or moving to a different city. Third, the impulse
+      responses of these probabilities along each margin indicate how
+      the likelihood of staying, switching locally, or moving spatially
+      responds to a shock:</p>
+      <p><span class="math display">\[
+      \left\{ \frac{\mathrm{d}\ln
+      p_{\text{stay}|x}\left(x\right)}{\mathrm{d}\ln
+      z_{\ell}},\frac{\mathrm{d}\ln
+      p_{\text{spatial}}\left(x\right)}{\mathrm{d}\ln
+      z_{\ell}},\frac{\mathrm{d}\ln
+      p_{\text{local}}\left(x\right)}{\mathrm{d}\ln z_{\ell}}\right\}
+      \]</span></p>
+      <p>The first-order term captures the direct effect of the shock on
+      welfare through changes in choice probabilities weighted by their
+      importance. The second-order term accounts for curvature effects,
+      including interactions across margins and the moderating role of
+      labor supply elasticity. Together, these terms provide a compact
+      but accurate approximation of the welfare consequences of local
+      labor demand shocks, relying only on observed worker flows and a
+      few structural parameters.</p>
+      <h4 id="from-local-projections-to-welfare.">From Local Projections
+      to Welfare.</h4>
+      <p>Following the literature, we assume <span
+      class="math inline">\(\gamma = 2\)</span> and compute the welfare
+      effects of local labor demand shocks using our estimation results.
+      For each city <span class="math inline">\(\ell\)</span>, we
+      observe its sequence of annual shocks and baseline
+      sector-occupation economic diversification index <span
+      class="math inline">\(\text{HHI}_{\ell}\)</span>. Using the LPIV
+      estimates, we predict the implied changes in choice probabilities
+      for each margin over the estimation horizon, for the realized
+      average shocks <span class="math inline">\(\left
+      \{\widetilde{\text{B}}^{+}_{t}, \widetilde{\text{B}}^{-}_{t}
+      \right \}\)</span>: <span class="math inline">\(\left\{ \Delta \ln
+      p^{\text{stay},t+h}_{\ell,t},\Delta \ln
+      p^{\text{spatial},t+h}_{\ell,t},\Delta \ln
+      p^{\text{local},t+h}_{\ell,t}\right\} _{h}\)</span>.<a
+      href="#fn23" class="footnote-ref" id="fnref23"
+      role="doc-noteref"><sup>23</sup></a> Finally, we cumulate welfare
+      effects over time using a discount factor <span
+      class="math inline">\(\beta=.99\)</span>.</p>
+      <p><a id="tab:main_results"></a></p>
+      <blockquote>
+      <p><strong>Welfare Effects and Decomposition by Economy
+      Diversification</strong></p>
+      </blockquote>
+      <table style="width:95%;">
+      <colgroup>
+      <col style="width: 9%" />
+      <col style="width: 15%" />
+      <col style="width: 16%" />
+      <col style="width: 9%" />
+      <col style="width: 15%" />
+      <col style="width: 16%" />
+      <col style="width: 9%" />
+      </colgroup>
+      <tbody>
+      <tr>
+      <td style="text-align: center;">HHI</td>
+      <td colspan="3" style="text-align: center;">Positive Shocks</td>
+      <td colspan="3" style="text-align: center;">Negative Shocks</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">Deciles</td>
+      <td style="text-align: center;"><em>First order</em></td>
+      <td style="text-align: center;"><em>Second order</em></td>
+      <td style="text-align: center;"><em>Total</em></td>
+      <td style="text-align: center;"><em>First order</em></td>
+      <td style="text-align: center;"><em>Second order</em></td>
+      <td style="text-align: center;"><em>Total</em></td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">1st</td>
+      <td style="text-align: center;">7.10</td>
+      <td style="text-align: center;">-3.25</td>
+      <td style="text-align: center;">3.85</td>
+      <td style="text-align: center;">-1.00</td>
+      <td style="text-align: center;">-0.06</td>
+      <td style="text-align: center;">-1.06</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">2nd</td>
+      <td style="text-align: center;">7.18</td>
+      <td style="text-align: center;">-2.49</td>
+      <td style="text-align: center;">4.68</td>
+      <td style="text-align: center;">-1.00</td>
+      <td style="text-align: center;">-0.09</td>
+      <td style="text-align: center;">-1.09</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">3rd</td>
+      <td style="text-align: center;">7.03</td>
+      <td style="text-align: center;">-2.57</td>
+      <td style="text-align: center;">4.46</td>
+      <td style="text-align: center;">-0.90</td>
+      <td style="text-align: center;">-0.15</td>
+      <td style="text-align: center;">-1.05</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">4th</td>
+      <td style="text-align: center;">7.39</td>
+      <td style="text-align: center;">-2.82</td>
+      <td style="text-align: center;">4.57</td>
+      <td style="text-align: center;">-1.43</td>
+      <td style="text-align: center;">-0.24</td>
+      <td style="text-align: center;">-1.66</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">5th</td>
+      <td style="text-align: center;">6.77</td>
+      <td style="text-align: center;">-1.74</td>
+      <td style="text-align: center;">5.03</td>
+      <td style="text-align: center;">-1.82</td>
+      <td style="text-align: center;">-0.30</td>
+      <td style="text-align: center;">-2.12</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">6th</td>
+      <td style="text-align: center;">6.49</td>
+      <td style="text-align: center;">-0.74</td>
+      <td style="text-align: center;">5.75</td>
+      <td style="text-align: center;">-2.29</td>
+      <td style="text-align: center;">-0.33</td>
+      <td style="text-align: center;">-2.62</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">7th</td>
+      <td style="text-align: center;">7.36</td>
+      <td style="text-align: center;">-4.02</td>
+      <td style="text-align: center;">3.34</td>
+      <td style="text-align: center;">-2.21</td>
+      <td style="text-align: center;">-0.57</td>
+      <td style="text-align: center;">-2.78</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">8th</td>
+      <td style="text-align: center;">9.41</td>
+      <td style="text-align: center;">-5.82</td>
+      <td style="text-align: center;">3.59</td>
+      <td style="text-align: center;">-1.75</td>
+      <td style="text-align: center;">-0.77</td>
+      <td style="text-align: center;">-2.52</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">9th</td>
+      <td style="text-align: center;">8.76</td>
+      <td style="text-align: center;">-5.24</td>
+      <td style="text-align: center;">3.51</td>
+      <td style="text-align: center;">-2.20</td>
+      <td style="text-align: center;">-0.97</td>
+      <td style="text-align: center;">-3.17</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">10th</td>
+      <td style="text-align: center;">12.75</td>
+      <td style="text-align: center;">-6.94</td>
+      <td style="text-align: center;">5.81</td>
+      <td style="text-align: center;">-2.38</td>
+      <td style="text-align: center;">-2.55</td>
+      <td style="text-align: center;">-4.93</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><strong>Notes:</strong> We set <span
+      class="math inline">\(\gamma=2\)</span> and discount future
+      continuation values relative to the base period using <span
+      class="math inline">\(\beta = 0.99\)</span>:</p>
+      <p><span class="math display">\[
+      \begin{aligned}
+      \Delta { \ln \mathcal{G}^{*}_{\ell} } &amp; \equiv
+      \sum_{t=\text{2006Q1}}^{\text{2019Q4}}
+      \sum_{h=0}^{20}  \beta^{t+h-2006}  \left\{ \sum_{ \substack{y =
+      \text{ stay}, \\ \text{ local}, \text{ spatial}}}
+      \Big[  \omega^{*}_{y | \ell}  \Delta {\ln p^{y,t+h }_{\ell,
+      t}}    \Big] +\frac{1}{\gamma}\sum_{\substack{y = \text{ stay}, \\
+      \text{ local}, \text{ spatial}
+      }
+      }\left[\frac{\omega_{y | \ell}^{*}}{1-p_{y |\ell} }\left(\Delta
+      {\ln p^{y,t+h }_{\ell, t}}  \right)^{2}\right] - \frac{1}{2\gamma}
+      \sum_{ \substack{y,y&#39; = \text{ stay}, \\ \text{ local}, \text{
+      spatial}}} \sum_{ \substack{y&#39; \neq
+      y  }}   \left[  \frac{\omega_{y | \ell}^{*}}{p_{n |\ell} } \Delta
+      {\ln p^{n, t+h }_{\ell,t}}   \Delta {\ln p^{y, t+h }_{\ell
+      ,t}}   \right] \right\} . \nonumber
+      \end{aligned}
+      \]</span></p>
+      <p>The first column denotes HHI deciles. The welfare changes are
+      in percentage changes relative to the baseline period for the
+      average shock in each HHI decile bin, separately reporting the
+      effect of positive and negative shocks. The next three columns
+      present, for positive shocks: the FOA term and the SOA term of the
+      welfare formula along with their sum. The last three columns
+      present similar terms for negative shocks.</p>
+      <h3 id="results">Results</h3>
+      <p>Our welfare results are summarized in <a
+      href="#tab:main_results">Table</a>. We separately report the
+      effect of positive and negative shocks for all HHI deciles.<a
+      href="#fn24" class="footnote-ref" id="fnref24"
+      role="doc-noteref"><sup>24</sup></a> The first-order approximation
+      term (FOA) captures the direct welfare impact of shocks, while the
+      second-order approximation term (SOA) reflects the insurance value
+      that comes from a city’s economic diversity. Overall, our findings
+      highlight that economic diversity is a key determinant of the
+      heterogeneity in welfare outcomes observed across cities.<a
+      href="#fn25" class="footnote-ref" id="fnref25"
+      role="doc-noteref"><sup>25</sup></a></p>
+      <p>Focusing first on positive shocks, our sufficient-statistic
+      framework reveals that more concentrated cities (with largest HHI
+      values, or in higher deciles) exhibit larger first-order gains
+      than more diversified cities, hinting at possible gains from
+      specialization. That said, more negative values for SOA terms
+      significantly alter these gains. The SOA terms are in fact large
+      enough to revert the rising FOA gains with HHI in the upper half
+      of HHI deciles. These findings suggest that lack of economic
+      diversification also comes with negative insurance value,
+      especially for the most specialized cities.</p>
+      <p>The effects of negative shocks strikingly confirm that economic
+      diversity plays a substantial role in providing insurance against
+      adverse economic shocks. Indeed, we observe negative second-order
+      welfare effects (compared to the magnitude of the FOA terms) that
+      increasing more strongly in magnitude with HHI. In other words,
+      more diversified cities are associated with significantly smaller
+      welfare losses from negative shocks, due to smaller change from
+      the SOA term measuring “insurance value”. This result echoes our
+      empirical findings in section <a
+      href="#subsec:HHI_empirics">3.4</a> where we showed that, in
+      response to negative shocks, local non-spatial churn and net
+      spatial inflows fall less in more diversified labor markets.</p>
+      <p>Our results underscore the importance of economic
+      diversification as a strategy for enhancing economic resilience: A
+      more diversified economy may facilitate labor reallocation, reduce
+      costly spatial mobility, and allow for more stable employment
+      outcomes in the face of sector- or occupation-specific
+      downturns.<a href="#fn26" class="footnote-ref" id="fnref26"
+      role="doc-noteref"><sup>26</sup></a> Perhaps more importantly, our
+      results illustrate the applicability and usefulness of the
+      higher-order sufficient-statistic approach using granular worker
+      flows that we put forward in this paper.</p>
+      <p><a id="sec:Conclusion"></a></p>
+      <h2 id="conclusion">Conclusion</h2>
+      <p>This paper develops a second-order sufficient-statistics
+      framework to analyze local shocks affect workers’ welfare and
+      applies it to the role of local economic diversity using rich
+      worker flows data from France. We find substantial welfare
+      insurance gains from diversity in the face of local labor demand
+      shocks.</p>
+      <p>At a first-order approximation, workers in more specialized
+      cities experience larger welfare gains from positive shocks,
+      highlighting potential benefits of specialization. However, the
+      second-order term, which captures the insurance value of
+      diversity, shows that high economic concentration entails larger
+      losses from negative shocks. This underscores the crucial role of
+      economic diversity in buffering local labor markets against
+      adverse shocks.</p>
+      <p>Our approach and results provide a framework for future
+      empirical and quantitative studies of local labor market
+      responses, offering new insights into how city-level
+      characteristics shape the impact of national economic
+      fluctuations.</p>
+      <h2 id="additional-figures">Additional Figures</h2>
+      <p><a id="fig:Reallocation_distribution"></a></p>
+      <blockquote>
+      <p><strong>Mobility of workers across cities, sectors and
+      occupations</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: Figure (a) illustrates the distribution (density) of
+      workers who change cities (spatial mobility). The lines decompose
+      this mobility into different combinations of transitions across
+      sectors and occupations. Specifically, i represents moves that are
+      purely geographic, is includes both geographic and sectoral
+      changes, io represents geographic and occupational changes, and
+      iso captures changes across all three dimensions: geographic,
+      sectoral, and occupational. Figure (b) displays the density of
+      workers who remain in the same city (nonspatial mobility). The
+      lines break down non-geographic transitions, with s representing
+      sector-only changes, o representing occupation-only changes, and
+      so for workers who switch both sectors and occupations without
+      changing location.</p>
+      </blockquote>
+      <p><a id="fig:bartik_distrib"></a></p>
+      <blockquote>
+      <p><strong>Distribution of Bartik shocks</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: This figure shows the distribution of labor demand
+      shocks as constructed in Equation [eq:Bartik_def]. The
+      distribution captures the range of positive and negative shocks
+      affecting cities, highlighting the heterogeneity in local labor
+      demand changes across different regions.</p>
+      </blockquote>
+      <p><a id="fig:employment_size_hhi"></a></p>
+      <blockquote>
+      <p><strong>Distribution of HHI over the time series</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: This figure presents the distribution of the
+      Herfindahl-Hirschman Index (HHI) for local labor markets over
+      time. It highlights key percentiles, including the 95th (p95),
+      90th (p90), mean, 10th (p10), and 5th (p5) values, offering
+      insight into the variation in economic concentration across cities
+      throughout the panel period.</p>
+      </blockquote>
+      <p><a id="fig:bartik_distrib_HHI"></a></p>
+      <blockquote>
+      <p><strong>Density of Bartik shock by HHI Top and Bottom
+      Quartile</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: This figure shows the distribution of Bartik shocks, as
+      constructed in Equation [eq:Bartik_def], categorized by the bottom
+      and top quartiles of the Herfindahl-Hirschman Index (HHI)
+      distribution. It compares how labor demand shocks are distributed
+      across cities with low and high economic concentration.</p>
+      </blockquote>
+      <p><a id="fig:response_HHI_bin"></a></p>
+      <blockquote>
+      <p><strong>HHI and flows</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: Figure (a) displays the correlation between the
+      Herfindahl-Hirschman Index (HHI) and the share of local employment
+      that transitions to another occupation, sector, or both, without
+      leaving the locality (nonspatial flows). Figure (b) shows the
+      correlation between the HHI and the share of local employment that
+      involves geographic mobility (spatial flows), reflecting how
+      economic concentration influences worker relocation across
+      cities.</p>
+      </blockquote>
+      <p><a id="fig:margin_hhi_asym"></a></p>
+      <blockquote>
+      <p><strong>Welfare components: FOA, SOA, HHI</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      <p>Notes: This figure presents scatterplots illustrating the
+      relationship between the first-order approximation (FOA) and
+      second-order approximation (SOA) terms, as constructed in Section
+      4. The FOA terms represent the direct welfare impact of labor
+      demand shocks, capturing the immediate effects on local labor
+      markets. The SOA terms measure the “insurance value” derived from
+      economic diversification, reflecting how cities with different
+      levels of sectoral and occupational diversity buffer the effects
+      of these shocks.</p>
+      </blockquote>
+      <p><a id="fig:hhi_welfare"></a></p>
+      <blockquote>
+      <p><strong>Heterogeneous Insurance (Positive)</strong></p>
+      <p>Figure available in the <a
+      href="/research/economic_resilience_v2.pdf">PDF</a>.</p>
+      </blockquote>
+      <h2 id="additional-tables">Additional Tables</h2>
+      <p><a id="table:raw_statistics_quarterly"></a></p>
+      <blockquote>
+      <p><strong>Quarterly worker reallocation across
+      markets</strong></p>
+      </blockquote>
+      <table>
+      <colgroup>
+      <col style="width: 61%" />
+      <col style="width: 6%" />
+      <col style="width: 5%" />
+      <col style="width: 6%" />
+      <col style="width: 6%" />
+      <col style="width: 6%" />
+      <col style="width: 6%" />
+      </colgroup>
+      <tbody>
+      <tr>
+      <td><span class="math inline">\(\text{Emp}_i\)</span> <span
+      class="math inline">\(\Delta \text{Emp}_i\)</span> <span
+      class="math inline">\(\frac{\text{Flow}_{i&#39; \rightarrow
+      i}}{\text{Emp}_i}\)</span> <span
+      class="math inline">\(\frac{\text{Flow}_{i \rightarrow
+      i&#39;}}{\text{Emp}_i}\)</span> <span
+      class="math inline">\(\frac{\text{Flow}_{s,o}}{\text{Emp}_i}\)</span>
+      <span class="math inline">\(\frac{\text{Flow}_{i&#39; \rightarrow
+      i} - \text{Flow}_{i \rightarrow i&#39;}}{\text{Emp}_i}\)</span>
+      <span class="math inline">\(\frac{\text{Flow}_{ne \rightarrow e} -
+      \text{Flow}_{e \rightarrow ne}}{\text{Emp}_i}\)</span></td>
+      <td style="text-align: right;">Median 693 0.32 % 1.67 % 1.63 %
+      2.96 % 0.03 % 0.32 %</td>
+      <td style="text-align: center;">SD 6,396 0.26 0.59 0.58 0.66 0.13
+      0.32</td>
+      <td style="text-align: center;">p5 170 -0.11% 1.04 % 1.01 % 2.11 %
+      -0.14 % -0.11 %</td>
+      <td style="text-align: center;">p25 380 0.16 % 1.32 % 1.32 % 2.57
+      % -0.05 % 0.16 %</td>
+      <td style="text-align: center;">p75 1,633 0.47 % 2.08 % 2.00 %
+      3.48 % 0.12 % 0.50 %</td>
+      <td style="text-align: center;">p95 5,252 0.75 % 2.89 % 2.91 %
+      4.17 % 0.26 % 0.86 %</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><a id="table:cum_estim_year_5"></a></p>
+      <blockquote>
+      <p><strong>Response to a labor demand shock</strong></p>
+      </blockquote>
+      <table>
+      <colgroup>
+      <col style="width: 0%" />
+      <col style="width: 4%" />
+      <col style="width: 12%" />
+      <col style="width: 12%" />
+      <col style="width: 24%" />
+      <col style="width: 8%" />
+      <col style="width: 36%" />
+      </colgroup>
+      <tbody>
+      <tr>
+      <td></td>
+      <td style="text-align: right;"><span
+      class="math inline">\(\text{Emp}\)</span> 0.40*** (0.10)</td>
+      <td style="text-align: right;"><span class="math inline">\(\sum
+      \text{Flow}_{i&#39;\rightarrow i}\)</span> 0.37*** (0.11)</td>
+      <td style="text-align: right;"><span class="math inline">\(\sum
+      \text{Flow}_{i\rightarrow i&#39;}\)</span> 0.19** (0.09)</td>
+      <td style="text-align: right;"><span class="math inline">\(\sum
+      \text{Flow}_{i&#39;\rightarrow i} - \sum \text{Flow}_{i\rightarrow
+      i&#39;}\)</span> 0.18*** (0.06)</td>
+      <td style="text-align: right;"><span class="math inline">\(\sum
+      \text{Flow}_{s,o}\)</span> 0.40*** (0.09)</td>
+      <td style="text-align: right;"><span class="math inline">\(\sum
+      \text{Flow}_{s,o} - \left[\sum \text{Flow}_{i&#39;\rightarrow i} -
+      \sum \text{Flow}_{i\rightarrow i&#39;}\right]\)</span> 0.23**
+      (0.09)</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><a id="table:Pooledreg_quarterly_asym"></a></p>
+      <blockquote>
+      <p><strong>Effect of Bartik on worker reallocation: asymmetry and
+      hhi</strong></p>
+      </blockquote>
+      <p><em>The table layout is available in the PDF.</em></p>
+      <h2 id="additional-results">Additional Results</h2>
+      <p>To complement the analysis in the main text, we also introduce
+      an LPIV that identifies the heterogeneous response, but without
+      focusing on the asymmetric response. The estimating equation is
+      specified as follows:</p>
+      <p><a id="equation:Spec_Asymm"></a></p>
+      <p><span class="math display">\[
+      \Delta y_{i, t+h}=\alpha^h+\gamma_t+\gamma_i+\beta_h
+      \operatorname{Shock}_{i, t}+\psi_h\left(\operatorname{Shock}_{i,
+      t} \times \operatorname{HHI}_i\right)+\sum_{m=1}^8 \gamma_m^h
+      y_{i, t-m}+\sum_{m=1}^8 \omega_m^h \operatorname{Shock}_{i,
+      t-m}+\sum_{m=1}^8 \delta_m^h Z_{i, t-m}
+      \]</span></p>
+      <p>In this equation, <span class="math inline">\(\Delta
+      y_{i,t+h}\)</span> represents the change in the outcome variable
+      of interest for location <span class="math inline">\(i\)</span> at
+      horizon <span class="math inline">\(h\)</span>, allowing us to
+      model the response over a specified time horizon. The intercept
+      <span class="math inline">\(\alpha^h\)</span> is a time-specific
+      constant that adjusts for general trends in the data, while the
+      fixed effects <span class="math inline">\(\gamma_t\)</span> and
+      <span class="math inline">\(\gamma_i\)</span> control for temporal
+      and spatial heterogeneity. These fixed effects are essential to
+      ensure that the estimated response to the shock is not biased by
+      time-invariant location-specific factors or broader macroeconomic
+      trends. The key term, <span class="math inline">\(\beta_h
+      \operatorname{Shock}_{i,t}\)</span>, captures the direct effect of
+      the shock at time <span class="math inline">\(t\)</span> on the
+      outcome at time <span class="math inline">\(t+h\)</span>. The
+      shock <span
+      class="math inline">\(\operatorname{Shock}_{i,t}\)</span> is an
+      exogenous disturbance affecting location <span
+      class="math inline">\(i\)</span> and is assumed to vary across
+      locations and time. The term is furthermore interacted with the
+      local <span class="math inline">\(HHI_i\)</span> as introduced in
+      the main text.</p>
+      <p>To account for persistence in the outcome and the potential for
+      shocks to have lasting effects, the model includes lags of both
+      the outcome variable and the shock itself. The terms <span
+      class="math inline">\(\sum_{m=1}^8 \gamma_m^h y_{i,t-m}\)</span>
+      represent the influence of past values of the outcome on current
+      changes, while the terms <span class="math inline">\(\sum_{m=1}^8
+      \omega_m^h \operatorname{Shock}_{i,t-m}\)</span> capture the
+      dynamic effects of past shocks. These lagged terms allow us to
+      model the full dynamic response of the outcome to shocks,
+      recognizing that the effect of a shock may persist over multiple
+      periods.</p>
+      <p><a id="table:Pooledreg_quarterly_sym"></a></p>
+      <blockquote>
+      <p><strong>Effect of Bartik on worker reallocation</strong></p>
+      </blockquote>
+      <table>
+      <tbody>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">Q1</td>
+      <td style="text-align: center;">Q2</td>
+      <td style="text-align: center;">Q3</td>
+      <td style="text-align: center;">Year 1</td>
+      <td style="text-align: center;">Year 2</td>
+      <td style="text-align: right;">Year 3</td>
+      <td style="text-align: center;">Year 4</td>
+      <td style="text-align: center;">Year 5</td>
+      </tr>
+      <tr>
+      <td><strong><span
+      class="math inline">\(\text{Emp}_i\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: right;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.30***</td>
+      <td style="text-align: center;">0.37***</td>
+      <td style="text-align: center;">0.61***</td>
+      <td style="text-align: center;">0.61***</td>
+      <td style="text-align: center;">0.53***</td>
+      <td style="text-align: right;">0.43**</td>
+      <td style="text-align: center;">0.60**</td>
+      <td style="text-align: center;">0.65***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.09)</td>
+      <td style="text-align: center;">(0.07)</td>
+      <td style="text-align: center;">(0.09)</td>
+      <td style="text-align: center;">(0.14)</td>
+      <td style="text-align: center;">(0.13)</td>
+      <td style="text-align: right;">(0.16)</td>
+      <td style="text-align: center;">(0.24)</td>
+      <td style="text-align: center;">(0.17)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">0.02</td>
+      <td style="text-align: center;">0.01</td>
+      <td style="text-align: center;">-0.05***</td>
+      <td style="text-align: center;">-0.06**</td>
+      <td style="text-align: center;">-0.03*</td>
+      <td style="text-align: right;">-0.00</td>
+      <td style="text-align: center;">-0.05</td>
+      <td style="text-align: center;">-0.05*</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: right;">(0.03)</td>
+      <td style="text-align: center;">(0.04)</td>
+      <td style="text-align: center;">(0.03)</td>
+      </tr>
+      <tr>
+      <td><strong><span
+      class="math inline">\(\text{Flow}_{s,o}\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: right;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.22***</td>
+      <td style="text-align: center;">0.35***</td>
+      <td style="text-align: center;">0.36***</td>
+      <td style="text-align: center;">0.34***</td>
+      <td style="text-align: center;">0.35***</td>
+      <td style="text-align: right;">0.34**</td>
+      <td style="text-align: center;">0.35**</td>
+      <td style="text-align: center;">0.43***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.06)</td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: center;">(0.11)</td>
+      <td style="text-align: right;">(0.13)</td>
+      <td style="text-align: center;">(0.15)</td>
+      <td style="text-align: center;">(0.16)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: center;">-0.03</td>
+      <td style="text-align: center;">-0.03*</td>
+      <td style="text-align: center;">-0.03***</td>
+      <td style="text-align: center;">-0.02*</td>
+      <td style="text-align: right;">-0.01</td>
+      <td style="text-align: center;">-0.00</td>
+      <td style="text-align: center;">-0.02</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: right;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      </tr>
+      <tr>
+      <td><strong><span class="math inline">\(\text{Flow}_{i&#39;
+      \rightarrow i}\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: right;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.07</td>
+      <td style="text-align: center;">0.12**</td>
+      <td style="text-align: center;">0.35***</td>
+      <td style="text-align: center;">0.43***</td>
+      <td style="text-align: center;">0.37***</td>
+      <td style="text-align: right;">0.26*</td>
+      <td style="text-align: center;">0.41***</td>
+      <td style="text-align: center;">0.55***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.05)</td>
+      <td style="text-align: center;">(0.06)</td>
+      <td style="text-align: center;">(0.12)</td>
+      <td style="text-align: center;">(0.15)</td>
+      <td style="text-align: center;">(0.12)</td>
+      <td style="text-align: right;">(0.14)</td>
+      <td style="text-align: center;">(0.14)</td>
+      <td style="text-align: center;">(0.18)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">0.02***</td>
+      <td style="text-align: center;">0.04***</td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: center;">-0.05**</td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: right;">0.00</td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: center;">-0.06**</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: right;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.03)</td>
+      </tr>
+      <tr>
+      <td><strong><span class="math inline">\(\text{Flow}_{i \rightarrow
+      i&#39;}\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: right;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.03</td>
+      <td style="text-align: center;">0.12**</td>
+      <td style="text-align: center;">0.05</td>
+      <td style="text-align: center;">0.23**</td>
+      <td style="text-align: center;">0.36***</td>
+      <td style="text-align: right;">0.37**</td>
+      <td style="text-align: center;">0.38***</td>
+      <td style="text-align: center;">0.56***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.04)</td>
+      <td style="text-align: center;">(0.05)</td>
+      <td style="text-align: center;">(0.07)</td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: right;">(0.18)</td>
+      <td style="text-align: center;">(0.14)</td>
+      <td style="text-align: center;">(0.12)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">-0.00</td>
+      <td style="text-align: center;">-0.02**</td>
+      <td style="text-align: center;">0.00</td>
+      <td style="text-align: center;">-0.04*</td>
+      <td style="text-align: center;">-0.06***</td>
+      <td style="text-align: right;">-0.04</td>
+      <td style="text-align: center;">-0.04*</td>
+      <td style="text-align: center;">-0.09***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: right;">(0.03)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      </tr>
+      <tr>
+      <td>Observations</td>
+      <td style="text-align: center;">14,535</td>
+      <td style="text-align: center;">14,250</td>
+      <td style="text-align: center;">13,965</td>
+      <td style="text-align: center;">13,680</td>
+      <td style="text-align: center;">12,540</td>
+      <td style="text-align: right;">11,400</td>
+      <td style="text-align: center;">10,260</td>
+      <td style="text-align: center;">9,120</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><a id="table:Pooledreg_quarterly"></a></p>
+      <blockquote>
+      <p><strong>Effect of Bartik on worker reallocation</strong></p>
+      </blockquote>
+      <table>
+      <tbody>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">Q1</td>
+      <td style="text-align: center;">Q2</td>
+      <td style="text-align: center;">Q3</td>
+      <td style="text-align: center;">Year 1</td>
+      <td style="text-align: center;">Year 2</td>
+      <td style="text-align: center;">Year 3</td>
+      <td style="text-align: center;">Year 4</td>
+      <td style="text-align: center;">Year 5</td>
+      </tr>
+      <tr>
+      <td><strong><span class="math inline">\(\text{Flow}_{i&#39;
+      \rightarrow i} - \text{Flow}_{i \rightarrow
+      i&#39;}\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.03</td>
+      <td style="text-align: center;">0.02</td>
+      <td style="text-align: center;">0.32**</td>
+      <td style="text-align: center;">0.22**</td>
+      <td style="text-align: center;">-0.01</td>
+      <td style="text-align: center;">-0.13*</td>
+      <td style="text-align: center;">0.01</td>
+      <td style="text-align: center;">-0.04</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.05)</td>
+      <td style="text-align: center;">(0.06)</td>
+      <td style="text-align: center;">(0.14)</td>
+      <td style="text-align: center;">(0.09)</td>
+      <td style="text-align: center;">(0.09)</td>
+      <td style="text-align: center;">(0.07)</td>
+      <td style="text-align: center;">(0.08)</td>
+      <td style="text-align: center;">(0.06)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">0.03**</td>
+      <td style="text-align: center;">0.05***</td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: center;">-0.01</td>
+      <td style="text-align: center;">0.05***</td>
+      <td style="text-align: center;">0.05***</td>
+      <td style="text-align: center;">0.02</td>
+      <td style="text-align: center;">0.04**</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.09)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.01)</td>
+      </tr>
+      <tr>
+      <td><strong><span class="math inline">\(\text{Flow}_{s,o} - [
+      \text{Flow}_{i&#39;\rightarrow i} - \text{Flow}_{i\rightarrow
+      i&#39;}]\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.20***</td>
+      <td style="text-align: center;">0.37***</td>
+      <td style="text-align: center;">0.06</td>
+      <td style="text-align: center;">0.14</td>
+      <td style="text-align: center;">0.36***</td>
+      <td style="text-align: center;">0.48***</td>
+      <td style="text-align: center;">0.35**</td>
+      <td style="text-align: center;">0.47***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.07)</td>
+      <td style="text-align: center;">(0.09)</td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: center;">(0.08)</td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: center;">(0.17)</td>
+      <td style="text-align: center;">(0.17)</td>
+      <td style="text-align: center;">(0.11)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">-0.05**</td>
+      <td style="text-align: center;">-0.08***</td>
+      <td style="text-align: center;">-0.01</td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: center;">-0.07***</td>
+      <td style="text-align: center;">-0.06**</td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: center;">-0.05**</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.04)</td>
+      <td style="text-align: center;">(0.02)</td>
+      </tr>
+      <tr>
+      <td><strong><span
+      class="math inline">\(\text{Flow}_{i,s,o}\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.33***</td>
+      <td style="text-align: center;">0.58***</td>
+      <td style="text-align: center;">0.76***</td>
+      <td style="text-align: center;">1.00***</td>
+      <td style="text-align: center;">1.07***</td>
+      <td style="text-align: center;">0.96**</td>
+      <td style="text-align: center;">1.13***</td>
+      <td style="text-align: center;">1.51***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.10)</td>
+      <td style="text-align: center;">(0.14)</td>
+      <td style="text-align: center;">(0.19)</td>
+      <td style="text-align: center;">(0.31)</td>
+      <td style="text-align: center;">(0.26)</td>
+      <td style="text-align: center;">(0.42)</td>
+      <td style="text-align: center;">(0.39)</td>
+      <td style="text-align: center;">(0.44)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">0.00</td>
+      <td style="text-align: center;">-0.00</td>
+      <td style="text-align: center;">-0.05*</td>
+      <td style="text-align: center;">-0.11**</td>
+      <td style="text-align: center;">-0.10***</td>
+      <td style="text-align: center;">-0.04</td>
+      <td style="text-align: center;">-0.06</td>
+      <td style="text-align: center;">-0.16**</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.05)</td>
+      <td style="text-align: center;">(0.04)</td>
+      <td style="text-align: center;">(0.06)</td>
+      <td style="text-align: center;">(0.05)</td>
+      <td style="text-align: center;">(0.06)</td>
+      </tr>
+      <tr>
+      <td><strong><span class="math inline">\(\text{Flow}_{ne
+      \rightarrow e} - \text{Flow}_{e \rightarrow
+      ne}\)</span></strong></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.30***</td>
+      <td style="text-align: center;">0.43***</td>
+      <td style="text-align: center;">0.31**</td>
+      <td style="text-align: center;">0.37***</td>
+      <td style="text-align: center;">0.50***</td>
+      <td style="text-align: center;">0.52***</td>
+      <td style="text-align: center;">0.54**</td>
+      <td style="text-align: center;">0.68***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.08)</td>
+      <td style="text-align: center;">(0.07)</td>
+      <td style="text-align: center;">(0.14)</td>
+      <td style="text-align: center;">(0.13)</td>
+      <td style="text-align: center;">(0.09)</td>
+      <td style="text-align: center;">(0.17)</td>
+      <td style="text-align: center;">(0.12)</td>
+      <td style="text-align: center;">(0.09)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">-0.01</td>
+      <td style="text-align: center;">-0.05***</td>
+      <td style="text-align: center;">-0.04</td>
+      <td style="text-align: center;">-0.05**</td>
+      <td style="text-align: center;">-0.07***</td>
+      <td style="text-align: center;">-0.04</td>
+      <td style="text-align: center;">-0.07*</td>
+      <td style="text-align: center;">-0.09***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.01)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.02)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(Emp_i - \text{Flow}_{i&#39;
+      \rightarrow i} - \text{Flow}_{i \rightarrow i&#39;}\)</span></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      <td style="text-align: center;"></td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik}\)</span></td>
+      <td style="text-align: center;">0.53***</td>
+      <td style="text-align: center;">0.80***</td>
+      <td style="text-align: center;">0.70***</td>
+      <td style="text-align: center;">0.74***</td>
+      <td style="text-align: center;">0.88***</td>
+      <td style="text-align: center;">0.89***</td>
+      <td style="text-align: center;">0.93**</td>
+      <td style="text-align: center;">1.12***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.12)</td>
+      <td style="text-align: center;">(0.13)</td>
+      <td style="text-align: center;">(0.15)</td>
+      <td style="text-align: center;">(0.19)</td>
+      <td style="text-align: center;">(0.18)</td>
+      <td style="text-align: center;">(0.27)</td>
+      <td style="text-align: center;">(0.35)</td>
+      <td style="text-align: center;">(0.26)</td>
+      </tr>
+      <tr>
+      <td><span class="math inline">\(\text{Bartik} \times
+      \text{HHI}_{so}\)</span></td>
+      <td style="text-align: center;">-0.03</td>
+      <td style="text-align: center;">-0.08***</td>
+      <td style="text-align: center;">-0.07**</td>
+      <td style="text-align: center;">-0.08***</td>
+      <td style="text-align: center;">-0.10***</td>
+      <td style="text-align: center;">-0.06**</td>
+      <td style="text-align: center;">-0.07</td>
+      <td style="text-align: center;">-0.11***</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.02)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.03)</td>
+      <td style="text-align: center;">(0.05)</td>
+      <td style="text-align: center;">(0.03)</td>
+      </tr>
+      <tr>
+      <td>Observations</td>
+      <td style="text-align: center;">14,535</td>
+      <td style="text-align: center;">14,250</td>
+      <td style="text-align: center;">13,965</td>
+      <td style="text-align: center;">13,680</td>
+      <td style="text-align: center;">12,540</td>
+      <td style="text-align: center;">11,400</td>
+      <td style="text-align: center;">10,260</td>
+      <td style="text-align: center;">9,120</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><a id="tab:ranking_env_low_beta"></a></p>
+      <blockquote>
+      <p><strong>Welfare Effects and Decomposition by Economy
+      Diversification</strong></p>
+      </blockquote>
+      <table style="width:95%;">
+      <colgroup>
+      <col style="width: 9%" />
+      <col style="width: 15%" />
+      <col style="width: 16%" />
+      <col style="width: 9%" />
+      <col style="width: 15%" />
+      <col style="width: 16%" />
+      <col style="width: 9%" />
+      </colgroup>
+      <tbody>
+      <tr>
+      <td style="text-align: center;">HHI</td>
+      <td colspan="3" style="text-align: center;">Positive Shocks</td>
+      <td colspan="3" style="text-align: center;">Negative Shocks</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">Deciles</td>
+      <td style="text-align: center;"><em>First order</em></td>
+      <td style="text-align: center;"><em>Second order</em></td>
+      <td style="text-align: center;"><em>Total</em></td>
+      <td style="text-align: center;"><em>First order</em></td>
+      <td style="text-align: center;"><em>Second order</em></td>
+      <td style="text-align: center;"><em>Total</em></td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">1st</td>
+      <td style="text-align: center;">3.54</td>
+      <td style="text-align: center;">-1.94</td>
+      <td style="text-align: center;">1.60</td>
+      <td style="text-align: center;">-0.44</td>
+      <td style="text-align: center;">-0.03</td>
+      <td style="text-align: center;">-0.46</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">2nd</td>
+      <td style="text-align: center;">3.70</td>
+      <td style="text-align: center;">-1.50</td>
+      <td style="text-align: center;">2.20</td>
+      <td style="text-align: center;">-0.42</td>
+      <td style="text-align: center;">-0.04</td>
+      <td style="text-align: center;">-0.46</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">3rd</td>
+      <td style="text-align: center;">3.71</td>
+      <td style="text-align: center;">-1.55</td>
+      <td style="text-align: center;">2.15</td>
+      <td style="text-align: center;">-0.35</td>
+      <td style="text-align: center;">-0.07</td>
+      <td style="text-align: center;">-0.42</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">4th</td>
+      <td style="text-align: center;">3.86</td>
+      <td style="text-align: center;">-1.70</td>
+      <td style="text-align: center;">2.16</td>
+      <td style="text-align: center;">-0.56</td>
+      <td style="text-align: center;">-0.10</td>
+      <td style="text-align: center;">-0.66</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">5th</td>
+      <td style="text-align: center;">3.64</td>
+      <td style="text-align: center;">-1.06</td>
+      <td style="text-align: center;">2.58</td>
+      <td style="text-align: center;">-0.69</td>
+      <td style="text-align: center;">-0.13</td>
+      <td style="text-align: center;">-0.82</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">6th</td>
+      <td style="text-align: center;">3.50</td>
+      <td style="text-align: center;">-0.46</td>
+      <td style="text-align: center;">3.04</td>
+      <td style="text-align: center;">-0.90</td>
+      <td style="text-align: center;">-0.14</td>
+      <td style="text-align: center;">-1.04</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">7th</td>
+      <td style="text-align: center;">3.91</td>
+      <td style="text-align: center;">-2.38</td>
+      <td style="text-align: center;">1.53</td>
+      <td style="text-align: center;">-0.85</td>
+      <td style="text-align: center;">-0.23</td>
+      <td style="text-align: center;">-1.08</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">8th</td>
+      <td style="text-align: center;">5.02</td>
+      <td style="text-align: center;">-3.41</td>
+      <td style="text-align: center;">1.61</td>
+      <td style="text-align: center;">-0.70</td>
+      <td style="text-align: center;">-0.31</td>
+      <td style="text-align: center;">-1.01</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">9th</td>
+      <td style="text-align: center;">4.75</td>
+      <td style="text-align: center;">-3.06</td>
+      <td style="text-align: center;">1.69</td>
+      <td style="text-align: center;">-0.84</td>
+      <td style="text-align: center;">-0.39</td>
+      <td style="text-align: center;">-1.23</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">10th</td>
+      <td style="text-align: center;">6.92</td>
+      <td style="text-align: center;">-3.97</td>
+      <td style="text-align: center;">2.95</td>
+      <td style="text-align: center;">-0.92</td>
+      <td style="text-align: center;">-0.99</td>
+      <td style="text-align: center;">-1.91</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><strong>Notes:</strong> We set <span
+      class="math inline">\(\gamma=2\)</span> and discount future
+      continuation values relative to the base period using <span
+      class="math inline">\(\beta = 0.9\)</span>:</p>
+      <p><span class="math display">\[
+      \begin{aligned}
+      \Delta { \ln \mathcal{G}^{*}_{\ell} } &amp; \equiv
+      \sum_{t=\text{2006Q1}}^{\text{2019Q4}}
+      \sum_{h=0}^{20}  \beta^{t+h-2006}  \left\{ \sum_{ \substack{y =
+      \text{ stay}, \\ \text{ local}, \text{ spatial}}}
+      \Big[  \omega^{*}_{y | \ell}  \Delta {\ln p^{y,t+h }_{\ell,
+      t}}    \Big] +\frac{1}{\gamma}\sum_{\substack{y = \text{ stay}, \\
+      \text{ local}, \text{ spatial}
+      }
+      }\left[\frac{\omega_{y | \ell}^{*}}{1-p_{y |\ell} }\left(\Delta
+      {\ln p^{y,t+h }_{\ell, t}}  \right)^{2}\right] - \frac{1}{2\gamma}
+      \sum_{ \substack{y,y&#39; = \text{ stay}, \\ \text{ local}, \text{
+      spatial}}} \sum_{ \substack{y&#39; \neq
+      y  }}   \left[  \frac{\omega_{y | \ell}^{*}}{p_{n |\ell} } \Delta
+      {\ln p^{n, t+h }_{\ell,t}}   \Delta {\ln p^{y, t+h }_{\ell
+      ,t}}   \right] \right\} . \nonumber
+      \end{aligned}
+      \]</span></p>
+      <p>The first column denotes HHI deciles. The welfare changes are
+      in percentage changes relative to the baseline period for the
+      average shock in each HHI decile bin, separately reporting the
+      effect of positive and negative shocks. The next three columns
+      present, for positive shocks: the FOA term and the SOA term of the
+      welfare formula along with their sum. The last three columns
+      present similar terms for negative shocks.</p>
+      <p><a id="tab:ranking_env"></a></p>
+      <blockquote>
+      <p><strong>Extended Welfare Effects and Decomposition by Economy
+      Diversification</strong></p>
+      </blockquote>
+      <table style="width:94%;">
+      <colgroup>
+      <col style="width: 6%" />
+      <col style="width: 9%" />
+      <col style="width: 9%" />
+      <col style="width: 14%" />
+      <col style="width: 5%" />
+      <col style="width: 6%" />
+      <col style="width: 9%" />
+      <col style="width: 9%" />
+      <col style="width: 14%" />
+      <col style="width: 5%" />
+      <col style="width: 6%" />
+      </colgroup>
+      <tbody>
+      <tr>
+      <td style="text-align: center;">HHI</td>
+      <td colspan="5" style="text-align: center;">Positive Shocks</td>
+      <td colspan="5" style="text-align: center;">Negative Shocks</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">Deciles</td>
+      <td style="text-align: center;"><em>FOA (Avg)</em></td>
+      <td style="text-align: center;"><em>FOA (Obs)</em></td>
+      <td style="text-align: center;"><span
+      class="math inline">\(\Delta\)</span> <em>Exposure</em></td>
+      <td style="text-align: center;"><em>SOA</em></td>
+      <td style="text-align: center;"><em>Total</em></td>
+      <td style="text-align: center;"><em>FOA (Avg)</em></td>
+      <td style="text-align: center;"><em>FOA (Obs)</em></td>
+      <td style="text-align: center;"><span
+      class="math inline">\(\Delta\)</span> <em>Exposure</em></td>
+      <td style="text-align: center;"><em>SOA</em></td>
+      <td style="text-align: center;"><em>Total</em></td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">1st</td>
+      <td style="text-align: center;">7.03</td>
+      <td style="text-align: center;">7.10</td>
+      <td style="text-align: center;">0.07</td>
+      <td style="text-align: center;">-3.25</td>
+      <td style="text-align: center;">3.85</td>
+      <td style="text-align: center;">-1.53</td>
+      <td style="text-align: center;">-1.00</td>
+      <td style="text-align: center;">0.54</td>
+      <td style="text-align: center;">-0.06</td>
+      <td style="text-align: center;">-1.06</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">2nd</td>
+      <td style="text-align: center;">7.20</td>
+      <td style="text-align: center;">7.18</td>
+      <td style="text-align: center;">-0.02</td>
+      <td style="text-align: center;">-2.49</td>
+      <td style="text-align: center;">4.68</td>
+      <td style="text-align: center;">-1.56</td>
+      <td style="text-align: center;">-1.00</td>
+      <td style="text-align: center;">0.56</td>
+      <td style="text-align: center;">-0.09</td>
+      <td style="text-align: center;">-1.09</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">3rd</td>
+      <td style="text-align: center;">7.34</td>
+      <td style="text-align: center;">7.03</td>
+      <td style="text-align: center;">-0.31</td>
+      <td style="text-align: center;">-2.57</td>
+      <td style="text-align: center;">4.46</td>
+      <td style="text-align: center;">-1.58</td>
+      <td style="text-align: center;">-0.90</td>
+      <td style="text-align: center;">0.68</td>
+      <td style="text-align: center;">-0.15</td>
+      <td style="text-align: center;">-1.05</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">4th</td>
+      <td style="text-align: center;">7.49</td>
+      <td style="text-align: center;">7.39</td>
+      <td style="text-align: center;">-0.11</td>
+      <td style="text-align: center;">-2.82</td>
+      <td style="text-align: center;">4.57</td>
+      <td style="text-align: center;">-1.61</td>
+      <td style="text-align: center;">-1.43</td>
+      <td style="text-align: center;">0.18</td>
+      <td style="text-align: center;">-0.24</td>
+      <td style="text-align: center;">-1.66</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">5th</td>
+      <td style="text-align: center;">7.68</td>
+      <td style="text-align: center;">6.77</td>
+      <td style="text-align: center;">-0.91</td>
+      <td style="text-align: center;">-1.74</td>
+      <td style="text-align: center;">5.03</td>
+      <td style="text-align: center;">-1.64</td>
+      <td style="text-align: center;">-1.82</td>
+      <td style="text-align: center;">-0.19</td>
+      <td style="text-align: center;">-0.30</td>
+      <td style="text-align: center;">-2.12</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">6th</td>
+      <td style="text-align: center;">7.82</td>
+      <td style="text-align: center;">6.49</td>
+      <td style="text-align: center;">-1.33</td>
+      <td style="text-align: center;">-0.74</td>
+      <td style="text-align: center;">5.75</td>
+      <td style="text-align: center;">-1.66</td>
+      <td style="text-align: center;">-2.29</td>
+      <td style="text-align: center;">-0.63</td>
+      <td style="text-align: center;">-0.33</td>
+      <td style="text-align: center;">-2.62</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">7th</td>
+      <td style="text-align: center;">7.96</td>
+      <td style="text-align: center;">7.36</td>
+      <td style="text-align: center;">-0.60</td>
+      <td style="text-align: center;">-4.02</td>
+      <td style="text-align: center;">3.34</td>
+      <td style="text-align: center;">-1.68</td>
+      <td style="text-align: center;">-2.21</td>
+      <td style="text-align: center;">-0.54</td>
+      <td style="text-align: center;">-0.57</td>
+      <td style="text-align: center;">-2.78</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">8th</td>
+      <td style="text-align: center;">8.19</td>
+      <td style="text-align: center;">9.41</td>
+      <td style="text-align: center;">1.22</td>
+      <td style="text-align: center;">-5.82</td>
+      <td style="text-align: center;">3.59</td>
+      <td style="text-align: center;">-1.71</td>
+      <td style="text-align: center;">-1.75</td>
+      <td style="text-align: center;">-0.04</td>
+      <td style="text-align: center;">-0.77</td>
+      <td style="text-align: center;">-2.52</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">9th</td>
+      <td style="text-align: center;">8.53</td>
+      <td style="text-align: center;">8.76</td>
+      <td style="text-align: center;">0.22</td>
+      <td style="text-align: center;">-5.24</td>
+      <td style="text-align: center;">3.51</td>
+      <td style="text-align: center;">-1.76</td>
+      <td style="text-align: center;">-2.20</td>
+      <td style="text-align: center;">-0.44</td>
+      <td style="text-align: center;">-0.97</td>
+      <td style="text-align: center;">-3.17</td>
+      </tr>
+      <tr>
+      <td style="text-align: center;">10th</td>
+      <td style="text-align: center;">10.28</td>
+      <td style="text-align: center;">12.75</td>
+      <td style="text-align: center;">2.47</td>
+      <td style="text-align: center;">-6.94</td>
+      <td style="text-align: center;">5.81</td>
+      <td style="text-align: center;">-2.03</td>
+      <td style="text-align: center;">-2.38</td>
+      <td style="text-align: center;">-0.35</td>
+      <td style="text-align: center;">-2.55</td>
+      <td style="text-align: center;">-4.93</td>
+      </tr>
+      </tbody>
+      </table>
+      <p><strong>Notes:</strong> We set <span
+      class="math inline">\(\gamma=2\)</span> and discount future
+      continuation values relative to the base period using <span
+      class="math inline">\(\beta = 0.99\)</span>:</p>
+      <p><span class="math display">\[
+      \begin{aligned}
+      \Delta { \ln \mathcal{G}^{*}_{\ell} } &amp; \equiv
+      \sum_{t=\text{2006Q1}}^{\text{2019Q4}}
+      \sum_{h=0}^{20}  \beta^{t+h-2006}  \Bigg\{
+      \underbrace{\sum_{y\in\{\text{stay, local, spatial}\}}\!
+      \omega^{*}_{y | \ell} \, \Delta {\ln p^{y,t+h }_{\ell,
+      t}}}_{\text{FOA}}
+      +\;\frac{1}{\gamma}\underbrace{\sum_{y}\frac{\omega_{y |
+      \ell}^{*}}{1-p_{y |\ell} }\!\left(\Delta {\ln p^{y,t+h }_{\ell,
+      t}}  \right)^{2}}_{\text{SOA (own)}}
+      -\;\frac{1}{2\gamma}\underbrace{\sum_{y\neq y&#39;}
+      \frac{\omega_{y | \ell}^{*}}{p_{y&#39; |\ell} } \, \Delta {\ln
+      p^{y&#39;, t+h }_{\ell,t}} \, \Delta {\ln p^{y, t+h }_{\ell
+      ,t}}}_{\text{SOA (cross)}}
+      \Bigg\}.
+      \end{aligned}
+      \]</span></p>
+      <p>The first column reports HHI deciles. We separately report
+      positive and negative shocks. For each shock sign, the five
+      columns are: (i) <em>FOA (Avg)</em>: first-order welfare computed
+      using a <em>common shock path</em> and <em>decile-mean HHI</em>
+      (holds exposure heterogeneity fixed); (ii) <em>FOA (Obs)</em>:
+      first-order welfare using each decile’s <em>observed HHI and
+      exposure</em>; (iii) <span
+      class="math inline">\(\Delta\)</span><em>Exposure</em> <span
+      class="math inline">\(\equiv\)</span> <em>FOA (Obs)</em> <span
+      class="math inline">\(-\)</span> <em>FOA (Avg)</em>, which
+      isolates the contribution of exposure heterogeneity; (iv)
+      <em>SOA</em>: second-order term (own and cross components
+      combined); (v) <em>Total</em> <span
+      class="math inline">\(=\)</span> <em>FOA (Obs)</em> <span
+      class="math inline">\(+\)</span> <em>SOA</em>. All entries are
+      percentage changes relative to the baseline period; rows are
+      decile-bin averages.</p>
+      <h2 id="additional-derivations">Additional Derivations</h2>
+      <p>This appendix section provides additional derivations for the
+      results in Section 2 and 4 as well as a motivation for the
+      utilization of HHI indices.</p>
+      <p><a id="subsec:Theory_derivations"></a></p>
+      <h3 id="proof-of-proposition-1-and-2-section-2">Proof of
+      Proposition 1 and 2 (Section <a href="#sec:Theory">2</a>)</h3>
+      <p>In this subsection, we provide additional derivations for the
+      results in Section 2. Specifically, we present the derivations for
+      the approximation results. To begin, it will be helpful to
+      reiterate key results from (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>),
+      specifically, their Theorem 1, which relates conditional choice
+      probabilities and continuation values to the subdifferential of
+      the <span class="math inline">\(\mathcal{G}\)</span> function and
+      the convex conjugate of the <span
+      class="math inline">\(\mathcal{G}\)</span> function, i.e.</p>
+      <p><span class="math display">\[
+      p \in \partial \mathcal{G}(w)
+      \]</span></p>
+      <p>and,</p>
+      <p><span class="math display">\[
+      w \in \partial \mathcal{G}^*(p)
+      \]</span></p>
+      <p>where the former equation is a generalization of the
+      Williams-Daly-Zachery (WDZ) theorem as discussed in (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>)
+      and the latter generalizes results in (<a
+      href="#ref-Hotz1993-lu">Hotz and Miller 1993</a>). We then start
+      by approximating the <span
+      class="math inline">\(\mathcal{G}^*\)</span> function around <span
+      class="math inline">\(w_0\)</span>,</p>
+      <p><span class="math display">\[
+      \mathcal{G}(w)=\mathcal{G}(w^{0})+\sum_{y}\frac{\partial\mathcal{G}(w)}{\partial
+      w_{y}}\left(w_{y}-w_{y}^{0}\right)+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\partial^{2}\mathcal{G}(w)}{\partial
+      w_{y}\partial
+      w_{y&#39;}}\left(w_{y}-w_{y}^{0}\right)\left(w_{y&#39;}-w_{y&#39;}^{0}\right)+o\left(\cdot\right)
+      \]</span></p>
+      <p><span class="math display">\[
+      d\mathcal{G}(w)=\sum_{y}\frac{\partial\mathcal{G}(w)}{\partial
+      w_{y}}dw_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\partial^{2}\mathcal{G}(w)}{\partial
+      w_{y}\partial w_{y&#39;}}dw_{y}dw_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>and similarly, for the convex conjugate function,</p>
+      <p><span class="math display">\[
+      \mathcal{G}^{*}(p)=\mathcal{G}^{*}(p^{0})+\sum_{y}\frac{\partial\mathcal{G}^{*}(p)}{\partial
+      p_{y}}\left(p_{y}-p_{y}^{0}\right)+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\partial^{2}\mathcal{G}^{*}(p)}{\partial
+      p_{y}\partial
+      p_{y&#39;}}\left(p_{y}-p_{y}^{0}\right)\left(p_{y&#39;}-p_{y&#39;}^{0}\right)+o\left(\cdot\right)
+      \]</span></p>
+      <p><span class="math display">\[
+      d\mathcal{G}^{*}(p)=\sum_{y}\frac{\partial\mathcal{G}^{*}(p)}{\partial
+      p_{y}}dp_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\partial^{2}\mathcal{G}^{*}(p)}{\partial
+      p_{y}\partial p_{y&#39;}}dp_{y}dp_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>In terms of log changes we have,</p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}(w)=\sum_{y}\frac{\frac{\partial\mathcal{G}(w)}{\partial
+      w_{y}}w_{y}}{\mathcal{G}(w)}d\ln
+      w_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\frac{\partial^{2}\mathcal{G}(w)}{\partial
+      w_{y}\partial w_{y&#39;}}w_{y}w_{y&#39;}}{\mathcal{G}(w)}d\ln
+      w_{y}d\ln w_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}^{*}(p)=\sum_{y}\frac{\frac{\partial\mathcal{G}^{*}(p)}{\partial
+      p_{y}}p_{y}}{\mathcal{G}^{*}(p)}d\ln
+      p_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\frac{\partial^{2}\mathcal{G}^{*}(p)}{\partial
+      p_{y}\partial p_{y&#39;}}p_{y}p_{y&#39;}}{\mathcal{G}^{*}(p)}d\ln
+      p_{y}d\ln p_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>Applying Theorem 1 from (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>),
+      we obtain,</p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}(w)=\sum_{y}\frac{p_{y}w_{y}}{\mathcal{G}(w)}d\ln
+      w_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\frac{\partial
+      p_{y}}{\partial
+      w_{y&#39;}}\frac{w_{y&#39;}}{p_{y}}p_{y}w_{y}}{\mathcal{G}(w)}d\ln
+      w_{y}d\ln w_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}^{*}(p)=\sum_{y}\frac{w_{y}p_{y}}{\mathcal{G}^{*}(p)}d\ln
+      p_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\frac{\frac{\partial
+      w_{y}}{\partial
+      p_{y&#39;}}\frac{p_{y&#39;}}{w_{y}}w_{y}p_{y}}{\mathcal{G}^{*}(p)}d\ln
+      p_{y}d\ln p_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>Defining the cross-elasticity, <span
+      class="math inline">\(\varrho_{y,y&#39;}^{p,w}\equiv\frac{\partial\ln
+      p_{y}}{\partial\ln w_{y&#39;}}=\frac{\partial p_{y}}{\partial
+      w_{y&#39;}}\frac{w_{y&#39;}}{p_{y}}\)</span> and <span
+      class="math inline">\(\varrho_{y,y&#39;}^{w,p}\equiv\frac{\partial\ln
+      w_{y}}{\partial\ln p_{y&#39;}}=\frac{\partial w_{y}}{\partial
+      p_{y&#39;}}\frac{p_{y&#39;}}{w_{y}}\)</span>,</p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}(w)=\sum_{y}\frac{p_{y}w_{y}}{\mathcal{G}(w)}d\ln
+      w_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\varrho_{y,y&#39;}^{p,w}\frac{p_{y}w_{y}}{\mathcal{G}(w)}d\ln
+      w_{y}d\ln w_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}^{*}(p)=\sum_{y}\frac{w_{y}p_{y}}{\mathcal{G}^{*}(p)}d\ln
+      p_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\varrho_{y,y&#39;}^{w,p}\frac{w_{y}p_{y}}{\mathcal{G}^{*}(p)}d\ln
+      p_{y}d\ln p_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>Rewrite in terms of generic weights,<span
+      class="math inline">\(\omega_{y}\equiv\frac{w_{y}p_{y}}{\mathcal{G}(w)}\)</span>
+      and <span
+      class="math inline">\(\omega_{y}^{*}\equiv\frac{w_{y}p_{y}}{\mathcal{G}^{*}(p)}\)</span>,</p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}(w)=\sum_{y}\omega_{y}d\ln
+      w_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\varrho_{y,y&#39;}^{p,w}\omega_{y}d\ln
+      w_{y}d\ln w_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}^{*}(p)=\sum_{y}\omega_{y}^{*}d\ln
+      p_{y}+\frac{1}{2}\sum_{y}\sum_{y&#39;}\varrho_{y,y&#39;}^{w,p}\omega_{y}^{*}d\ln
+      p_{y}d\ln p_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>which is the stated result and gives us a second-order
+      characterization of the (conjugate) social surplus.<a href="#fn27"
+      class="footnote-ref" id="fnref27"
+      role="doc-noteref"><sup>27</sup></a></p>
+      <p><a id="subsec:Theory_derivations_sec_4"></a></p>
+      <h3 id="derivations-for-section-4">Derivations for Section <a
+      href="#sec:Welfare">4</a></h3>
+      <p>Turning towards an isoelastic labor supply system, i.e.</p>
+      <p><span class="math display">\[
+      p_y=\frac{w_y^\gamma}{\sum_y w_y^\gamma}
+      \]</span></p>
+      <p>We can totally differentiate and obtain,</p>
+      <p><span class="math display">\[
+      \varepsilon_{y,y&#39;}^{w,p}\equiv\frac{\partial\ln
+      w_{y}}{\partial\ln p_{y&#39;}}=\left(\frac{\partial
+      p_{y}}{\partial
+      w_{y&#39;}}\frac{w_{y&#39;}}{p_{y}}\right)^{-1}=\left(-p_{y&#39;}\gamma\right)^{-1}\qquad\text{if}\qquad
+      y=y&#39;
+      \]</span></p>
+      <p><span class="math display">\[
+      \varepsilon_{y,y&#39;}^{w,p}\equiv\frac{\partial\ln
+      w_{y}}{\partial\ln p_{y&#39;}}=\left(\frac{\partial
+      p_{y}}{\partial
+      w_{y&#39;}}\frac{w_{y&#39;}}{p_{y}}\right)^{-1}=\left(\gamma-p_{y}\gamma\right)^{-1}\qquad\text{if}\qquad
+      y\neq y&#39;
+      \]</span></p>
+      <p>Substituting, we obtain,</p>
+      <p><span class="math display">\[
+      d\ln\mathcal{G}^{*}(p)=\sum_{y}\omega_{y}^{*}d\ln
+      p_{y}+\frac{1}{\gamma}\sum_{y}\frac{\omega_{y}^{*}}{1-p_{y}}\left(d\ln
+      p_{y}\right)^{2}-\frac{1}{2\gamma}\sum_{y}\sum_{y&#39;\neq
+      y}\frac{\omega_{y}^{*}}{p_{y&#39;}}d\ln p_{y}d\ln
+      p_{y&#39;}+o\left(\cdot\right)
+      \]</span></p>
+      <p>Assuming, <span class="math inline">\(y\in
+      \mathcal{Y}=\left[\text{Stay},\text{Local},\text{Spatial}
+      \right]\)</span>, we obtain,</p>
+      <p><span class="math display">\[
+      \begin{aligned}
+      \frac{\mathrm{d}\ln\mathscr{G}^{*}(p;x)}{\mathrm{d}\ln\bar{x}}\approx
+      &amp; \sum_{\substack{\text{ y=stay, }\\
+      \text{ local, spatial }
+      }
+      }\left[\omega_{Y}^{*}\left(x\right)\frac{\mathrm{d}\ln
+      p_{y}(x)}{\mathrm{d}\ln\bar{x}}\right]
+      +\frac{1}{\gamma}\sum_{\substack{\text{ y=stay, }\\
+      \text{ local, spatial }
+      }
+      }\left[\frac{\omega_{Y}^{*}\left(x\right)}{1-p_{y}\left(x\right)}\left(\frac{\mathrm{d}\ln
+      p_{y}(x)}{\mathrm{d}\ln\bar{x}}\right)^{2}\right]\nonumber \\
+      &amp; -\frac{1}{2\gamma}\sum_{\substack{\text{ y=stay, }\\
+      \text{ local, spatial }
+      }
+      }\sum_{\substack{y&#39;\neq y}
+      }\left[\frac{\omega_{y}^{*}\left(x\right)}{p_{y&#39;}\left(x\right)}\frac{\mathrm{d}\ln
+      p_{y}(x)}{\mathrm{d}\ln\bar{x}}\frac{\mathrm{d}\ln
+      p_{n}(x)}{\mathrm{d}\ln\bar{x}}\right] \nonumber
+      \end{aligned}
+      \]</span></p>
+      <p>as reported in Section <a href="#sec:Welfare">4</a>.</p>
+      <p>Note that, while assuming stationarity is convenient because it
+      allows us to interpret our first- and second-order welfare
+      approximations as steady-state elasticities and to obtain a clean
+      mapping between continuation values and Conditional Choice
+      Probability (CCP), as discussed in (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>),
+      it is not strictly necessary. Indeed, these approximations could
+      also be computed period by period in a non-stationary setting.</p>
+      <p><a id="subsec:Theory_and_HHI"></a></p>
+      <h3 id="proof-of-corollary-1-section-2">Proof of Corollary 1
+      (Section <a href="#sec:Theory">2</a>)</h3>
+      <p>We now connect our second-order welfare approximation to an
+      index of local labor market diversity. Consider a city <span
+      class="math inline">\(\mathcal{C}\)</span> with local
+      sub-population shares <span
+      class="math inline">\(\pi_\ell\)</span>. Starting from the general
+      expression for welfare changes,</p>
+      <p><a id="eq:Wdiff"></a></p>
+      <p><span class="math display">\[
+      \begin{aligned}
+      \mathrm{d}\ln W_{\mathcal{C}}
+      &amp;=\sum_{\ell\in\mathcal{C}}\pi_{\ell}\,\mathrm{d}\ln\mathcal{G}_{\ell}
+      \nonumber\\
+      &amp;=\sum_{\ell\in\mathcal{C}}\pi_{\ell}\Bigg[
+      \sum_{m}\frac{w_{m}}{\mathcal{G}_{\ell}}p_{m|\ell}\,\mathrm{d}\ln
+      w_{m}
+      +\frac{1}{2}\sum_{m}\frac{w_{m}}{\mathcal{G}_{\ell}}p_{m|\ell}\gamma_{\ell}\bigl(\mathrm{d}\ln
+      w_{m}\bigr)^{2}
+      -\frac{1}{2}\sum_{m,k}\frac{w_{m}}{\mathcal{G}_{\ell}}p_{m|\ell}\gamma_{\ell}p_{k|\ell}\,\mathrm{d}\ln
+      w_{m}\,\mathrm{d}\ln w_{k}
+      \Bigg],
+      \end{aligned}
+      \]</span></p>
+      <p>where <span class="math inline">\(p_{m|\ell}\)</span> are
+      conditional choice probabilities and <span
+      class="math inline">\(\gamma_{\ell}\)</span> governs their cross
+      substitution elasticities such that <span
+      class="math inline">\(\frac{\partial\ln p_{k|\ell}}{\partial\ln
+      w_{m|\ell}} \equiv - \gamma_{\ell} \,p_{m|\ell} + \gamma_{\ell}
+      \mathbb{1}_{\{m=k\}}\)</span>.</p>
+      <p>Define the log-elasticity weights <span
+      class="math inline">\(\lambda_{m|\ell}\equiv\frac{w_{m}}{\mathcal{G}_{\ell}}p_{m|\ell}\)</span>
+      (which satisfy <span
+      class="math inline">\(\sum_{m}\lambda_{m|\ell}=1\)</span>) and let
+      <span class="math inline">\(s_{m}\equiv\mathrm{d}\ln
+      w_{m}\)</span> denote the vector of shocks. Then <a
+      href="#eq:Wdiff">Equation</a> becomes</p>
+      <p><span class="math display">\[
+      \mathrm{d}\ln W_{\mathcal{C}}
+      =\sum_{\ell}\pi_{\ell}\left[
+      \sum_{m}\lambda_{m|\ell}s_{m}
+      +\frac{1}{2}\sum_{m}\gamma_{\ell}\lambda_{m|\ell}s_{m}^{2}
+      -\frac{1}{2}\sum_{m,k}\gamma_{\ell}\lambda_{m|\ell}\lambda_{k|\ell}s_{m}s_{k}
+      \right].
+      \]</span></p>
+      <p>Taking expectations with <span
+      class="math inline">\(\mathbb{E}[s]=0\)</span> and <span
+      class="math inline">\(\mathrm{Cov}(s)=\Sigma\)</span> eliminates
+      the linear term and yields</p>
+      <p><span class="math display">\[
+      \mathbb{E}\bigl[\mathrm{d}\ln W_{\mathcal{C}}\bigr]
+      =\frac{1}{2}\sum_{\ell}\pi_{\ell}\gamma_{\ell}\left[
+      \sum_{m}\lambda_{m|\ell}\Sigma_{mm}-\lambda_{\ell}^{\top}\Sigma\lambda_{\ell}
+      \right].
+      \]</span></p>
+      <p>Under equicorrelation (<span
+      class="math inline">\(\Sigma_{mm}=\sigma^{2}\)</span> and <span
+      class="math inline">\(\Sigma_{mk}=\nu\sigma^2\)</span> for <span
+      class="math inline">\(m\neq k\)</span>) and common elasticities
+      (<span class="math inline">\(\gamma_{\ell} = \gamma\; \forall
+      \ell\)</span>), this simplifies to</p>
+      <p><span class="math display">\[
+      \mathbb{E}\bigl[\mathrm{d}\ln W_{\mathcal{C}}\bigr]
+      =\frac{1}{2}\sigma^{2}\left(1-\nu\right) \gamma
+      \left(1-\sum_{\ell}\pi_{\ell}\underbrace{\sum_{m}\lambda_{m|\ell}^{2}}_{\mathrm{HHI}_{\ell}}\right),
+      \]</span></p>
+      <p>linking the expected welfare change to the complement of a
+      concentration index akin to Herfindahl–Hirschman index (HHI).</p>
+      <p>This formalizes the intuition that the “insurance value” of
+      diversity is proportional to the shock variance (<span
+      class="math inline">\(\sigma^2\)</span>) and inversely related to
+      market concentration (<span
+      class="math inline">\(\mathrm{HHI}_{\mathcal{C}} \equiv
+      \sum_{\ell}\pi_{\ell} \mathrm{HHI}_{\ell}\)</span>).</p>
+      <p><a id="sec:comp_appdx"></a></p>
+      <h2 id="computational-details">Computational Details</h2>
+      <p>This section explains how we recover welfare-consistent choice
+      values from observed probabilities via the mass-transport approach
+      and use them in our empirical welfare accounting.</p>
+      <p>The first subsection formally summarizes the (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>)
+      setup–convex surplus, its conjugate <span
+      class="math inline">\({G}^*(p)\)</span>, and the optimal-transport
+      formulation whose dual delivers continuation values and, after a
+      single normalization, welfare weights.</p>
+      <p>The second subsection details how we deploy their approach and
+      combine it with estimated dynamic responses (including sign
+      asymmetry and HHI heterogeneity) to derive first- and second-order
+      welfare effects.</p>
+      <p>The final subsection provides a pseudo-code as an overview of
+      our approach.</p>
+      <p><a id="mass-transport-approach"></a></p>
+      <h3 id="mass-transport-approach-chiong-et-al.-2016">Mass-Transport
+      Approach ((<a href="#ref-chiong_galichon_shum_duality">Chiong et
+      al. 2016</a>))</h3>
+      <p>Let <span class="math inline">\(Y\)</span> be a finite set of
+      actions and, for state <span class="math inline">\(x\)</span>, let
+      <span class="math inline">\(w=(w_y)_{y\in Y}\)</span> denote
+      choice-specific continuation values and <span
+      class="math inline">\(\varepsilon=(\varepsilon_y)_{y\in Y}\sim
+      Q(\cdot\mid x)\)</span> idiosyncratic shocks. The social
+      surplus</p>
+      <p><span class="math display">\[
+      G(w;x)=\mathbb{E}\!\left[\max_{y\in
+      Y}\{w_y+\varepsilon_y\}\,\middle|\,x\right]
+      \]</span></p>
+      <p>is convex, and (under regularity) maps values to CCPs via the
+      Williams–Daly–Zachary relation <span
+      class="math inline">\(p=\nabla G(w)\)</span>. Its convex
+      conjugate</p>
+      <p><span class="math display">\[
+      G^*(p;x)=\sup_{w}\{p\cdot w-G(w;x)\}
+      \]</span></p>
+      <p>satisfies <span class="math inline">\(G(w;x)+G^*(p;x)=p\cdot
+      w\)</span> with <span class="math inline">\(p\in\partial
+      G(w;x)\iff w\in\partial G^*(p;x)\)</span>. Hence, given observed
+      CCPs <span class="math inline">\(p\)</span>, one can
+      <em>invert</em> to rationalizing values <span
+      class="math inline">\(w\)</span> using the subgradient of <span
+      class="math inline">\(G^*\)</span>.</p>
+      <h4 id="mass-transport-formulation-cgs.">Mass-transport
+      formulation (CGS).</h4>
+      <p>Chiong et al. (<a
+      href="#ref-chiong_galichon_shum_duality">2016</a>) show <span
+      class="math inline">\(G^*(p;x)\)</span> equals the value of an
+      optimal-transport problem that couples the multinomial <span
+      class="math inline">\(p\)</span> over <span
+      class="math inline">\(Y\)</span> with the shock distribution <span
+      class="math inline">\(Q\)</span>, under cost <span
+      class="math inline">\(c(y,\varepsilon)=-\varepsilon_y\)</span>.
+      With a discrete approximation <span class="math inline">\(Q\approx
+      \{\varepsilon^{(s)}\}_{s=1}^S\)</span> (with weights <span
+      class="math inline">\(1/S\)</span> per (<a
+      href="#ref-kennan2006note">Kennan 2006</a>)), this becomes the
+      linear program</p>
+      <p><span class="math display">\[
+      \max_{\pi_{ys}\ge 0}\ \sum_{y,s}\varepsilon^{(s)}_y\,\pi_{ys}
+      \quad\text{s.t.}\quad
+      \sum_s \pi_{ys}=p_y\ \ \forall y,\qquad
+      \sum_y \pi_{ys}=\tfrac{1}{S}\ \ \forall s,
+      \]</span></p>
+      <p>whose objective equals <span
+      class="math inline">\(G^*(p;x)\)</span> (up to sign). The
+      associated dual variables deliver a subgradient <span
+      class="math inline">\(w\in\partial G^*(p;x)\)</span>, i.e., the
+      continuation values (up to an additive constant). This
+      <em>mass-transport approach</em> accommodates general (including
+      correlated) shock distributions and provides a numerically
+      convenient inversion from CCPs to values, which we use as the
+      basis for our welfare objects and weights.</p>
+      <h3 id="implementation-overview">Implementation Overview</h3>
+      <h4 id="welfare-weights.">Welfare weights.</h4>
+      <p>For each city–year cell, we start from observed conditional
+      choice probabilities over three margins (stayers, spatial moves,
+      non-spatial switches). We approximate the distribution of choice
+      shocks with a finite support and solve the assignment linear
+      program whose value equals the convex conjugate <span
+      class="math inline">\(G^*(p)\)</span> of the social surplus. The
+      program’s dual variables deliver a subgradient of <span
+      class="math inline">\(G^*\)</span>, which we interpret as
+      choice–specific continuation values, unique up to an additive
+      constant. We impose a single normalization so that the dot product
+      of these values with observed probabilities equals <span
+      class="math inline">\(G^*(p)\)</span> in that cell. The resulting
+      theory–consistent welfare weights are <span
+      class="math inline">\(\,\omega_y^*=(w_y p_y)/G^*(p)\,\)</span>.<a
+      href="#fn28" class="footnote-ref" id="fnref28"
+      role="doc-noteref"><sup>28</sup></a></p>
+      <h4 id="impulse-responses-shocks-and-welfare-effects.">Impulse
+      responses, shocks, and welfare effects.</h4>
+      <p>We then combine these weights with dynamic responses of
+      probabilities that we estimate using local projections with
+      external shifters. The empirical specification allows (i) separate
+      positive and negative shocks, (ii) dynamic effects over multiple
+      horizons including the contemporaneous term, and (iii)
+      heterogeneity by market concentration via interactions with a
+      Herfindahl index. From these estimated impulse responses, we form
+      predicted paths for the three margins under three counterfactual
+      scenarios of concentration and shock realization: holding both
+      concentration and shifters at their across–cell averages, holding
+      shifters at their average while letting concentration vary by
+      cell, and allowing both to vary at observed values.</p>
+      <p>Per period and cell, first–order welfare is the inner product
+      of weights and predicted probability changes. Second–order terms
+      expand welfare around the baseline using the multinomial geometry:
+      own–margin quadratic components enter with <span
+      class="math inline">\(w_y/(1-p_y)\)</span> and cross–margin
+      components enter with the appropriate negative terms scaled by
+      <span class="math inline">\(w_y/p_{y&#39;}\)</span>. We discount
+      over horizons and sum across time. For reporting, we aggregate by
+      concentration quantiles, produce scatter and binscatter
+      diagnostics against log concentration, and compile tables that
+      separate positive and negative contributions and decompose
+      second–order effects into diagonal and off–diagonal parts.</p>
+      <h3 id="pseudo-code-implementation">Pseudo-code
+      Implementation</h3>
+      <ol type="1">
+      <li><p><strong>Inputs (per baseline cell).</strong> Choice
+      probabilities <span class="math inline">\(p\)</span> ;
+      discretization size <span class="math inline">\(S\)</span>;
+      discount factor <span class="math inline">\(\delta\)</span>;
+      elasticity <span class="math inline">\(\gamma\)</span>;
+      impulse-response coefficients with sign asymmetry and HHI
+      interactions; counterfactual path of shocks.</p></li>
+      <li><p><strong>Discretize shocks.</strong> Draw <span
+      class="math inline">\(\{\varepsilon^{(s)}\}_{s=1}^S\)</span> from
+      a correlated multivariate distribution; set <span
+      class="math inline">\(w_s=1/S\)</span>.</p></li>
+      <li><p><strong>Mass-transport program (conjugate side).</strong>
+      Solve</p></li>
+      </ol>
+      <p><span class="math display">\[
+      \max_{\pi_{ys}\ge0}\ \sum_{y,s}\varepsilon^{(s)}_y\,\pi_{ys}
+            \quad\text{s.t.}\quad
+            \sum_s \pi_{ys}=p_y,\qquad \sum_y \pi_{ys}=w_s .
+      \]</span></p>
+      <ol start="4" type="1">
+      <li><p><strong>Recover continuation values and normalize.</strong>
+      Construct a subgradient <span class="math inline">\(w\in\partial
+      G^*(p)\)</span> from the duals and impose the single normalization
+      <span class="math inline">\(\sum_y w_y p_y = G^*(p)\)</span>. Form
+      welfare weights <span class="math inline">\(\omega_y^*=(w_y
+      p_y)/G^*(p)\)</span>.</p></li>
+      <li><p><strong>Build probability paths.</strong> From the
+      estimated responses, create <span class="math inline">\(\Delta
+      p_y(h)\)</span> over horizons <span
+      class="math inline">\(h=0,\ldots,4\)</span> with separate
+      positive/negative components and HHI interactions; generate
+      variants with averaged vs. observed HHI and shifters.</p></li>
+      <li><p><strong>First-order welfare (FOA).</strong> For each cell
+      and horizon,</p></li>
+      </ol>
+      <p><span class="math display">\[
+      \Delta W^{(1)}(h)=\sum_y \omega_y^*\,\Delta p_y(h)
+      \]</span></p>
+      <ol start="7" type="1">
+      <li><strong>Second-order welfare (SOA).</strong> For each cell and
+      horizon,</li>
+      </ol>
+      <p><span class="math display">\[
+      \Delta W^{(2)}(h)=\frac{1}{ \gamma}\sum_y
+      \frac{\omega_y^*}{1-p_y}\big[\Delta p_y(h)\big]^2
+            -\frac{1}{2 \gamma}\sum_{y}\sum_{y\ne y&#39;}
+      \frac{\omega_{y}^*}{p_{y&#39;}}\,\Delta p_y(h)\,\Delta
+      p_{y&#39;}(h),
+      \]</span></p>
+      <ol start="8" type="1">
+      <li><strong>Discounted welfare effects.</strong> Sum over horizons
+      <span class="math inline">\(h\)</span> for cell-level totals <span
+      class="math inline">\(\Delta W(h)=\delta^h\big[\Delta
+      W^{(1)}(h)+\tfrac{1}{\gamma}\Delta W^{(2)}(h)\big]\)</span>;
+      aggregate overall and by HHI quantiles; report FOA vs. SOA,
+      positive vs. negative, and diagonal vs. off-diagonal
+      components.</li>
+      </ol>
+      <h2 id="references">References</h2>
+      <p><a id="ref-Allen2022-sn"></a></p>
+      <p>Allen, Treb, Simon Fuchs, Rocio Madera, Sharat Ganapati,
+      Alberto Graziano, and Judit Montoriol-Garriga. 2022. “Urban
+      Welfare: Tourism in Barcelona.” <em>Unpublished
+      Manuscript</em>.</p>
+      <p><a id="ref-artucc2010trade"></a></p>
+      <p>Artuç, Erhan, Shubham Chaudhuri, and John McLaren. 2010. “Trade
+      Shocks and Labor Adjustment: A Structural Empirical Approach.”
+      <em>American Economic Review</em> 100 (3): 1008–45.</p>
+      <p><a id="ref-Atkin2018-rg"></a></p>
+      <p>Atkin, David, Benjamin Faber, and Marco Gonzalez-Navarro. 2018.
+      “Retail Globalization and Household Welfare: Evidence from
+      Mexico.” <em>Journal of Political Economy</em> 126 (1): 1–73.</p>
+      <p><a id="ref-Autor_et_al_2014"></a></p>
+      <p>Autor, David H., David Dorn, Gordon H. Hanson, and Jae Song.
+      2014. “Trade Adjustment: Worker-Level Evidence.” <em>Quarterly
+      Journal of Economics</em> 129 (4): 1799–860. <a
+      href="https://doi.org/10.1093/qje/qju026"
+      class="uri">https://doi.org/10.1093/qje/qju026</a>.</p>
+      <p><a id="ref-Baqaee2023-of"></a></p>
+      <p>Baqaee, David R, and Ariel Burstein. 2023. “Welfare and Output
+      with Income Effects and Taste Shocks.” <em>Quarterly Journal of
+      Economics</em> 138 (2): 769–834.</p>
+      <p><a id="ref-Baqaee2020-oe"></a></p>
+      <p>Baqaee, David R, and Emmanuel Farhi. 2020. “Productivity and
+      Misallocation in General Equilibrium.” <em>Quarterly Journal of
+      Economics</em> 135 (1): 105–63.</p>
+      <p><a id="ref-Beraja2023-dm"></a></p>
+      <p>Beraja, Martin. 2023. “A Semistructural Methodology for Policy
+      Counterfactuals.” <em>Journal of Political Economy</em> 131 (1):
+      190–201.</p>
+      <p><a id="ref-Blanchard_Katz_92"></a></p>
+      <p>Blanchard, Olivier, and Lawrence Katz. 1992. “Regional
+      Evolutions.” <em>Brookings Papers on Economic Activity</em> 23
+      (1): 1–76.</p>
+      <p><a id="ref-Caliendo2019-gz"></a></p>
+      <p>Caliendo, Lorenzo, Maximiliano Dvorkin, and Fernando Parro.
+      2019. “Trade and Labor Market Dynamics: General Equilibrium
+      Analysis of the China Trade Shock.” <em>Econometrica</em> 87 (3):
+      741–835.</p>
+      <p><a id="ref-chiong_galichon_shum_duality"></a></p>
+      <p>Chiong, Khai Xiang, Alfred Galichon, and Matt Shum. 2016.
+      “Duality in Dynamic Discrete-Choice Models.” <em>Quantitative
+      Economics</em> 7 (1): 83–115.</p>
+      <p><a id="ref-Dao2017-uc"></a></p>
+      <p>Dao, Mai, Davide Furceri, and Prakash Loungani. 2017. “Regional
+      Labor Market Adjustment in the United States: Trend and Cycle.”
+      <em>Review of Economics and Statistics</em> 99 (2): 243–57.</p>
+      <p><a id="ref-Deaton1989-ka"></a></p>
+      <p>Deaton, Angus. 1989. “Rice Prices and Income Distribution in
+      Thailand: A Non-Parametric Analysis.” <em>Economic Journal</em> 99
+      (395): 1–37.</p>
+      <p><a id="ref-Donald2025-kr"></a></p>
+      <p>Donald, Eric, Masao Fukui, and Yuhei Miyauchi. 2025. “Unpacking
+      Aggregate Welfare in a Spatial Economy.” <em>SSRN Electron.
+      J.</em></p>
+      <p><a id="ref-ebenstein2014occ"></a></p>
+      <p>Ebenstein, Avraham, Ann Harrison, Margaret McMillan, and
+      Shannon Phillips. 2014. “Estimating the Impact of Trade and
+      Offshoring on American Workers using the Current Population
+      Surveys.” <em>Review of Economics and Statistics</em> 96 (4):
+      581–95. <a href="https://doi.org/10.1162/REST_a_00400"
+      class="uri">https://doi.org/10.1162/REST_a_00400</a>.</p>
+      <p><a id="ref-Fosgerau2021-zo"></a></p>
+      <p>Fosgerau, Mogens, Emerson Melo, Matthew Shum, and Jesper R-V
+      Sørensen. 2021. “Some Remarks on CCP-Based Estimators of Dynamic
+      Models.” <em>Economics Letters</em> 204 (May): 109911.</p>
+      <p><a id="ref-fuchs2021spoils"></a></p>
+      <p>Fuchs, Simon. 2021. <em>Spoils of War: Trade Shocks and
+      Segmented Labor Markets in Spain During WWI</em>. Working Paper
+      Series No. 2021-14. Federal Reserve Bank of Atlanta.</p>
+      <p><a id="ref-Hotz1993-lu"></a></p>
+      <p>Hotz, V Joseph, and Robert A Miller. 1993. “Conditional Choice
+      Probabilities and the Estimation of Dynamic Models.” <em>Review of
+      Economic Studies</em> 60 (3): 497–529.</p>
+      <p><a id="ref-Jorda2005"></a></p>
+      <p>Jordà, Òscar. 2005. “Estimation and Inference of Impulse
+      Responses by Local Projections.” <em>American Economic Review</em>
+      95 (1): 161–82. <a href="https://doi.org/10.1257/0002828053828518"
+      class="uri">https://doi.org/10.1257/0002828053828518</a>.</p>
+      <p><a id="ref-kennan2006note"></a></p>
+      <p>Kennan, John. 2006. “A Note on Discrete Approximations of
+      Continuous Distributions.” <em>Mimeo</em>.</p>
+      <p><a id="ref-Kim2020-bw"></a></p>
+      <p>Kim, Ryan, and Jonathan Vogel. 2020. <em>Trade and Welfare
+      (Across Local Labor Markets)</em>. NBER Working Paper No. w27133.
+      National Bureau of Economic Research.</p>
+      <p><a id="ref-Kleinman2021-bg"></a></p>
+      <p>Kleinman, Benny, Ernest Liu, and Stephen J Redding. 2021.
+      <em>Dynamic Spatial General Equilibrium</em>. NBER Working Paper
+      No. w29101. Working Paper Series. National Bureau of Economic
+      Research.</p>
+      <p><a id="ref-kondo2018trade"></a></p>
+      <p>Kondo, Illenin O. 2018. “Trade-Induced Displacements and Local
+      Labor Market Adjustments in the u.s.” <em>Journal of International
+      Economics</em> 114: 180–202.</p>
+      <p><a id="ref-Marinescu_Rathelot_2018"></a></p>
+      <p>Marinescu, Ioana, and Roland Rathelot. 2018. “Mismatch
+      Unemployment and the Geography of Job Search.” <em>American
+      Economic Journal: Macroeconomics</em> 10 (3): 42–70. <a
+      href="https://doi.org/10.1257/mac.20160312"
+      class="uri">https://doi.org/10.1257/mac.20160312</a>.</p>
+      <p><a id="ref-Monte_et_al_2018"></a></p>
+      <p>Monte, Ferdinando, Stephen J. Redding, and Esteban
+      Rossi-Hansberg. 2018. “Commuting, Migration, and Local Employment
+      Elasticities.” <em>American Economic Review</em> 108 (12):
+      3855–90. <a href="https://doi.org/10.1257/aer.20151507"
+      class="uri">https://doi.org/10.1257/aer.20151507</a>.</p>
+      <p><a id="ref-moretti2024size"></a></p>
+      <p>Moretti, Enrico, and Moises Yi. 2024. <em>Size Matters:
+      Matching Externalities and the Advantages of Large Labor
+      Markets</em>. NBER Working Paper No. w32250. National Bureau of
+      Economic Research.</p>
+      <p><a id="ref-Porto2006-xp"></a></p>
+      <p>Porto, Guido G. 2006. “Using Survey Data to Assess the
+      Distributional Effects of Trade Policy.” <em>Journal of
+      International Economics</em> 70 (1): 140–60.</p>
+      <p><a id="ref-Rust1987-rb"></a></p>
+      <p>Rust, John. 1987. “Optimal Replacement of GMC Bus Engines: An
+      Empirical Model of Harold Zurcher.” <em>Econometrica</em> 55 (5):
+      999–1033.</p>
+      <p><a id="ref-Traiberman2019"></a></p>
+      <p>Traiberman, Sharon. 2019. “Occupations and Import Competition:
+      Evidence from Denmark.” <em>American Economic Review</em> 109
+      (12): 4260–301. <a href="https://doi.org/10.1257/aer.20161925"
+      class="uri">https://doi.org/10.1257/aer.20161925</a>.</p>
+      <p><a id="ref-Wolf2022-ih"></a></p>
+      <p>Wolf, Christian K, and Alisdair McKay. 2022. <em>What Can
+      Time-Series Regressions Tell Us about Policy Counterfactuals?</em>
+      NBER Working Paper No. w30358. Working Paper Series. National
+      Bureau of Economic Research.</p>
+      <section id="footnotes"
+      class="footnotes footnotes-end-of-document" role="doc-endnotes">
+      <hr />
+      <ol>
+      <li id="fn1"><p>We thank Stefan Faridani, Kim Ruhl, Abbie Wozniak
+      and seminar participants at the Urban Economics Association North
+      America meeting, the Southern Economic Association annual meeting,
+      and the Mid-Atlantic International Trade conference at Duke for
+      very helpful comments. We also thank Ken Cowles for his excellent
+      research assistance. This work was completed while Helene Maghin
+      was at KU Leuven. The views expressed herein are those of the
+      authors and not necessarily those of the Board of Governors of the
+      Federal Reserve System, the Federal Reserve Bank of Atlanta, the
+      Federal Reserve Bank of Minneapolis, or of any other person
+      associated with the Federal Reserve System. All errors are our
+      own.<a href="#fnref1" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn2"><p>See, for example, (<a
+      href="#ref-Deaton1989-ka">Deaton 1989</a>), (<a
+      href="#ref-Kim2020-bw">Kim and Vogel 2020</a>), (<a
+      href="#ref-Atkin2018-rg">Atkin et al. 2018</a>), (<a
+      href="#ref-Baqaee2023-of">Baqaee and Burstein 2023</a>), (<a
+      href="#ref-Allen2022-sn">Allen et al. 2022</a>), (<a
+      href="#ref-Baqaee2020-oe">Baqaee and Farhi 2020</a>), (<a
+      href="#ref-Kleinman2021-bg">Kleinman et al. 2021</a>), (<a
+      href="#ref-Porto2006-xp">Porto 2006</a>), (<a
+      href="#ref-Wolf2022-ih">Wolf and McKay 2022</a>), and (<a
+      href="#ref-Beraja2023-dm">Beraja 2023</a>).<a href="#fnref2"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn3"><p>See (<a href="#ref-Dao2017-uc">Dao et
+      al. 2017</a>) for a recent update of (<a
+      href="#ref-Blanchard_Katz_92">Blanchard and Katz 1992</a>) for the
+      U.S.<a href="#fnref3" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn4"><p>Note that <span class="math inline">\(w_y\)</span>
+      is the ex ante value of an option <span
+      class="math inline">\(y\)</span>, that is before the realization
+      of the preference shock <span
+      class="math inline">\(\varepsilon\)</span>.<a href="#fnref4"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn5"><p>For a complementary aggregate treatment that also
+      defines aggregate welfare via a <em>social welfare function</em>
+      and derives a first-order decomposition—technology, dispersion of
+      marginal utility, fiscal and technological externalities, and
+      redistribution—see (<a href="#ref-Donald2025-kr">Donald et
+      al. 2025</a>). Our focus is local worker welfare recovered from
+      choices (including an “insurance” component from diversification),
+      whereas theirs is aggregate accounting and conditions under which
+      the technology term alone can characterize welfare changes.<a
+      href="#fnref5" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn6"><p>Assuming a continuous shock distribution with
+      finite moments ensures that <span
+      class="math inline">\(\mathcal{G}(w;x)\)</span> is finite, convex,
+      differentiable, and has a well-defined convex conjugate.<a
+      href="#fnref6" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn7"><p>Note that we require strictly positive conditional
+      choice probability and continuation values, with <span
+      class="math inline">\(G\)</span> strictly convex and twice
+      continuously differentiable, so that Hessians and
+      cross-elasticities exist, as shown in (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>).
+      Moreover, in non-stationary settings, the method can be applied
+      period by period using the corresponding Taylor coefficients,
+      though at the cost of recomputing sufficient statistics each
+      period.<a href="#fnref7" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn8"><p>Strictly speaking, the concentration index <span
+      class="math inline">\(\mathrm{HHI}_{\mathcal{C}} \equiv =
+      \sum_{\ell}\pi_{\ell} {\mathrm{HHI}_{\ell}} =
+      \sum_{\ell}\pi_{\ell} {\sum_{m}\lambda_{m|\ell}^{2}}\)</span> in
+      Corollary <a href="#thm:coro-1-div">1</a> is not the HHI in <span
+      class="math inline">\(\mathcal{C}\)</span> using the local shares
+      <span class="math inline">\(\pi_{\ell}\)</span>, but an average of
+      HHI-like indexes computed using welfare weights <span
+      class="math inline">\(\lambda_{m|\ell}\)</span> as shares.<a
+      href="#fnref8" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn9"><p>Note that (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>)
+      introduce the conjugate duality approach we use, which maps
+      observed choice probabilities to unobserved choice-specific
+      values. This avoids the need to control for continuation values or
+      specify the shock distribution, unlike (<a
+      href="#ref-artucc2010trade">Artuç et al. 2010</a>). They recast
+      the problem as a <em>mass transport</em> problem and develop an
+      estimator, the “mass transport approach (MTA)”, to recover a
+      reference vector <span
+      class="math inline">\(\mathcal{G}(w_0)\equiv 0\)</span>.
+      Choice-specific values are determined only up to a constant,
+      typically resolved by setting a reference option without loss of
+      generality in static settings.<a href="#fnref9"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn10"><p>DADS excludes the self-employed, central
+      government employees (<em>Fonction Publique d’État</em>), and
+      domestic workers.<a href="#fnref10" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn11"><p>As in (<a href="#ref-Traiberman2019">Traiberman
+      2019</a>), we restrict the sample to individuals aged 23–64.<a
+      href="#fnref11" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn12"><p>If two jobs have the same duration, we select the
+      one with the higher salary; if salaries are equal, we choose the
+      job with more hours worked.<a href="#fnref12"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn13"><p>Because DADS covers only the private sector,
+      flows into and out of non-employment include transitions to and
+      from public-sector jobs and self-employment.<a href="#fnref13"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn14"><p>Our estimate (18%) is somewhat higher than the
+      13% reported by (<a href="#ref-Traiberman2019">Traiberman
+      2019</a>) for Denmark, who track occupation and sector but not
+      geographic moves.<a href="#fnref14" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn15"><p>When the <span class="math inline">\(y\)</span>
+      outcome concept is a stock (e.g. employment levels) rather than a
+      flow (e.g. location-changing workers), we simply take the <span
+      class="math inline">\(\log\)</span> differences in the levels from
+      <span class="math inline">\(t-1\)</span> to <span
+      class="math inline">\(t\)</span>. When the outcome concept is a
+      flow, <span class="math inline">\(y_{t+h}\)</span> is constructed
+      as the cumulative sum of the period-specific flows.<a
+      href="#fnref15" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn16"><p><a href="#table:cum_estim_year_5">Table</a>
+      reports results for additional margins listed in <a
+      href="#table:raw_statistics_quarterly_2">Table</a>.<a
+      href="#fnref16" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn17"><p>The delayed positive outflow response may reflect
+      incomers replacing existing workers or unobserved shocks in
+      neighboring cities.<a href="#fnref17" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn18"><p>In Section <a
+      href="#subsec:Theory_and_HHI">9.3</a> in the appendix, we show
+      that, under certain orthogonality conditions in our theoretical
+      framework, the HHI mediates the insurance value of city-level
+      diversity.<a href="#fnref18" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn19"><p>We trim the top and the bottom 0.5% of the HHI
+      for our regressions. Trimming beyond the top and bottom 0.5% does
+      not affect our results. Note that this trimming does not lead us
+      to drop Paris’ commuting zone.<a href="#fnref19"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn20"><p>(<a href="#ref-moretti2024size">Moretti and Yi
+      2024</a>) highlight the interaction of education and labor market
+      size. We control for local labor force size and focus on
+      illustrating our high-order welfare approximation using city-level
+      diversity. We leave a richer set of interactions and heterogeneous
+      responses for future applications.<a href="#fnref20"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn21"><p>This coarser partition assumes a homogeneous
+      response of flows within each subset: “stay”, “local”, or
+      “spatial”.<a href="#fnref21" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn22"><p>The MTA solves a linear assignment problem that
+      couples the observed CCPs with a discretized approximation to the
+      shock distribution <span class="math inline">\(Q\)</span> and
+      returns both <span
+      class="math inline">\(\mathscr{G}^*(p;x)\)</span> and a
+      subgradient <span class="math inline">\(w\in\partial
+      \mathscr{G}^*(p;x)\)</span>. In our implementation, <span
+      class="math inline">\(Q\)</span> is specified flexibly as a
+      <em>correlated</em> multivariate distribution (i.i.d. across
+      observations and time), discretized on <span
+      class="math inline">\(S\)</span> support points; we fix the
+      <em>scale</em> of <span class="math inline">\(Q\)</span> by
+      construction and impose the single normalization <span
+      class="math inline">\(\mathscr{G}(w;x) = 0 \Leftrightarrow p\cdot
+      w=\mathscr{G}^*(p;x)\)</span> in each baseline cell. Because <span
+      class="math inline">\(\mathscr{G}^*\)</span> is positively
+      homogeneous, the welfare objects are homogeneous of degree zero in
+      <span class="math inline">\((w,\text{scale}(Q))\)</span>, so this
+      normalization is without loss for our comparative statics.
+      Logit/Gumbel arises as a special case. Appendix <a
+      href="#sec:comp_appdx">10</a> details the discretization of <span
+      class="math inline">\(Q\)</span>, the LP, the recovery of <span
+      class="math inline">\(w\)</span>, and normalization.<a
+      href="#fnref22" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn23"><p><span
+      class="math inline">\(\widetilde{\text{B}}^{+}_{t}\)</span> and
+      <span class="math inline">\(\widetilde{\text{B}}^{-}_{t}\)</span>
+      are simple averages of <span
+      class="math inline">\(\left\{\text{B}^{+}_{\ell,t}\right\}_{\ell}\)</span>
+      and <span
+      class="math inline">\(\left\{\text{B}^{-}_{\ell,t}\right\}_{\ell}\)</span>.
+      To reduce the influence of HHI outliers, we use decile-average HHI
+      rather than each city’s own value. Due to disclosure constraints,
+      the response of the employment stock is used to approximate <span
+      class="math inline">\(\Delta \ln
+      p^{\text{stay},t+h}_{\ell,t}\)</span>.<a href="#fnref23"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn24"><p>We plot, in Figure <a
+      href="#fig:margin_hhi_asym">9</a> in the appendix, the city-level
+      values that are averaged decile-by-decile to create the
+      decile-level values reported in Table <a
+      href="#tab:ranking_env">Table</a>.<a href="#fnref24"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn25"><p><a href="#tab:ranking_env">Table</a> provides
+      additional decompositional results, indicating to what extent
+      shock and HHI heterogeneity within each HHI decile drives welfare
+      differences.<a href="#fnref25" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn26"><p>The spatial variation in these welfare effects is
+      depicted in Figures Figure and Figure in the appendix. These
+      figures show the distribution of welfare outcomes under both the
+      “first-order only” approach and the welfare outcomes when
+      accounting for the insurance value captured by the SOA term.<a
+      href="#fnref26" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      <li id="fn27"><p>Throughout the text, what we call a “second-order
+      approximation of the social surplus” is formally a first-order
+      log-linearization of a full second-order Taylor expansion in
+      levels of <span class="math inline">\(G\)</span> (or <span
+      class="math inline">\(G^{*}\)</span>).<a href="#fnref27"
+      class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+      <li id="fn28"><p>We set <span
+      class="math inline">\(S{=}1000\)</span> support points for the
+      shock discretization, with a positive covariance across margins
+      (diagonals around one half, moderate off–diagonals in the
+      covariance matrix as in the baseline code in (<a
+      href="#ref-chiong_galichon_shum_duality">Chiong et al. 2016</a>)).
+      The assignment problem is solved with a standard LP solver.<a
+      href="#fnref28" class="footnote-back"
+      role="doc-backlink">↩︎</a></p></li>
+      </ol>
+      </section>
+      <footer class="paper-footer">
+        Text version generated from the authors’ manuscript source and checked against the linked PDF.
+      </footer>
+    </main>
+  </body>
+</html>

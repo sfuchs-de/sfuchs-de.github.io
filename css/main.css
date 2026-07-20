@@ -179,6 +179,11 @@ a:focus-visible {
     white-space: nowrap;
 }
 
+.paper-note {
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
 .paper-date {
     color: #666;
 }
