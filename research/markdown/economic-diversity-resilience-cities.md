@@ -4,7 +4,7 @@ authors: "François de Soyres, Simon Fuchs, Illenin O. Kondo, and Hélène Maghi
 date: "September 2025"
 pdf: "/research/economic_resilience_v2.pdf"
 markdown_source: "/research/markdown/economic-diversity-resilience-cities.md"
-text_version_generated: "2026-07-20"
+markdown_generated: "2026-07-20"
 ---
 
 # Economic Diversity and the Resilience of Cities
@@ -16,7 +16,7 @@ text_version_generated: "2026-07-20"
 
 [Download the paper as PDF](/research/economic_resilience_v2.pdf)
 
-> This accessible text version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
+> This Markdown version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
 
 ## Abstract
 

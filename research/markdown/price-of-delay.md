@@ -4,7 +4,7 @@ authors: "Salomé Baslandze and Simon Fuchs"
 date: "February 28, 2026"
 pdf: "/research/Baslandze-Fuchs-Price-of-Delay.pdf"
 markdown_source: "/research/markdown/price-of-delay.md"
-text_version_generated: "2026-07-20"
+markdown_generated: "2026-07-20"
 ---
 
 # The Price of Delay: Supply Chain Disruptions and Pricing Dynamics
@@ -16,7 +16,7 @@ text_version_generated: "2026-07-20"
 
 [Download the paper as PDF](/research/Baslandze-Fuchs-Price-of-Delay.pdf)
 
-> This accessible text version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
+> This Markdown version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
 
 ## Abstract
 

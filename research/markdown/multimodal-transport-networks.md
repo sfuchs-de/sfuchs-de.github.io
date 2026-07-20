@@ -4,7 +4,7 @@ authors: "Simon Fuchs and Woan Foong Wong"
 date: "April 2026"
 pdf: "/research/Multimodal_FW_compressed-compressed.pdf"
 markdown_source: "/research/markdown/multimodal-transport-networks.md"
-text_version_generated: "2026-07-20"
+markdown_generated: "2026-07-20"
 ---
 
 # Multimodal Transport Networks
@@ -16,7 +16,7 @@ text_version_generated: "2026-07-20"
 
 [Download the paper as PDF](/research/Multimodal_FW_compressed-compressed.pdf)
 
-> This accessible text version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
+> This Markdown version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
 
 ## Abstract
 

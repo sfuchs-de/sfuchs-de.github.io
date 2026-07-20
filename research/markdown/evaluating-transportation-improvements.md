@@ -4,7 +4,7 @@ authors: "Treb Allen, Simon Fuchs, and Woan Foong Wong"
 date: "September 2025"
 pdf: "/research/EvalTransportImprovements_AFW_draft.pdf"
 markdown_source: "/research/markdown/evaluating-transportation-improvements.md"
-text_version_generated: "2026-07-20"
+markdown_generated: "2026-07-20"
 ---
 
 # Evaluating Transportation Improvements Quantitatively: A Primer
@@ -16,7 +16,7 @@ text_version_generated: "2026-07-20"
 
 [Download the paper as PDF](/research/EvalTransportImprovements_AFW_draft.pdf)
 
-> This accessible text version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
+> This Markdown version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
 
 ## Abstract
 

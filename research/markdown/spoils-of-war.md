@@ -4,7 +4,7 @@ authors: "Simon Fuchs"
 date: "February 2026"
 pdf: "/research/spoils_of_war.pdf"
 markdown_source: "/research/markdown/spoils-of-war.md"
-text_version_generated: "2026-07-20"
+markdown_generated: "2026-07-20"
 ---
 
 # The Spoils of War: Trade Shocks & Segmented Labor Markets in Spain during WWI
@@ -16,7 +16,7 @@ text_version_generated: "2026-07-20"
 
 [Download the paper as PDF](/research/spoils_of_war.pdf)
 
-> This accessible text version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
+> This Markdown version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
 
 ## Abstract
 

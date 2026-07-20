@@ -4,7 +4,7 @@ authors: "Konrad Adler and Simon Fuchs"
 date: "September 2024"
 pdf: "/research/Movies_Adler_Fuchs.pdf"
 markdown_source: "/research/markdown/global-product-portfolios.md"
-text_version_generated: "2026-07-20"
+markdown_generated: "2026-07-20"
 ---
 
 # Global Product Portfolios: Balancing Consumer Tastes and Demand Volatility
@@ -16,7 +16,7 @@ text_version_generated: "2026-07-20"
 
 [Download the paper as PDF](/research/Movies_Adler_Fuchs.pdf)
 
-> This accessible text version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
+> This Markdown version was generated from the authors’ TeX source and checked against the PDF linked above. Figure images are omitted here; their captions and notes are retained.
 
 ## Abstract
 
