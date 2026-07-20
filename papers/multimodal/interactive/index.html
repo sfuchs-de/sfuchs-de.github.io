@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An interactive guide to how freight chooses routes and modes, how terminals create congestion, and how local transport changes propagate through the U.S. economy.">
+    <title>How Freight Finds Another Way | Multimodal Transport Networks</title>
+    <link rel="canonical" href="https://sfuchs-de.github.io/papers/multimodal/interactive/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Freight Finds Another Way">
+    <meta property="og:description" content="An interactive guide to multimodal freight networks, congestion, and policy counterfactuals.">
+    <meta property="og:url" content="https://sfuchs-de.github.io/papers/multimodal/interactive/">
+    <meta property="og:image" content="https://sfuchs-de.github.io/papers/multimodal/interactive/og.png">
+    <meta property="og:image:alt" content="A stylized multimodal freight network connecting roads, railways, waterways, and terminals across the United States.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Freight Finds Another Way">
+    <meta name="twitter:description" content="An interactive guide to multimodal freight networks, congestion, and policy counterfactuals.">
+    <meta name="twitter:image" content="https://sfuchs-de.github.io/papers/multimodal/interactive/og.png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to the walkthrough</a>
+
+    <header class="topbar">
+      <a class="wordmark" href="/">Simon Fuchs</a>
+      <nav aria-label="Paper links">
+        <a href="/research/Multimodal_FW_compressed-compressed.pdf">Paper</a>
+        <a href="/research/markdown/multimodal-transport-networks.md">Markdown</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="introduction" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Interactive walkthrough <span aria-hidden="true">·</span> about 12 minutes</p>
+          <h1 id="hero-title">How freight<br><span>finds another way</span></h1>
+          <p class="hero-question">What happens after a road improves, a terminal clogs, or an entire mode disappears?</p>
+          <p class="hero-lede">Freight does not simply stop. It changes routes, switches modes, loads new terminals, and alters congestion elsewhere. This walkthrough shows why those adjustments determine the economic and environmental value of transport infrastructure.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#one-shipment">Begin the walkthrough</a>
+            <a class="button quiet" href="/research/Multimodal_FW_compressed-compressed.pdf">Read the paper</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Animated schematic multimodal freight network">
+          <canvas id="heroCanvas" role="img" aria-label="Road, rail, and water routes linked by intermodal terminals"></canvas>
+          <div class="mode-key" aria-hidden="true">
+            <span><i class="road"></i>Road</span>
+            <span><i class="rail"></i>Rail</span>
+            <span><i class="water"></i>Water</span>
+          </div>
+        </div>
+
+        <div class="headline-facts" aria-label="Headline facts from the paper">
+          <div><strong>&gt;50%</strong><span>of distance-weighted U.S. freight uses more than one mode</span></div>
+          <div><strong>228</strong><span>intermodal terminals evaluated in separate counterfactuals</span></div>
+          <div><strong>1.099</strong><span>estimated elasticity of substitution across road and rail</span></div>
+        </div>
+      </section>
+
+      <section class="story" id="one-shipment" aria-labelledby="shipment-title">
+        <div class="story-copy">
+          <p class="section-number">01</p>
+          <h2 id="shipment-title">One shipment,<br>several networks</h2>
+          <p>A container traveling inland may begin on a truck, transfer to rail, and return to a truck near its destination. Each transfer joins two networks at a terminal.</p>
+          <p><strong>The relevant choice is therefore not only which route to take. It is which route and which mode to use at every step.</strong></p>
+          <p>Press the alternatives below to see three ways the same shipment can cross the country.</p>
+          <div class="segmented" role="group" aria-label="Shipment routing alternative">
+            <button type="button" class="active" data-journey="multimodal" aria-pressed="true">Multimodal</button>
+            <button type="button" data-journey="road" aria-pressed="false">All road</button>
+            <button type="button" data-journey="water" aria-pressed="false">Water + road</button>
+          </div>
+          <details>
+            <summary>More on recursive routing</summary>
+            <p>At every node, the model summarizes all onward sourcing, route, and mode options in a continuation value. This turns a high-dimensional path problem into a recursive sequence of local choices while preserving the full network.</p>
+          </details>
+        </div>
+        <figure class="stage">
+          <div class="canvas-frame">
+            <canvas id="journeyCanvas" role="img" aria-label="Alternative road, rail, and water routes for a shipment from Los Angeles to New York"></canvas>
+            <div class="route-readout" aria-live="polite">
+              <span id="journeyLabel">Truck → rail → truck</span>
+              <strong id="journeyTransfers">2 transfers</strong>
+            </div>
+          </div>
+          <figcaption>Los Angeles to New York. The diagram is schematic; the mechanism follows the routing structure in the paper.</figcaption>
+        </figure>
+      </section>
+
+      <section class="story alt" id="mode-choice" aria-labelledby="mode-title">
+        <div class="story-copy">
+          <p class="section-number">02</p>
+          <h2 id="mode-title">A cheaper road changes every mode</h2>
+          <p>When road transport becomes cheaper, freight shifts from rail toward trucks on the affected corridor. But the cheaper composite link also attracts additional traffic from elsewhere in the network.</p>
+          <p>The first response is <strong>modal substitution</strong>. The second is <strong>network complementarity</strong>.</p>
+          <label class="control-label" for="roadCost">
+            Relative road cost
+            <output id="roadCostValue" for="roadCost">No change</output>
+          </label>
+          <input id="roadCost" type="range" min="-20" max="20" step="1" value="0">
+          <div class="range-labels" aria-hidden="true"><span>20% lower</span><span>20% higher</span></div>
+          <p class="micro-note">Illustrative modal shares use the paper's estimated substitution elasticity of 1.099. A positive road-cost change raises the rail-to-road traffic ratio.</p>
+          <details>
+            <summary>How the elasticity is estimated</summary>
+            <p>The paper combines confidential U.S. rail waybill data with truck traffic and uses changes in interstate-highway capacity as a road-cost shifter. A 1% increase in interstate highways reduces relative rail-to-truck traffic by roughly 0.9–1.2%.</p>
+          </details>
+        </div>
+        <figure class="stage">
+          <div class="chart-card">
+            <div class="chart-heading">
+              <div>
+                <span class="kicker">Freight allocation</span>
+                <h3>Mode shares respond together</h3>
+              </div>
+              <span class="estimate-pill">ε = 1.099</span>
+            </div>
+            <canvas id="modeCanvas" role="img" aria-label="Illustrative road, rail, and water freight shares as relative road costs change"></canvas>
+            <div class="mode-values" aria-live="polite">
+              <span><i class="road"></i>Road <strong id="roadShare">70%</strong></span>
+              <span><i class="rail"></i>Rail <strong id="railShare">22%</strong></span>
+              <span><i class="water"></i>Water <strong id="waterShare">8%</strong></span>
+            </div>
+          </div>
+          <figcaption>Shares are normalized to sum to one and are intended to visualize the estimated response, not reproduce a confidential traffic cell.</figcaption>
+        </figure>
+      </section>
+
+      <section class="story" id="terminal-congestion" aria-labelledby="terminal-title">
+        <div class="story-copy">
+          <p class="section-number">03</p>
+          <h2 id="terminal-title">Switching modes takes space and time</h2>
+          <p>Ports and inland terminals are where freight changes networks. When more traffic reaches a terminal, ships, trains, cranes, and storage space compete for limited capacity.</p>
+          <p>Using minute-level vessel-positioning data, the paper finds that a 1% increase in port traffic raises ship dwell time by approximately 0.24–0.26%.</p>
+          <label class="control-label" for="terminalTraffic">
+            Traffic arriving at the terminal
+            <output id="trafficValue" for="terminalTraffic">Baseline</output>
+          </label>
+          <input id="terminalTraffic" type="range" min="-25" max="100" step="5" value="0">
+          <div class="range-labels" aria-hidden="true"><span>25% lower</span><span>100% higher</span></div>
+          <div class="inline-result" aria-live="polite">
+            <span>Expected dwell time</span>
+            <strong id="dwellValue">24.0 hours</strong>
+          </div>
+          <details>
+            <summary>From dwell times to congestion costs</summary>
+            <p>The empirical dwell-time response maps into a terminal-congestion elasticity of 0.096 in the calibrated transport-cost system. The same congestion mechanism is applied at coastal ports and inland rail terminals.</p>
+          </details>
+        </div>
+        <figure class="stage">
+          <div class="canvas-frame terminal-frame">
+            <canvas id="terminalCanvas" role="img" aria-label="A terminal queue expanding as freight traffic rises"></canvas>
+            <div class="terminal-gauge">
+              <span>Terminal pressure</span>
+              <div><i id="terminalGaugeFill"></i></div>
+              <strong id="terminalPressure">Normal</strong>
+            </div>
+          </div>
+          <figcaption>The queue length and dwell-time response update together as traffic changes.</figcaption>
+        </figure>
+      </section>
+
+      <section class="story alt" id="propagation" aria-labelledby="propagation-title">
+        <div class="story-copy">
+          <p class="section-number">04</p>
+          <h2 id="propagation-title">A local change travels through the network</h2>
+          <p>Improving one link or terminal creates a direct response nearby. The resulting change in composite transport costs then redirects traffic, shifts congestion, and changes market access farther away.</p>
+          <p><strong>Central terminals matter because many routes depend on them and close substitutes are scarce.</strong></p>
+          <p>Choose a location to see the footprint of a 1% reduction in its switching cost.</p>
+          <div class="location-buttons" role="group" aria-label="Terminal location">
+            <button type="button" class="active" data-terminal="chicago" aria-pressed="true">Chicago</button>
+            <button type="button" data-terminal="atlanta" aria-pressed="false">Atlanta</button>
+            <button type="button" data-terminal="losangeles" aria-pressed="false">Los Angeles</button>
+          </div>
+          <div class="effect-key">
+            <span><i class="direct"></i>Direct traffic response</span>
+            <span><i class="indirect"></i>Indirect network response</span>
+          </div>
+          <details>
+            <summary>Substitution and complementarity</summary>
+            <p>Direct substitution shifts traffic toward a cheaper mode and away from competing modes on the same link. Indirect complementarity arises because the link's lower composite cost makes every route and sourcing relationship that uses it more attractive.</p>
+          </details>
+        </div>
+        <figure class="stage">
+          <div class="canvas-frame propagation-frame">
+            <canvas id="propagationCanvas" role="img" aria-label="Direct and indirect traffic responses radiating from a selected intermodal terminal"></canvas>
+            <div class="location-readout">
+              <span>Selected terminal</span>
+              <strong id="selectedTerminal">Chicago</strong>
+            </div>
+          </div>
+          <figcaption>The network is schematic. Interior hubs connect coastal gateways to multiple consuming and producing regions.</figcaption>
+        </figure>
+      </section>
+
+      <section class="model-lab" id="model-lab" aria-labelledby="model-lab-title">
+        <div class="section-heading">
+          <p class="section-number">05</p>
+          <h2 id="model-lab-title">What each model ingredient changes</h2>
+          <p>Evaluate the same marginal highway improvement under alternative model restrictions. The full model is normalized to 100.</p>
+        </div>
+        <div class="model-grid">
+          <div class="variant-controls" role="group" aria-label="Model specification">
+            <button type="button" class="variant active" data-variant="full" aria-pressed="true">
+              <span>Full model</span><small>Routes, modes, congestion, and spatial adjustment</small>
+            </button>
+            <button type="button" class="variant" data-variant="noCongestion" aria-pressed="false">
+              <span>No congestion</span><small>Traffic can expand without loading roads or terminals</small>
+            </button>
+            <button type="button" class="variant" data-variant="roadOnly" aria-pressed="false">
+              <span>Road only</span><small>Freight cannot substitute toward rail or waterways</small>
+            </button>
+            <button type="button" class="variant" data-variant="fixedRoutes" aria-pressed="false">
+              <span>Fixed routes</span><small>Freight keeps its baseline route after the improvement</small>
+            </button>
+          </div>
+          <div class="variant-result" aria-live="polite">
+            <div class="variant-index">
+              <span>Estimated welfare effect</span>
+              <strong id="variantIndex">100</strong>
+              <small>Full model = 100</small>
+            </div>
+            <div class="comparison-track" aria-hidden="true">
+              <i class="baseline"></i>
+              <i class="result" id="variantBar"></i>
+              <span class="baseline-label">Full model</span>
+            </div>
+            <p id="variantExplanation">The benchmark lets traffic reallocate across routes and modes while accounting for the congestion created by that response.</p>
+            <strong class="takeaway" id="variantTakeaway">All four mechanisms jointly determine the gain.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="policy-lab" id="policy-lab" aria-labelledby="policy-title">
+        <div class="section-heading">
+          <p class="section-number">06</p>
+          <h2 id="policy-title">Put the network under pressure</h2>
+          <p>Select a paper counterfactual. The map shows the main traffic response; the cards report headline annual effects in 2012 U.S. dollars.</p>
+        </div>
+        <div class="policy-tabs" role="group" aria-label="Policy counterfactual">
+          <button type="button" class="active" aria-pressed="true" data-policy="terminal">Terminal investment</button>
+          <button type="button" aria-pressed="false" data-policy="rail">Rail shutdown</button>
+          <button type="button" aria-pressed="false" data-policy="jones">Jones Act repeal</button>
+          <button type="button" aria-pressed="false" data-policy="panama">Panama drought</button>
+        </div>
+        <div class="policy-display">
+          <div class="policy-map">
+            <canvas id="policyCanvas" role="img" aria-label="Network response to the selected policy counterfactual"></canvas>
+            <div class="policy-map-label" id="policyMapLabel">Lower switching costs at a central terminal</div>
+          </div>
+          <div class="policy-results" aria-live="polite">
+            <p class="kicker" id="policyKicker">Infrastructure</p>
+            <h3 id="policyName">Improve an intermodal terminal</h3>
+            <p id="policyDescription">Lower switching costs at one of 228 ports or inland terminals. Central interior hubs generate especially large gains because they connect coastal gateways to many inland routes.</p>
+            <div class="result-cards">
+              <div><span id="policyGDPLabel">Terminals tested</span><strong id="policyGDP">228</strong></div>
+              <div><span>Environmental benefit</span><strong id="policyEnvironment">+$17–$214M</strong></div>
+            </div>
+            <div class="traffic-shifts">
+              <span>Road <i><b id="policyRoad"></b></i></span>
+              <span>Rail <i><b id="policyRail"></b></i></span>
+              <span>Water <i><b id="policyWater"></b></i></span>
+            </div>
+            <p class="micro-note" id="policyNote">Ranges reflect heterogeneous terminal locations. Positive environmental values denote benefits from cleaner modal substitution.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary" id="summary" aria-labelledby="summary-title">
+        <p class="section-number">07</p>
+        <h2 id="summary-title">What the network adds</h2>
+        <p class="summary-lede">A local infrastructure change matters through the alternatives it creates—and through the congestion those alternatives produce.</p>
+        <div class="mechanism-chain" aria-label="The paper's mechanism from infrastructure to welfare">
+          <div><span>1</span><strong>Infrastructure or disruption</strong></div>
+          <i aria-hidden="true">→</i>
+          <div><span>2</span><strong>Route and mode choices</strong></div>
+          <i aria-hidden="true">→</i>
+          <div><span>3</span><strong>Traffic and congestion</strong></div>
+          <i aria-hidden="true">→</i>
+          <div><span>4</span><strong>Market access</strong></div>
+          <i aria-hidden="true">→</i>
+          <div><span>5</span><strong>GDP and emissions</strong></div>
+        </div>
+        <div class="final-takeaways">
+          <p><strong>Flexibility creates value.</strong> Additional modes and routes let freight bypass disrupted or expensive links.</p>
+          <p><strong>Flexibility is not free.</strong> Reallocated traffic can load other roads and terminals, dissipating part of the gain.</p>
+          <p><strong>Location matters.</strong> Central terminals and links with few close alternatives have the largest network footprints.</p>
+        </div>
+        <div class="end-actions">
+          <a class="button primary" href="/research/Multimodal_FW_compressed-compressed.pdf">Read the full paper</a>
+          <a class="button quiet" href="/">Return to Simon's research</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p><strong>Multimodal Transport Networks</strong> by Simon Fuchs and Woan Foong Wong.</p>
+      <p>Mechanism simulations are pedagogical. Policy cards reproduce headline estimates from the current manuscript; see the paper for assumptions, uncertainty, and complete results.</p>
+    </footer>
+
+    <div class="floating-tools">
+      <button type="button" id="referenceButton">Reference</button>
+      <details class="sections-menu">
+        <summary>Sections</summary>
+        <nav aria-label="Walkthrough sections">
+          <a href="#introduction">Introduction</a>
+          <a href="#one-shipment">One shipment</a>
+          <a href="#mode-choice">Mode choice</a>
+          <a href="#terminal-congestion">Terminal congestion</a>
+          <a href="#propagation">Propagation</a>
+          <a href="#model-lab">Model ingredients</a>
+          <a href="#policy-lab">Policy laboratory</a>
+          <a href="#summary">Summary</a>
+        </nav>
+      </details>
+    </div>
+
+    <dialog id="referenceDialog" aria-labelledby="reference-title">
+      <div class="dialog-head">
+        <h2 id="reference-title">Reference</h2>
+        <button type="button" id="referenceClose" aria-label="Close reference">Close</button>
+      </div>
+      <dl>
+        <dt>Mode</dt><dd>A transport technology: road, rail, or water.</dd>
+        <dt>Route</dt><dd>A sequence of connected links used to move freight between origin and destination.</dd>
+        <dt>Intermodal terminal</dt><dd>A port or inland facility where freight transfers between modes.</dd>
+        <dt>Modal substitution</dt><dd>Traffic shifting toward a mode whose relative generalized cost has fallen.</dd>
+        <dt>Network complementarity</dt><dd>Additional traffic attracted because a cheaper link improves every route and sourcing relationship that uses it.</dd>
+        <dt>Switching cost</dt><dd>The generalized cost of entering or leaving a non-road mode at a terminal.</dd>
+        <dt>Market access</dt><dd>A summary of how easily a location can reach suppliers and consumers through the equilibrium network.</dd>
+      </dl>
+      <p class="dialog-note">Estimates and model details: <a href="/research/Multimodal_FW_compressed-compressed.pdf">full paper</a>.</p>
+    </dialog>
+
+    <noscript>
+      <div class="noscript">This walkthrough requires JavaScript for its simulations. The <a href="/research/Multimodal_FW_compressed-compressed.pdf">paper is available as a PDF</a>.</div>
+    </noscript>
+  </body>
+</html>
