@@ -119,6 +119,28 @@ body {
     line-height: 1.5;
 }
 
+.tool-preview {
+    max-width: 730px;
+    margin: 12px 0 12px 12px;
+}
+
+.tool-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.tool-preview figcaption {
+    margin-top: 5px;
+    color: #777;
+    font-family: nunito, sans-serif;
+    font-size: 10.5px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
 @media (max-width: 700px) {
     .profile-photo {
         width: 42%;
@@ -143,6 +165,10 @@ body {
 
     .footer-disclaimer {
         font-size: 10.5px;
+    }
+
+    .tool-preview {
+        margin-left: 6px;
     }
 }
 
