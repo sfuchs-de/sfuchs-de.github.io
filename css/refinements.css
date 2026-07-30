@@ -99,6 +99,11 @@ body {
     margin: 10px auto 6px;
 }
 
+.linkedin-compact-wrap {
+    max-width: 504px;
+    aspect-ratio: 504 / 399;
+}
+
 .embed-fallback {
     max-width: 460px;
     margin: 0 auto 10px;
