@@ -1,0 +1,1102 @@
+{
+  "id": "2026-07-29",
+  "issue_number": 202631,
+  "window_start": "2026-07-23",
+  "window_end": "2026-07-29",
+  "published_at": "2026-07-30T17:51:59.604017Z",
+  "title": "Research Radar — Week 31, 2026",
+  "subtitle": "Weekly research selected against active projects",
+  "candidate_count": 7,
+  "selected_count": 7,
+  "records_discovered": 4485,
+  "items": [
+    {
+      "work": {
+        "id": "work:233e15fd570d6c8672cac8aa450f7fd7272018b3770c4f2ff751e11cd38828a3",
+        "title": "Discrete-to-continuum limits of semilinear stochastic evolution equations in Banach spaces",
+        "authors": [
+          {
+            "name": "Yves van Gennip",
+            "orcid": "https://orcid.org/0000-0003-4953-8314",
+            "affiliation": null
+          },
+          {
+            "name": "Jonas Latz",
+            "orcid": "https://orcid.org/0000-0002-4600-0247",
+            "affiliation": null
+          },
+          {
+            "name": "Joshua Willems",
+            "orcid": "https://orcid.org/0009-0000-2085-1935",
+            "affiliation": null
+          }
+        ],
+        "primary_manifestation_id": "manifestation:c082bef42e8d35cf49faa24dd793e295aa670fc59617b162af096ade8c7535ee",
+        "manifestation_ids": [
+          "manifestation:c082bef42e8d35cf49faa24dd793e295aa670fc59617b162af096ade8c7535ee"
+        ],
+        "first_seen": "2026-07-30T17:42:58.419684Z",
+        "latest_seen": "2026-07-30T17:42:58.419684Z",
+        "identifiers": {
+          "doi": "10.1016/j.jde.2026.114628"
+        },
+        "is_new_version": false,
+        "version_note": null
+      },
+      "manifestation": {
+        "id": "manifestation:c082bef42e8d35cf49faa24dd793e295aa670fc59617b162af096ade8c7535ee",
+        "source_id": "crossref-math-networks",
+        "source_record_id": "10.1016/j.jde.2026.114628",
+        "work_type": "journal-article",
+        "title": "Discrete-to-continuum limits of semilinear stochastic evolution equations in Banach spaces",
+        "authors": [
+          {
+            "name": "Yves van Gennip",
+            "orcid": "https://orcid.org/0000-0003-4953-8314",
+            "affiliation": null
+          },
+          {
+            "name": "Jonas Latz",
+            "orcid": "https://orcid.org/0000-0002-4600-0247",
+            "affiliation": null
+          },
+          {
+            "name": "Joshua Willems",
+            "orcid": "https://orcid.org/0009-0000-2085-1935",
+            "affiliation": null
+          }
+        ],
+        "abstract": null,
+        "venue": "Journal of Differential Equations",
+        "discipline": "Partial Differential Equations",
+        "published_date": "2026-11-01",
+        "created_at_source": "2026-07-23T13:13:18Z",
+        "updated_at_source": "2026-07-23T14:01:21Z",
+        "discovered_at": "2026-07-30T17:42:58.419684Z",
+        "url": "https://doi.org/10.1016/j.jde.2026.114628",
+        "pdf_url": null,
+        "identifiers": {
+          "doi": "10.1016/j.jde.2026.114628"
+        },
+        "subjects": [
+          "Partial Differential Equations"
+        ],
+        "raw_hash": "raw:28df878a74342506d7595362089fb8496b42ac87cd95c821b0499b5fd1c164c7",
+        "possible_backfill": false
+      },
+      "evidence_manifestation_id": "manifestation:c082bef42e8d35cf49faa24dd793e295aa670fc59617b162af096ade8c7535ee",
+      "match": {
+        "work_id": "work:233e15fd570d6c8672cac8aa450f7fd7272018b3770c4f2ff751e11cd38828a3",
+        "project_id": "continuum-spatial-theory",
+        "project_name": "Continuum spatial theory",
+        "relevance_type": "direct-project-contribution",
+        "score": 41.259,
+        "breakdown": {
+          "topic": 10.395000000000001,
+          "open_question": 28.864,
+          "method": 0.0,
+          "data": 0.0,
+          "negative": 0.0,
+          "source_boost": 0.0,
+          "novelty": 2.0,
+          "total": 41.259,
+          "matched_terms": {
+            "core": [
+              "continuum limit"
+            ],
+            "open_questions": [
+              "discrete-to-continuum limit"
+            ],
+            "reading_priority": [
+              "4"
+            ]
+          }
+        },
+        "reason": "open question: discrete-to-continuum limit; substantive fit: continuum limit"
+      },
+      "secondary_matches": [],
+      "summary": {
+        "work_id": "work:233e15fd570d6c8672cac8aa450f7fd7272018b3770c4f2ff751e11cd38828a3",
+        "what_it_does": "The title indicates a study of Discrete-to-continuum limits of semilinear stochastic evolution equations in Banach spaces.",
+        "main_result": null,
+        "why_relevant": "Relevant to Continuum spatial theory because it matches open question: discrete-to-continuum limit; substantive fit: continuum limit",
+        "limitation": "Only the title and bibliographic metadata were available.",
+        "tags": [
+          "discrete-to-continuum limit",
+          "continuum limit"
+        ],
+        "reading_priority": 4,
+        "evidence_basis": "title-only",
+        "model": "deterministic-extractive",
+        "prompt_version": "extractive-v1",
+        "generated_at": "2026-07-30T17:51:59.603502Z",
+        "llm_included": true
+      },
+      "paperpile_status": "not-in-paperpile",
+      "event_type": "new-work",
+      "section": "top",
+      "rank": 1,
+      "is_top": true
+    },
+    {
+      "work": {
+        "id": "work:952588a8627af1700bddfc017aa7536f781f2e51f8f9592b02f84ba836b8621b",
+        "title": "Integrating Structure and Attributes for Transportation Network Partitioning via Optimal Transport",
+        "authors": [
+          {
+            "name": "Ketsia Guichard-Sustowski",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Loïc Le Marrec",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Véronique Thelen",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "primary_manifestation_id": "manifestation:75d6bdc40fa0742a4815c0cfede4fa0b575fcb934626013abe5bff9181525452",
+        "manifestation_ids": [
+          "manifestation:75d6bdc40fa0742a4815c0cfede4fa0b575fcb934626013abe5bff9181525452"
+        ],
+        "first_seen": "2026-07-30T17:45:25.738205Z",
+        "latest_seen": "2026-07-30T17:45:25.738205Z",
+        "identifiers": {
+          "arxiv": "2607.24506"
+        },
+        "is_new_version": false,
+        "version_note": null
+      },
+      "manifestation": {
+        "id": "manifestation:75d6bdc40fa0742a4815c0cfede4fa0b575fcb934626013abe5bff9181525452",
+        "source_id": "arxiv-economics-methods",
+        "source_record_id": "2607.24506v1",
+        "work_type": "preprint",
+        "title": "Integrating Structure and Attributes for Transportation Network Partitioning via Optimal Transport",
+        "authors": [
+          {
+            "name": "Ketsia Guichard-Sustowski",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Loïc Le Marrec",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Véronique Thelen",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "abstract": "Transportation network partitioning is essential for applications such as traffic analysis, simulation, and mobility pattern identification. However, transportation networks combine structural information with heterogeneous operational attributes, ranging from scalar indicators to temporal profiles. Existing approaches generally rely on predefined formulations to integrate these sources of information, limiting the ability to control their relative influence. This paper proposes a flexible framework for partitioning heterogeneous transportation networks represented as attributed graphs. The proposed methodology relies on a distance-based graph representation and an optimal transport formulation based on the semi-relaxed Fused Gromov-Wasserstein discrepancy, enabling joint consideration of network structure and attributes with explicit control over their trade-off. The proposed methodology is evaluated on two transportation systems with distinct characteristics: an urban road network for traffic-oriented partitioning and a bicycle-sharing system for identifying usage-based communities. Results demonstrate the ability of the framework to adapt the resulting partitions according to different structural and attribute preferences.",
+        "venue": "arXiv",
+        "discipline": "Computer Science",
+        "published_date": "2026-07-27",
+        "created_at_source": "2026-07-27T14:39:31Z",
+        "updated_at_source": "2026-07-27T14:39:31Z",
+        "discovered_at": "2026-07-30T17:45:25.738205Z",
+        "url": "https://arxiv.org/abs/2607.24506v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.24506v1",
+        "identifiers": {
+          "arxiv": "2607.24506"
+        },
+        "subjects": [
+          "stat.AP"
+        ],
+        "raw_hash": "raw:c41c340fb6156f97a70a891424f315aff3acacdcce506594c0451c24d8d7c27b",
+        "possible_backfill": false
+      },
+      "evidence_manifestation_id": "manifestation:75d6bdc40fa0742a4815c0cfede4fa0b575fcb934626013abe5bff9181525452",
+      "match": {
+        "work_id": "work:952588a8627af1700bddfc017aa7536f781f2e51f8f9592b02f84ba836b8621b",
+        "project_id": "multimodal-transport",
+        "project_name": "Multimodal transport networks",
+        "relevance_type": "method-transfer",
+        "score": 33.32000000000001,
+        "breakdown": {
+          "topic": 12.960000000000003,
+          "open_question": 0.0,
+          "method": 19.040000000000003,
+          "data": 0.0,
+          "negative": 0.0,
+          "source_boost": 0.0,
+          "novelty": 2.0,
+          "total": 33.32000000000001,
+          "matched_terms": {
+            "core": [
+              "transportation network"
+            ],
+            "methods": [
+              "transportation network partitioning"
+            ],
+            "reading_priority": [
+              "3"
+            ]
+          }
+        },
+        "reason": "substantive fit: transportation network; transferable method: transportation network partitioning"
+      },
+      "secondary_matches": [],
+      "summary": {
+        "work_id": "work:952588a8627af1700bddfc017aa7536f781f2e51f8f9592b02f84ba836b8621b",
+        "what_it_does": "Transportation network partitioning is essential for applications such as traffic analysis, simulation, and mobility pattern identification.",
+        "main_result": "However, transportation networks combine structural information with heterogeneous operational attributes, ranging from scalar indicators to temporal profiles.",
+        "why_relevant": "Relevant to Multimodal transport networks because it matches substantive fit: transportation network; transferable method: transportation network partitioning",
+        "limitation": "Based on the abstract only; the identification, derivation details, and robustness have not been verified.",
+        "tags": [
+          "transportation network",
+          "transportation network partitioning"
+        ],
+        "reading_priority": 3,
+        "evidence_basis": "abstract",
+        "model": "deterministic-extractive",
+        "prompt_version": "extractive-v1",
+        "generated_at": "2026-07-30T17:51:59.603758Z",
+        "llm_included": true
+      },
+      "paperpile_status": "not-in-paperpile",
+      "event_type": "new-work",
+      "section": "top",
+      "rank": 2,
+      "is_top": true
+    },
+    {
+      "work": {
+        "id": "work:f6549e98058ff0a5c4c7c68077878fe95a4343bae847f910a674224aa0c7ebe7",
+        "title": "Structural resilience assessment of Alliance-Based liner shipping Networks: A Dismantling-Based approach",
+        "authors": [
+          {
+            "name": "Yang Yang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kaimin Chen",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Hao Wang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kevin X. Li",
+            "orcid": "https://orcid.org/0000-0002-7712-3020",
+            "affiliation": null
+          }
+        ],
+        "primary_manifestation_id": "manifestation:74330a52c632c9c5aa04158fdd64626aae7e66910cfdcf0e69555713a710014b",
+        "manifestation_ids": [
+          "manifestation:74330a52c632c9c5aa04158fdd64626aae7e66910cfdcf0e69555713a710014b"
+        ],
+        "first_seen": "2026-07-30T17:42:40.110279Z",
+        "latest_seen": "2026-07-30T17:42:40.110279Z",
+        "identifiers": {
+          "doi": "10.1016/j.tre.2026.105117"
+        },
+        "is_new_version": false,
+        "version_note": null
+      },
+      "manifestation": {
+        "id": "manifestation:74330a52c632c9c5aa04158fdd64626aae7e66910cfdcf0e69555713a710014b",
+        "source_id": "crossref-transport-operations",
+        "source_record_id": "10.1016/j.tre.2026.105117",
+        "work_type": "journal-article",
+        "title": "Structural resilience assessment of Alliance-Based liner shipping Networks: A Dismantling-Based approach",
+        "authors": [
+          {
+            "name": "Yang Yang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kaimin Chen",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Hao Wang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kevin X. Li",
+            "orcid": "https://orcid.org/0000-0002-7712-3020",
+            "affiliation": null
+          }
+        ],
+        "abstract": null,
+        "venue": "Transportation Research Part E: Logistics and Transportation Review",
+        "discipline": "Transportation",
+        "published_date": "2026-11-01",
+        "created_at_source": "2026-07-28T21:19:02Z",
+        "updated_at_source": "2026-07-29T20:59:23Z",
+        "discovered_at": "2026-07-30T17:42:40.110279Z",
+        "url": "https://doi.org/10.1016/j.tre.2026.105117",
+        "pdf_url": null,
+        "identifiers": {
+          "doi": "10.1016/j.tre.2026.105117"
+        },
+        "subjects": [
+          "Transportation",
+          "logistics",
+          "supply chains"
+        ],
+        "raw_hash": "raw:03eda66a94ad1fec218cad4a2e0355a7399109e8e8b739d4e97f63cce2a39d1a",
+        "possible_backfill": false
+      },
+      "evidence_manifestation_id": "manifestation:74330a52c632c9c5aa04158fdd64626aae7e66910cfdcf0e69555713a710014b",
+      "match": {
+        "work_id": "work:f6549e98058ff0a5c4c7c68077878fe95a4343bae847f910a674224aa0c7ebe7",
+        "project_id": "maritime-vulnerability",
+        "project_name": "Maritime vulnerability and geoeconomics",
+        "relevance_type": "literature-context",
+        "score": 26.675,
+        "breakdown": {
+          "topic": 22.275000000000002,
+          "open_question": 0.0,
+          "method": 0.0,
+          "data": 0.0,
+          "negative": 0.0,
+          "source_boost": 2.4,
+          "novelty": 2.0,
+          "total": 26.675,
+          "matched_terms": {
+            "core": [
+              "shipping network",
+              "liner shipping"
+            ],
+            "reading_priority": [
+              "3"
+            ]
+          }
+        },
+        "reason": "substantive fit: shipping network, liner shipping"
+      },
+      "secondary_matches": [],
+      "summary": {
+        "work_id": "work:f6549e98058ff0a5c4c7c68077878fe95a4343bae847f910a674224aa0c7ebe7",
+        "what_it_does": "The title indicates a study of Structural resilience assessment of Alliance-Based liner shipping Networks: A Dismantling-Based approach.",
+        "main_result": null,
+        "why_relevant": "Relevant to Maritime vulnerability and geoeconomics because it matches substantive fit: shipping network, liner shipping",
+        "limitation": "Only the title and bibliographic metadata were available.",
+        "tags": [
+          "shipping network",
+          "liner shipping"
+        ],
+        "reading_priority": 3,
+        "evidence_basis": "title-only",
+        "model": "deterministic-extractive",
+        "prompt_version": "extractive-v1",
+        "generated_at": "2026-07-30T17:51:59.603765Z",
+        "llm_included": true
+      },
+      "paperpile_status": "not-in-paperpile",
+      "event_type": "new-work",
+      "section": "top",
+      "rank": 3,
+      "is_top": true
+    },
+    {
+      "work": {
+        "id": "work:fb96e58728b21719abd2fd0d1bb3238ddf2843d7cd39cb061039237fe0a373c4",
+        "title": "Geospatial Analysis of the Evolution of European Tourism in Spain Using Mobile Phone Data, the Space–Time Cube, and Emerging Hot Spot Analysis",
+        "authors": [
+          {
+            "name": "José Manuel Sánchez-Martín",
+            "orcid": "https://orcid.org/0000-0002-4711-3542",
+            "affiliation": null
+          },
+          {
+            "name": "Felipe Leco-Berrocal",
+            "orcid": "https://orcid.org/0000-0002-3372-4748",
+            "affiliation": null
+          },
+          {
+            "name": "Ana Beatriz Mateos-Rodriguez",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "primary_manifestation_id": "manifestation:2473ad6cf691c70bece257fd940dae2764f354eaacfde78ef11d12bb93896b1c",
+        "manifestation_ids": [
+          "manifestation:2473ad6cf691c70bece257fd940dae2764f354eaacfde78ef11d12bb93896b1c"
+        ],
+        "first_seen": "2026-07-30T17:42:30.709058Z",
+        "latest_seen": "2026-07-30T17:42:30.709058Z",
+        "identifiers": {
+          "doi": "10.3390/ijgi15080338"
+        },
+        "is_new_version": false,
+        "version_note": null
+      },
+      "manifestation": {
+        "id": "manifestation:2473ad6cf691c70bece257fd940dae2764f354eaacfde78ef11d12bb93896b1c",
+        "source_id": "crossref-data-policy-environment",
+        "source_record_id": "10.3390/ijgi15080338",
+        "work_type": "journal-article",
+        "title": "Geospatial Analysis of the Evolution of European Tourism in Spain Using Mobile Phone Data, the Space–Time Cube, and Emerging Hot Spot Analysis",
+        "authors": [
+          {
+            "name": "José Manuel Sánchez-Martín",
+            "orcid": "https://orcid.org/0000-0002-4711-3542",
+            "affiliation": null
+          },
+          {
+            "name": "Felipe Leco-Berrocal",
+            "orcid": "https://orcid.org/0000-0002-3372-4748",
+            "affiliation": null
+          },
+          {
+            "name": "Ana Beatriz Mateos-Rodriguez",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "abstract": "In Spain, inbound European tourism exhibits marked territorial imbalances whose evolution is difficult to characterize using aggregate indicators. This study analyzes its spatiotemporal patterns at the municipal level between July 2019 and December 2025 based on experimental statistics from the National Institute of Statistics compiled using mobile phone data. The objective is to identify processes of growth, persistence, and spatial intensification using a geospatial methodology based on the Space–Time Cube (STC) and Emerging Hot Spot Analysis (EHSA). The analysis covers the 1000 municipalities with the highest cumulative volume of European tourists, which account for most of the flows recorded during the period. The results show positive and statistically significant temporal trends in 911 municipalities, although the formation of persistent spatial clusters is considerably less widespread. EHSA identified 48 municipalities classified as hot spots when applying a one-month temporal neighborhood and 77 when using a three-month configuration. The two classifications showed an observed agreement of 96.0% and, for the four shared categories, a Cohen’s kappa coefficient of 0.660. The post-pandemic recovery in tourism did not, therefore, result in a homogeneous territorial consolidation of stable spatial patterns. We identify persistent hubs, areas undergoing intensification, and destinations with episodic behavior, located primarily in metropolitan, coastal, and island areas. The main contribution of the study lies in the development of a reproducible workflow based on the STC–EHSA integration, capable of distinguishing between temporal growth, persistence, intensification, and spatial intermittency, and of evaluating the stability of the results under different temporal neighborhood configurations.",
+        "venue": "ISPRS International Journal of Geo-Information",
+        "discipline": "Geospatial Data",
+        "published_date": "2026-07-24",
+        "created_at_source": "2026-07-24T10:38:41Z",
+        "updated_at_source": "2026-07-30T10:33:35Z",
+        "discovered_at": "2026-07-30T17:42:30.709058Z",
+        "url": "https://doi.org/10.3390/ijgi15080338",
+        "pdf_url": null,
+        "identifiers": {
+          "doi": "10.3390/ijgi15080338"
+        },
+        "subjects": [
+          "Geospatial Data"
+        ],
+        "raw_hash": "raw:26b3392f3bc315ee965a45b747a6defd5c0610492dc7d2859ee93a5bc095a719",
+        "possible_backfill": false
+      },
+      "evidence_manifestation_id": "manifestation:2473ad6cf691c70bece257fd940dae2764f354eaacfde78ef11d12bb93896b1c",
+      "match": {
+        "work_id": "work:fb96e58728b21719abd2fd0d1bb3238ddf2843d7cd39cb061039237fe0a373c4",
+        "project_id": "urban-welfare",
+        "project_name": "Urban welfare, tourism, and local demand",
+        "relevance_type": "data-opportunity",
+        "score": 23.597759999999997,
+        "breakdown": {
+          "topic": 8.96,
+          "open_question": 0.0,
+          "method": 0.0,
+          "data": 14.144,
+          "negative": 0.0,
+          "source_boost": 0.0,
+          "novelty": 2.0,
+          "total": 23.597759999999997,
+          "matched_terms": {
+            "core": [
+              "tourism"
+            ],
+            "data": [
+              "mobile phone data"
+            ],
+            "reading_priority": [
+              "2"
+            ]
+          }
+        },
+        "reason": "substantive fit: tourism; data opportunity: mobile phone data"
+      },
+      "secondary_matches": [],
+      "summary": {
+        "work_id": "work:fb96e58728b21719abd2fd0d1bb3238ddf2843d7cd39cb061039237fe0a373c4",
+        "what_it_does": "In Spain, inbound European tourism exhibits marked territorial imbalances whose evolution is difficult to characterize using aggregate indicators.",
+        "main_result": "The results show positive and statistically significant temporal trends in 911 municipalities, although the formation of persistent spatial clusters is considerably less widespread.",
+        "why_relevant": "Relevant to Urban welfare, tourism, and local demand because it matches substantive fit: tourism; data opportunity: mobile phone data",
+        "limitation": "Based on the abstract only; the identification, derivation details, and robustness have not been verified.",
+        "tags": [
+          "tourism",
+          "mobile phone data"
+        ],
+        "reading_priority": 2,
+        "evidence_basis": "abstract",
+        "model": "deterministic-extractive",
+        "prompt_version": "extractive-v1",
+        "generated_at": "2026-07-30T17:51:59.603836Z",
+        "llm_included": true
+      },
+      "paperpile_status": "not-in-paperpile",
+      "event_type": "new-work",
+      "section": "top",
+      "rank": 4,
+      "is_top": true
+    },
+    {
+      "work": {
+        "id": "work:829fbe3aaeeace5ff4ab23600a501083beb0f71edcfcb64ca132abb634799c4e",
+        "title": "ReasFlow: Assisting Reasoning-Centric Scientific Discovery in Applied Mathematics via a Knowledge-Based Multi-Agent System",
+        "authors": [
+          {
+            "name": "Yutong He",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Daibo Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Guohong Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Jiahe Geng",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Zhengyang Huang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Can Ren",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Zekun Zhang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Yifan Liu",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Shuchen Zhu",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Hengrui Zhang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Boao Kong",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Ming Sun",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Shu Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Chenyi Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Jiang Hu",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kun Yuan",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Zaiwen Wen",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Pingwen Zhang",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "primary_manifestation_id": "manifestation:68f1c1778765d0f71b7d653b3d5ea88dde648a92ee4a561761b766e35ee6e8ba",
+        "manifestation_ids": [
+          "manifestation:68f1c1778765d0f71b7d653b3d5ea88dde648a92ee4a561761b766e35ee6e8ba"
+        ],
+        "first_seen": "2026-07-30T17:45:06.888153Z",
+        "latest_seen": "2026-07-30T17:45:06.888153Z",
+        "identifiers": {
+          "arxiv": "2607.14178"
+        },
+        "is_new_version": false,
+        "version_note": null
+      },
+      "manifestation": {
+        "id": "manifestation:68f1c1778765d0f71b7d653b3d5ea88dde648a92ee4a561761b766e35ee6e8ba",
+        "source_id": "arxiv-economics-methods",
+        "source_record_id": "2607.14178v2",
+        "work_type": "preprint",
+        "title": "ReasFlow: Assisting Reasoning-Centric Scientific Discovery in Applied Mathematics via a Knowledge-Based Multi-Agent System",
+        "authors": [
+          {
+            "name": "Yutong He",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Daibo Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Guohong Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Jiahe Geng",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Zhengyang Huang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Can Ren",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Zekun Zhang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Yifan Liu",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Shuchen Zhu",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Hengrui Zhang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Boao Kong",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Ming Sun",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Shu Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Chenyi Li",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Jiang Hu",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kun Yuan",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Zaiwen Wen",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Pingwen Zhang",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "abstract": "Recent advances in Large Language Models have fueled autonomous AI agents capable of tackling complex scientific tasks, yet existing automated research systems remain predominantly focused on empirically driven domains with quantitative benchmarks, leaving theory-driven discovery, particularly in mathematically grounded disciplines requiring rigorous proofs and synthesis of domain knowledge, largely underexplored. Key challenges include the difficulty of verifying theoretical reasoning at scale, insufficient reasoning ability for autonomous frontier exploration, and a scarcity of procedural heuristics in the literature. We introduce ReasFlow, an end-to-end autonomous agent system for reasoning-centric scientific discovery that operationalizes a collaborative paradigm where the human expert acts as Principal Investigator while the agent executes rigorous derivations as a capable graduate student. ReasFlow incorporates (i) a robust internal verification loop that audits logical coherence and corrects fundamental errors prior to human inspection, and (ii) an automated knowledge retrieval and self-improvement mechanism that proactively surfaces both declarative facts and overlooked procedural heuristics, substantially reducing expert intervention. The system unifies literature synthesis, algorithm design, theorem proving, experimentation, and manuscript preparation in a single system. Deployed to autonomously generate five complete research papers with rigorous theoretical and empirical content from minimal prompts, ReasFlow consistently achieves the highest evaluation scores among state-of-the-art open-access baselines under a curated LLM-based review rubric. ReasFlow is publicly accessible via the ReasLab platform, providing a collaborative workspace for AI-assisted theoretical research. Github repo: https://github.com/reaslab/ReasFlow.git.",
+        "venue": "arXiv",
+        "discipline": "Computer Science",
+        "published_date": "2026-07-15",
+        "created_at_source": "2026-07-15T13:27:20Z",
+        "updated_at_source": "2026-07-27T06:26:29Z",
+        "discovered_at": "2026-07-30T17:45:06.888153Z",
+        "url": "https://arxiv.org/abs/2607.14178v2",
+        "pdf_url": "https://arxiv.org/pdf/2607.14178v2",
+        "identifiers": {
+          "arxiv": "2607.14178"
+        },
+        "subjects": [
+          "cs.AI",
+          "cs.MA"
+        ],
+        "raw_hash": "raw:1a1e46c39790a0206116bb665199203581969ffdb6d81493bf12a893329533f2",
+        "possible_backfill": false
+      },
+      "evidence_manifestation_id": "manifestation:68f1c1778765d0f71b7d653b3d5ea88dde648a92ee4a561761b766e35ee6e8ba",
+      "match": {
+        "work_id": "work:829fbe3aaeeace5ff4ab23600a501083beb0f71edcfcb64ca132abb634799c4e",
+        "project_id": "ai-economics-research-systems",
+        "project_name": "Economics of AI and research systems",
+        "relevance_type": "literature-context",
+        "score": 23.412000000000003,
+        "breakdown": {
+          "topic": 27.265,
+          "open_question": 0.0,
+          "method": 0.0,
+          "data": 0.0,
+          "negative": 0.0,
+          "source_boost": 0.0,
+          "novelty": 2.0,
+          "total": 23.412000000000003,
+          "matched_terms": {
+            "core": [
+              "multi-agent system",
+              "scientific discovery",
+              "AI agent"
+            ],
+            "reading_priority": [
+              "2"
+            ]
+          }
+        },
+        "reason": "substantive fit: multi-agent system, scientific discovery, AI agent"
+      },
+      "secondary_matches": [],
+      "summary": {
+        "work_id": "work:829fbe3aaeeace5ff4ab23600a501083beb0f71edcfcb64ca132abb634799c4e",
+        "what_it_does": "Recent advances in Large Language Models have fueled autonomous AI agents capable of tackling complex scientific tasks, yet existing automated research systems remain predominantly focused on empirically driven domains with quantitative benchmarks, leaving theory-driven discovery, particularly in mathematically grounded disciplines requiring rigorous proofs and synthesis of…",
+        "main_result": "Key challenges include the difficulty of verifying theoretical reasoning at scale, insufficient reasoning ability for autonomous frontier exploration, and a scarcity of procedural heuristics in the literature.",
+        "why_relevant": "Relevant to Economics of AI and research systems because it matches substantive fit: multi-agent system, scientific discovery, AI agent",
+        "limitation": "Based on the abstract only; the identification, derivation details, and robustness have not been verified.",
+        "tags": [
+          "multi-agent system",
+          "scientific discovery",
+          "AI agent"
+        ],
+        "reading_priority": 2,
+        "evidence_basis": "abstract",
+        "model": "deterministic-extractive",
+        "prompt_version": "extractive-v1",
+        "generated_at": "2026-07-30T17:51:59.603909Z",
+        "llm_included": true
+      },
+      "paperpile_status": "not-in-paperpile",
+      "event_type": "new-work",
+      "section": "top",
+      "rank": 5,
+      "is_top": true
+    },
+    {
+      "work": {
+        "id": "work:dcb4422f3dd97220598e1fec782639ddd4d052bb7f3a72cb5a5bfecac14c2225",
+        "title": "System optimality versus self-organization in metro networks: An optimal transport analysis",
+        "authors": [
+          {
+            "name": "Tianyu Dong",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Jiazu Zhou",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Markus Schläpfer",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "primary_manifestation_id": "manifestation:f4743aac71c8ac72d5983016a9c451008317c3079ea314873d852d69d15b065c",
+        "manifestation_ids": [
+          "manifestation:f4743aac71c8ac72d5983016a9c451008317c3079ea314873d852d69d15b065c"
+        ],
+        "first_seen": "2026-07-30T17:45:25.738047Z",
+        "latest_seen": "2026-07-30T17:45:25.738047Z",
+        "identifiers": {
+          "arxiv": "2607.25003",
+          "doi": "10.1016/j.compenvurbsys.2026.102479"
+        },
+        "is_new_version": false,
+        "version_note": null
+      },
+      "manifestation": {
+        "id": "manifestation:f4743aac71c8ac72d5983016a9c451008317c3079ea314873d852d69d15b065c",
+        "source_id": "arxiv-economics-methods",
+        "source_record_id": "2607.25003v1",
+        "work_type": "preprint",
+        "title": "System optimality versus self-organization in metro networks: An optimal transport analysis",
+        "authors": [
+          {
+            "name": "Tianyu Dong",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Jiazu Zhou",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Markus Schläpfer",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "abstract": "Urban transportation network design is typically approached through top-down planning grounded in engineering and economics. Yet cities are complex systems characterized by feedback loops between infrastructure and mobility demand: network structure shapes origin-destination (OD) flows, while OD flows adapt and in turn affect network development. Despite this interdependence, computational tools to benchmark real-world networks against alternative generative principles remain limited. Here, we introduce a data-driven framework to compare three types of metro networks: a self-organized (desire-path) network derived from local rules, a system-optimal network derived from global optimization, and the empirical real-world network. We quantify similarities and discrepancies using geometric comparisons and optimal transport theory. Applying the framework to Singapore's Mass Rapid Transit system, we find that the empirical metro network is substantially closer to the self-organized benchmark than to the system-optimal benchmark, with remaining discrepancies largely explained by geographic constraints. These findings highlight that system-wide optimality alone may be inadequate for guiding practical interventions, motivating planning approaches that explicitly incorporate local service needs. The framework is transferable across regions and can diagnose design-use misalignments to support adaptive infrastructure planning.",
+        "venue": "Computers, Environment and Urban Systems (2026) 129: 102479",
+        "discipline": "Physics and Networks",
+        "published_date": "2026-07-27",
+        "created_at_source": "2026-07-27T18:59:01Z",
+        "updated_at_source": "2026-07-27T18:59:01Z",
+        "discovered_at": "2026-07-30T17:45:25.738047Z",
+        "url": "https://arxiv.org/abs/2607.25003v1",
+        "pdf_url": "https://arxiv.org/pdf/2607.25003v1",
+        "identifiers": {
+          "arxiv": "2607.25003",
+          "doi": "10.1016/j.compenvurbsys.2026.102479"
+        },
+        "subjects": [
+          "physics.soc-ph"
+        ],
+        "raw_hash": "raw:622b0a96459d6a8faba42a34f65285d6e3b62bd2bbb0913ce7e50ca8b78a6e6f",
+        "possible_backfill": false
+      },
+      "evidence_manifestation_id": "manifestation:f4743aac71c8ac72d5983016a9c451008317c3079ea314873d852d69d15b065c",
+      "match": {
+        "work_id": "work:dcb4422f3dd97220598e1fec782639ddd4d052bb7f3a72cb5a5bfecac14c2225",
+        "project_id": "multimodal-transport",
+        "project_name": "Multimodal transport networks",
+        "relevance_type": "literature-context",
+        "score": 23.20738,
+        "breakdown": {
+          "topic": 18.306,
+          "open_question": 0.0,
+          "method": 0.0,
+          "data": 3.375,
+          "negative": 0.0,
+          "source_boost": 0.0,
+          "novelty": 2.0,
+          "total": 23.20738,
+          "matched_terms": {
+            "core": [
+              "metro network",
+              "transportation network"
+            ],
+            "data": [
+              "origin destination"
+            ],
+            "reading_priority": [
+              "2"
+            ]
+          }
+        },
+        "reason": "substantive fit: metro network, transportation network"
+      },
+      "secondary_matches": [],
+      "summary": {
+        "work_id": "work:dcb4422f3dd97220598e1fec782639ddd4d052bb7f3a72cb5a5bfecac14c2225",
+        "what_it_does": "Urban transportation network design is typically approached through top-down planning grounded in engineering and economics.",
+        "main_result": "Applying the framework to Singapore's Mass Rapid Transit system, we find that the empirical metro network is substantially closer to the self-organized benchmark than to the system-optimal benchmark, with remaining discrepancies largely explained by geographic constraints.",
+        "why_relevant": "Relevant to Multimodal transport networks because it matches substantive fit: metro network, transportation network",
+        "limitation": "Based on the abstract only; the identification, derivation details, and robustness have not been verified.",
+        "tags": [
+          "metro network",
+          "transportation network",
+          "origin destination"
+        ],
+        "reading_priority": 2,
+        "evidence_basis": "abstract",
+        "model": "deterministic-extractive",
+        "prompt_version": "extractive-v1",
+        "generated_at": "2026-07-30T17:51:59.603959Z",
+        "llm_included": true
+      },
+      "paperpile_status": "not-in-paperpile",
+      "event_type": "new-work",
+      "section": "project:multimodal-transport",
+      "rank": 6,
+      "is_top": false
+    },
+    {
+      "work": {
+        "id": "work:f559745cbe1e75602b55bc58e1e2ac18731ba9f022e7c2776ad9a3f715bd2e97",
+        "title": "Global production networks and imperfect competition",
+        "authors": [
+          {
+            "name": "Hanwei Huang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kalina Manova",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Oscar Perelló",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Frank Pisch",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "primary_manifestation_id": "manifestation:54ff2bf8ff569ff1291f9008e03d2926875e36252bfa4b8a670c4836a197335f",
+        "manifestation_ids": [
+          "manifestation:54ff2bf8ff569ff1291f9008e03d2926875e36252bfa4b8a670c4836a197335f"
+        ],
+        "first_seen": "2026-07-30T17:41:52.663030Z",
+        "latest_seen": "2026-07-30T17:41:52.663030Z",
+        "identifiers": {
+          "doi": "10.1016/j.jinteco.2026.104315"
+        },
+        "is_new_version": false,
+        "version_note": null
+      },
+      "manifestation": {
+        "id": "manifestation:54ff2bf8ff569ff1291f9008e03d2926875e36252bfa4b8a670c4836a197335f",
+        "source_id": "crossref-spatial-trade-public",
+        "source_record_id": "10.1016/j.jinteco.2026.104315",
+        "work_type": "journal-article",
+        "title": "Global production networks and imperfect competition",
+        "authors": [
+          {
+            "name": "Hanwei Huang",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Kalina Manova",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Oscar Perelló",
+            "orcid": null,
+            "affiliation": null
+          },
+          {
+            "name": "Frank Pisch",
+            "orcid": null,
+            "affiliation": null
+          }
+        ],
+        "abstract": null,
+        "venue": "Journal of International Economics",
+        "discipline": "International Economics",
+        "published_date": "2026-07-01",
+        "created_at_source": "2026-07-29T15:58:18Z",
+        "updated_at_source": "2026-07-29T16:58:10Z",
+        "discovered_at": "2026-07-30T17:41:52.663030Z",
+        "url": "https://doi.org/10.1016/j.jinteco.2026.104315",
+        "pdf_url": null,
+        "identifiers": {
+          "doi": "10.1016/j.jinteco.2026.104315"
+        },
+        "subjects": [
+          "International Economics",
+          "trade",
+          "international economics"
+        ],
+        "raw_hash": "raw:333ab92b86f47079156c67c8795294aee7443fa9a32271dd4e33db2e17955222",
+        "possible_backfill": false
+      },
+      "evidence_manifestation_id": "manifestation:54ff2bf8ff569ff1291f9008e03d2926875e36252bfa4b8a670c4836a197335f",
+      "match": {
+        "work_id": "work:f559745cbe1e75602b55bc58e1e2ac18731ba9f022e7c2776ad9a3f715bd2e97",
+        "project_id": "spatial-trade-network-economics",
+        "project_name": "Spatial trade and network economics",
+        "relevance_type": "general-interest",
+        "score": 21.3312,
+        "breakdown": {
+          "topic": 17.82,
+          "open_question": 0.0,
+          "method": 0.0,
+          "data": 0.0,
+          "negative": 0.0,
+          "source_boost": 2.4,
+          "novelty": 2.0,
+          "total": 21.3312,
+          "matched_terms": {
+            "core": [
+              "production network",
+              "imperfect competition"
+            ],
+            "reading_priority": [
+              "2"
+            ]
+          }
+        },
+        "reason": "substantive fit: production network, imperfect competition"
+      },
+      "secondary_matches": [],
+      "summary": {
+        "work_id": "work:f559745cbe1e75602b55bc58e1e2ac18731ba9f022e7c2776ad9a3f715bd2e97",
+        "what_it_does": "The title indicates a study of Global production networks and imperfect competition.",
+        "main_result": null,
+        "why_relevant": "Relevant to Spatial trade and network economics because it matches substantive fit: production network, imperfect competition",
+        "limitation": "Only the title and bibliographic metadata were available.",
+        "tags": [
+          "production network",
+          "imperfect competition"
+        ],
+        "reading_priority": 2,
+        "evidence_basis": "title-only",
+        "model": "deterministic-extractive",
+        "prompt_version": "extractive-v1",
+        "generated_at": "2026-07-30T17:51:59.603964Z",
+        "llm_included": true
+      },
+      "paperpile_status": "not-in-paperpile",
+      "event_type": "new-work",
+      "section": "project:spatial-trade-network-economics",
+      "rank": 7,
+      "is_top": false
+    }
+  ],
+  "source_status": {
+    "crossref-general-economics": "healthy",
+    "crossref-spatial-trade-public": "healthy",
+    "crossref-data-policy-environment": "healthy",
+    "crossref-transport-operations": "healthy",
+    "crossref-math-networks": "healthy",
+    "crossref-history-geoeconomics": "healthy",
+    "crossref-innovation-organizations": "healthy",
+    "arxiv-economics-methods": "healthy",
+    "nber-working-papers": "healthy",
+    "official-working-paper-feeds": "healthy"
+  },
+  "publication_status": "complete",
+  "source_problem_count": 0,
+  "configuration_hash": "3298b8dd2712d60bd3b1ec87f4c3d5bc329f27b0fe5acde2801af64f530b0f20",
+  "summary_method": "extractive",
+  "synthetic_demo": false
+}
