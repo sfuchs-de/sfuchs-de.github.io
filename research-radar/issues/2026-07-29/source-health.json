@@ -1,0 +1,132 @@
+[
+  {
+    "source_id": "crossref-general-economics",
+    "source_name": "Crossref — general economics and econometrics",
+    "started_at": "2026-07-30T17:41:40.415640Z",
+    "completed_at": "2026-07-30T17:41:51.938422Z",
+    "status": "healthy",
+    "records_found": 54,
+    "warning": null,
+    "details": {
+      "adapter": "crossref",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "crossref-spatial-trade-public",
+    "source_name": "Crossref — trade, spatial, urban, public, and industrial organization",
+    "started_at": "2026-07-30T17:41:51.939043Z",
+    "completed_at": "2026-07-30T17:42:18.834484Z",
+    "status": "healthy",
+    "records_found": 109,
+    "warning": null,
+    "details": {
+      "adapter": "crossref",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "crossref-data-policy-environment",
+    "source_name": "Crossref — data, measurement, environment, and tourism",
+    "started_at": "2026-07-30T17:42:18.837278Z",
+    "completed_at": "2026-07-30T17:42:35.039097Z",
+    "status": "healthy",
+    "records_found": 113,
+    "warning": null,
+    "details": {
+      "adapter": "crossref",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "crossref-transport-operations",
+    "source_name": "Crossref — transportation, logistics, maritime, and operations research",
+    "started_at": "2026-07-30T17:42:35.042417Z",
+    "completed_at": "2026-07-30T17:42:54.985873Z",
+    "status": "healthy",
+    "records_found": 182,
+    "warning": null,
+    "details": {
+      "adapter": "crossref",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "crossref-math-networks",
+    "source_name": "Crossref — applied mathematics, probability, optimization, and network science",
+    "started_at": "2026-07-30T17:42:54.986760Z",
+    "completed_at": "2026-07-30T17:43:14.429589Z",
+    "status": "healthy",
+    "records_found": 191,
+    "warning": null,
+    "details": {
+      "adapter": "crossref",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "crossref-history-geoeconomics",
+    "source_name": "Crossref — economic history, political economy, conflict, and geoeconomics",
+    "started_at": "2026-07-30T17:43:14.433386Z",
+    "completed_at": "2026-07-30T17:43:26.273694Z",
+    "status": "healthy",
+    "records_found": 15,
+    "warning": null,
+    "details": {
+      "adapter": "crossref",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "crossref-innovation-organizations",
+    "source_name": "Crossref — innovation, organizations, entrepreneurship, and AI",
+    "started_at": "2026-07-30T17:43:26.274535Z",
+    "completed_at": "2026-07-30T17:43:36.469749Z",
+    "status": "healthy",
+    "records_found": 58,
+    "warning": null,
+    "details": {
+      "adapter": "crossref",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "arxiv-economics-methods",
+    "source_name": "arXiv — economics and transferable methods",
+    "started_at": "2026-07-30T17:43:36.470921Z",
+    "completed_at": "2026-07-30T17:45:28.804263Z",
+    "status": "healthy",
+    "records_found": 3709,
+    "warning": null,
+    "details": {
+      "adapter": "arxiv",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "nber-working-papers",
+    "source_name": "NBER Working Papers",
+    "started_at": "2026-07-30T17:45:28.807908Z",
+    "completed_at": "2026-07-30T17:45:44.052873Z",
+    "status": "healthy",
+    "records_found": 31,
+    "warning": null,
+    "details": {
+      "adapter": "nber",
+      "warning_count": 0
+    }
+  },
+  {
+    "source_id": "official-working-paper-feeds",
+    "source_name": "Official working-paper feeds — CEPR and Federal Reserve Board",
+    "started_at": "2026-07-30T17:45:44.055803Z",
+    "completed_at": "2026-07-30T17:45:48.331071Z",
+    "status": "healthy",
+    "records_found": 23,
+    "warning": null,
+    "details": {
+      "adapter": "rss",
+      "warning_count": 0
+    }
+  }
+]

@@ -1,0 +1,1439 @@
+{
+  "summary": {
+    "enabled_groups": 10,
+    "configured_groups": 11,
+    "journals": 233,
+    "arxiv_categories": 16,
+    "arxiv_queries": 4,
+    "arxiv_streams": 20,
+    "official_feeds": 3,
+    "direct_series": 1,
+    "working_paper_series": 4,
+    "publication_channels": 257,
+    "projects": 10
+  },
+  "sources": [
+    {
+      "id": "crossref-general-economics",
+      "name": "Crossref — general economics and econometrics",
+      "adapter": "crossref",
+      "kind": "article",
+      "enabled": true,
+      "description": "General-interest economics, theory, macroeconomics, econometrics, and broad applied economics.",
+      "method": "Crossref journal works by ISSN, filtered to the issue window.",
+      "entry_count": 34,
+      "entries": [
+        {
+          "name": "American Economic Review",
+          "detail": "0002-8282",
+          "discipline": "Economics"
+        },
+        {
+          "name": "AER: Insights",
+          "detail": "2640-205X",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Econometrica",
+          "detail": "0012-9682",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Quarterly Journal of Economics",
+          "detail": "0033-5533",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Review of Economic Studies",
+          "detail": "0034-6527",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Review of Economics and Statistics",
+          "detail": "0034-6535",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Political Economy",
+          "detail": "0022-3808",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Economic Journal",
+          "detail": "0013-0133",
+          "discipline": "Economics"
+        },
+        {
+          "name": "European Economic Review",
+          "detail": "0014-2921",
+          "discipline": "Economics"
+        },
+        {
+          "name": "International Economic Review",
+          "detail": "0020-6598",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of the European Economic Association",
+          "detail": "1542-4766",
+          "discipline": "Economics"
+        },
+        {
+          "name": "AEJ: Applied Economics",
+          "detail": "1945-7782",
+          "discipline": "Economics"
+        },
+        {
+          "name": "AEJ: Economic Policy",
+          "detail": "1945-7731",
+          "discipline": "Economics"
+        },
+        {
+          "name": "AEJ: Microeconomics",
+          "detail": "1945-7669",
+          "discipline": "Economics"
+        },
+        {
+          "name": "AEJ: Macroeconomics",
+          "detail": "1945-7707",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Quantitative Economics",
+          "detail": "1759-7331",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Theoretical Economics",
+          "detail": "1555-7561",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Economic Theory",
+          "detail": "0022-0531",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Review of Economic Dynamics",
+          "detail": "1094-2025",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Econometrics",
+          "detail": "0304-4076",
+          "discipline": "Econometrics"
+        },
+        {
+          "name": "Journal of Applied Econometrics",
+          "detail": "0883-7252",
+          "discipline": "Econometrics"
+        },
+        {
+          "name": "Journal of Business & Economic Statistics",
+          "detail": "0735-0015",
+          "discipline": "Econometrics"
+        },
+        {
+          "name": "Econometric Theory",
+          "detail": "0266-4666",
+          "discipline": "Econometrics"
+        },
+        {
+          "name": "Oxford Bulletin of Economics and Statistics",
+          "detail": "0305-9049",
+          "discipline": "Econometrics"
+        },
+        {
+          "name": "Canadian Journal of Economics",
+          "detail": "0008-4085",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Scandinavian Journal of Economics",
+          "detail": "0347-0520",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Economic Policy",
+          "detail": "0266-4658",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Economic Perspectives",
+          "detail": "0895-3309",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Economic Literature",
+          "detail": "0022-0515",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Games and Economic Behavior",
+          "detail": "0899-8256",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Experimental Economics",
+          "detail": "1386-4157",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Economic Inquiry",
+          "detail": "0095-2583",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Economica",
+          "detail": "0013-0427",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Macroeconomic Dynamics",
+          "detail": "1365-1005",
+          "discipline": "Macroeconomics"
+        }
+      ]
+    },
+    {
+      "id": "crossref-spatial-trade-public",
+      "name": "Crossref — trade, spatial, urban, public, and industrial organization",
+      "adapter": "crossref",
+      "kind": "article",
+      "enabled": true,
+      "description": "International trade, economic geography, urban and regional economics, development, public economics, labor, and industrial organization.",
+      "method": "Crossref journal works by ISSN, filtered to the issue window.",
+      "entry_count": 44,
+      "entries": [
+        {
+          "name": "Journal of International Economics",
+          "detail": "0022-1996",
+          "discipline": "International Economics"
+        },
+        {
+          "name": "Journal of Urban Economics",
+          "detail": "0094-1190",
+          "discipline": "Urban Economics"
+        },
+        {
+          "name": "Regional Science and Urban Economics",
+          "detail": "0166-0462",
+          "discipline": "Urban Economics"
+        },
+        {
+          "name": "Journal of Economic Geography",
+          "detail": "1468-2702",
+          "discipline": "Economic Geography"
+        },
+        {
+          "name": "Journal of Public Economics",
+          "detail": "0047-2727",
+          "discipline": "Public Economics"
+        },
+        {
+          "name": "RAND Journal of Economics",
+          "detail": "0741-6261",
+          "discipline": "Industrial Organization"
+        },
+        {
+          "name": "Journal of Development Economics",
+          "detail": "0304-3878",
+          "discipline": "Development Economics"
+        },
+        {
+          "name": "World Bank Economic Review",
+          "detail": "0258-6770",
+          "discipline": "Development Economics"
+        },
+        {
+          "name": "Journal of Economic Growth",
+          "detail": "1381-4338",
+          "discipline": "Growth Economics"
+        },
+        {
+          "name": "Review of World Economics",
+          "detail": "1610-2878",
+          "discipline": "International Economics"
+        },
+        {
+          "name": "Review of International Economics",
+          "detail": "0965-7576",
+          "discipline": "International Economics"
+        },
+        {
+          "name": "World Economy",
+          "detail": "0378-5920",
+          "discipline": "International Economics"
+        },
+        {
+          "name": "IMF Economic Review",
+          "detail": "2041-4161",
+          "discipline": "International Economics"
+        },
+        {
+          "name": "Journal of International Money and Finance",
+          "detail": "0261-5606",
+          "discipline": "International Economics"
+        },
+        {
+          "name": "Journal of Regional Science",
+          "detail": "0022-4146",
+          "discipline": "Regional Science"
+        },
+        {
+          "name": "Regional Studies",
+          "detail": "0034-3404",
+          "discipline": "Regional Science"
+        },
+        {
+          "name": "Papers in Regional Science",
+          "detail": "1056-8190",
+          "discipline": "Regional Science"
+        },
+        {
+          "name": "Spatial Economic Analysis",
+          "detail": "1742-1772",
+          "discipline": "Spatial Economics"
+        },
+        {
+          "name": "Annals of Regional Science",
+          "detail": "0570-1864",
+          "discipline": "Regional Science"
+        },
+        {
+          "name": "International Regional Science Review",
+          "detail": "0160-0176",
+          "discipline": "Regional Science"
+        },
+        {
+          "name": "Regional Science Policy & Practice",
+          "detail": "1757-7802",
+          "discipline": "Regional Science"
+        },
+        {
+          "name": "Economic Geography",
+          "detail": "0013-0095",
+          "discipline": "Economic Geography"
+        },
+        {
+          "name": "Growth and Change",
+          "detail": "0017-4815",
+          "discipline": "Regional Science"
+        },
+        {
+          "name": "Journal of Housing Economics",
+          "detail": "1051-1377",
+          "discipline": "Urban Economics"
+        },
+        {
+          "name": "Real Estate Economics",
+          "detail": "1080-8620",
+          "discipline": "Urban Economics"
+        },
+        {
+          "name": "Urban Studies",
+          "detail": "0042-0980",
+          "discipline": "Urban Studies"
+        },
+        {
+          "name": "Cities",
+          "detail": "0264-2751",
+          "discipline": "Urban Studies"
+        },
+        {
+          "name": "Environment and Planning A: Economy and Space",
+          "detail": "0308-518X",
+          "discipline": "Economic Geography"
+        },
+        {
+          "name": "Journal of Transport Geography",
+          "detail": "0966-6923",
+          "discipline": "Transport Geography"
+        },
+        {
+          "name": "Journal of Labor Economics",
+          "detail": "0734-306X",
+          "discipline": "Labor Economics"
+        },
+        {
+          "name": "Labour Economics",
+          "detail": "0927-5371",
+          "discipline": "Labor Economics"
+        },
+        {
+          "name": "Journal of Human Resources",
+          "detail": "0022-166X",
+          "discipline": "Labor Economics"
+        },
+        {
+          "name": "Journal of Population Economics",
+          "detail": "0933-1433",
+          "discipline": "Labor Economics"
+        },
+        {
+          "name": "Journal of Industrial Economics",
+          "detail": "0022-1821",
+          "discipline": "Industrial Organization"
+        },
+        {
+          "name": "International Journal of Industrial Organization",
+          "detail": "0167-7187",
+          "discipline": "Industrial Organization"
+        },
+        {
+          "name": "Review of Industrial Organization",
+          "detail": "0889-938X",
+          "discipline": "Industrial Organization"
+        },
+        {
+          "name": "Journal of Economics & Management Strategy",
+          "detail": "1058-6407",
+          "discipline": "Industrial Organization"
+        },
+        {
+          "name": "Journal of Economic Behavior & Organization",
+          "detail": "0167-2681",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Comparative Economics",
+          "detail": "0147-5967",
+          "discipline": "Comparative Economics"
+        },
+        {
+          "name": "Journal of Policy Analysis and Management",
+          "detail": "0276-8739",
+          "discipline": "Public Policy"
+        },
+        {
+          "name": "National Tax Journal",
+          "detail": "0028-0283",
+          "discipline": "Public Economics"
+        },
+        {
+          "name": "International Tax and Public Finance",
+          "detail": "0927-5940",
+          "discipline": "Public Economics"
+        },
+        {
+          "name": "Public Choice",
+          "detail": "0048-5829",
+          "discipline": "Political Economy"
+        },
+        {
+          "name": "Economics of Governance",
+          "detail": "1435-6104",
+          "discipline": "Political Economy"
+        }
+      ]
+    },
+    {
+      "id": "crossref-data-policy-environment",
+      "name": "Crossref — data, measurement, environment, and tourism",
+      "adapter": "crossref",
+      "kind": "article",
+      "enabled": true,
+      "description": "Data construction, causal and spatial measurement, environmental and energy economics, remote sensing, and tourism applications.",
+      "method": "Crossref journal works by ISSN, filtered to the issue window.",
+      "entry_count": 29,
+      "entries": [
+        {
+          "name": "Journal of Environmental Economics and Management",
+          "detail": "0095-0696",
+          "discipline": "Environmental Economics"
+        },
+        {
+          "name": "Energy Economics",
+          "detail": "0140-9883",
+          "discipline": "Energy Economics"
+        },
+        {
+          "name": "Resource and Energy Economics",
+          "detail": "0928-7655",
+          "discipline": "Environmental Economics"
+        },
+        {
+          "name": "Ecological Economics",
+          "detail": "0921-8009",
+          "discipline": "Environmental Economics"
+        },
+        {
+          "name": "Review of Environmental Economics and Policy",
+          "detail": "1750-6816",
+          "discipline": "Environmental Economics"
+        },
+        {
+          "name": "Journal of Economic Dynamics and Control",
+          "detail": "0165-1889",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Economic Modelling",
+          "detail": "0264-9993",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Economic Surveys",
+          "detail": "0950-0804",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Journal of Policy Modeling",
+          "detail": "0161-8938",
+          "discipline": "Public Policy"
+        },
+        {
+          "name": "Statistical Science",
+          "detail": "0883-4237",
+          "discipline": "Statistics"
+        },
+        {
+          "name": "Annals of Statistics",
+          "detail": "0090-5364",
+          "discipline": "Statistics"
+        },
+        {
+          "name": "Journal of Computational and Graphical Statistics",
+          "detail": "1061-8600",
+          "discipline": "Statistics"
+        },
+        {
+          "name": "Journal of Causal Inference",
+          "detail": "2193-3677",
+          "discipline": "Econometrics"
+        },
+        {
+          "name": "Journal of the Royal Statistical Society Series A",
+          "detail": "0964-1998",
+          "discipline": "Statistics"
+        },
+        {
+          "name": "Journal of the Royal Statistical Society Series B",
+          "detail": "1369-7412",
+          "discipline": "Statistics"
+        },
+        {
+          "name": "Political Analysis",
+          "detail": "1047-1987",
+          "discipline": "Political Methodology"
+        },
+        {
+          "name": "Sociological Methods & Research",
+          "detail": "0049-1241",
+          "discipline": "Social Science Methods"
+        },
+        {
+          "name": "Data & Policy",
+          "detail": "2632-3249",
+          "discipline": "Data Science"
+        },
+        {
+          "name": "Scientific Data",
+          "detail": "2052-4463",
+          "discipline": "Data Science"
+        },
+        {
+          "name": "Remote Sensing of Environment",
+          "detail": "0034-4257",
+          "discipline": "Remote Sensing"
+        },
+        {
+          "name": "ISPRS International Journal of Geo-Information",
+          "detail": "2220-9964",
+          "discipline": "Geospatial Data"
+        },
+        {
+          "name": "International Journal of Geographical Information Science",
+          "detail": "1365-8816",
+          "discipline": "Geospatial Data"
+        },
+        {
+          "name": "Journal of Geographical Systems",
+          "detail": "1435-5930",
+          "discipline": "Geospatial Methods"
+        },
+        {
+          "name": "Demography",
+          "detail": "0070-3370",
+          "discipline": "Demography"
+        },
+        {
+          "name": "Population and Development Review",
+          "detail": "0098-7921",
+          "discipline": "Demography"
+        },
+        {
+          "name": "Tourism Economics",
+          "detail": "1354-8166",
+          "discipline": "Tourism Economics"
+        },
+        {
+          "name": "Annals of Tourism Research",
+          "detail": "0160-7383",
+          "discipline": "Tourism"
+        },
+        {
+          "name": "Tourism Management",
+          "detail": "0261-5177",
+          "discipline": "Tourism"
+        },
+        {
+          "name": "Journal of Travel Research",
+          "detail": "0047-2875",
+          "discipline": "Tourism"
+        }
+      ]
+    },
+    {
+      "id": "crossref-transport-operations",
+      "name": "Crossref — transportation, logistics, maritime, and operations research",
+      "adapter": "crossref",
+      "kind": "article",
+      "enabled": true,
+      "description": "Transport economics and geography, routing, logistics, maritime systems, operations research, production, and queueing.",
+      "method": "Crossref journal works by ISSN, filtered to the issue window.",
+      "entry_count": 40,
+      "entries": [
+        {
+          "name": "Transportation Science",
+          "detail": "0041-1655",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Operations Research",
+          "detail": "0030-364X",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Management Science",
+          "detail": "0025-1909",
+          "discipline": "Management"
+        },
+        {
+          "name": "Mathematics of Operations Research",
+          "detail": "0364-765X",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Transportation Research Part A: Policy and Practice",
+          "detail": "0965-8564",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Transportation Research Part B: Methodological",
+          "detail": "0191-2615",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Transportation Research Part C: Emerging Technologies",
+          "detail": "0968-090X",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Transportation Research Part D: Transport and Environment",
+          "detail": "1361-9209",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Transportation Research Part E: Logistics and Transportation Review",
+          "detail": "1366-5545",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Transport Policy",
+          "detail": "0967-070X",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Transportation",
+          "detail": "0049-4488",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Transport Reviews",
+          "detail": "0144-1647",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Economics of Transportation",
+          "detail": "2212-0122",
+          "discipline": "Transportation Economics"
+        },
+        {
+          "name": "Journal of Transport Economics and Policy",
+          "detail": "0022-5258",
+          "discipline": "Transportation Economics"
+        },
+        {
+          "name": "Research in Transportation Economics",
+          "detail": "0739-8859",
+          "discipline": "Transportation Economics"
+        },
+        {
+          "name": "Transportation Research Record",
+          "detail": "0361-1981",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Journal of Air Transport Management",
+          "detail": "0969-6997",
+          "discipline": "Transportation"
+        },
+        {
+          "name": "Maritime Economics & Logistics",
+          "detail": "1479-2931",
+          "discipline": "Maritime Economics"
+        },
+        {
+          "name": "Maritime Policy & Management",
+          "detail": "0308-8839",
+          "discipline": "Maritime Studies"
+        },
+        {
+          "name": "Journal of Shipping and Trade",
+          "detail": "2364-4575",
+          "discipline": "Maritime Economics"
+        },
+        {
+          "name": "International Journal of Shipping and Transport Logistics",
+          "detail": "1756-6517",
+          "discipline": "Maritime Logistics"
+        },
+        {
+          "name": "Production and Operations Management",
+          "detail": "1059-1478",
+          "discipline": "Operations Management"
+        },
+        {
+          "name": "Manufacturing & Service Operations Management",
+          "detail": "1523-4614",
+          "discipline": "Operations Management"
+        },
+        {
+          "name": "European Journal of Operational Research",
+          "detail": "0377-2217",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Omega",
+          "detail": "0305-0483",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Operations Research Letters",
+          "detail": "0167-6377",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Queueing Systems",
+          "detail": "0257-0130",
+          "discipline": "Applied Probability"
+        },
+        {
+          "name": "Stochastic Systems",
+          "detail": "1946-5238",
+          "discipline": "Applied Probability"
+        },
+        {
+          "name": "Annals of Operations Research",
+          "detail": "0254-5330",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Networks",
+          "detail": "0028-3045",
+          "discipline": "Network Optimization"
+        },
+        {
+          "name": "INFORMS Journal on Computing",
+          "detail": "1091-9856",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Naval Research Logistics",
+          "detail": "0894-069X",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Networks and Spatial Economics",
+          "detail": "1566-113X",
+          "discipline": "Spatial Economics"
+        },
+        {
+          "name": "International Journal of Production Economics",
+          "detail": "0925-5273",
+          "discipline": "Operations Management"
+        },
+        {
+          "name": "Journal of Operations Management",
+          "detail": "0272-6963",
+          "discipline": "Operations Management"
+        },
+        {
+          "name": "Supply Chain Management: An International Journal",
+          "detail": "1359-8546",
+          "discipline": "Supply Chain Management"
+        },
+        {
+          "name": "Journal of Business Logistics",
+          "detail": "0735-3766",
+          "discipline": "Logistics"
+        },
+        {
+          "name": "Computers & Operations Research",
+          "detail": "0305-0548",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Socio-Economic Planning Sciences",
+          "detail": "0038-0121",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Reliability Engineering & System Safety",
+          "detail": "0951-8320",
+          "discipline": "Reliability"
+        }
+      ]
+    },
+    {
+      "id": "crossref-math-networks",
+      "name": "Crossref — applied mathematics, probability, optimization, and network science",
+      "adapter": "crossref",
+      "kind": "article",
+      "enabled": true,
+      "description": "PDEs, integral equations, optimal control, probability, optimization, numerical analysis, and network science with possible transfer to economic models.",
+      "method": "Crossref journal works by ISSN, filtered to the issue window.",
+      "entry_count": 40,
+      "entries": [
+        {
+          "name": "SIAM Journal on Applied Mathematics",
+          "detail": "0036-1399",
+          "discipline": "Applied Mathematics"
+        },
+        {
+          "name": "SIAM Journal on Control and Optimization",
+          "detail": "0363-0129",
+          "discipline": "Applied Mathematics"
+        },
+        {
+          "name": "SIAM Journal on Mathematical Analysis",
+          "detail": "0036-1410",
+          "discipline": "Applied Mathematics"
+        },
+        {
+          "name": "SIAM Journal on Numerical Analysis",
+          "detail": "0036-1429",
+          "discipline": "Numerical Analysis"
+        },
+        {
+          "name": "SIAM Journal on Optimization",
+          "detail": "1052-6234",
+          "discipline": "Optimization"
+        },
+        {
+          "name": "SIAM Journal on Scientific Computing",
+          "detail": "1064-8275",
+          "discipline": "Scientific Computing"
+        },
+        {
+          "name": "Journal of Differential Equations",
+          "detail": "0022-0396",
+          "discipline": "Partial Differential Equations"
+        },
+        {
+          "name": "Calculus of Variations and Partial Differential Equations",
+          "detail": "0944-2669",
+          "discipline": "Partial Differential Equations"
+        },
+        {
+          "name": "Communications in Partial Differential Equations",
+          "detail": "0360-5302",
+          "discipline": "Partial Differential Equations"
+        },
+        {
+          "name": "Nonlinear Analysis: Theory, Methods & Applications",
+          "detail": "0362-546X",
+          "discipline": "Applied Mathematics"
+        },
+        {
+          "name": "Applied Mathematics & Optimization",
+          "detail": "0095-4616",
+          "discipline": "Optimization"
+        },
+        {
+          "name": "Mathematical Models and Methods in Applied Sciences",
+          "detail": "0218-2025",
+          "discipline": "Applied Mathematics"
+        },
+        {
+          "name": "Journal of Mathematical Economics",
+          "detail": "0304-4068",
+          "discipline": "Mathematical Economics"
+        },
+        {
+          "name": "Mathematical Social Sciences",
+          "detail": "0165-4896",
+          "discipline": "Mathematical Economics"
+        },
+        {
+          "name": "ESAIM: Control, Optimisation and Calculus of Variations",
+          "detail": "1292-8119",
+          "discipline": "Optimal Control"
+        },
+        {
+          "name": "Annals of Applied Probability",
+          "detail": "1050-5164",
+          "discipline": "Applied Probability"
+        },
+        {
+          "name": "Stochastic Processes and their Applications",
+          "detail": "0304-4149",
+          "discipline": "Applied Probability"
+        },
+        {
+          "name": "Probability in the Engineering and Informational Sciences",
+          "detail": "0269-9648",
+          "discipline": "Applied Probability"
+        },
+        {
+          "name": "Networks and Heterogeneous Media",
+          "detail": "1556-1801",
+          "discipline": "Network PDEs"
+        },
+        {
+          "name": "Mathematical Programming",
+          "detail": "0025-5610",
+          "discipline": "Optimization"
+        },
+        {
+          "name": "Optimization and Engineering",
+          "detail": "1389-4420",
+          "discipline": "Optimization"
+        },
+        {
+          "name": "Computational Optimization and Applications",
+          "detail": "0926-6003",
+          "discipline": "Optimization"
+        },
+        {
+          "name": "Mathematical Methods of Operations Research",
+          "detail": "1432-2994",
+          "discipline": "Operations Research"
+        },
+        {
+          "name": "Network Science",
+          "detail": "2050-1242",
+          "discipline": "Network Science"
+        },
+        {
+          "name": "Social Networks",
+          "detail": "0378-8733",
+          "discipline": "Network Science"
+        },
+        {
+          "name": "Physica A: Statistical Mechanics and its Applications",
+          "detail": "0378-4371",
+          "discipline": "Complex Systems"
+        },
+        {
+          "name": "Journal of Complex Networks",
+          "detail": "2051-1310",
+          "discipline": "Network Science"
+        },
+        {
+          "name": "EPJ Data Science",
+          "detail": "2193-1127",
+          "discipline": "Network Science"
+        },
+        {
+          "name": "Applied Network Science",
+          "detail": "2364-8228",
+          "discipline": "Network Science"
+        },
+        {
+          "name": "Chaos",
+          "detail": "1054-1500",
+          "discipline": "Dynamical Systems"
+        },
+        {
+          "name": "Physical Review E",
+          "detail": "2470-0045",
+          "discipline": "Complex Systems"
+        },
+        {
+          "name": "Journal of Nonlinear Science",
+          "detail": "0938-8974",
+          "discipline": "Dynamical Systems"
+        },
+        {
+          "name": "Annales de l’Institut Henri Poincaré C, Analyse non linéaire",
+          "detail": "0294-1449",
+          "discipline": "Partial Differential Equations"
+        },
+        {
+          "name": "Communications in Mathematical Sciences",
+          "detail": "1539-6746",
+          "discipline": "Applied Mathematics"
+        },
+        {
+          "name": "European Journal of Applied Mathematics",
+          "detail": "0956-7925",
+          "discipline": "Applied Mathematics"
+        },
+        {
+          "name": "Journal of Scientific Computing",
+          "detail": "0885-7474",
+          "discipline": "Scientific Computing"
+        },
+        {
+          "name": "Numerische Mathematik",
+          "detail": "0029-599X",
+          "discipline": "Numerical Analysis"
+        },
+        {
+          "name": "Foundations of Computational Mathematics",
+          "detail": "1615-3375",
+          "discipline": "Computational Mathematics"
+        },
+        {
+          "name": "Discrete and Continuous Dynamical Systems",
+          "detail": "1078-0947",
+          "discipline": "Dynamical Systems"
+        },
+        {
+          "name": "Journal of Dynamics and Differential Equations",
+          "detail": "1040-7294",
+          "discipline": "Dynamical Systems"
+        }
+      ]
+    },
+    {
+      "id": "crossref-history-geoeconomics",
+      "name": "Crossref — economic history, political economy, conflict, and geoeconomics",
+      "adapter": "crossref",
+      "kind": "article",
+      "enabled": true,
+      "description": "Historical economic geography, conflict, international political economy, security, sanctions, and strategic dependence.",
+      "method": "Crossref journal works by ISSN, filtered to the issue window.",
+      "entry_count": 20,
+      "entries": [
+        {
+          "name": "Journal of Economic History",
+          "detail": "0022-0507",
+          "discipline": "Economic History"
+        },
+        {
+          "name": "Economic History Review",
+          "detail": "0013-0117",
+          "discipline": "Economic History"
+        },
+        {
+          "name": "Explorations in Economic History",
+          "detail": "0014-4983",
+          "discipline": "Economic History"
+        },
+        {
+          "name": "European Review of Economic History",
+          "detail": "1361-4916",
+          "discipline": "Economic History"
+        },
+        {
+          "name": "Cliometrica",
+          "detail": "1863-2505",
+          "discipline": "Economic History"
+        },
+        {
+          "name": "International Organization",
+          "detail": "0020-8183",
+          "discipline": "International Relations"
+        },
+        {
+          "name": "Journal of Conflict Resolution",
+          "detail": "0022-0027",
+          "discipline": "Conflict Studies"
+        },
+        {
+          "name": "Journal of Peace Research",
+          "detail": "0022-3433",
+          "discipline": "Conflict Studies"
+        },
+        {
+          "name": "World Politics",
+          "detail": "0043-8871",
+          "discipline": "International Relations"
+        },
+        {
+          "name": "Review of International Political Economy",
+          "detail": "0969-2290",
+          "discipline": "International Political Economy"
+        },
+        {
+          "name": "International Security",
+          "detail": "0162-2889",
+          "discipline": "Security Studies"
+        },
+        {
+          "name": "Security Studies",
+          "detail": "0963-6412",
+          "discipline": "Security Studies"
+        },
+        {
+          "name": "American Political Science Review",
+          "detail": "0003-0554",
+          "discipline": "Political Science"
+        },
+        {
+          "name": "Journal of Politics",
+          "detail": "0022-3816",
+          "discipline": "Political Science"
+        },
+        {
+          "name": "Political Science Research and Methods",
+          "detail": "2049-8470",
+          "discipline": "Political Science"
+        },
+        {
+          "name": "International Studies Quarterly",
+          "detail": "0020-8833",
+          "discipline": "International Relations"
+        },
+        {
+          "name": "Defence and Peace Economics",
+          "detail": "1024-2694",
+          "discipline": "Defense Economics"
+        },
+        {
+          "name": "Journal of Global Security Studies",
+          "detail": "2057-3170",
+          "discipline": "Security Studies"
+        },
+        {
+          "name": "Foreign Policy Analysis",
+          "detail": "1743-8586",
+          "discipline": "International Relations"
+        },
+        {
+          "name": "Diplomatic History",
+          "detail": "0145-2096",
+          "discipline": "History"
+        }
+      ]
+    },
+    {
+      "id": "crossref-innovation-organizations",
+      "name": "Crossref — innovation, organizations, entrepreneurship, and AI",
+      "adapter": "crossref",
+      "kind": "article",
+      "enabled": true,
+      "description": "Innovation, firm organization, entrepreneurship, science policy, information systems, and the economics and organization of AI.",
+      "method": "Crossref journal works by ISSN, filtered to the issue window.",
+      "entry_count": 26,
+      "entries": [
+        {
+          "name": "Organization Science",
+          "detail": "1047-7039",
+          "discipline": "Organization Studies"
+        },
+        {
+          "name": "Strategic Management Journal",
+          "detail": "0143-2095",
+          "discipline": "Management"
+        },
+        {
+          "name": "Research Policy",
+          "detail": "0048-7333",
+          "discipline": "Innovation Studies"
+        },
+        {
+          "name": "Industrial and Corporate Change",
+          "detail": "0960-6491",
+          "discipline": "Innovation Studies"
+        },
+        {
+          "name": "Information Economics and Policy",
+          "detail": "0167-6245",
+          "discipline": "Information Economics"
+        },
+        {
+          "name": "Information Systems Research",
+          "detail": "1047-7047",
+          "discipline": "Information Systems"
+        },
+        {
+          "name": "MIS Quarterly",
+          "detail": "0276-7783",
+          "discipline": "Information Systems"
+        },
+        {
+          "name": "Academy of Management Journal",
+          "detail": "0001-4273",
+          "discipline": "Management"
+        },
+        {
+          "name": "Academy of Management Review",
+          "detail": "0363-7425",
+          "discipline": "Management"
+        },
+        {
+          "name": "Administrative Science Quarterly",
+          "detail": "0001-8392",
+          "discipline": "Organization Studies"
+        },
+        {
+          "name": "Strategic Entrepreneurship Journal",
+          "detail": "1932-4391",
+          "discipline": "Entrepreneurship"
+        },
+        {
+          "name": "Journal of Business Venturing",
+          "detail": "0883-9026",
+          "discipline": "Entrepreneurship"
+        },
+        {
+          "name": "Entrepreneurship Theory and Practice",
+          "detail": "1042-2587",
+          "discipline": "Entrepreneurship"
+        },
+        {
+          "name": "Small Business Economics",
+          "detail": "0921-898X",
+          "discipline": "Entrepreneurship"
+        },
+        {
+          "name": "Science and Public Policy",
+          "detail": "0302-3427",
+          "discipline": "Science Policy"
+        },
+        {
+          "name": "Technological Forecasting and Social Change",
+          "detail": "0040-1625",
+          "discipline": "Innovation Studies"
+        },
+        {
+          "name": "Technovation",
+          "detail": "0166-4972",
+          "discipline": "Innovation Studies"
+        },
+        {
+          "name": "Journal of Technology Transfer",
+          "detail": "0892-9912",
+          "discipline": "Innovation Studies"
+        },
+        {
+          "name": "Research Evaluation",
+          "detail": "0958-2029",
+          "discipline": "Science Policy"
+        },
+        {
+          "name": "AI & Society",
+          "detail": "0951-5666",
+          "discipline": "Artificial Intelligence"
+        },
+        {
+          "name": "Nature Machine Intelligence",
+          "detail": "2522-5839",
+          "discipline": "Artificial Intelligence"
+        },
+        {
+          "name": "Artificial Intelligence",
+          "detail": "0004-3702",
+          "discipline": "Artificial Intelligence"
+        },
+        {
+          "name": "Journal of Artificial Intelligence Research",
+          "detail": "1076-9757",
+          "discipline": "Artificial Intelligence"
+        },
+        {
+          "name": "Journal of Machine Learning Research",
+          "detail": "1532-4435",
+          "discipline": "Machine Learning"
+        },
+        {
+          "name": "Harvard Data Science Review",
+          "detail": "2644-2353",
+          "discipline": "Data Science"
+        },
+        {
+          "name": "Big Data & Society",
+          "detail": "2053-9517",
+          "discipline": "Data Science"
+        }
+      ]
+    },
+    {
+      "id": "arxiv-economics-methods",
+      "name": "arXiv — economics and transferable methods",
+      "adapter": "arxiv",
+      "kind": "preprint",
+      "enabled": true,
+      "description": "Recent preprints in economics, optimization, probability, PDEs, networks, AI, and machine learning.",
+      "method": "Official arXiv Atom API, sorted by last update and filtered to the issue window.",
+      "entry_count": 20,
+      "entries": [
+        {
+          "name": "econ.EM",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "econ.GN",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "econ.TH",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "math.AP",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "math.DS",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "math.OC",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "math.PR",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "math.NA",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "math.CO",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "cs.GT",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "cs.SI",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "cs.AI",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "cs.LG",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "cs.MA",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "stat.ML",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "physics.soc-ph",
+          "detail": "arXiv category",
+          "discipline": ""
+        },
+        {
+          "name": "spatial-and-transport",
+          "detail": "all:\"spatial equilibrium\" OR all:\"transport network\" OR all:\"route choice\"",
+          "discipline": ""
+        },
+        {
+          "name": "shipping-and-supply-chains",
+          "detail": "all:\"maritime shipping\" OR all:\"port congestion\" OR all:\"supply chain disruption\"",
+          "discipline": ""
+        },
+        {
+          "name": "optimal-transport-and-pdes",
+          "detail": "all:\"optimal transport\" OR all:\"metric graph\" OR all:\"Hammerstein integral equation\"",
+          "discipline": ""
+        },
+        {
+          "name": "queueing-and-reliability",
+          "detail": "all:\"queueing network\" OR all:\"heavy traffic\" OR all:\"travel time reliability\"",
+          "discipline": ""
+        }
+      ]
+    },
+    {
+      "id": "nber-working-papers",
+      "name": "NBER Working Papers",
+      "adapter": "nber",
+      "kind": "working-paper",
+      "enabled": true,
+      "description": "NBER working papers with title, abstract, author, date, JEL, program, and publication metadata.",
+      "method": "Official NBER weekly metadata tables.",
+      "entry_count": 1,
+      "entries": [
+        {
+          "name": "NBER Working Papers",
+          "detail": "https://data.nber.org/nber_paper_chapter_metadata/tsv",
+          "discipline": "Economics"
+        }
+      ]
+    },
+    {
+      "id": "official-working-paper-feeds",
+      "name": "Official working-paper feeds — CEPR and Federal Reserve Board",
+      "adapter": "rss",
+      "kind": "working-paper",
+      "enabled": true,
+      "description": "New CEPR Discussion Papers and Federal Reserve Board FEDS and IFDP working papers.",
+      "method": "Official publisher RSS feeds.",
+      "entry_count": 3,
+      "entries": [
+        {
+          "name": "CEPR Discussion Papers",
+          "detail": "https://cepr.org/rss/discussion-paper",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Federal Reserve FEDS",
+          "detail": "https://www.federalreserve.gov/feeds/feds.xml",
+          "discipline": "Economics"
+        },
+        {
+          "name": "Federal Reserve IFDP",
+          "detail": "https://www.federalreserve.gov/feeds/ifdp.xml",
+          "discipline": "International Economics"
+        }
+      ]
+    },
+    {
+      "id": "fixture-demo",
+      "name": "Synthetic demo records",
+      "adapter": "fixture",
+      "kind": "fixture",
+      "enabled": false,
+      "description": "Invented records used only for deterministic offline testing.",
+      "method": "Local JSON fixture.",
+      "entry_count": 1,
+      "entries": [
+        {
+          "name": "Synthetic demo records",
+          "detail": "",
+          "discipline": ""
+        }
+      ]
+    }
+  ]
+}

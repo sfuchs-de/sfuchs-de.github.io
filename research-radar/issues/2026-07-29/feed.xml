@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Research Radar</title>
+    <description>Weekly research selected against active projects</description>
+    <link>https://sfuchs-de.github.io/research-radar/</link>
+    <lastBuildDate>Thu, 30 Jul 2026 17:51:59 +0000</lastBuildDate>
+    <item>
+      <title>Discrete-to-continuum limits of semilinear stochastic evolution equations in Banach spaces</title>
+      <link>https://doi.org/10.1016/j.jde.2026.114628</link>
+      <guid isPermaLink="false">work:233e15fd570d6c8672cac8aa450f7fd7272018b3770c4f2ff751e11cd38828a3</guid>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0000</pubDate>
+      <category>Continuum spatial theory</category>
+      <description>The title indicates a study of Discrete-to-continuum limits of semilinear stochastic evolution equations in Banach spaces. Why it is here: Relevant to Continuum spatial theory because it matches open question: discrete-to-continuum limit; substantive fit: continuum limit</description>
+    </item>
+    <item>
+      <title>Integrating Structure and Attributes for Transportation Network Partitioning via Optimal Transport</title>
+      <link>https://arxiv.org/abs/2607.24506v1</link>
+      <guid isPermaLink="false">work:952588a8627af1700bddfc017aa7536f781f2e51f8f9592b02f84ba836b8621b</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+      <category>Multimodal transport networks</category>
+      <description>Transportation network partitioning is essential for applications such as traffic analysis, simulation, and mobility pattern identification. Why it is here: Relevant to Multimodal transport networks because it matches substantive fit: transportation network; transferable method: transportation network partitioning</description>
+    </item>
+    <item>
+      <title>Structural resilience assessment of Alliance-Based liner shipping Networks: A Dismantling-Based approach</title>
+      <link>https://doi.org/10.1016/j.tre.2026.105117</link>
+      <guid isPermaLink="false">work:f6549e98058ff0a5c4c7c68077878fe95a4343bae847f910a674224aa0c7ebe7</guid>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0000</pubDate>
+      <category>Maritime vulnerability and geoeconomics</category>
+      <description>The title indicates a study of Structural resilience assessment of Alliance-Based liner shipping Networks: A Dismantling-Based approach. Why it is here: Relevant to Maritime vulnerability and geoeconomics because it matches substantive fit: shipping network, liner shipping</description>
+    </item>
+    <item>
+      <title>Geospatial Analysis of the Evolution of European Tourism in Spain Using Mobile Phone Data, the Space–Time Cube, and Emerging Hot Spot Analysis</title>
+      <link>https://doi.org/10.3390/ijgi15080338</link>
+      <guid isPermaLink="false">work:fb96e58728b21719abd2fd0d1bb3238ddf2843d7cd39cb061039237fe0a373c4</guid>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <category>Urban welfare, tourism, and local demand</category>
+      <description>In Spain, inbound European tourism exhibits marked territorial imbalances whose evolution is difficult to characterize using aggregate indicators. Why it is here: Relevant to Urban welfare, tourism, and local demand because it matches substantive fit: tourism; data opportunity: mobile phone data</description>
+    </item>
+    <item>
+      <title>ReasFlow: Assisting Reasoning-Centric Scientific Discovery in Applied Mathematics via a Knowledge-Based Multi-Agent System</title>
+      <link>https://arxiv.org/abs/2607.14178v2</link>
+      <guid isPermaLink="false">work:829fbe3aaeeace5ff4ab23600a501083beb0f71edcfcb64ca132abb634799c4e</guid>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <category>Economics of AI and research systems</category>
+      <description>Recent advances in Large Language Models have fueled autonomous AI agents capable of tackling complex scientific tasks, yet existing automated research systems remain predominantly focused on empirically driven domains with quantitative benchmarks, leaving theory-driven discovery, particularly in mathematically grounded disciplines requiring rigorous proofs and synthesis of… Why it is here: Relevant to Economics of AI and research systems because it matches substantive fit: multi-agent system, scientific discovery, AI agent</description>
+    </item>
+    <item>
+      <title>System optimality versus self-organization in metro networks: An optimal transport analysis</title>
+      <link>https://arxiv.org/abs/2607.25003v1</link>
+      <guid isPermaLink="false">work:dcb4422f3dd97220598e1fec782639ddd4d052bb7f3a72cb5a5bfecac14c2225</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+      <category>Multimodal transport networks</category>
+      <description>Urban transportation network design is typically approached through top-down planning grounded in engineering and economics. Why it is here: Relevant to Multimodal transport networks because it matches substantive fit: metro network, transportation network</description>
+    </item>
+    <item>
+      <title>Global production networks and imperfect competition</title>
+      <link>https://doi.org/10.1016/j.jinteco.2026.104315</link>
+      <guid isPermaLink="false">work:f559745cbe1e75602b55bc58e1e2ac18731ba9f022e7c2776ad9a3f715bd2e97</guid>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <category>Spatial trade and network economics</category>
+      <description>The title indicates a study of Global production networks and imperfect competition. Why it is here: Relevant to Spatial trade and network economics because it matches substantive fit: production network, imperfect competition</description>
+    </item>
+  </channel>
+</rss>
