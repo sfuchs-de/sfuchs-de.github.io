@@ -89,6 +89,8 @@ nav a:hover, nav a:focus-visible { color: var(--accent); }
 .session-number { padding-top: 30px; color: var(--accent); font-family: var(--sans); font-size: 0.82rem; font-weight: 850; letter-spacing: .08em; }
 .session-body { display: grid; grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr); gap: 55px; padding: 29px 0 32px; }
 .session h3 { margin: 0; font-family: var(--sans); font-size: clamp(1.28rem, 2.15vw, 1.82rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.08; }
+.session-time { margin: 0 0 9px; color: var(--accent); font-size: 0.69rem; font-weight: 800; letter-spacing: 0.075em; line-height: 1.35; text-transform: uppercase; }
+.session-room { margin: 12px 0 0; color: var(--muted); font-size: 0.72rem; font-weight: 650; line-height: 1.4; }
 .papers { margin: 0; padding: 0; list-style: none; }
 .papers li { display: grid; grid-template-columns: minmax(0, 1fr) 155px; gap: 18px; padding: 9px 0; border-bottom: 1px dotted var(--line); }
 .papers li:first-child { padding-top: 0; }
