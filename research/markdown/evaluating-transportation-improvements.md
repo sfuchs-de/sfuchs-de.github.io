@@ -2,6 +2,7 @@
 title: "From Social Savings to Spatial Equilibrium: Evaluating Transportation Improvements in Quantitative Spatial Models"
 authors: "Treb Allen, Simon Fuchs, and Woan Foong Wong"
 date: "August 2026"
+publication_status: "Forthcoming in Regional Science and Urban Economics"
 pdf: "/research/EvalTransportImprovements_AFW_draft.pdf"
 markdown_source: "/research/markdown/evaluating-transportation-improvements.md"
 markdown_generated: "2026-08-04"
@@ -11,6 +12,7 @@ markdown_generated: "2026-08-04"
 
 **Authors:** Treb Allen, Simon Fuchs, and Woan Foong Wong<br>
 **Version:** August 2026<br>
+**Publication status:** Forthcoming in *Regional Science and Urban Economics* (special issue on “Urban Economics and Transport”)<br>
 **JEL:** H54, R12, R13, R41, R42<br>
 **Keywords:** Transportation networks; infrastructure; social savings; quantitative spatial models
 
