@@ -2,6 +2,7 @@
 title: "The Spoils of War: Trade Shocks & Segmented Labor Markets in Spain during WWI"
 authors: "Simon Fuchs"
 date: "February 2026"
+publication_status: "Revision requested (2nd Round) by the Journal of International Economics"
 pdf: "/research/spoils_of_war.pdf"
 markdown_source: "/research/markdown/spoils-of-war.md"
 markdown_generated: "2026-07-20"
@@ -11,6 +12,7 @@ markdown_generated: "2026-07-20"
 
 **Authors:** Simon Fuchs<br>
 **Version:** February 2026<br>
+**Publication status:** Revision requested (2nd Round) by the *Journal of International Economics*<br>
 **JEL:** D5, F11, F12, F15, F16, N9, N14, R12, R13<br>
 **Keywords:** Gains from trade; labor mobility; economic geography
 

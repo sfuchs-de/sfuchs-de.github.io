@@ -2,6 +2,7 @@
 title: "The Price of Delay: Supply Chain Disruptions and Pricing Dynamics"
 authors: "Salomé Baslandze and Simon Fuchs"
 date: "February 28, 2026"
+publication_status: "Published in the Journal of International Economics, volume 162, article 104265 (2026)"
 pdf: "/research/Baslandze-Fuchs-Price-of-Delay.pdf"
 markdown_source: "/research/markdown/price-of-delay.md"
 markdown_generated: "2026-07-20"
@@ -11,6 +12,7 @@ markdown_generated: "2026-07-20"
 
 **Authors:** Salomé Baslandze and Simon Fuchs<br>
 **Version:** February 28, 2026<br>
+**Publication status:** Published in the [*Journal of International Economics*](https://doi.org/10.1016/j.jinteco.2026.104265), volume 162, article 104265 (2026)<br>
 **JEL:** E31, F14<br>
 **Keywords:** Supply chains; inflation; delivery delays; strategic complementarity; pass-through; inventory
 

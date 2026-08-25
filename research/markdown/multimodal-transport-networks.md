@@ -2,6 +2,7 @@
 title: "Multimodal Transport Networks"
 authors: "Simon Fuchs and Woan Foong Wong"
 date: "April 2026"
+publication_status: "NBER Working Paper No. 35065 (2026)"
 pdf: "/research/Multimodal_FW_compressed-compressed.pdf"
 markdown_source: "/research/markdown/multimodal-transport-networks.md"
 markdown_generated: "2026-07-20"
@@ -11,6 +12,7 @@ markdown_generated: "2026-07-20"
 
 **Authors:** Simon Fuchs and Woan Foong Wong<br>
 **Version:** April 2026<br>
+**Publication status:** [NBER Working Paper No. 35065](https://www.nber.org/papers/w35065) (2026); [NBER Digest](https://www.nber.org/digest/202607/multimodal-freight-transport), July 2026<br>
 **JEL:** F11, R12, R42<br>
 **Keywords:** Multimodal transport; transport networks; spatial equilibrium; endogenous transport costs; infrastructure investments; disruptions; bottlenecks
 

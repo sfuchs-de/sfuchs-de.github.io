@@ -2,6 +2,7 @@
 title: "Economic Diversity and the Resilience of Cities"
 authors: "François de Soyres, Simon Fuchs, Illenin O. Kondo, and Hélène Maghin"
 date: "September 2025"
+publication_status: "Published in the Journal of International Economics, volume 158, article 104184 (2025)"
 pdf: "/research/economic_resilience_v2.pdf"
 markdown_source: "/research/markdown/economic-diversity-resilience-cities.md"
 markdown_generated: "2026-07-20"
@@ -11,6 +12,7 @@ markdown_generated: "2026-07-20"
 
 **Authors:** François de Soyres, Simon Fuchs, Illenin O. Kondo, and Hélène Maghin<br>
 **Version:** September 2025<br>
+**Publication status:** Published in the [*Journal of International Economics*](https://doi.org/10.1016/j.jinteco.2025.104184), volume 158, article 104184 (2025)<br>
 **JEL:** J61, J62, J21<br>
 **Keywords:** Sufficient statistics; labor flows; concentration; economic diversity; welfare
 
