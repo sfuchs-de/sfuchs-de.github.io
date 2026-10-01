@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Maritime disruption exposure across U.S. imports, products, chokepoints and ports. Research by Simon Fuchs and Fernando Leibovici.">
+  <meta name="color-scheme" content="light">
+  <title>Maritime Disruptions | Fuchs &amp; Leibovici</title>
+  <link rel="canonical" href="https://sfuchs-de.github.io/maritime-pressure/">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/d3.min.js"></script>
+  <script defer src="vendor/lucide.min.js"></script>
+  <script defer src="data.js"></script>
+  <script defer src="geometry.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to results</a>
+  <header class="site-header">
+    <a class="home-link" href="https://sfuchs-de.github.io/">Simon Fuchs <span>/ Research</span></a>
+    <div class="header-links"><span class="draft-label">Research draft</span><a href="assets/maritime-methodology.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Paper</a></div>
+  </header>
+  <main id="main">
+    <section class="heading">
+      <div><p class="eyebrow">Simon Fuchs &amp; Fernando Leibovici</p><h1>Maritime Disruptions</h1><p class="subtitle">Exposure of U.S. imports to disrupted shipping routes.</p></div>
+      <div class="release-stamp"><span class="status-dot"></span><div><strong id="release-month"></strong><span>Last complete month</span></div></div>
+    </section>
+    <section class="metrics" aria-label="Current index readings" aria-live="polite">
+      <div><span class="metric-label" id="current-month"></span><strong id="current-value"></strong><small>National index points</small></div>
+      <div><span class="metric-label">Change from prior month</span><strong id="monthly-change"></strong><small>Index points</small></div>
+      <div><span class="metric-label">Largest chokepoint contribution</span><strong class="text-metric" id="leading-gate"></strong><small id="leading-gate-share"></small></div>
+      <div><span class="metric-label">Route coverage</span><strong id="route-coverage"></strong><small id="basket-years"></small></div>
+    </section>
+    <div class="analysis-bar">
+      <div class="date-control"><label for="focus-month">Month</label><select id="focus-month"></select></div>
+      <div class="episode-buttons" role="group" aria-label="Selected episodes"><button data-month="2024-01">Red Sea <span>Jan 2024</span></button><button data-month="2026-03">Hormuz <span>Mar 2026</span></button><button id="latest-month">Latest</button></div>
+      <button id="download-data" class="icon-button" title="Download current view as CSV" aria-label="Download current view as CSV"><i data-lucide="download"></i></button>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Results views">
+      <button role="tab" id="tab-national" data-view="national" aria-selected="true" aria-controls="view-national"><i data-lucide="chart-no-axes-combined"></i> National</button>
+      <button role="tab" id="tab-gates" data-view="gates" aria-selected="false" aria-controls="view-gates" tabindex="-1"><i data-lucide="waypoints"></i> Chokepoints</button>
+      <button role="tab" id="tab-products" data-view="products" aria-selected="false" aria-controls="view-products" tabindex="-1"><i data-lucide="package"></i> Products</button>
+      <button role="tab" id="tab-ports" data-view="ports" aria-selected="false" aria-controls="view-ports" tabindex="-1"><i data-lucide="map-pin"></i> Ports</button>
+      <button role="tab" id="tab-methods" data-view="methods" aria-selected="false" aria-controls="view-methods" tabindex="-1" title="Methods and data sources"><i data-lucide="book-open"></i> Methods</button>
+    </nav>
+    <section class="result-view" id="view-national" role="tabpanel" aria-labelledby="tab-national">
+      <div class="section-heading"><div><h2>National maritime pressure</h2><p>Vessel-import-weighted route shortfalls, in index points</p></div><div class="range-control"><label for="range-start">From</label><select id="range-start"></select><label for="range-end">To</label><select id="range-end"></select></div></div>
+      <div id="national-chart" class="chart main-chart"></div>
+      <p class="figure-note">100 times average route log shortfall, weighted by vessel-import value. Not a percentage of imports lost. Dashed markers locate January 2024 and March 2026. Persistent disruption enters the rolling traffic normal, so lower readings need not imply recovery to pre-disruption traffic.</p>
+      <div class="paired-results">
+        <section><div class="section-heading"><div><h2>Where pressure comes from</h2><p id="national-gates-period"></p></div></div><div id="national-gates-chart" class="chart bar-chart"></div><p class="figure-note">Chokepoint contributions sum to the national reading.</p></section>
+        <section><div class="section-heading"><div><h2>Energy and nonenergy imports</h2><p>Within-group pressure, index points</p></div></div><div id="energy-chart" class="chart small-chart"></div><div class="legend"><span><b style="background:var(--orange)"></b>Energy imports (HS 27)</span><span><b style="background:var(--teal)"></b>Nonenergy imports</span></div><p class="figure-note">Each group uses its own vessel-import denominator. These two lines are not additive.</p></section>
+      </div>
+    </section>
+    <section class="result-view" id="view-gates" role="tabpanel" aria-labelledby="tab-gates" hidden>
+      <div class="section-heading"><div><h2>Disruptions at the chokepoints</h2><p id="gate-unit"></p></div><div class="view-controls"><label class="sr-only" for="gate-metric">Chokepoint measure</label><select id="gate-metric"><option value="contribution">Contribution to national index</option><option value="pressure">Unweighted traffic pressure</option></select><label class="sr-only" for="vessel-class">Vessel class</label><select id="vessel-class" disabled><option value="container">Container ships</option><option value="other_vessel">Other vessels</option></select></div></div>
+      <div id="gate-heatmap" class="chart heatmap"></div>
+      <p class="figure-note" id="gate-note"></p>
+      <div class="paired-results"><section><div class="section-heading"><div><h2>Selected chokepoint</h2></div><label class="sr-only" for="gate-selected">Chokepoint</label><select id="gate-selected"></select></div><div id="gate-history" class="chart small-chart"></div></section><section><div class="section-heading"><div><h2>Location</h2><p>Eight monitored waterways</p></div></div><div id="gate-map" class="chart small-chart geographic"></div><p class="figure-note">Locations are schematic points; traffic pressure is measured at the gate, not across the whole sea.</p></section></div>
+    </section>
+    <section class="result-view" id="view-products" role="tabpanel" aria-labelledby="tab-products" hidden>
+      <div class="section-heading"><div><h2>Exposure across products</h2><p id="product-unit"></p></div><label class="sr-only" for="product-metric">Product measure</label><select id="product-metric"><option value="contribution">Contribution to national index</option><option value="pressure">Within-product pressure</option></select></div>
+      <div class="paired-results product-results"><section><div id="product-ranking" class="chart bar-chart"></div></section><section><div class="section-heading compact"><label for="product-selected">Product category</label><select id="product-selected"></select></div><div id="product-history" class="chart small-chart"></div></section></div>
+      <p class="figure-note" id="product-note"></p>
+      <div class="section-heading"><div><h2>Product exposure over time</h2><p>January 2022 onward; same units as the selected measure above</p></div></div><div id="product-heatmap" class="chart heatmap"></div>
+    </section>
+    <section class="result-view" id="view-ports" role="tabpanel" aria-labelledby="tab-ports" hidden>
+      <div class="section-heading"><div><h2>U.S. port exposure</h2><p>Circle area: national contribution. Color: pressure on assigned routes.</p></div><label class="sr-only" for="port-region">Gateway region</label><select id="port-region"><option value="All">All gateways</option><option>East Coast</option><option>Gulf Coast</option><option>West Coast</option><option>Great Lakes / inland</option><option>Noncontiguous</option></select></div>
+      <div id="port-map" class="chart port-map geographic"></div>
+      <div class="map-key"><span id="port-size-key"></span><span class="color-key"><span id="port-color-low"></span><b></b><span id="port-color-high"></span> route pressure points</span></div>
+      <p class="figure-note" id="port-map-note">Map shows contiguous coastal gateways; national totals and the unfiltered table retain all 99 gateways, including inland and noncontiguous locations.</p>
+      <div class="section-heading"><div><h2>Gateway contributions</h2><p id="port-table-count"></p></div><label class="search-field"><i data-lucide="search"></i><span class="sr-only">Search gateways</span><input id="port-search" type="search" placeholder="Search gateways"></label></div>
+      <div class="table-scroll"><table id="port-table"><thead><tr><th scope="col">Gateway</th><th scope="col">Region</th><th scope="col"><button data-sort="contribution" title="Sort by contribution">Contribution <i data-lucide="arrow-down-up"></i></button></th><th scope="col"><button data-sort="pressure" title="Sort by route pressure">Route pressure <i data-lucide="arrow-down-up"></i></button></th><th scope="col"><button data-sort="assignedValue" title="Sort by assigned import value">Assigned value <i data-lucide="arrow-down-up"></i></button></th></tr></thead><tbody></tbody></table></div>
+      <p class="figure-note">Contribution is in national index points. Route pressure divides by assigned gateway value; it is not a percentage of imports lost. Assigned value is annual average customs value in the selected year's three-year basket.</p>
+    </section>
+    <section class="result-view methods" id="view-methods" role="tabpanel" aria-labelledby="tab-methods" hidden>
+      <div class="section-heading"><div><h2>From shipping conditions to import exposure</h2><p>The same construction used in the accompanying methodology note</p></div><a class="paper-link" href="assets/maritime-methodology.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Methodology PDF</a></div>
+      <div class="method-grid"><article><h3>1. Value the imports</h3><p>Census records identify imports by U.S. port, trading partner, six-digit product and vessel class. Each flow receives its average customs value over the preceding three calendar years. The basket changes once a year.</p></article><article><h3>2. Locate the routes</h3><p>PortWatch's 2019 export activity allocates each partner's trade across foreign loading ports. SeaRoute assigns feasible shortest paths to the U.S. gateway. The 2019 route shares remain fixed, including when ships later reroute.</p></article><article><h3>3. Measure the disruption</h3><p>Daily container and other-vessel activity is compared with its seasonal normal over the preceding three years. Traffic below normal produces a positive log shortfall. Each route takes the largest monthly shortfall among its monitored gates, avoiding serial double counting.</p></article><article><h3>4. Add up the exposure</h3><p>The national index is 100 times the vessel-import-weighted average route shortfall. Products, ports and binding gates partition that total. Unassigned imports remain in the denominator and contribute zero measured pressure.</p></article></div>
+      <figure class="route-figure"><img src="assets/baseline-routes.png" alt="Frozen 2019 modeled maritime routes with U.S. ports, monitored chokepoints and East, Gulf and West Coast enlargements" loading="lazy"><figcaption>2019 baseline routes. Widths encode assigned import value; the network stays fixed as the annual trade basket changes.</figcaption></figure>
+      <div class="method-grid"><article><h3>Reading the index</h3><p>Higher readings mean more U.S. maritime import value is exposed to larger traffic shortfalls. They are not inflation estimates or percentages of imports lost. The measure covers U.S. import routes, not all global shipping or the world oil-price channel.</p></article><article><h3>Reading changes over time</h3><p>Persistent disruption eventually enters the rolling traffic normal. The fall around early 2026 does not, by itself, show recovery to pre-Red Sea traffic. Changes in the annual trade basket can also affect January readings.</p></article></div>
+      <h3>Sources and release</h3><div id="source-links" class="source-links"></div><dl class="release-details"><dt>Snapshot</dt><dd id="snapshot-id"></dd><dt>PortWatch retrieved</dt><dd id="retrieved-at"></dd><dt>Latest daily observation</dt><dd id="daily-endpoint"></dd><dt>Published complete months</dt><dd id="complete-period"></dd><dt>Weights and routes</dt><dd>Three-year Census baskets for 2022-26; retained 2019 route allocation. Panjiva and GFW are not inputs to this index.</dd></dl>
+      <p class="figure-note">This is a dated research release, not a live feed. Only PortWatch observations were refreshed on October 1; the retained Census baskets and baseline routes were not newly acquired. No September monthly reading is published.</p>
+      <a class="paper-link" href="data.json" download="maritime-pressure-data.json"><i data-lucide="download"></i> Complete dashboard data</a>
+    </section>
+    <noscript><p class="error-note">The charts require JavaScript. The <a href="assets/maritime-methodology.pdf">methodology PDF</a> and <a href="data.json">complete data</a> remain available.</p></noscript>
+    <p id="app-error" class="error-note" hidden></p>
+  </main>
+  <footer><div>Simon Fuchs &amp; Fernando Leibovici <span id="footer-vintage"></span></div><p>Research draft. Views expressed are those of the authors and do not necessarily reflect those of the Federal Reserve Banks of Atlanta or Dallas, or the Federal Reserve System.</p></footer>
+  <div id="tooltip" role="status" hidden></div>
+</body>
+</html>
