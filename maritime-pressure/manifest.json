@@ -1,0 +1,43 @@
+{
+  "data_snapshot": "policyhub_portwatch_20261001",
+  "rows": {
+    "months": 56,
+    "gates": 448,
+    "products": 448,
+    "ports": 5544,
+    "energy": 112,
+    "unweighted_gates": 896
+  },
+  "partition_errors_points": {
+    "gates": 7.105427357601002e-15,
+    "products": 7.105427357601002e-15,
+    "ports": 7.105427357601002e-15,
+    "energy": 7.105427357601002e-15
+  },
+  "input_checksums": {
+    "national.csv": "869093b5baeac30bd48d65fb9542f85b6af091267e517bbb618a42069a880025",
+    "gates.csv": "7b872674acd9585e83fdedc9b2141055263b330561a6b27466be4509aadccaa1",
+    "products.csv": "3e5be0b8c32f2e9b4c151c5ca21149e3754b7fca9694a2659fad2916cb7f481f",
+    "gateways.csv": "348b83f6e574feba95fa308cb88aed55fa82782de19417a2a99dc090315923b9",
+    "energy.csv": "dc0a75ca55a131439c3895b1ec3d244030a39637605c13a2f6e0a7608d0b0848",
+    "support.csv": "d831d3d40f92218c2296521996239be0dbd4c52fb07191094a709cd025652910",
+    "gate_pressure_monthly.parquet": "d33e17f98e5651d6c8a7be993213b79ae73346e28045b1069bdad94a63f3929f",
+    "complete_months.csv": "c7fa5062b2808adeadcc71a9745e508085d99c61b7966e2a8a16bb5f459117ff"
+  },
+  "region_crosswalk_sha256": "01bfe53a160c35bf530e042811bd1a72570c2af0dafbd82fab8af8ebca152781",
+  "exported_files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "app.js": "f0e1ce50bdb529b2fa98eca67a5b4b91218c65b1990e98afdc49ab2eff0cdef3",
+    "assets/baseline-routes.png": "ce0c47534fbe2bed039439a9dcdfe0ac9c22dff543ca89fea268981589db3c00",
+    "assets/maritime-methodology.pdf": "386637f69d1112a19f91cc0782b1eea9753570b402b8b58ba7b02a5c18f990a7",
+    "data.js": "feee9659be8f5cbacccc199df684297e01b94685be100c7c397f434237426e45",
+    "data.json": "66cb1726f583fe2fe0e5193c40841bad374a33ec5eca3366bf7dedf9d0274340",
+    "geometry.js": "9b7b168135e1568fb65bfd21c0d38391c227c50bef9abf2ea0e0d73ea7a74174",
+    "index.html": "4741bdf2dde73f13e04fe2addf1f7b927c4f854ed7bec12ddde36d70b3ca11b0",
+    "styles.css": "9f1458ec4cb6c763647f9df4a5d7ce7d664cb84bb38f901ba525bfa48c285750",
+    "vendor/D3-LICENSE.txt": "3e6849627f74ff73c257a3ae1efb574015d94fc1035c05ec3c15805165efcbc4",
+    "vendor/LUCIDE-LICENSE.txt": "1e7290b35280a048667bbf0ebabac1c7fd52a75300e8b2946ac165715997f2bc",
+    "vendor/d3.min.js": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539",
+    "vendor/lucide.min.js": "3411692820cb8d47543f69496aa25fd603a358f4498046f41c508a5a3342210e"
+  }
+}
