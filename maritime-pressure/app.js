@@ -13,6 +13,8 @@
     GIBRALTAR: '#859aa5', MALACCA: '#718a58', DOVER: '#987f92', TAIWAN_STR: '#858d92' };
   const months = D.months;
   const fmt = d3.format('.2f');
+  const fmtPoint = value => value > 0 && value < .005 ? '<0.01' : fmt(value);
+  const fmtValue = value => value === 0 ? '$0' : value >= 1e9 ? d3.format('$.2f')(value / 1e9) + 'bn' : d3.format('$.3s')(value);
   const pct = d3.format('.1%');
   const monthLabel = m => d3.utcFormat('%b %Y')(new Date(m + '-01T00:00:00Z'));
   const date = m => new Date(m + '-01T00:00:00Z');
@@ -163,14 +165,11 @@
     const row = D.national.find(r => r.month === state.month);
     const previous = D.national[months.indexOf(state.month) - 1];
     const leading = D.gates.filter(r => r.month === state.month).sort((a, b) => b.contribution - a.contribution)[0];
-    const support = D.support.find(r => r.year === Number(state.month.slice(0, 4)));
     $('current-month').textContent = monthLabel(state.month);
     $('current-value').textContent = fmt(row.value);
     $('monthly-change').textContent = previous ? d3.format('+.2f')(row.value - previous.value) : 'n/a';
     $('leading-gate').textContent = leading.label;
     $('leading-gate-share').textContent = `${fmt(leading.contribution)} points / ${pct(leading.contribution / row.value)} of total`;
-    $('route-coverage').textContent = pct(support.coverage);
-    $('basket-years').textContent = `${support.basket} trade basket`;
     document.querySelectorAll('[data-month]').forEach(b => {const active = b.dataset.month === state.month; b.classList.toggle('active', active); b.setAttribute('aria-pressed', active);});
     $('latest-month').classList.toggle('active', state.month === D.meta.lastMonth);
     $('latest-month').setAttribute('aria-pressed', state.month === D.meta.lastMonth);
@@ -196,14 +195,21 @@
       });
   }
   function portTable() {
-    const rows = portRows(); const national = D.national.find(r => r.month === state.month).value;
-    $('port-table-count').textContent = `${rows.length} gateways / ${fmt(d3.sum(rows, r => r.contribution))} of ${fmt(national)} national points`;
+    const matches = portRows();
+    const leaders = new Set([...matches].sort((a, b) => b.contribution - a.contribution || a.label.localeCompare(b.label)).slice(0, 30).map(r => r.id));
+    const rows = matches.filter(r => leaders.has(r.id));
+    const national = D.national.find(r => r.month === state.month).value;
+    const total = d3.sum(rows, r => r.contribution);
+    const count = matches.length > rows.length ? `Top ${rows.length} of ${matches.length} gateways` : `${rows.length} matching gateways`;
+    $('port-table-count').textContent = `${count} / ${fmt(total)} of ${fmt(national)} national points (${pct(total / national)})`;
     const body = $('port-table').querySelector('tbody'); body.replaceChildren();
     rows.forEach(r => {
       const tr = document.createElement('tr');
-      [r.label, r.region, fmt(r.contribution), r.pressure === null ? 'n/a' : fmt(r.pressure), d3.format('$.2f')(r.assignedValue / 1e9) + 'bn'].forEach((value, i) => {
+      tr.dataset.gateway = r.id;
+      [r.label, fmtPoint(r.contribution), r.pressure === null ? 'n/a' : fmtPoint(r.pressure), fmtValue(r.assignedValue), r.region].forEach((value, i) => {
         const td = document.createElement('td'); td.textContent = value;
         if (i === 0 && r.domain !== 'ocean') {const detail = document.createElement('span'); detail.className = 'port-domain'; detail.textContent = 'Inland / Great Lakes gateway'; td.append(detail);}
+        if (i === 0 && r.assignedValue === 0) {const detail = document.createElement('span'); detail.className = 'port-domain'; detail.textContent = 'No assigned imports in this basket'; td.append(detail);}
         tr.append(td);
       });
       body.append(tr);
@@ -229,7 +235,7 @@
     const plotted = rows.filter(r => r.lon >= bounds[0] && r.lon <= bounds[1] && r.lat >= bounds[2] && r.lat <= bounds[3] && (r.domain === 'ocean' || state.region === 'Great Lakes / inland'));
     const groups = c.svg.append('g').selectAll('g').data([...plotted].sort((a, b) => b.contribution - a.contribution)).join('g').attr('transform', r => `translate(${projection([r.lon, r.lat])})`);
     groups.append('circle').attr('r', r => r.contribution > 0 ? radius(r.contribution) : 2).attr('fill', r => r.contribution > 0 ? color(r.pressure) : 'white').attr('stroke', r => r.contribution > 0 ? 'white' : '#829598').attr('stroke-width', 1.2).attr('opacity', .94);
-    groups.append('circle').attr('r', r => Math.max(7, radius(r.contribution))).attr('fill', 'transparent').on('pointermove', (event, r) => tip(event, r.label, [`Contribution: ${fmt(r.contribution)} national points`, `Assigned-route pressure: ${r.pressure === null ? 'not available' : fmt(r.pressure) + ' points'}`, `Assigned import value: ${d3.format('$.2f')(r.assignedValue / 1e9)}bn`, r.region])).on('pointerleave', hideTip);
+    groups.append('circle').attr('r', r => Math.max(7, radius(r.contribution))).attr('fill', 'transparent').on('pointermove', (event, r) => tip(event, r.label, [`Contribution: ${fmtPoint(r.contribution)} national points`, `Assigned-route pressure: ${r.pressure === null ? 'not available; no assigned imports in this basket' : fmtPoint(r.pressure) + ' points'}`, `Assigned import value: ${fmtValue(r.assignedValue)}`, r.region])).on('pointerleave', hideTip);
     const labels = [...plotted].sort((a, b) => b.contribution - a.contribution).filter(r => r.contribution > 0).slice(0, c.width < 600 ? 3 : 5);
     const placed = [];
     labels.forEach(r => {
@@ -243,7 +249,7 @@
     $('port-size-key').textContent = 'Circle areas use one scale across all months; hollow dots denote zero.';
     $('port-color-low').textContent = '0'; $('port-color-high').textContent = maxPressure;
     $('port-map-note').textContent = state.region === 'All'
-      ? 'Map shows contiguous coastal gateways; national totals and the unfiltered table retain all 99 gateways, including inland and noncontiguous locations.'
+      ? 'Map shows contiguous coastal gateways; national totals and the full data retain all 99 gateways, including inland and noncontiguous locations.'
       : `${state.region} map. This is a location and exposure view, not an observed voyage map. The national total retains all 99 gateways.`;
   }
   function gateRows() {
@@ -251,7 +257,7 @@
   }
   function render() {
     metrics(); hideTip();
-    const downloadLabel = state.view === 'methods' ? 'Download all dashboard data as JSON' : 'Download current view as CSV';
+    const downloadLabel = state.view === 'methods' ? 'Download all dashboard data as JSON' : state.view === 'ports' ? 'Download all matching gateways as CSV' : 'Download current view as CSV';
     $('download-data').title = downloadLabel; $('download-data').setAttribute('aria-label', downloadLabel);
     if (state.view === 'national') {
       timeChart('national-chart', [{label: 'National index', color: colors.national, rows: D.national}], 'National maritime pressure, January 2022 onward', {events: true});
