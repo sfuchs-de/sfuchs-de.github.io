@@ -304,6 +304,8 @@
   $('snapshot-id').textContent = D.meta.snapshot;
   $('retrieved-at').textContent = D.meta.retrievedAt.slice(0, 10);
   $('daily-endpoint').textContent = D.meta.dailyEndpoint;
+  const dailyMonth = D.meta.dailyEndpoint.slice(0, 7);
+  $('release-coverage-note').textContent = `This is a dated data release, not a live feed. PortWatch observations were retrieved on ${D.meta.retrievedAt.slice(0, 10)}; the Census baskets and frozen 2019 routes are retained. Complete monthly readings end in ${monthLabel(D.meta.lastMonth)}.${dailyMonth > D.meta.lastMonth ? ` Daily data through ${D.meta.dailyEndpoint} do not cover a complete ${monthLabel(dailyMonth)}; that month is not published as a monthly reading.` : ''} The published article describes the method; dashboard data can have a later vintage.`;
   $('complete-period').textContent = `${monthLabel(D.meta.firstMonth)} - ${monthLabel(D.meta.lastMonth)} (${D.meta.completeMonths} months)`;
   $('footer-vintage').textContent = `PortWatch snapshot: ${D.meta.retrievedAt.slice(0, 10)}`;
   D.meta.sources.forEach(source => {const a = document.createElement('a'); a.href = source.url; a.textContent = source.label; a.target = '_blank'; a.rel = 'noopener'; $('source-links').append(a);});
@@ -340,6 +342,11 @@
   window.addEventListener('hashchange', () => {
     const p = new URLSearchParams(location.hash.slice(1));
     if (months.includes(p.get('month'))) state.month = p.get('month');
+    state.start = months.includes(p.get('from')) ? p.get('from') : months[0];
+    state.end = months.includes(p.get('to')) ? p.get('to') : months.at(-1);
+    if (state.start >= state.end) {state.start = months[0]; state.end = months.at(-1);}
+    if (state.month < state.start || state.month > state.end) state.month = state.end;
+    $('range-start').value = state.start; $('range-end').value = state.end;
     $('focus-month').value = state.month; setView(views.includes(p.get('view')) ? p.get('view') : 'national');
   });
   lucide.createIcons();
