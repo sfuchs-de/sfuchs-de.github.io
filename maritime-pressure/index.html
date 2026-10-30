@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Maritime disruption exposure across U.S. imports, products, chokepoints and ports. Research by Simon Fuchs and Fernando Leibovici.">
+  <meta name="description" content="Interactive companion to Measuring Maritime Disruptions: A Route-Based Index of US Import Exposure, by Simon Fuchs and Fernando Leibovici. Atlanta Fed Policy Hub 2026-9.">
   <meta name="color-scheme" content="light">
-  <title>Maritime Disruptions | Fuchs &amp; Leibovici</title>
+  <title>Measuring Maritime Disruptions | Fuchs &amp; Leibovici</title>
   <link rel="canonical" href="https://sfuchs-de.github.io/maritime-pressure/">
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="vendor/d3.min.js"></script>
-  <script defer src="vendor/lucide.min.js"></script>
-  <script defer src="data.js"></script>
-  <script defer src="geometry.js"></script>
-  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="styles.css?v=bed4dcc7de81d380">
+  <script defer src="vendor/d3.min.js?v=bed4dcc7de81d380"></script>
+  <script defer src="vendor/lucide.min.js?v=bed4dcc7de81d380"></script>
+  <script defer src="data.js?v=bed4dcc7de81d380"></script>
+  <script defer src="geometry.js?v=bed4dcc7de81d380"></script>
+  <script defer src="app.js?v=bed4dcc7de81d380"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to results</a>
   <header class="site-header">
     <a class="home-link" href="https://sfuchs-de.github.io/">Simon Fuchs <span>/ Research</span></a>
-    <div class="header-links"><span class="draft-label">Research draft</span><a href="assets/maritime-methodology.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Paper</a></div>
+    <div class="header-links"><a class="publication-label" href="https://www.atlantafed.org/research-and-data/publications/policy-hub-papers/2026/10/14/09-measuring-maritime-disruptions-route-based-index-of-us-import-exposure" target="_blank" rel="noopener">Policy Hub 2026-9</a></div>
   </header>
   <main id="main">
     <section class="heading">
-      <div><p class="eyebrow">Simon Fuchs &amp; Fernando Leibovici</p><h1>Maritime Disruptions</h1><p class="subtitle">Exposure of U.S. imports to disrupted shipping routes.</p></div>
+      <div><p class="eyebrow">Simon Fuchs &amp; Fernando Leibovici</p><h1>Maritime Disruptions</h1><p class="subtitle">A route-based index of US import exposure.</p></div>
       <div class="release-stamp"><span class="status-dot"></span><div><strong id="release-month"></strong><span>Last complete month</span></div></div>
     </section>
     <section class="metrics" aria-label="Current index readings" aria-live="polite">
@@ -73,18 +73,19 @@
       <p class="figure-note">Contribution equals route pressure times assigned imports' share of the national basket. &lt;0.01 denotes a small positive contribution; n/a means no assigned import value in this basket. Assigned value is annual average customs value in the selected year's three-year basket. National totals and the full data retain all 99 gateways.</p>
     </section>
     <section class="result-view methods" id="view-methods" role="tabpanel" aria-labelledby="tab-methods" hidden>
-      <div class="section-heading"><div><h2>From shipping conditions to import exposure</h2><p>The same construction used in the accompanying methodology note</p></div><a class="paper-link" href="assets/maritime-methodology.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Methodology PDF</a></div>
+      <div class="section-heading"><div><h2>From shipping conditions to import exposure</h2><p>Construction described in the published Policy Hub paper</p></div><a class="paper-link" href="assets/maritime-methodology.pdf" target="_blank" rel="noopener"><i data-lucide="file-text"></i> Published paper (PDF)</a></div>
+      <p class="publication-citation">Fuchs, Simon, and Fernando Leibovici (2026). <a href="https://www.atlantafed.org/research-and-data/publications/policy-hub-papers/2026/10/14/09-measuring-maritime-disruptions-route-based-index-of-us-import-exposure" target="_blank" rel="noopener">Measuring Maritime Disruptions: A Route-Based Index of US Import Exposure</a>. Federal Reserve Bank of Atlanta, <em>Policy Hub</em> 2026-9, October 14. <a href="https://doi.org/10.29338/ph2026-09" target="_blank" rel="noopener">doi:10.29338/ph2026-09</a>.</p>
       <div class="method-grid"><article><h3>1. Value the imports</h3><p>Census records identify imports by U.S. port, trading partner, six-digit product and vessel class. Each flow receives its average customs value over the preceding three calendar years. The basket changes once a year.</p></article><article><h3>2. Locate the routes</h3><p>PortWatch's 2019 export activity allocates each partner's trade across foreign loading ports. SeaRoute assigns feasible shortest paths to the U.S. gateway. The 2019 route shares remain fixed, including when ships later reroute.</p></article><article><h3>3. Measure the disruption</h3><p>Daily container and other-vessel activity is compared with its seasonal normal over the preceding three years. Traffic below normal produces a positive log shortfall. Each route takes the largest monthly shortfall among its monitored gates, avoiding serial double counting.</p></article><article><h3>4. Add up the exposure</h3><p>The national index is 100 times the vessel-import-weighted average route shortfall. Products, ports and binding gates partition that total. Unassigned imports remain in the denominator and contribute zero measured pressure.</p></article></div>
       <figure class="route-figure"><img src="assets/baseline-routes.png" alt="Frozen 2019 modeled maritime routes with U.S. ports, monitored chokepoints and East, Gulf and West Coast enlargements" loading="lazy"><figcaption>2019 baseline routes. Widths encode assigned import value; the network stays fixed as the annual trade basket changes.</figcaption></figure>
       <div class="method-grid"><article><h3>Reading the index</h3><p>Higher readings mean more U.S. maritime import value is exposed to larger traffic shortfalls. They are not inflation estimates or percentages of imports lost. The measure covers U.S. import routes, not all global shipping or the world oil-price channel.</p></article><article><h3>Reading changes over time</h3><p>Persistent disruption eventually enters the rolling traffic normal. The fall around early 2026 does not, by itself, show recovery to pre-Red Sea traffic. Changes in the annual trade basket can also affect January readings.</p></article></div>
       <h3>Sources and release</h3><div id="source-links" class="source-links"></div><dl class="release-details"><dt>Snapshot</dt><dd id="snapshot-id"></dd><dt>PortWatch retrieved</dt><dd id="retrieved-at"></dd><dt>Latest daily observation</dt><dd id="daily-endpoint"></dd><dt>Published complete months</dt><dd id="complete-period"></dd><dt>Weights and routes</dt><dd>Three-year Census baskets for 2022-26; retained 2019 route allocation. Panjiva and GFW are not inputs to this index.</dd></dl>
-      <p class="figure-note">This is a dated research release, not a live feed. Only PortWatch observations were refreshed on October 1; the retained Census baskets and baseline routes were not newly acquired. No September monthly reading is published.</p>
+      <p class="figure-note" id="release-coverage-note">This is a dated research release, not a live feed. Monthly readings include only complete calendar months. The retained Census baskets and baseline routes were not newly acquired.</p>
       <a class="paper-link" href="data.json" download="maritime-pressure-data.json"><i data-lucide="download"></i> Complete dashboard data</a>
     </section>
-    <noscript><p class="error-note">The charts require JavaScript. The <a href="assets/maritime-methodology.pdf">methodology PDF</a> and <a href="data.json">complete data</a> remain available.</p></noscript>
+    <noscript><p class="error-note">The charts require JavaScript. The <a href="assets/maritime-methodology.pdf">published paper</a> and <a href="data.json">complete data</a> remain available.</p></noscript>
     <p id="app-error" class="error-note" hidden></p>
   </main>
-  <footer><div>Simon Fuchs &amp; Fernando Leibovici <span id="footer-vintage"></span></div><p>Research draft. Views expressed are those of the authors and do not necessarily reflect those of the Federal Reserve Banks of Atlanta or Dallas, or the Federal Reserve System.</p></footer>
+  <footer><div>Simon Fuchs &amp; Fernando Leibovici <span id="footer-vintage"></span></div><p>Policy Hub 2026-9, published October 14, 2026. Views expressed are those of the authors and do not necessarily reflect those of the Federal Reserve Banks of Atlanta or Dallas, or the Federal Reserve System.</p></footer>
   <div id="tooltip" role="status" hidden></div>
 </body>
 </html>
