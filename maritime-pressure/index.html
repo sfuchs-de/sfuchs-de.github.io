@@ -7,12 +7,14 @@
   <meta name="color-scheme" content="light">
   <title>Measuring Maritime Disruptions | Fuchs &amp; Leibovici</title>
   <link rel="canonical" href="https://sfuchs-de.github.io/maritime-pressure/">
-  <link rel="stylesheet" href="styles.css?v=bed4dcc7de81d380">
-  <script defer src="vendor/d3.min.js?v=bed4dcc7de81d380"></script>
-  <script defer src="vendor/lucide.min.js?v=bed4dcc7de81d380"></script>
-  <script defer src="data.js?v=bed4dcc7de81d380"></script>
-  <script defer src="geometry.js?v=bed4dcc7de81d380"></script>
-  <script defer src="app.js?v=bed4dcc7de81d380"></script>
+  <link rel="stylesheet" href="styles.css?v=8dcc822b9b65f081">
+  <script defer src="vendor/d3.min.js?v=8dcc822b9b65f081"></script>
+  <script defer src="vendor/lucide.min.js?v=8dcc822b9b65f081"></script>
+  <script defer src="data.js?v=8dcc822b9b65f081"></script>
+  <script defer src="geometry.js?v=8dcc822b9b65f081"></script>
+  <script defer src="download-schema.js?v=8dcc822b9b65f081"></script>
+  <script defer src="downloads.js?v=8dcc822b9b65f081"></script>
+  <script defer src="app.js?v=8dcc822b9b65f081"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to results</a>
@@ -33,7 +35,7 @@
     <div class="analysis-bar">
       <div class="date-control"><label for="focus-month">Month</label><select id="focus-month"></select></div>
       <div class="episode-buttons" role="group" aria-label="Selected episodes"><button data-month="2024-01">Red Sea <span>Jan 2024</span></button><button data-month="2026-03">Hormuz <span>Mar 2026</span></button><button id="latest-month">Latest</button></div>
-      <button id="download-data" class="icon-button" title="Download current view as CSV" aria-label="Download current view as CSV"><i data-lucide="download"></i></button>
+      <button id="download-data" class="icon-button" title="Download CSV" aria-label="Download CSV" aria-haspopup="dialog"><i data-lucide="download"></i></button>
     </div>
     <nav class="tabs" role="tablist" aria-label="Results views">
       <button role="tab" id="tab-national" data-view="national" aria-selected="true" aria-controls="view-national"><i data-lucide="chart-no-axes-combined"></i> National</button>
@@ -80,12 +82,30 @@
       <div class="method-grid"><article><h3>Reading the index</h3><p>Higher readings mean more U.S. maritime import value is exposed to larger traffic shortfalls. They are not inflation estimates or percentages of imports lost. The measure covers U.S. import routes, not all global shipping or the world oil-price channel.</p></article><article><h3>Reading changes over time</h3><p>Persistent disruption eventually enters the rolling traffic normal. The fall around early 2026 does not, by itself, show recovery to pre-Red Sea traffic. Changes in the annual trade basket can also affect January readings.</p></article></div>
       <h3>Sources and release</h3><div id="source-links" class="source-links"></div><dl class="release-details"><dt>Snapshot</dt><dd id="snapshot-id"></dd><dt>PortWatch retrieved</dt><dd id="retrieved-at"></dd><dt>Latest daily observation</dt><dd id="daily-endpoint"></dd><dt>Published complete months</dt><dd id="complete-period"></dd><dt>Weights and routes</dt><dd>Three-year Census baskets for 2022-26; retained 2019 route allocation. Panjiva and GFW are not inputs to this index.</dd></dl>
       <p class="figure-note" id="release-coverage-note">This is a dated research release, not a live feed. Monthly readings include only complete calendar months. The retained Census baskets and baseline routes were not newly acquired.</p>
-      <a class="paper-link" href="data.json" download="maritime-pressure-data.json"><i data-lucide="download"></i> Complete dashboard data</a>
+      <button id="method-download" class="plain-button paper-link" type="button"><i data-lucide="download"></i> Download CSV</button>
     </section>
-    <noscript><p class="error-note">The charts require JavaScript. The <a href="assets/maritime-methodology.pdf">published paper</a> and <a href="data.json">complete data</a> remain available.</p></noscript>
+    <noscript><p class="error-note">The charts require JavaScript. The <a href="downloads/national.csv?v=8dcc822b9b65f081">national index CSV</a> and <a href="assets/maritime-methodology.pdf">published paper</a> remain available.</p></noscript>
     <p id="app-error" class="error-note" hidden></p>
+    <div id="download-fallback" class="download-links" hidden><a href="downloads/national.csv?v=8dcc822b9b65f081">National CSV</a><a href="downloads/chokepoint_contributions.csv?v=8dcc822b9b65f081">Chokepoint contributions CSV</a><a href="downloads/chokepoint_traffic.csv?v=8dcc822b9b65f081">Traffic pressure CSV</a><a href="downloads/products.csv?v=8dcc822b9b65f081">Products CSV</a><a href="downloads/ports.csv?v=8dcc822b9b65f081">Ports CSV</a><a href="downloads/energy.csv?v=8dcc822b9b65f081">Energy and nonenergy CSV</a><a href="downloads/annual_baskets.csv?v=8dcc822b9b65f081">Annual baskets CSV</a><a href="downloads/chokepoint_locations.csv?v=8dcc822b9b65f081">Chokepoint locations CSV</a></div>
   </main>
   <footer><div>Simon Fuchs &amp; Fernando Leibovici <span id="footer-vintage"></span></div><p>Policy Hub 2026-9, published October 14, 2026. Views expressed are those of the authors and do not necessarily reflect those of the Federal Reserve Banks of Atlanta or Dallas, or the Federal Reserve System.</p></footer>
   <div id="tooltip" role="status" hidden></div>
+  <dialog id="download-dialog" aria-labelledby="download-title">
+    <div class="download-heading"><h2 id="download-title">Download CSV</h2><button id="download-close" class="icon-button" title="Close downloads" aria-label="Close downloads"><i data-lucide="x"></i></button></div>
+    <p id="download-vintage" class="download-vintage"></p>
+    <form id="download-form">
+      <label for="download-dataset">Dataset</label><select id="download-dataset"></select>
+      <div id="download-dates" class="download-dates"><div><label for="download-start">From</label><select id="download-start"></select></div><div><label for="download-end">To</label><select id="download-end"></select></div><button id="download-all-months" type="button" class="plain-button">All months</button></div>
+      <div id="download-identity-control"><label for="download-identity">Chokepoint</label><select id="download-identity"></select></div>
+      <div id="download-vessel-control"><label for="download-vessel">Vessel class</label><select id="download-vessel"><option value="">Both vessel classes</option><option value="container">Container ships</option><option value="other_vessel">Other vessels (not tanker-only)</option></select></div>
+      <div id="download-port-controls"><label for="download-region">Region</label><select id="download-region"><option value="All">All gateways</option><option>East Coast</option><option>Gulf Coast</option><option>West Coast</option><option>Great Lakes / inland</option><option>Noncontiguous</option></select><label for="download-search">Gateway name</label><input id="download-search" type="search" placeholder="All matching gateways"></div>
+      <p id="download-count" role="status" aria-live="polite"></p><p id="download-definition" class="figure-note"></p>
+      <details class="download-preview"><summary>Preview data</summary><div class="download-preview-scroll"><table id="download-preview-table"><thead></thead><tbody></tbody></table></div></details>
+      <p id="download-filename"></p>
+      <button id="download-csv" class="download-primary" type="submit"><i data-lucide="download"></i> Download CSV</button>
+      <p id="download-error" class="error-note" role="alert" hidden></p>
+    </form>
+    <div class="download-links secondary"><a href="downloads/data-dictionary.csv?v=8dcc822b9b65f081" download="maritime-pressure-dictionary-vintage-2026-10-30.csv">Column definitions (CSV)</a></div>
+  </dialog>
 </body>
 </html>

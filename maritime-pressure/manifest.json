@@ -26,7 +26,23 @@
   },
   "region_crosswalk_sha256": "01bfe53a160c35bf530e042811bd1a72570c2af0dafbd82fab8af8ebca152781",
   "release_config_sha256": "7973b21a8981a8f2a1cdac684ac9d3fe99b654bddcfb9f0c43ce9dc6d7affd9a",
-  "asset_version": "bed4dcc7de81d380",
+  "downloads": {
+    "schema_version": 1,
+    "formats": [
+      "csv"
+    ],
+    "row_counts": {
+      "national": 57,
+      "chokepoint_contributions": 456,
+      "chokepoint_traffic": 912,
+      "products": 456,
+      "ports": 5643,
+      "energy": 114,
+      "annual_baskets": 5,
+      "chokepoint_locations": 8
+    }
+  },
+  "asset_version": "8dcc822b9b65f081",
   "publication": {
     "series": "Policy Hub",
     "number": "2026-9",
@@ -38,14 +54,25 @@
   },
   "exported_files": {
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "app.js": "24d4cfeec169b2f05f9aa37f7c5af453fc9180768621ef4193322ba6d14bb5ff",
+    "app.js": "9511987fac3a30c8edddee42430c1757c87d0f0ed9e8a1931cc681c125a3312c",
     "assets/baseline-routes.png": "ce0c47534fbe2bed039439a9dcdfe0ac9c22dff543ca89fea268981589db3c00",
     "assets/maritime-methodology.pdf": "7a0c829380675d66faf396293012ee507ac75981119c79a5ef5cdfa7198c5f56",
     "data.js": "19d7fd3f46e388d51227637073e3ecfcdd10cdae809df0a79956c324e9baa517",
     "data.json": "466a9cd0780f2dfe06fbeaa2c584b1021200789da6dca3dd6f1cc6fd5eb92121",
+    "download-schema.js": "ef3b5d11b23fb3d496fb21e88aa47a21e574e6516215ada024e2ecc64b46f26d",
+    "downloads.js": "a1beeee4c3c8c57172413a2a19b5e8c685011f394c1546483f8c09585379a99f",
+    "downloads/annual_baskets.csv": "161f52e4ffcd624b9eedefd11d1c6e172d8aabf42449d1e7b62cca94b36bcf93",
+    "downloads/chokepoint_contributions.csv": "416325b004cc8396f1c0e9f66faef8cd32c8bcef1b395339793f000ba335398b",
+    "downloads/chokepoint_locations.csv": "339e78ff5c2fec64d51111c1192839587f42e41cf5dd3ec9b792324636de7808",
+    "downloads/chokepoint_traffic.csv": "42962fea375e76ac2f7e33187fbca1138d22e5c334a6074dc920e8b627f9b552",
+    "downloads/data-dictionary.csv": "dd1140439d045f8e4268dd41f17de0e85d1b90e445bb8273444d944f92e7f7ab",
+    "downloads/energy.csv": "0847e07f15df92bae4e903cf430603ec2acf752dcfe885ae1df5b44518cd6422",
+    "downloads/national.csv": "b1dc353ea2985bf93060d702050662d2fa17eb405d99c5676fb21756bce62392",
+    "downloads/ports.csv": "42c043ae1d25fdc1f7d6d1e8f5e94980d8f0315a8643872e6bd18c185f0e122a",
+    "downloads/products.csv": "6f0912bd579698f01559413f2b86fa105091c5c2909cc5a2af82090a9ca79e47",
     "geometry.js": "9b7b168135e1568fb65bfd21c0d38391c227c50bef9abf2ea0e0d73ea7a74174",
-    "index.html": "d1b2e372079f28c1890dec0db3e1bb8a1a0bc5b02ffb4c721d78270e606889ed",
-    "styles.css": "5b9cdfae9b9c9fb7d474ea1865e6a8fafacc919559712863d40209ec32401c6e",
+    "index.html": "b4556c47141f8e1e4f2480013f35e6b85bfc554a4a7ff93ba8bb72e68b75ad63",
+    "styles.css": "f675dc2111cd73a8bec6729803beb73d19ec3803504059c01af4fc5bde2427c9",
     "vendor/D3-LICENSE.txt": "3e6849627f74ff73c257a3ae1efb574015d94fc1035c05ec3c15805165efcbc4",
     "vendor/LUCIDE-LICENSE.txt": "1e7290b35280a048667bbf0ebabac1c7fd52a75300e8b2946ac165715997f2bc",
     "vendor/d3.min.js": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539",
