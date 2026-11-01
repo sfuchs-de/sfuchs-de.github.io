@@ -125,6 +125,31 @@ footer > div { display: flex; justify-content: space-between; gap: 18px; }
 footer p { margin: 12px 0 0; max-width: 900px; line-height: 1.65; }
 #tooltip { position: fixed; z-index: 50; pointer-events: none; background: #fff; box-shadow: 0 3px 15px #1d353321; border: 1px solid var(--rule); padding: 10px 12px; max-width: 285px; border-radius: 4px; font-size: 12px; line-height: 1.6; }
 #tooltip strong { display: block; font-weight: 600; }
+.download-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.download-heading h2 { font-size: 25px; }
+dialog { width: min(680px, calc(100% - 28px)); max-height: calc(100dvh - 36px); padding: 24px; color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; overflow: auto; box-shadow: 0 12px 50px #1d35332b; }
+dialog::backdrop { background: #1d303955; }
+.download-vintage { color: var(--muted); font-size: 12px; margin: 10px 0 22px; white-space: pre-line; }
+#download-form label { display: block; margin: 13px 0 5px; font-size: 12px; font-weight: 600; }
+#download-form select, #download-form input { width: 100%; }
+#download-form input { border: 1px solid var(--rule); padding: 7px 10px; min-height: 36px; }
+.download-dates { display: flex; gap: 12px; align-items: end; }
+.download-dates > div { flex: 1; min-width: 0; }
+.plain-button { border: 0; background: transparent; color: var(--blue); padding: 8px 0; white-space: nowrap; font-size: 12px; }
+#download-count { font-size: 12px; font-weight: 600; margin: 19px 0 5px; }
+.download-preview { margin-top: 16px; font-size: 12px; }
+.download-preview summary { cursor: pointer; color: var(--blue); }
+.download-preview-scroll { max-width: 100%; overflow: auto; max-height: 210px; margin-top: 10px; }
+#download-preview-table { min-width: max-content; }
+#download-preview-table th { max-width: 190px; white-space: normal; text-align: left; }
+#download-preview-table td { max-width: 280px; overflow-wrap: anywhere; text-align: left; }
+#download-filename { font-size: 10px; color: var(--muted); overflow-wrap: anywhere; margin: 16px 0 9px; }
+.download-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); border: 1px solid var(--teal); color: white; padding: 9px 16px; min-height: 40px; }
+.download-primary:hover:not(:disabled) { background: #1c635f; }
+.download-links { display: flex; align-items: center; gap: 12px 22px; flex-wrap: wrap; margin-top: 16px; font-size: 13px; }
+.download-links a { display: inline-flex; align-items: center; gap: 6px; }
+.download-links.secondary { font-size: 12px; }
+body:has(dialog[open]) { overflow: hidden; }
 @media (max-width: 900px) {
   main { padding: 0 24px; }
   .site-header { padding: 18px 24px; }
@@ -136,6 +161,8 @@ footer p { margin: 12px 0 0; max-width: 900px; line-height: 1.65; }
   .analysis-bar { gap: 12px; flex-wrap: wrap; }
 }
 @media (max-width: 620px) {
+  .download-dates { display: grid; grid-template-columns: 1fr 1fr; }
+  #download-all-months { grid-column: 1 / -1; justify-self: start; padding: 0; }
   main { padding: 0 17px; }
   .site-header { padding: 16px 17px; }
   .header-links { gap: 12px; }
@@ -177,6 +204,10 @@ footer p { margin: 12px 0 0; max-width: 900px; line-height: 1.65; }
   footer > div { flex-direction: column; gap: 5px; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+@media (max-width: 420px) {
+  .download-dates { grid-template-columns: 1fr; gap: 0; }
+  #download-all-months { margin-top: 10px; }
+}
 @media print {
   .analysis-bar, .tabs, .site-header, footer, #tooltip, .range-control { display: none; }
   main { max-width: none; padding: 0; }

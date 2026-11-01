@@ -1,0 +1,9 @@
+﻿chokepoint_id,chokepoint_name,latitude,longitude,data_snapshot,portwatch_retrieved_at_utc,portwatch_daily_endpoint
+BAB_MANDEB,Bab el-Mandeb,12.6,43.3,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25
+DOVER,Dover,51.0,1.4,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25
+GIBRALTAR,Gibraltar,36.0,-5.6,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25
+HORMUZ,Hormuz,26.6,56.3,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25
+MALACCA,Malacca,2.5,101.8,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25
+PANAMA,Panama,9.1,-79.7,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25
+SUEZ,Suez,30.4,32.4,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25
+TAIWAN_STR,Taiwan Strait,24.0,119.8,dashboard_portwatch_20261030,2026-10-30T22:44:12.680376+00:00,2026-10-25

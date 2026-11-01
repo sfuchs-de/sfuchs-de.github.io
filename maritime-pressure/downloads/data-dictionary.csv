@@ -1,0 +1,90 @@
+﻿dataset,column,type,unit,definition
+national,month,text,YYYY-MM,Complete calendar month; not a monthly observation for a partial month.
+national,national_index_points,number,index points,100 times the vessel-import-weighted average route log shortfall. Not a percent of imports lost.
+national,national_vessel_import_value_usd,number,USD per year,"Annual average customs value of all vessel imports in the prior-three-calendar-year basket, including unassigned imports. Repeated monthly; do not sum over months."
+national,basket_year,integer,year,Year to which the annual import weights apply.
+national,basket_start_year,integer,year,First calendar year entering the three-year import-value average.
+national,basket_end_year,integer,year,Last calendar year entering the three-year import-value average.
+national,data_snapshot,text,identifier,Frozen dashboard source vintage.
+national,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+national,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.
+chokepoint_contributions,month,text,YYYY-MM,Complete calendar month; not a monthly observation for a partial month.
+chokepoint_contributions,chokepoint_id,text,identifier,Stable identifier; retain as text.
+chokepoint_contributions,chokepoint_name,text,name,Display name.
+chokepoint_contributions,contribution_points,number,index points,Contribution using the national vessel-import denominator. Components within a partition sum to the national index.
+chokepoint_contributions,national_index_points,number,index points,100 times the vessel-import-weighted average route log shortfall. Not a percent of imports lost.
+chokepoint_contributions,national_vessel_import_value_usd,number,USD per year,"Annual average customs value of all vessel imports in the prior-three-calendar-year basket, including unassigned imports. Repeated monthly; do not sum over months."
+chokepoint_contributions,basket_year,integer,year,Year to which the annual import weights apply.
+chokepoint_contributions,basket_start_year,integer,year,First calendar year entering the three-year import-value average.
+chokepoint_contributions,basket_end_year,integer,year,Last calendar year entering the three-year import-value average.
+chokepoint_contributions,data_snapshot,text,identifier,Frozen dashboard source vintage.
+chokepoint_contributions,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+chokepoint_contributions,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.
+chokepoint_traffic,month,text,YYYY-MM,Complete calendar month; not a monthly observation for a partial month.
+chokepoint_traffic,chokepoint_id,text,identifier,Stable monitored chokepoint identifier.
+chokepoint_traffic,chokepoint_name,text,name,Display name.
+chokepoint_traffic,vessel_class,text,category,container or other_vessel; the latter is not tanker-only.
+chokepoint_traffic,traffic_pressure_points,number,index points,"100 times monthly mean daily log shortfall relative to the rolling seasonal normal, with activity floored at four percent of normal."
+chokepoint_traffic,data_snapshot,text,identifier,Frozen dashboard source vintage.
+chokepoint_traffic,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+chokepoint_traffic,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.
+products,month,text,YYYY-MM,Complete calendar month; not a monthly observation for a partial month.
+products,product_id,text,identifier,Stable identifier; retain as text.
+products,product_name,text,name,Display name.
+products,contribution_points,number,index points,Contribution using the national vessel-import denominator. Components within a partition sum to the national index.
+products,within_product_pressure_points,number,index points,"Pressure divided by the full product group's vessel-import value, including unassigned imports."
+products,vessel_import_share_fraction,number,fraction (0-1),Product group's share of the national vessel-import basket; not percent.
+products,national_index_points,number,index points,100 times the vessel-import-weighted average route log shortfall. Not a percent of imports lost.
+products,national_vessel_import_value_usd,number,USD per year,"Annual average customs value of all vessel imports in the prior-three-calendar-year basket, including unassigned imports. Repeated monthly; do not sum over months."
+products,basket_year,integer,year,Year to which the annual import weights apply.
+products,basket_start_year,integer,year,First calendar year entering the three-year import-value average.
+products,basket_end_year,integer,year,Last calendar year entering the three-year import-value average.
+products,data_snapshot,text,identifier,Frozen dashboard source vintage.
+products,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+products,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.
+ports,month,text,YYYY-MM,Complete calendar month; not a monthly observation for a partial month.
+ports,gateway_id,text,identifier,Stable identifier; retain as text.
+ports,gateway_name,text,name,Display name.
+ports,region,text,category,Gateway region.
+ports,gateway_domain,text,category,"Gateway domain in the routing crosswalk, including ocean and great_lakes."
+ports,contribution_points,number,index points,Contribution using the national vessel-import denominator. Components within a partition sum to the national index.
+ports,assigned_route_pressure_points,number,index points,Pressure per assigned import value. Blank when assigned value is zero; a numeric zero is genuine zero measured pressure.
+ports,route_pressure_status,text,category,available or no_assigned_imports. Missing pressure is not replaced with zero.
+ports,assigned_import_value_usd,number,USD per year,Annual average assigned customs value in the prior-three-year basket. Not monthly realized imports; do not sum over months.
+ports,national_index_points,number,index points,100 times the vessel-import-weighted average route log shortfall. Not a percent of imports lost.
+ports,national_vessel_import_value_usd,number,USD per year,"Annual average customs value of all vessel imports in the prior-three-calendar-year basket, including unassigned imports. Repeated monthly; do not sum over months."
+ports,latitude,number,decimal degrees,Gateway latitude.
+ports,longitude,number,decimal degrees,Gateway longitude.
+ports,basket_year,integer,year,Year to which the annual import weights apply.
+ports,basket_start_year,integer,year,First calendar year entering the three-year import-value average.
+ports,basket_end_year,integer,year,Last calendar year entering the three-year import-value average.
+ports,data_snapshot,text,identifier,Frozen dashboard source vintage.
+ports,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+ports,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.
+energy,month,text,YYYY-MM,Complete calendar month; not a monthly observation for a partial month.
+energy,import_group_id,text,identifier,Stable identifier; retain as text.
+energy,import_group_name,text,name,Display name.
+energy,contribution_points,number,index points,Contribution using the national vessel-import denominator. Components within a partition sum to the national index.
+energy,within_group_pressure_points,number,index points,"Pressure per full group's vessel-import basket, including unassigned imports."
+energy,vessel_import_share_fraction,number,fraction (0-1),Group share of national vessel imports; not percent.
+energy,national_index_points,number,index points,100 times the vessel-import-weighted average route log shortfall. Not a percent of imports lost.
+energy,national_vessel_import_value_usd,number,USD per year,"Annual average customs value of all vessel imports in the prior-three-calendar-year basket, including unassigned imports. Repeated monthly; do not sum over months."
+energy,basket_year,integer,year,Year to which the annual import weights apply.
+energy,basket_start_year,integer,year,First calendar year entering the three-year import-value average.
+energy,basket_end_year,integer,year,Last calendar year entering the three-year import-value average.
+energy,data_snapshot,text,identifier,Frozen dashboard source vintage.
+energy,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+energy,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.
+annual_baskets,basket_year,integer,year,Year to which the weights apply.
+annual_baskets,basket_calendar_years,text,YYYY-YYYY,Three calendar years whose customs values are averaged.
+annual_baskets,assigned_import_share_fraction,number,fraction (0-1),Share of vessel-import value with assigned routing; unassigned value remains in the national denominator.
+annual_baskets,data_snapshot,text,identifier,Frozen dashboard source vintage.
+annual_baskets,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+annual_baskets,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.
+chokepoint_locations,chokepoint_id,text,identifier,Stable identifier; retain as text.
+chokepoint_locations,chokepoint_name,text,name,Display name.
+chokepoint_locations,latitude,number,decimal degrees,Schematic latitude.
+chokepoint_locations,longitude,number,decimal degrees,Schematic longitude.
+chokepoint_locations,data_snapshot,text,identifier,Frozen dashboard source vintage.
+chokepoint_locations,portwatch_retrieved_at_utc,text,UTC timestamp,"When this source snapshot was acquired, not the observation month."
+chokepoint_locations,portwatch_daily_endpoint,text,YYYY-MM-DD,Last daily source date; partial later months are excluded from these monthly tables.

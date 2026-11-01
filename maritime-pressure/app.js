@@ -6,6 +6,7 @@
   if (!D || !window.d3 || !window.lucide || !window.MARITIME_GEOMETRY) {
     $('app-error').hidden = false;
     $('app-error').textContent = 'The dashboard assets could not be loaded. The paper and data downloads remain available.';
+    $('download-fallback').hidden = false;
     return;
   }
   const colors = { national: '#267d78', energy: '#ba662a', nonenergy: '#267d78',
@@ -257,8 +258,6 @@
   }
   function render() {
     metrics(); hideTip();
-    const downloadLabel = state.view === 'methods' ? 'Download all dashboard data as JSON' : state.view === 'ports' ? 'Download all matching gateways as CSV' : 'Download current view as CSV';
-    $('download-data').title = downloadLabel; $('download-data').setAttribute('aria-label', downloadLabel);
     if (state.view === 'national') {
       timeChart('national-chart', [{label: 'National index', color: colors.national, rows: D.national}], 'National maritime pressure, January 2022 onward', {events: true});
       $('national-gates-period').textContent = `${monthLabel(state.month)} / national index points`;
@@ -281,19 +280,93 @@
       heatmap('product-heatmap', D.products, productIds, 'Product exposure by month', field, x => x);
     } else if (state.view === 'ports') {drawPortMap(); portTable();}
   }
-  function download() {
-    if (state.view === 'methods') {
-      const a = document.createElement('a'); a.href = 'data.json'; a.download = 'maritime-pressure-data.json'; a.click(); return;
-    }
-    let rows;
-    if (state.view === 'gates') rows = gateRows();
-    else if (state.view === 'products') rows = D.products;
-    else if (state.view === 'ports') rows = portRows();
-    else rows = D.national.filter(r => r.month >= state.start && r.month <= state.end);
-    const csv = d3.csvFormat(rows); const blob = new Blob([csv], {type: 'text/csv;charset=utf-8'});
-    const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url;
-    a.download = `maritime-${state.view}-${D.meta.snapshot}.csv`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  const DS = window.MARITIME_DOWNLOAD_SCHEMA;
+  const DX = window.MaritimeDownloads;
+  function saveDownload(content, filename, type) {
+    const url = URL.createObjectURL(new Blob([content], {type}));
+    const a = document.createElement('a'); a.href = url; a.download = filename;
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
   }
+  function downloadSelection() {
+    const dataset = $('download-dataset').value;
+    const monthly = DS.datasets[dataset].columns.some(c => c.name === 'month');
+    return {dataset, start: monthly ? $('download-start').value : '', end: monthly ? $('download-end').value : '',
+      id: ['chokepoint_contributions', 'chokepoint_traffic', 'products'].includes(dataset) ? $('download-identity').value : '',
+      vesselClass: dataset === 'chokepoint_traffic' ? $('download-vessel').value : '',
+      region: dataset === 'ports' ? $('download-region').value : 'All',
+      search: dataset === 'ports' ? $('download-search').value.trim() : ''};
+  }
+  function previewDownload() {
+    $('download-error').hidden = true;
+    try {
+      const selection = downloadSelection();
+      const spec = DS.datasets[selection.dataset];
+      const rows = DX.rows(D, DS, selection);
+      $('download-csv').disabled = !rows.length;
+      $('download-count').textContent = rows.length ? `${rows.length.toLocaleString('en-US')} ${rows.length === 1 ? 'row' : 'rows'}. ${spec.grain}.${selection.dataset === 'ports' ? ' All matching gateways, not limited to the top 30.' : ''}` : 'No observations match these filters.';
+      $('download-definition').textContent = spec.note;
+      $('download-filename').textContent = DX.filename(D, selection);
+      const table = $('download-preview-table');
+      const header = document.createElement('tr');
+      spec.columns.forEach(c => {const th = document.createElement('th'); th.scope = 'col'; th.textContent = c.name; th.title = c.unit + ': ' + c.definition; header.append(th);});
+      table.tHead.replaceChildren(header);
+      table.tBodies[0].replaceChildren();
+      rows.slice(0, 5).forEach(r => {const tr = document.createElement('tr'); spec.columns.forEach(c => {const td = document.createElement('td'); td.textContent = r[c.name] === null ? 'n/a' : String(r[c.name]); tr.append(td);}); table.tBodies[0].append(tr);});
+    } catch (error) {
+      $('download-csv').disabled = true;
+      $('download-count').textContent = error.message;
+      $('download-filename').textContent = '';
+      $('download-preview-table').tHead.replaceChildren();
+      $('download-preview-table').tBodies[0].replaceChildren();
+    }
+  }
+  function configureDownload() {
+    const dataset = $('download-dataset').value;
+    $('download-dates').hidden = !DS.datasets[dataset].columns.some(c => c.name === 'month');
+    const gate = dataset.startsWith('chokepoint_') && dataset !== 'chokepoint_locations';
+    const product = dataset === 'products';
+    $('download-identity-control').hidden = !gate && !product;
+    $('download-identity-control').querySelector('label').textContent = gate ? 'Chokepoint' : 'Product category';
+    options('download-identity', ['', ...(gate ? gateIds : productIds)], id => id ? (gate ? gateLabel(id) : id) : gate ? 'All chokepoints' : 'All product categories');
+    $('download-vessel-control').hidden = dataset !== 'chokepoint_traffic';
+    $('download-port-controls').hidden = dataset !== 'ports';
+    previewDownload();
+  }
+  function download() {
+    if (!DS || !DX) { $('app-error').hidden = false; $('app-error').textContent = 'Selected-data downloads are unavailable. Complete CSV files remain available below.'; $('download-fallback').hidden = false; return; }
+    $('download-dataset').value = state.view === 'gates' ? (state.gateMetric === 'pressure' ? 'chokepoint_traffic' : 'chokepoint_contributions') : state.view === 'products' ? 'products' : state.view === 'ports' ? 'ports' : 'national';
+    $('download-start').value = state.view === 'ports' ? state.month : state.view === 'national' ? state.start : months[0];
+    $('download-end').value = state.view === 'ports' ? state.month : state.view === 'national' ? state.end : months.at(-1);
+    $('download-vessel').value = state.view === 'gates' && state.gateMetric === 'pressure' ? state.vesselClass : '';
+    $('download-region').value = state.region;
+    $('download-search').value = $('port-search').value;
+    configureDownload();
+    $('download-dialog').querySelector('details').open = false;
+    $('download-dialog').showModal();
+    $('download-dataset').focus();
+  }
+  if (DS && DX) {
+    options('download-dataset', Object.keys(DS.datasets), id => DS.datasets[id].label);
+    options('download-start', months, monthLabel); options('download-end', months, monthLabel);
+    $('download-vintage').textContent = `Source retrieved: ${D.meta.retrievedAt.slice(0, 10)}\nDaily observations through: ${D.meta.dailyEndpoint}`;
+    $('download-dataset').addEventListener('change', configureDownload);
+    ['download-start', 'download-end', 'download-identity', 'download-vessel', 'download-region'].forEach(id => $(id).addEventListener('change', previewDownload));
+    $('download-search').addEventListener('input', previewDownload);
+    $('download-all-months').addEventListener('click', () => { $('download-start').value = months[0]; $('download-end').value = months.at(-1); previewDownload(); });
+    $('download-form').addEventListener('submit', event => {
+      event.preventDefault();
+      try {
+        const selection = downloadSelection(); const rows = DX.rows(D, DS, selection);
+        if (!rows.length) { previewDownload(); return; }
+        const csv = DX.csv(rows, DS.datasets[selection.dataset].columns.map(c => c.name), d3.csvFormatRows);
+        saveDownload(csv, DX.filename(D, selection), 'text/csv;charset=utf-8');
+      } catch (error) { $('download-error').hidden = false; $('download-error').textContent = 'Download failed: ' + error.message; }
+    });
+  }
+  $('download-close').addEventListener('click', () => $('download-dialog').close());
+  $('method-download').addEventListener('click', download);
+  $('download-dialog').addEventListener('close', () => $('download-data').focus());
 
   options('focus-month', months, monthLabel); $('focus-month').value = state.month;
   options('range-start', months.slice(0, -1), monthLabel); $('range-start').value = state.start;
